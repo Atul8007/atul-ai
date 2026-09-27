@@ -1,6 +1,6 @@
 /**
- * ATUL / DIGITAL WORKSHOP — INTERACTIVE ENGINE
- * Pure Vanilla JS (ES6+) — Zero Framework Overhead
+ * ATUL.OS — SHOPIFY ENGINEERING WORKSPACE ENGINE
+ * Pure Vanilla JavaScript (ES6+) — Zero Dependency Architecture
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('f-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // --- 2. Custom Contextual Cursor ---
-    const cursor = document.getElementById('custom-cursor');
-    const cursorLabel = document.getElementById('cursor-label');
+    // --- 2. Precision Contextual Cursor ---
+    const cursor = document.getElementById('os-cursor');
+    const cursorTag = document.getElementById('cursor-tag');
 
     if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         document.addEventListener('mousemove', (e) => {
@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.top = `${e.clientY}px`;
         });
 
-        const interactiveElements = document.querySelectorAll('[data-cursor], a, button, .sat-node, .cap-card, .prob-tab, .arch-layer, .year-btn');
-        interactiveElements.forEach(el => {
+        const interactiveEls = document.querySelectorAll('[data-cursor], a, button, .node-item, .work-row-summary, .d-btn, .sys-tab, .swatch, .size-btn');
+        interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                const label = el.getAttribute('data-cursor') || 'EXPLORE';
-                cursorLabel.textContent = label;
+                const tag = el.getAttribute('data-cursor') || 'OPEN';
+                if (cursorTag) cursorTag.textContent = tag;
                 cursor.classList.add('active');
             });
             el.addEventListener('mouseleave', () => {
@@ -31,370 +31,312 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Hero Core Node System (Interactive Visual) ---
-    const satNodes = document.querySelectorAll('.sat-node');
-    const nodeTooltip = document.getElementById('node-tooltip');
-    const svgLines = {
-        'LIQUID': document.getElementById('line-liquid'),
-        'METAFIELDS': document.getElementById('line-metafields'),
-        'VARIANTS': document.getElementById('line-variants'),
-        'STOREFRONT': document.getElementById('line-storefront'),
-        'CART': document.getElementById('line-cart'),
-        'API': document.getElementById('line-api')
-    };
+    // --- 3. Central Node Visualizer Diagram ---
+    const nodeItems = document.querySelectorAll('.node-item');
+    const inspHeader = document.getElementById('insp-header');
+    const inspDesc = document.getElementById('insp-desc');
 
-    satNodes.forEach(node => {
-        node.addEventListener('mouseenter', () => {
-            const key = node.getAttribute('data-node');
-            const info = node.getAttribute('data-info');
-            if (nodeTooltip && info) nodeTooltip.textContent = info;
+    nodeItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            nodeItems.forEach(n => n.classList.remove('active'));
+            item.classList.add('active');
 
-            // Highlight SVG link
-            if (svgLines[key]) {
-                svgLines[key].style.stroke = '#95bf47';
-                svgLines[key].style.strokeWidth = '3';
-                svgLines[key].style.strokeDasharray = 'none';
+            const key = item.getAttribute('data-node');
+            const title = item.getAttribute('data-title');
+            const desc = item.getAttribute('data-desc');
+
+            if (inspHeader) inspHeader.textContent = `NODE // ${title}`;
+            if (inspDesc) inspDesc.textContent = desc;
+
+            // Highlight line
+            const line = document.getElementById(`line-${key}`);
+            if (line) {
+                line.style.stroke = '#95bf47';
+                line.style.strokeWidth = '2.5';
+                line.style.strokeDasharray = 'none';
             }
         });
 
-        node.addEventListener('mouseleave', () => {
-            const key = node.getAttribute('data-node');
-            if (nodeTooltip) nodeTooltip.textContent = 'Hover over architecture nodes to inspect engineering specialization';
+        item.addEventListener('mouseleave', () => {
+            const key = item.getAttribute('data-node');
+            item.classList.remove('active');
 
-            if (svgLines[key]) {
-                svgLines[key].style.stroke = '';
-                svgLines[key].style.strokeWidth = '';
-                svgLines[key].style.strokeDasharray = '';
+            if (inspHeader) inspHeader.textContent = 'HOVER NODES TO INSPECT ENGINE';
+            if (inspDesc) inspDesc.textContent = 'Click or hover any node to inspect engineering details.';
+
+            const line = document.getElementById(`line-${key}`);
+            if (line) {
+                line.style.stroke = '';
+                line.style.strokeWidth = '';
+                line.style.strokeDasharray = '';
             }
         });
     });
 
-    // --- 4. Problems I Solve ("THINGS I'VE FIXED") ---
-    const problemData = {
+    // --- 4. Expandable WORK Index Rows ---
+    const workRows = document.querySelectorAll('.work-row');
+    workRows.forEach(row => {
+        const summary = row.querySelector('.work-row-summary');
+        if (summary) {
+            summary.addEventListener('click', () => {
+                const isOpen = row.classList.contains('open');
+                workRows.forEach(r => r.classList.remove('open'));
+                if (!isOpen) row.classList.add('open');
+            });
+        }
+    });
+
+    // --- 5. LAB DEBUG MODE ---
+    const debugData = {
         variants: {
-            badge: "CATEGORY: VARIANT LOGIC",
-            title: "Multi-Option Variant & Image Swatch Synchronization",
-            problem: "High SKU products with 3+ option dimensions (Color, Size, Material) breaking swatch UI, showing out-of-stock options as selectable, or failing to swap gallery images on swatch click.",
-            approach: "Built a centralized variant state listener in Vanilla JS. Analyzed Shopify's product.variants JSON object directly in Liquid and mapped valid option combinations dynamically to update pricing, image galleries, and add-to-cart button state in real time.",
-            tech: ["Liquid json filter", "JS State Manager", "Section Rendering API"],
-            steps: ["User Selection", "State Listener", "Variant Matrix Check", "Inventory & Price Update", "Cart Ready"]
+            failSteps: `<span>USER SELECTION</span> &rarr; <span>STATE CHANGE</span> &rarr; <span>ASYNC REQUEST</span> &rarr; <span class="err">STALE RESPONSE</span> &rarr; <span class="err">WRONG VARIANT</span>`,
+            fixText: "Request identity tracking + State validation + Centralized option matrix listener"
         },
         cart: {
-            badge: "CATEGORY: COMMERCE LOGIC",
-            title: "AJAX Cart Drawer & Free-Shipping Thresholds",
-            problem: "Standard theme redirecting buyers to full cart page on add-to-cart, slowing down impulse purchases, or third-party cart apps creating layout shifts and loading delays.",
-            approach: "Engineered a zero-dependency AJAX slide-out cart using Shopify Cart API and Section Rendering API. Implemented real-time cart note saving, cross-sell item recommendations, and dynamic progress bar calculation.",
-            tech: ["Shopify Cart API", "Section Rendering API", "Fetch API", "Drawer UX"],
-            steps: ["Add to Cart Click", "AJAX Fetch", "Section Re-render", "Progress Calculation", "Drawer Open"]
+            failSteps: `<span>ADD TO CART</span> &rarr; <span>THEME REDIRECT</span> &rarr; <span class="err">LAYOUT SHIFT</span> &rarr; <span class="err">SLOW CHECKOUT</span>`,
+            fixText: "Asynchronous Fetch API + Section Rendering API + Drawer cart state manager"
         },
         speed: {
-            badge: "CATEGORY: PERFORMANCE",
-            title: "Liquid Optimization & Lighthouse Score Acceleration",
-            problem: "Storefront experiencing slow initial server response times due to deeply nested all_products Liquid loops and un-lazy-loaded hero banner assets.",
-            approach: "Refactored template logic to use Metafield direct references instead of nested product loops. Implemented responsive srcset image rendering and deferred non-essential JavaScript execution.",
-            tech: ["Shopify Theme Inspector", "Liquid Refactoring", "Responsive srcset", "Resource Hints"],
-            steps: ["Theme Profiling", "Loop Eliminating", "Image srcset Optimization", "Script Deferral", "90+ Score"]
+            failSteps: `<span>PAGE LOAD</span> &rarr; <span>NESTED LIQUID LOOPS</span> &rarr; <span class="err">TTFB DELAY</span> &rarr; <span class="err">UN-OPTIMIZED IMAGES</span>`,
+            fixText: "Metafield direct references + Cached liquid filters + Responsive srcset image loading"
         },
         metafields: {
-            badge: "CATEGORY: DATA ARCHITECTURE",
-            title: "Custom Specs & Metaobject Content Schemas",
-            problem: "Merchants unable to manage complex product specs, size charts, or custom badges directly from Shopify Admin without modifying Liquid files.",
-            approach: "Designed structured Metafield and Metaobject definitions in Shopify Admin. Integrated Liquid templates to dynamically map and render custom tabs, spec grids, and color swatches cleanly.",
-            tech: ["Metafields API", "Metaobjects", "Liquid Object Mapping", "Admin UX"],
-            steps: ["Schema Design", "Admin Definition", "Liquid Mapping", "Merchant Input", "Storefront Render"]
-        },
-        conflicts: {
-            badge: "CATEGORY: THEME ENGINEERING",
-            title: "Figma to Responsive Shopify Theme Conversion",
-            problem: "Converting complex Figma designs into clean Liquid code without introducing broken CSS breakpoints, font flickers, or DOM layout bugs.",
-            approach: "Built modular section schemas with configurable block settings (`{% schema %}`). Ensured 100% responsive CSS Grid/Flexbox layouts with zero external UI framework bloat.",
-            tech: ["CSS Grid & Flexbox", "Liquid Schema Blocks", "Vanilla JS", "Accessibility"],
-            steps: ["Figma Inspection", "Section Schema", "Liquid Templating", "Responsive QA", "Live Deploy"]
+            failSteps: `<span>ADMIN INPUT</span> &rarr; <span class="err">UNSTRUCTURED TEXT</span> &rarr; <span class="err">THEME CONFLICT</span> &rarr; <span>BROKEN TABS</span>`,
+            fixText: "Strict Metafield/Metaobject definitions + Liquid object mapping + Merchant-proof admin schema"
         }
     };
 
-    const probTabs = document.querySelectorAll('.prob-tab');
-    const probBadge = document.getElementById('prob-badge');
-    const probTitle = document.getElementById('prob-title');
-    const probProblemText = document.getElementById('prob-problem-text');
-    const probApproachText = document.getElementById('prob-approach-text');
-    const probTechTags = document.getElementById('prob-tech-tags');
-    const probFlowDiagram = document.querySelector('.prob-flow-diagram');
+    const dBtns = document.querySelectorAll('.d-btn');
+    const dFailSteps = document.getElementById('d-failure-steps');
+    const dFixContent = document.getElementById('d-fix-content');
 
-    probTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            probTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            const key = tab.getAttribute('data-prob');
-            const data = problemData[key];
-
-            if (data) {
-                if (probBadge) probBadge.textContent = data.badge;
-                if (probTitle) probTitle.textContent = data.title;
-                if (probProblemText) probProblemText.textContent = data.problem;
-                if (probApproachText) probApproachText.textContent = data.approach;
-
-                if (probTechTags) {
-                    probTechTags.innerHTML = data.tech.map(t => `<span>${t}</span>`).join('');
-                }
-
-                if (probFlowDiagram) {
-                    probFlowDiagram.innerHTML = data.steps.map((step, idx) => {
-                        const isLast = idx === data.steps.length - 1;
-                        return `<div class="flow-step ${isLast ? 'highlight' : ''}"><span>${step}</span></div>` + 
-                               (!isLast ? `<div class="flow-arrow">&rarr;</div>` : '');
-                    }).join('');
-                }
-            }
-        });
-    });
-
-    // --- 5. Shopify Architecture Visualizer ("SHOPIFY, BUT DEEPER.") ---
-    const archData = {
-        storefront: {
-            badge: "INSPECTING: LAYER 01",
-            title: "Storefront & Liquid Theme Architecture",
-            desc: "Designing clean section schemas ({% schema %}), modular snippet includes, and decoupled JS components for Dawn and custom theme bases.",
-            file: "section-product-main.liquid",
-            code: `{% schema %}\n{\n  "name": "Custom Product Core",\n  "settings": [\n    { "type": "checkbox", "id": "enable_ajax_cart", "label": "Enable AJAX Drawer", "default": true }\n  ]\n}\n{% endschema %}`
-        },
-        liquid: {
-            badge: "INSPECTING: LAYER 02",
-            title: "Liquid Templates & Dynamic Blocks",
-            desc: "Mastery of Liquid tags, filters, objects, loops, and conditional rendering to produce clean, maintainable theme code.",
-            file: "snippet-variant-picker.liquid",
-            code: `{% for variant in product.variants %}\n  <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>\n    {{ variant.title }} - {{ variant.price | money }}\n  </option>\n{% endfor %}`
-        },
-        variants: {
-            badge: "INSPECTING: LAYER 03",
-            title: "Product & Multi-Dimensional Variant Logic",
-            desc: "Handling high-SKU variant option matching, custom swatch images, dynamic inventory status badges, and asynchronous price updates.",
-            file: "variant-manager.js",
-            code: `class VariantManager {\n  onVariantChange(event) {\n    const currentVariant = this.getVariantFromOptions();\n    this.updatePrice(currentVariant);\n    this.updateGallery(currentVariant);\n  }\n}`
-        },
-        metafields: {
-            badge: "INSPECTING: LAYER 04",
-            title: "Metafields & Metaobjects Custom Schemas",
-            desc: "Configuring structured metadata definitions in Shopify Admin to render rich product specs, size charts, and custom badges on storefronts.",
-            file: "metafields-spec.liquid",
-            code: `{% assign specs = product.metafields.custom.specifications.value %}\n{% if specs %}\n  <ul class="specs-grid">\n    {% for item in specs %}\n      <li><strong>{{ item.label }}:</strong> {{ item.value }}</li>\n    {% endfor %}\n  </ul>\n{% endif %}`
-        },
-        cart: {
-            badge: "INSPECTING: LAYER 05",
-            title: "Cart AJAX API, Upsells & Discount Rules",
-            desc: "Building smooth AJAX cart drawers, dynamic threshold calculations for free shipping, and custom cart item properties.",
-            file: "cart-drawer.js",
-            code: `async function updateCart(line, quantity) {\n  const res = await fetch('/cart/change.js', {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ line, quantity })\n  });\n  const cart = await res.json();\n  renderCartDrawer(cart);\n}`
-        },
-        api: {
-            badge: "INSPECTING: LAYER 06",
-            title: "Storefront GraphQL & Admin REST APIs",
-            desc: "Integrating custom storefront apps and proxy endpoints with Shopify's GraphQL API for high-performance data querying.",
-            file: "storefront-api.graphql",
-            code: `query getProduct($handle: String!) {\n  product(handle: $handle) {\n    title\n    description\n    metafields(identifiers: [{namespace: "custom", key: "specifications"}]) {\n      value\n    }\n  }\n}`
-        }
-    };
-
-    const archLayers = document.querySelectorAll('.arch-layer');
-    const inspectorBadge = document.getElementById('inspector-badge');
-    const inspectorTitle = document.getElementById('inspector-title');
-    const inspectorDesc = document.getElementById('inspector-desc');
-    const inspectorCode = document.getElementById('inspector-code-snippet');
-    const codeFile = document.querySelector('.code-file');
-
-    archLayers.forEach(layer => {
-        layer.addEventListener('mouseenter', () => {
-            archLayers.forEach(l => l.classList.remove('active'));
-            layer.classList.add('active');
-
-            const key = layer.getAttribute('data-layer');
-            const data = archData[key];
-
-            if (data) {
-                if (inspectorBadge) inspectorBadge.textContent = data.badge;
-                if (inspectorTitle) inspectorTitle.textContent = data.title;
-                if (inspectorDesc) inspectorDesc.textContent = data.desc;
-                if (inspectorCode) inspectorCode.textContent = data.code;
-                if (codeFile) codeFile.textContent = data.file;
-            }
-        });
-    });
-
-    // --- 6. Experience Year Selector ---
-    const expData = {
-        '2025': {
-            role: "Software Developer @ Webandcrafts",
-            period: "Dec 2024 – Present",
-            bullets: [
-                "Engineered custom, high-converting Shopify theme components using Liquid, resolving complex variant logic for high-SKU catalogs.",
-                "Developed modular, reusable Shopify theme sections and dynamic blocks for marketing campaigns and storefront promotions.",
-                "Collaborated with design and QA teams to guarantee 100% responsiveness and accessibility across mobile and desktop devices."
-            ]
-        },
-        '2024': {
-            role: "Shopify Developer @ RDP Workstation",
-            period: "May 2024 – Oct 2024",
-            bullets: [
-                "Converted high-fidelity Figma designs into pixel-perfect, responsive Shopify storefronts.",
-                "Optimized theme assets, Liquid code execution, and script loading to maximize site performance.",
-                "Configured shop Metafields and custom theme settings for streamlined client content management."
-            ]
-        }
-    };
-
-    const yearBtns = document.querySelectorAll('.year-btn');
-    const yearDisplay = document.getElementById('year-content-display');
-
-    yearBtns.forEach(btn => {
+    dBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            yearBtns.forEach(b => b.classList.remove('active'));
+            dBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const yr = btn.getAttribute('data-year');
-            const data = expData[yr];
+            const key = btn.getAttribute('data-debug');
+            const data = debugData[key];
 
-            if (data && yearDisplay) {
-                yearDisplay.innerHTML = `
-                    <div class="exp-role-card">
-                        <div class="exp-role-header">
-                            <h3>${data.role}</h3>
-                            <span class="exp-period">${data.period}</span>
-                        </div>
-                        <ul class="exp-bullets">
-                            ${data.bullets.map(b => `<li>${b}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
+            if (data) {
+                if (dFailSteps) dFailSteps.innerHTML = data.failSteps;
+                if (dFixContent) dFixContent.textContent = data.fixText;
             }
         });
     });
 
-    // --- 7. Interactive Terminal Modal & Commands ---
-    const terminalModal = document.getElementById('terminal-modal');
-    const openTermBtnHero = document.getElementById('open-terminal-hero-btn');
+    // --- 6. Signature Code <-> Storefront Interaction Demo ---
+    const stateCode = document.getElementById('sig-state-code');
+    const sfPrice = document.getElementById('sf-price');
+    const sfAddBtn = document.getElementById('sf-add-btn');
+    const colorSwatches = document.querySelectorAll('#sf-color-swatches .swatch');
+    const sizeBtns = document.querySelectorAll('#sf-size-buttons .size-btn');
+
+    let currentSelection = {
+        color: 'Black',
+        size: 'M'
+    };
+
+    const variantMatrix = {
+        'Black-S': { id: 4829103, price: 4900, sku: 'ATUL-BLK-S', avail: true },
+        'Black-M': { id: 4829104, price: 4900, sku: 'ATUL-BLK-M', avail: true },
+        'Black-L': { id: 4829105, price: 4900, sku: 'ATUL-BLK-L', avail: false },
+        'Olive-S': { id: 4829203, price: 5400, sku: 'ATUL-OLV-S', avail: true },
+        'Olive-M': { id: 4829204, price: 5400, sku: 'ATUL-OLV-M', avail: true },
+        'Olive-L': { id: 4829205, price: 5400, sku: 'ATUL-OLV-L', avail: true },
+        'Cyan-S':  { id: 4829303, price: 5900, sku: 'ATUL-CYN-S', avail: false },
+        'Cyan-M':  { id: 4829304, price: 5900, sku: 'ATUL-CYN-M', avail: true },
+        'Cyan-L':  { id: 4829305, price: 5900, sku: 'ATUL-CYN-L', avail: true }
+    };
+
+    function updateSignatureState() {
+        const key = `${currentSelection.color}-${currentSelection.size}`;
+        const data = variantMatrix[key] || { id: 0, price: 0, sku: 'N/A', avail: false };
+        const priceFormatted = `$${(data.price / 100).toFixed(2)}`;
+
+        // Update JSON Code Box
+        if (stateCode) {
+            stateCode.textContent = JSON.stringify({
+                id: data.id,
+                title: `${currentSelection.color} / ${currentSelection.size}`,
+                option1: currentSelection.color,
+                option2: currentSelection.size,
+                price: data.price,
+                available: data.avail,
+                sku: data.sku
+            }, null, 2);
+        }
+
+        // Update Storefront Price & Button State
+        if (sfPrice) sfPrice.textContent = priceFormatted;
+        if (sfAddBtn) {
+            if (data.avail) {
+                sfAddBtn.textContent = `[ ADD TO CART — ${priceFormatted} ]`;
+                sfAddBtn.style.opacity = '1';
+                sfAddBtn.disabled = false;
+            } else {
+                sfAddBtn.textContent = '[ SOLD OUT ]';
+                sfAddBtn.style.opacity = '0.5';
+                sfAddBtn.disabled = true;
+            }
+        }
+    }
+
+    colorSwatches.forEach(swatch => {
+        swatch.addEventListener('click', () => {
+            colorSwatches.forEach(s => s.classList.remove('active'));
+            swatch.classList.add('active');
+            currentSelection.color = swatch.getAttribute('data-color');
+            updateSignatureState();
+        });
+    });
+
+    sizeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentSelection.size = btn.getAttribute('data-size');
+            updateSignatureState();
+        });
+    });
+
+    // --- 7. SYSTEM View Switcher ---
+    const sysTabs = document.querySelectorAll('.sys-tab');
+    const sysViews = document.querySelectorAll('.sys-view');
+
+    sysTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            sysTabs.forEach(t => t.classList.remove('active'));
+            sysViews.forEach(v => v.classList.remove('active'));
+
+            tab.classList.add('active');
+            const targetId = tab.getAttribute('data-sys');
+
+            if (targetId === 'stack') document.getElementById('view-stack')?.classList.add('active');
+            if (targetId === 'about') document.getElementById('view-about')?.classList.add('active');
+            if (targetId === 'experience') document.getElementById('view-experience')?.classList.add('active');
+        });
+    });
+
+    // --- 8. Interactive Terminal Modal ---
+    const termModal = document.getElementById('terminal-modal');
+    const openTermBtn = document.getElementById('open-terminal-btn');
     const closeTermBtn = document.getElementById('close-terminal-btn');
-    const termInput = document.getElementById('terminal-input');
-    const termOutput = document.getElementById('terminal-output');
-    const termShortcuts = document.querySelectorAll('.t-tag');
+    const termInput = document.getElementById('term-input');
+    const termBody = document.getElementById('term-body');
+    const termBtns = document.querySelectorAll('.t-btn');
 
     function openTerminal() {
-        if (terminalModal) {
-            terminalModal.classList.add('active');
-            terminalModal.setAttribute('aria-hidden', 'false');
+        if (termModal) {
+            termModal.classList.add('active');
+            termModal.setAttribute('aria-hidden', 'false');
             if (termInput) termInput.focus();
         }
     }
 
     function closeTerminal() {
-        if (terminalModal) {
-            terminalModal.classList.remove('active');
-            terminalModal.setAttribute('aria-hidden', 'true');
+        if (termModal) {
+            termModal.classList.remove('active');
+            termModal.setAttribute('aria-hidden', 'true');
         }
     }
 
-    if (openTermBtnHero) openTermBtnHero.addEventListener('click', openTerminal);
+    if (openTermBtn) openTermBtn.addEventListener('click', openTerminal);
     if (closeTermBtn) closeTermBtn.addEventListener('click', closeTerminal);
 
-    if (terminalModal) {
-        terminalModal.addEventListener('click', (e) => {
-            if (e.target === terminalModal) closeTerminal();
+    if (termModal) {
+        termModal.addEventListener('click', (e) => {
+            if (e.target === termModal) closeTerminal();
         });
     }
 
-    const commandHandlers = {
-        'help': () => 'Available commands: whoami, shopify, skills, projects, tools, experience, contact, sudo hire atul, clear',
-        'whoami': () => 'Atul Mundakkal — Shopify Developer & Full-Stack Engineer based in Kochi, India.',
-        'shopify': () => 'Core Specialization:\n- Liquid Templates & Theme Architecture\n- Complex Variant Logic & Swatches\n- Metafields & Metaobjects Schemas\n- Cart AJAX API & Upsells\n- Storefront & Admin APIs (GraphQL/REST)',
-        'skills': () => 'Frontend: HTML5, CSS3, JavaScript (ES6+), AJAX\nBackend: React, Node.js, Prisma ORM, PostgreSQL\nShopify: Liquid, Storefront API, Admin API, Metafields',
-        'projects': () => '1. Interactive Terminal Portfolio (htmlviewer.html)\n2. Custom Wishlist Application (Shopify Metafields)',
-        'tools': () => 'Developer Tools: Shopify Liquid Snippets Helper (VS Code extension for theme auto-completion)',
-        'experience': () => '- Software Developer @ Webandcrafts (Dec 2024 - Present)\n- Shopify Developer @ RDP Workstation (May 2024 - Oct 2024)',
+    const commandDict = {
+        'help': () => 'Supported commands: whoami, about, skills, shopify, projects, tools, experience, contact, sudo hire atul, clear',
+        'whoami': () => 'ATUL MUNDAKKAL — Shopify Developer & Full-Stack Engineer based in India.',
+        'about': () => 'FOCUS: I build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
+        'shopify': () => 'CORE SPECIALIZATION:\n- Liquid Theme Architecture & Custom Sections\n- Variant State & Swatch Logic\n- Metafields & Metaobjects Schemas\n- Storefront GraphQL & Admin REST APIs\n- AJAX Drawer Carts & Zero-Dependency Code',
+        'projects': () => '1. SHOPIFY WISHLIST ENGINE (Metafields + App Proxy)\n2. SHOPIFY DEVELOPER TOOLS (VS Code Snippet Extension)\n3. INTERACTIVE TERMINAL SHELL (htmlviewer.html)',
+        'tools': () => 'SHOPIFY LIQUID SNIPPETS HELPER — VS Code extension for Liquid auto-completion and section schema generation.',
+        'experience': () => '- SOFTWARE DEVELOPER @ WEBANDCRAFTS (Dec 2024 - Present)\n- SHOPIFY DEVELOPER @ RDP WORKSTATION (May 2024 - Oct 2024)',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
-        'sudo hire atul': () => `Checking compatibility...\nShopify ................. ✓\nLiquid .................. ✓\nProblem solving ......... ✓\nDeveloper tools ......... ✓\n\nSTATUS: READY TO BUILD. Email: atulmundakkal@outlook.com`,
+        'sudo hire atul': () => `Checking compatibility...\nShopify ................. ✓\nLiquid .................. ✓\nProblem solving ......... ✓\nDeveloper tools ......... ✓\n\nSTATUS: READY. Email: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'
     };
 
-    function runCommand(cmdText) {
-        const cleanCmd = cmdText.trim().toLowerCase();
-        if (!cleanCmd) return;
+    function executeTermCmd(cmd) {
+        const clean = cmd.trim().toLowerCase();
+        if (!clean) return;
 
-        if (cleanCmd === 'clear') {
-            termOutput.innerHTML = '<div class="t-line">Terminal cleared. Type <span class="t-cmd">help</span> for commands.</div>';
+        if (clean === 'clear') {
+            termBody.innerHTML = '<div class="term-line">Terminal cleared. Type <span class="hl">help</span> for available commands.</div>';
             return;
         }
 
-        // Print input line
-        const userLine = document.createElement('div');
-        userLine.className = 't-line';
-        userLine.innerHTML = `<span class="t-prompt">atul@workshop ~ %</span> <span class="t-cmd">${cmdText}</span>`;
-        termOutput.appendChild(userLine);
+        const inputLine = document.createElement('div');
+        inputLine.className = 'term-line';
+        inputLine.innerHTML = `<span class="term-prompt">atul@portfolio ~ %</span> <span class="hl">${cmd}</span>`;
+        termBody.appendChild(inputLine);
 
-        // Print output
-        const response = commandHandlers[cleanCmd] ? commandHandlers[cleanCmd]() : `Command not found: "${cleanCmd}". Type "help" for valid commands.`;
+        const response = commandDict[clean] ? commandDict[clean]() : `Command not found: "${clean}". Type "help" for supported commands.`;
         
-        const outLine = document.createElement('div');
-        outLine.className = 't-line';
-        outLine.style.whiteSpace = 'pre-wrap';
-        outLine.style.color = '#94a3b8';
-        outLine.textContent = response;
-        termOutput.appendChild(outLine);
+        const outputLine = document.createElement('div');
+        outputLine.className = 'term-line';
+        outputLine.style.whiteSpace = 'pre-wrap';
+        outputLine.style.color = '#94a3b8';
+        outputLine.textContent = response;
+        termBody.appendChild(outputLine);
 
-        termOutput.scrollTop = termOutput.scrollHeight;
+        termBody.scrollTop = termBody.scrollHeight;
     }
 
     if (termInput) {
         termInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                runCommand(termInput.value);
+                executeTermCmd(termInput.value);
                 termInput.value = '';
             }
         });
     }
 
-    termShortcuts.forEach(tag => {
-        tag.addEventListener('click', () => {
-            const cmd = tag.getAttribute('data-cmd');
-            if (cmd) runCommand(cmd);
+    termBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cmd = btn.getAttribute('data-cmd');
+            if (cmd) executeTermCmd(cmd);
         });
     });
 
-    // --- 8. Copy Email Button Helper ---
-    const copyBtn = document.getElementById('copy-email-cta-btn');
-    if (copyBtn) {
-        copyBtn.addEventListener('click', () => {
-            const email = copyBtn.getAttribute('data-email');
+    // --- 9. Copy Email Helper ---
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+            const email = copyEmailBtn.getAttribute('data-email');
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(email).then(() => {
-                    const originalText = copyBtn.innerHTML;
-                    copyBtn.innerHTML = '✅ EMAIL COPIED!';
-                    copyBtn.style.backgroundColor = 'rgba(149, 191, 71, 0.2)';
-
+                    const originalText = copyEmailBtn.innerHTML;
+                    copyEmailBtn.innerHTML = '<span>[ EMAIL COPIED! ]</span>';
                     setTimeout(() => {
-                        copyBtn.innerHTML = originalText;
-                        copyBtn.style.backgroundColor = '';
+                        copyEmailBtn.innerHTML = originalText;
                     }, 2500);
                 });
             }
         });
     }
 
-    // --- 9. Mobile Navigation Drawer ---
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // --- 10. Mobile Navigation Toggle ---
+    const navToggle = document.getElementById('os-mobile-toggle');
+    const navMenu = document.getElementById('os-nav');
+    const navLinks = document.querySelectorAll('.os-link');
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
+            const active = navMenu.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', active);
         });
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navToggle.setAttribute('aria-expanded', 'false');
                 navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
