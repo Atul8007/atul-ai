@@ -1,6 +1,6 @@
 # Atul Mundakkal — Developer Portfolio
 
-Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-Stack Developer), designed for static hosting on **Cloudflare Pages** (Zero Budget architecture).
+Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-Stack Engineer), designed for static hosting on **Cloudflare Pages** (Zero Budget architecture).
 
 ## Project Structure
 
@@ -8,9 +8,9 @@ Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-St
 portfolio/
 ├── index.html         # Main HTML document
 ├── style.css          # Design system & styles
-├── script.js           # Lightweight interactive scripts
+├── script.js          # Lightweight interactive scripts
 ├── assets/
-│   ├── images/        # Project and profile media
+│   ├── images/        # Project and profile media (profile.png, og-preview.png)
 │   └── icons/         # SVG icons
 ├── htmlviewer.html    # Interactive terminal portfolio demo
 └── README.md          # Documentation & deployment guide
@@ -38,7 +38,7 @@ Deploying to Cloudflare Pages is 100% free with automated deployment via GitHub.
 
 1. **GitHub Repository**:
    Ensure your code is pushed to your GitHub repository:
-   `https://github.com/Atul8007/atul-web.git` (branch: `main`).
+   `https://github.com/Atul8007/atul-ai.git` (branch: `main`).
 
 2. **Log into Cloudflare**:
    Go to [dash.cloudflare.com](https://dash.cloudflare.com) and log into your free Cloudflare account.
@@ -50,10 +50,10 @@ Deploying to Cloudflare Pages is 100% free with automated deployment via GitHub.
    Click **Create application** → Select the **Pages** tab → Click **Connect to Git**.
 
 5. **Connect GitHub Account**:
-   Grant Cloudflare Pages permission to access your GitHub account and select the **`Atul8007/atul-web`** repository.
+   Grant Cloudflare Pages permission to access your GitHub account and select the **`Atul8007/atul-ai`** repository.
 
 6. **Configure Deployment**:
-   - **Project name**: `atul-web` (or custom name)
+   - **Project name**: `atul-ai`
    - **Production branch**: `main`
    - **Framework preset**: `None`
    - **Build command**: *(Leave blank - pure static site)*
@@ -64,7 +64,7 @@ Deploying to Cloudflare Pages is 100% free with automated deployment via GitHub.
 
 8. **Access Your Live Site**:
    Cloudflare will provide your free deployment URL:
-   `https://<project-name>.pages.dev`
+   `https://atul-ai.pages.dev`
 
 ---
 
