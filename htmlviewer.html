@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Atul Mundakkal - Interactive Terminal</title>
+    <style>
+        :root {
+            --bg-window: #f2eee9;
+            --bg-terminal: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --accent-orange: #d98e66;
+            --accent-green: #66bb6a;
+            --diff-red: #b13c3c;
+            --border-color: #444444;
+            --cloud-color: #5c5c5c;
+            --moon-color: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: var(--bg-window);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            /* Allow tapping anywhere without highlighting text on mobile */
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 850px;
+            background-color: var(--bg-terminal);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            box-sizing: border-box;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header { color: var(--accent-orange); font-size: 15px; margin-bottom: 8px; }
+        .header .dim { color: var(--text-dim); }
+        .divider { border-bottom: 1px dashed var(--border-color); margin: 15px 0; width: 100%; }
+
+        /* --- GAME SCENE --- */
+        .art-canvas {
+            position: relative;
+            height: 170px;
+            font-family: monospace;
+            line-height: 1.1;
+            white-space: pre;
+            overflow: hidden; 
+            margin: 10px 0 20px 0;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            /* Prevents browser scrolling when tapping rapidly on the game area */
+            touch-action: none; 
+        }
+
+        .art-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+        }
+
+        /* Game UI */
+        .score-board {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 12px;
+            color: var(--text-dim);
+            z-index: 20;
+        }
+        
+        .game-instruction {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent-green);
+            font-weight: bold;
+            text-align: center;
+            z-index: 20;
+            animation: blink 1.5s infinite;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        .game-over-text {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--diff-red);
+            font-weight: bold;
+            text-align: center;
+            z-index: 20;
+            background: var(--bg-terminal);
+            padding: 10px;
+            border: 1px dashed var(--diff-red);
+            width: max-content;
+        }
+
+        /* Twinkling Stars */
+        .star { position: absolute; color: var(--text-dim); font-size: 14px; animation: twinkle 3s infinite alternate ease-in-out; }
+        .star:nth-child(1) { animation-delay: 0s; left: 5%; top: 10px; }
+        .star:nth-child(2) { animation-delay: 1.5s; left: 40%; top: 35px; }
+        .star:nth-child(3) { animation-delay: 0.7s; left: 70%; top: 110px; }
+        .star:nth-child(4) { animation-delay: 2.1s; right: 5%; top: 85px; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); color: var(--text-dim); }
+            100% { opacity: 1; transform: scale(1.2); color: #fff; }
+        }
+
+        /* Drifting Clouds */
+        .cloud { position: absolute; color: var(--cloud-color); font-size: 14px; letter-spacing: -1px; line-height: 1.0; z-index: 1;}
+        .cloud-left { top: 30px; left: 0%; animation: drift 25s infinite linear alternate; }
+        .cloud-right { top: 80px; right: 10%; animation: drift 35s infinite linear alternate-reverse; }
+
+        @keyframes drift {
+            0% { transform: translateX(-15px); }
+            100% { transform: translateX(25px); }
+        }
+
+        .moon { position: absolute; top: 10px; right: 10px; color: var(--moon-color); font-size: 12px; line-height: 1.1; z-index: 1;}
+
+        /* --- PLAYABLE CRAB --- */
+        .crab-canvas {
+            font-size: 2.2px; 
+            position: absolute;
+            bottom: 0;
+            left: 10%; 
+            width: 22em;
+            height: 18em;
+            z-index: 10;
+        }
+
+        .crab-part { position: absolute; background-color: var(--accent-orange); }
+        .head-top   { left: 2em;  top: 0;    width: 18em; height: 4em; }
+        .ear-band   { left: 0;    top: 4em;  width: 22em; height: 4em; }
+        .lower-body { left: 2em;  top: 8em;  width: 18em; height: 6em; }
+        .leg-1 { left: 2em;  top: 14em; width: 2em; height: 4em; }
+        .leg-2 { left: 6em;  top: 14em; width: 2em; height: 4em; }
+        .leg-3 { left: 14em; top: 14em; width: 2em; height: 4em; }
+        .leg-4 { left: 18em; top: 14em; width: 2em; height: 4em; }
+        .crab-eye { position: absolute; background-color: var(--bg-terminal); top: 5em; width: 2em; height: 2em; }
+        .eye-l { left: 4em; }
+        .eye-r { left: 16em; }
+
+        /* Obstacles */
+        .obstacle {
+            position: absolute;
+            bottom: 0;
+            width: 15px;
+            background-color: var(--diff-red);
+            z-index: 9;
+            box-shadow: -2px -2px 0 rgba(0,0,0,0.5) inset;
+        }
+
+        .dotted-line {
+            position: absolute;
+            bottom: 0;
+            height: 1px; 
+            background-image: linear-gradient(to right, var(--border-color) 60%, transparent 60%);
+            background-size: 4px 100%;
+            background-repeat: repeat-x;
+            width: 100%;
+            z-index: 5;
+        }
+
+        /* --- RESUME CONTENT --- */
+        .content { font-size: 14px; line-height: 1.6; min-height: 500px; }
+        .cmd-group { display: none; }
+        .cmd { color: var(--accent-green); font-weight: bold; margin: 20px 0 10px 0; word-break: break-all; }
+        .cmd::before { content: "> "; }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background-color: var(--accent-green);
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .block {
+            padding-left: 15px;
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .block.visible { opacity: 1; transform: translateY(0); }
+
+        .title { color: var(--text-main); font-weight: bold; font-size: 18px; margin-bottom: 5px; }
+        .subtitle { color: var(--accent-orange); margin-bottom: 5px; }
+        .dim-text { color: var(--text-dim); word-break: break-word; }
+
+        a { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--text-dim); transition: color 0.2s; position: relative; z-index: 50; }
+        a:hover { color: var(--accent-green); border-bottom-color: var(--accent-green); }
+
+        ul { list-style-type: none; padding: 0; margin: 0; }
+        ul li { position: relative; padding-left: 15px; margin-bottom: 8px; }
+        ul li::before { content: "-"; position: absolute; left: 0; color: var(--text-dim); }
+
+        .item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 2px solid transparent;
+            transition: background-color 0.2s, border-left-color 0.2s;
+        }
+        .item:hover { background-color: rgba(255,255,255,0.03); border-left-color: var(--accent-orange); }
+        .item-header { display: flex; justify-content: space-between; margin-bottom: 5px; flex-wrap: wrap; gap: 5px;}
+        .item-title { color: var(--accent-orange); font-weight: bold; }
+        .skills-grid { display: grid; grid-template-columns: 120px 1fr; gap: 8px; }
+        .skill-cat { color: var(--text-dim); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 600px) {
+            body { padding: 15px 10px; }
+            .terminal { padding: 20px 15px; }
+            .block { padding-left: 5px; }
+            .skills-grid { grid-template-columns: 1fr; gap: 2px; margin-bottom: 15px; }
+            .skill-cat { color: var(--accent-orange); margin-top: 8px; font-weight: bold; }
+            .art-canvas { height: 150px; }
+            .crab-canvas { left: 5%; }
+            .game-instruction { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="header">Welcome to Interactive Portfolio <span class="dim">v1.3.0</span></div>
+        <div class="divider"></div>
+
+        <div class="art-canvas" id="game-container">
+            <div class="art-wrapper" id="game-area">
+                
+                <div class="score-board">
+                    SCORE: <span id="score">00000</span> <br>
+                    HI: <span id="hi-score">00000</span>
+                </div>
+
+                <div class="game-instruction" id="instruction">[ TAP ANYWHERE OR SPACE TO JUMP ]</div>
+                <div class="game-over-text" id="game-over">
+                    CRASHED!<br>
+                    <span style="font-size: 10px; color:var(--text-dim)">[ TAP ANYWHERE TO REBOOT ]</span>
+                </div>
+
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+
+                <div class="cloud cloud-left">
+      ▒▒▒▒▒▒▒▒
+   ▒▒▒▒▒▒▒▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</div>
+                <div class="cloud cloud-right">
+       ▒▒▒▒▒▒▒▒
+    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</div>
+
+                <div class="moon">
+      ██████
+    ████  ██
+   ████
+   ████
+    ████  ██
+      ██████</div>
+
+                <div class="dotted-line"></div>
+
+                <div class="crab-canvas" id="crab">
+                    <div class="crab-part head-top"></div>
+                    <div class="crab-part ear-band"></div>
+                    <div class="crab-part lower-body"></div>
+                    <div class="crab-part leg-1"></div>
+                    <div class="crab-part leg-2"></div>
+                    <div class="crab-part leg-3"></div>
+                    <div class="crab-part leg-4"></div>
+                    <div class="crab-eye eye-l"></div>
+                    <div class="crab-eye eye-r"></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content" id="terminal-content">
+            <div id="active-line" style="display: none;">
+                <span class="cmd" id="typewriter"></span><span class="cursor" id="cursor"></span>
+            </div>
+        </div>
+
+        <div id="resume-data" style="display: none;">
+            <div class="cmd-group" data-cmd="whoami">
+                <div class="block">
+                    <div class="title">Atul Mundakkal</div>
+                    <div class="subtitle">Shopify Developer | App Developer | AI-Assisted Builder</div>
+                    <div class="dim-text">Location: Kochi, Kerala, India</div>
+                    <div class="dim-text">Email: <a href="mailto:atulmundakkal@outlook.com">atulmundakkal@outlook.com</a></div>
+                    <div class="dim-text">Phone: <a href="tel:+918281948007">+91-8281948007</a></div>
+                </div>
+            </div>
+            <div class="cmd-group" data-cmd="cat summary.txt">
+                <div class="block">
+                    Shopify Developer specializing in advanced theme customization, complex variant logic, and custom app development. Experienced in React, Prisma ORM, and PostgreSQL with a track record of delivering 50+ projects. Leverages AI-assisted development workflows to accelerate delivery and solve complex engineering problems.
+                </div>
+            </div>
+            <div class="cmd-group" data-cmd="ls -l ./experience/">
+                <div class="block">
+                    <div class="item">
+                        <div class="item-header"><span class="item-title">Software Developer @ Webandcrafts</span><span class="dim-text">Dec 2024 – Present</span></div>
+                        <ul>
+                            <li>Built advanced Shopify theme components using Liquid, solving complex variant logic</li>
+                            <li>Developed reusable sections and dynamic blocks for marketing campaigns</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="item-header"><span class="item-title">Shopify Developer @ RDP Workstation</span><span class="dim-text">May 2024 – Oct 2024</span></div>
+                        <ul><li>Converted Figma designs into responsive Shopify themes and optimized performance</li></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cmd-group" data-cmd="env | grep SKILLS">
+                <div class="block">
+                    <div class="skills-grid">
+                        <div class="skill-cat">Frontend:</div><div>HTML, CSS, JavaScript, Liquid</div>
+                        <div class="skill-cat">Backend:</div><div>React, Prisma ORM, PostgreSQL</div>
+                        <div class="skill-cat">Workflow:</div><div>Git, GitHub, AI tools (Claude Code, Codex)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cmd-group" data-cmd=""></div>
+        </div>
+    </div>
+
+    <script>
+        // --- GAME LOGIC ---
+        const crab = document.getElementById('crab');
+        const gameArea = document.getElementById('game-area');
+        const scoreElement = document.getElementById('score');
+        const hiScoreElement = document.getElementById('hi-score');
+        const instruction = document.getElementById('instruction');
+        const gameOverText = document.getElementById('game-over');
+
+        let isJumping = false;
+        let isPlaying = false;
+        let isGameOver = false;
+        
+        let crabY = 0;
+        let velocity = 0;
+        let gravity = 0.6;
+        let jumpPower = 10.5;
+        
+        let score = 0;
+        let highScore = localStorage.getItem('crabHiScoreMobile') || 0;
+        hiScoreElement.textContent = String(highScore).padStart(5, '0');
+        
+        let gameSpeed = 5;
+        let obstacles = [];
+        let animationFrameId;
+        let frameCount = 0;
+
+        function jump() {
+            if (isGameOver) {
+                resetGame();
+                return;
+            }
+            if (!isPlaying) {
+                isPlaying = true;
+                instruction.style.display = 'none';
+                gameLoop();
+            }
+            if (!isJumping) {
+                isJumping = true;
+                velocity = jumpPower;
+            }
+        }
+
+        function spawnObstacle() {
+            const obs = document.createElement('div');
+            obs.classList.add('obstacle');
+            const height = Math.floor(Math.random() * 20) + 20;
+            obs.style.height = `${height}px`;
+            
+            const spawnX = gameArea.offsetWidth;
+            obs.style.left = `${spawnX}px`;
+            
+            gameArea.appendChild(obs);
+            obstacles.push({ element: obs, x: spawnX });
+        }
+
+        function resetGame() {
+            isGameOver = false;
+            isPlaying = true;
+            score = 0;
+            gameSpeed = 5;
+            crabY = 0;
+            velocity = 0;
+            isJumping = false;
+            crab.style.transform = `translateY(0px)`;
+            gameOverText.style.display = 'none';
+            scoreElement.textContent = '00000';
+            
+            obstacles.forEach(obs => obs.element.remove());
+            obstacles = [];
+            
+            gameLoop();
+        }
+
+        function gameLoop() {
+            if (isGameOver) return;
+
+            if (isJumping) {
+                velocity -= gravity;
+                crabY += velocity;
+
+                if (crabY <= 0) {
+                    crabY = 0;
+                    isJumping = false;
+                    velocity = 0;
+                }
+                crab.style.transform = `translateY(-${crabY}px)`;
+            }
+
+            frameCount++;
+            if (frameCount % Math.max(Math.floor(100 - gameSpeed * 5), 30) === 0) {
+                spawnObstacle();
+            }
+
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                let obs = obstacles[i];
+                obs.x -= gameSpeed;
+                obs.element.style.left = `${obs.x}px`;
+
+                const crabRect = crab.getBoundingClientRect();
+                const obsRect = obs.element.getBoundingClientRect();
+
+                if (
+                    crabRect.right - 8 > obsRect.left &&
+                    crabRect.left + 8 < obsRect.right &&
+                    crabRect.bottom - 5 > obsRect.top &&
+                    crabRect.top + 8 < obsRect.bottom
+                ) {
+                    gameOver();
+                    return;
+                }
+
+                if (obs.x < -30) {
+                    obs.element.remove();
+                    obstacles.splice(i, 1);
+                }
+            }
+
+            score += 0.1;
+            scoreElement.textContent = String(Math.floor(score)).padStart(5, '0');
+            
+            if (Math.floor(score) % 100 === 0 && gameSpeed < 12) {
+                gameSpeed += 0.005;
+            }
+
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        function gameOver() {
+            isGameOver = true;
+            isPlaying = false;
+            cancelAnimationFrame(animationFrameId);
+            gameOverText.style.display = 'block';
+            
+            if (Math.floor(score) > highScore) {
+                highScore = Math.floor(score);
+                localStorage.setItem('crabHiScoreMobile', highScore);
+                hiScoreElement.textContent = String(highScore).padStart(5, '0');
+            }
+        }
+
+        // --- GLOBAL INPUT LISTENERS ---
+        // Spacebar jump
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); 
+                jump();
+            }
+        });
+        
+        // Tap ANYWHERE on the document to jump
+        document.addEventListener('click', (e) => {
+            // Ignore if the user is explicitly clicking a link (email/phone)
+            if (e.target.closest('a')) return;
+            jump();
+        });
+
+        // Instant touch response specifically on the game container to avoid 300ms delay
+        const gameContainer = document.getElementById('game-container');
+        gameContainer.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevents zooming and scrolling ONLY on the game area
+            jump();
+        }, { passive: false });
+
+
+        // --- AUTO TYPING RESUME LOGIC ---
+        document.addEventListener('DOMContentLoaded', async () => {
+    
