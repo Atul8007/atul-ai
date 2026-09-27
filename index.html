@@ -3,506 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Mundakkal | Shopify Developer &amp; Full-Stack Engineer</title>
+    <title>Atul Mundakkal — Digital Workshop | Shopify Developer &amp; Full-Stack Engineer</title>
     
     <!-- SEO & Metadata -->
-    <meta name="description" content="Portfolio of Atul Mundakkal - Shopify Developer, Liquid Expert & Full-Stack Developer specializing in theme customization, Shopify APIs, variant logic, and custom app development.">
-    <meta name="keywords" content="Shopify Developer, Liquid Expert, Shopify Theme Development, Metafields, Metaobjects, Shopify Storefront API, Full Stack Developer, Atul Mundakkal">
+    <meta name="description" content="Digital Workshop of Atul Mundakkal — Shopify Developer, Liquid Specialist & Full-Stack Engineer. Exploring custom storefronts, variant logic, metafield systems, and developer tools.">
+    <meta name="keywords" content="Shopify Developer, Liquid Specialist, Shopify Theme Architecture, Metafields, Metaobjects, Shopify Storefront API, Full Stack Developer, Atul Mundakkal, Developer Workshop">
     <meta name="author" content="Atul Mundakkal">
     <link rel="canonical" href="https://atul-ai.pages.dev">
 
     <!-- Open Graph / Social Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://atul-ai.pages.dev">
-    <meta property="og:title" content="Atul Mundakkal | Shopify Developer &amp; Full-Stack Engineer">
-    <meta property="og:description" content="Specializing in custom Shopify theme development, Liquid engineering, Shopify APIs, and high-performance e-commerce storefronts.">
+    <meta property="og:title" content="Atul Mundakkal — Digital Workshop | Shopify Developer">
+    <meta property="og:description" content="Explore what I build, how I solve complex Shopify problems, and developer tools I've created.">
     <meta property="og:image" content="assets/images/og-preview.png">
 
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Atul Mundakkal | Shopify Developer">
-    <meta name="twitter:description" content="Specializing in custom Shopify theme development, Liquid engineering, Shopify APIs, and high-performance e-commerce storefronts.">
+    <meta name="twitter:title" content="Atul Mundakkal — Digital Workshop">
+    <meta name="twitter:description" content="Explore what I build, how I solve complex Shopify problems, and developer tools I've created.">
     <meta name="twitter:image" content="assets/images/og-preview.png">
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Custom Contextual Cursor -->
+    <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-label" id="cursor-label">EXPLORE</div>
+    </div>
+
     <!-- Header / Navigation -->
     <header class="header" id="header">
         <div class="nav-container">
-            <a href="#home" class="logo" aria-label="Atul Mundakkal Portfolio Home">
-                <span class="logo-accent">&lt;</span>Atul<span class="logo-accent">/&gt;</span>
+            <a href="#home" class="logo" aria-label="Atul Workshop Home">
+                <span class="logo-symbol">❖</span> ATUL<span class="logo-badge">WORKSHOP</span>
             </a>
 
+            <div class="nav-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">AVAILABLE FOR SHOPIFY &amp; FULL-STACK</span>
+            </div>
+
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
 
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#shopify" class="nav-link">Shopify Work</a></li>
-                    <li><a href="#extensions" class="nav-link">Extensions</a></li>
-                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link active" data-cursor="WORKSHOP">Home</a></li>
+                    <li><a href="#capabilities" class="nav-link" data-cursor="BUILD">Capabilities</a></li>
+                    <li><a href="#problems" class="nav-link" data-cursor="SOLUTIONS">Problems Fixed</a></li>
+                    <li><a href="#projects" class="nav-link" data-cursor="PROJECTS">Selected Work</a></li>
+                    <li><a href="#shopify-deep" class="nav-link" data-cursor="SHOPIFY">Shopify Deep</a></li>
+                    <li><a href="#tools" class="nav-link" data-cursor="TOOLS">Tools</a></li>
+                    <li><a href="#experience" class="nav-link" data-cursor="TIMELINE">Experience</a></li>
+                    <li><a href="#about" class="nav-link" data-cursor="ABOUT">About</a></li>
+                    <li><a href="#contact" class="nav-link" data-cursor="CONTACT">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section: Digital Workshop Entrance -->
         <section class="hero-section" id="home">
-            <div class="container hero-content">
-                <div class="hero-badge">
-                    <span class="status-dot"></span> Available for Shopify &amp; Full-Stack Projects
+            <div class="container hero-grid">
+                <div class="hero-text-area">
+                    <div class="workshop-tag">
+                        <span class="mono-code">[SYS_STATUS: ONLINE]</span> DIGITAL WORKSHOP v2.0
+                    </div>
+                    
+                    <h1 class="hero-brand">
+                        ATUL MUNDAKKAL
+                        <span class="hero-role">SHOPIFY DEVELOPER &amp; FULL-STACK ENGINEER</span>
+                    </h1>
+
+                    <p class="hero-lead">
+                        I build and optimize high-converting Shopify storefronts, solve complex commerce problems, and create custom developer tools.
+                    </p>
+
+                    <div class="hero-keywords-bar">
+                        <span class="key-pill">Liquid</span>
+                        <span class="key-pill">Shopify APIs</span>
+                        <span class="key-pill">Variants</span>
+                        <span class="key-pill">Metafields</span>
+                        <span class="key-pill">Performance</span>
+                        <span class="key-pill">Full Stack</span>
+                    </div>
+
+                    <div class="hero-cta-row">
+                        <a href="#projects" class="btn btn-primary-glow" data-cursor="EXPLORE">
+                            <span>EXPLORE MY WORK</span>
+                            <span class="btn-arrow">&rarr;</span>
+                        </a>
+                        <button class="btn btn-terminal-trigger" id="open-terminal-hero-btn" data-cursor="TERMINAL">
+                            <span class="mono-symbol">&gt;_</span> OPEN TERMINAL
+                        </button>
+                    </div>
                 </div>
-                <h1 class="hero-title">
-                    Shopify Developer &amp;<br>
-                    <span class="text-gradient">Full-Stack Engineer</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Engineering high-performance Shopify storefronts, Liquid theme components, custom APIs, variant logic, and scalable web solutions tailored for growing e-commerce brands.
-                </p>
-                <div class="hero-tags">
-                    <span class="tag">Shopify Liquid</span>
-                    <span class="tag">Theme Customization</span>
-                    <span class="tag">Storefront API</span>
-                    <span class="tag">Metafields &amp; Metaobjects</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">React / Node</span>
-                </div>
-                <div class="hero-cta-group">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+
+                <!-- Interactive Core Architecture Visualizer -->
+                <div class="hero-visual-area">
+                    <div class="core-node-system" id="core-node-system">
+                        <div class="core-center-node" data-node="CORE">
+                            <div class="node-title">ATUL CORE</div>
+                            <div class="node-sub">ENG ENGINE</div>
+                        </div>
+
+                        <!-- Satellite Nodes -->
+                        <div class="sat-node node-top" data-node="LIQUID" data-info="Advanced Liquid Template Engine & Section Architecture">
+                            <span class="node-icon">💎</span>
+                            <span class="node-label">LIQUID</span>
+                        </div>
+                        <div class="sat-node node-top-right" data-node="METAFIELDS" data-info="Structured Custom Metafields & Metaobject Schemas">
+                            <span class="node-icon">📦</span>
+                            <span class="node-label">METAFIELDS</span>
+                        </div>
+                        <div class="sat-node node-bottom-right" data-node="VARIANTS" data-info="Multi-dimensional Variant Matrix & Dynamic Swatches">
+                            <span class="node-icon">🏷️</span>
+                            <span class="node-label">VARIANTS</span>
+                        </div>
+                        <div class="sat-node node-bottom" data-node="STOREFRONT" data-info="Pixel-perfect Responsive Theme & Mobile Optimization">
+                            <span class="node-icon">🛍️</span>
+                            <span class="node-label">STOREFRONT</span>
+                        </div>
+                        <div class="sat-node node-bottom-left" data-node="CART" data-info="AJAX Drawer Cart, Upsell Thresholds & Subscriptions">
+                            <span class="node-icon">🛒</span>
+                            <span class="node-label">CART</span>
+                        </div>
+                        <div class="sat-node node-top-left" data-node="API" data-info="Shopify Admin & Storefront GraphQL / REST APIs">
+                            <span class="node-icon">⚡</span>
+                            <span class="node-label">APIs</span>
+                        </div>
+
+                        <!-- SVG Connecting Lines -->
+                        <svg class="node-svg-overlay" viewBox="0 0 400 400" aria-hidden="true">
+                            <line x1="200" y1="200" x2="200" y2="60" class="svg-link-line" id="line-liquid" />
+                            <line x1="200" y1="200" x2="330" y2="120" class="svg-link-line" id="line-metafields" />
+                            <line x1="200" y1="200" x2="330" y2="280" class="svg-link-line" id="line-variants" />
+                            <line x1="200" y1="200" x2="200" y2="340" class="svg-link-line" id="line-storefront" />
+                            <line x1="200" y1="200" x2="70" y2="280" class="svg-link-line" id="line-cart" />
+                            <line x1="200" y1="200" x2="70" y2="120" class="svg-link-line" id="line-api" />
+                        </svg>
+
+                        <!-- Dynamic Node Tooltip -->
+                        <div class="node-tooltip" id="node-tooltip">
+                            Hover over architecture nodes to inspect engineering specialization
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="section" id="about">
+        <!-- Section 2: WHAT I BUILD (Interactive Capability Cards) -->
+        <section class="section section-dark" id="capabilities">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-description">Delivering clean code, seamless UX, and robust e-commerce solutions.</p>
+                <div class="section-meta">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">WHAT I BUILD</h2>
+                    <p class="section-sub">Engineered capabilities for custom storefronts, commerce logic, and tools.</p>
                 </div>
-                <div class="about-grid">
-                    <div class="about-image-wrapper">
-                        <img src="assets/images/profile.png" alt="Atul Mundakkal - Shopify &amp; Full-Stack Developer" class="about-profile-img" loading="lazy">
+
+                <div class="capabilities-grid">
+                    <!-- Capability 01 -->
+                    <div class="cap-card" data-cap="storefronts">
+                        <div class="cap-header">
+                            <span class="cap-num">01</span>
+                            <h3>STOREFRONTS</h3>
+                        </div>
+                        <p class="cap-desc">Building pixel-perfect, accessible, lightning-fast Shopify Dawn/Custom Liquid themes from scratch or Figma designs.</p>
+                        <div class="cap-tags">
+                            <span>Liquid</span>
+                            <span>Theme Architecture</span>
+                            <span>Sections &amp; Snippets</span>
+                            <span>Vanilla JS</span>
+                            <span>Performance</span>
+                        </div>
+                        <div class="cap-detail-box">
+                            <div class="mono-code-block">&gt; Liquid section rendering API<br>&gt; Zero framework overhead<br>&gt; 90+ Lighthouse targets</div>
+                        </div>
                     </div>
-                    <div class="about-card">
-                        <h3 class="about-heading">Shopify &amp; E-Commerce Specialist</h3>
-                        <p class="about-text">
-                            I am a software engineer based in Kochi, India, specializing in Shopify theme architecture, Liquid template optimization, and storefront development. I bridge the gap between design and functionality by transforming complex e-commerce requirements into reliable, maintainable code.
+
+                    <!-- Capability 02 -->
+                    <div class="cap-card" data-cap="commerce">
+                        <div class="cap-header">
+                            <span class="cap-num">02</span>
+                            <h3>COMMERCE LOGIC</h3>
+                        </div>
+                        <p class="cap-desc">Solving complex variant matrices, custom price calculations, discount thresholds, and asynchronous AJAX cart workflows.</p>
+                        <div class="cap-tags">
+                            <span>Variants</span>
+                            <span>Inventory Handling</span>
+                            <span>Drawer Cart</span>
+                            <span>Pricing Rules</span>
+                            <span>Discount Logic</span>
+                        </div>
+                        <div class="cap-detail-box">
+                            <div class="mono-code-block">&gt; Asynchronous variant swatches<br>&gt; Live cart drawer updates<br>&gt; Custom bundle validation</div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 03 -->
+                    <div class="cap-card" data-cap="data">
+                        <div class="cap-header">
+                            <span class="cap-num">03</span>
+                            <h3>DATA &amp; APIS</h3>
+                        </div>
+                        <p class="cap-desc">Configuring rich Metafield/Metaobject schemas for non-technical merchant editing and integrating Storefront/Admin APIs.</p>
+                        <div class="cap-tags">
+                            <span>Metafields</span>
+                            <span>Metaobjects</span>
+                            <span>Storefront API</span>
+                            <span>Admin API</span>
+                            <span>GraphQL</span>
+                        </div>
+                        <div class="cap-detail-box">
+                            <div class="mono-code-block">&gt; Structured Liquid specs<br>&gt; GraphQL query optimization<br>&gt; App Proxy integration</div>
+                        </div>
+                    </div>
+
+                    <!-- Capability 04 -->
+                    <div class="cap-card" data-cap="tools">
+                        <div class="cap-header">
+                            <span class="cap-num">04</span>
+                            <h3>DEVELOPER TOOLS</h3>
+                        </div>
+                        <p class="cap-desc">Creating VS Code extensions, theme snippet helpers, and automation scripts to accelerate developer productivity.</p>
+                        <div class="cap-tags">
+                            <span>VS Code Extensions</span>
+                            <span>Shopify Utilities</span>
+                            <span>Automation</span>
+                            <span>Cloudflare Pages</span>
+                            <span>AI Workflows</span>
+                        </div>
+                        <div class="cap-detail-box">
+                            <div class="mono-code-block">&gt; Snippet auto-completion<br>&gt; CLI theme dev helpers<br>&gt; Edge worker deployment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: PROBLEMS I SOLVE ("THINGS I'VE FIXED") -->
+        <section class="section" id="problems">
+            <div class="container">
+                <div class="section-meta">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">THINGS I'VE FIXED</h2>
+                    <p class="section-sub">Select a problem category to inspect the diagnostic approach &amp; technical resolution.</p>
+                </div>
+
+                <div class="problems-wrapper">
+                    <!-- Selector Tabs -->
+                    <div class="problem-tabs" id="problem-tabs">
+                        <button class="prob-tab active" data-prob="variants">Complex Variant Logic</button>
+                        <button class="prob-tab" data-prob="cart">Cart &amp; Upsell Problems</button>
+                        <button class="prob-tab" data-prob="speed">Slow Storefronts</button>
+                        <button class="prob-tab" data-prob="metafields">Metafield Systems</button>
+                        <button class="prob-tab" data-prob="conflicts">Theme Conflicts</button>
+                    </div>
+
+                    <!-- Interactive Display Panel -->
+                    <div class="problem-display-card" id="problem-display-card">
+                        <!-- Dynamic Content Rendered Here via JS -->
+                        <div class="prob-panel-header">
+                            <span class="prob-badge" id="prob-badge">CATEGORY: VARIANT LOGIC</span>
+                            <h3 id="prob-title">Multi-Option Variant &amp; Image Swatch Synchronization</h3>
+                        </div>
+
+                        <div class="prob-grid">
+                            <div class="prob-box prob-problem">
+                                <h4><span class="mono-icon">[!]</span> PROBLEM</h4>
+                                <p id="prob-problem-text">High SKU products with 3+ option dimensions (Color, Size, Material) breaking swatch UI, showing out-of-stock options as selectable, or failing to swap gallery images on swatch click.</p>
+                            </div>
+
+                            <div class="prob-box prob-approach">
+                                <h4><span class="mono-icon">[&gt;]</span> APPROACH</h4>
+                                <p id="prob-approach-text">Built a centralized variant state listener in Vanilla JS. Analyzed Shopify's `product.variants` JSON object directly in Liquid and mapped valid option combinations dynamically to update pricing, image galleries, and add-to-cart button state in real time.</p>
+                            </div>
+
+                            <div class="prob-box prob-tech">
+                                <h4><span class="mono-icon">[#]</span> TECHNOLOGY</h4>
+                                <div class="prob-tags" id="prob-tech-tags">
+                                    <span>Liquid `json` filter</span>
+                                    <span>JS State Manager</span>
+                                    <span>Section Rendering API</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Step-by-Step Flow Visualizer -->
+                        <div class="prob-flow-diagram">
+                            <div class="flow-step"><span>User Selection</span></div>
+                            <div class="flow-arrow">&rarr;</div>
+                            <div class="flow-step"><span>State Listener</span></div>
+                            <div class="flow-arrow">&rarr;</div>
+                            <div class="flow-step"><span>Variant Matrix Check</span></div>
+                            <div class="flow-arrow">&rarr;</div>
+                            <div class="flow-step"><span>Inventory &amp; Price Update</span></div>
+                            <div class="flow-arrow">&rarr;</div>
+                            <div class="flow-step highlight"><span>Cart Ready</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: SELECTED WORK (Interactive Project Laboratory) -->
+        <section class="section section-dark" id="projects">
+            <div class="container">
+                <div class="section-meta">
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">SELECTED WORK</h2>
+                    <p class="section-description">Interactive project laboratory showcasing full-stack &amp; Shopify builds.</p>
+                </div>
+
+                <div class="projects-lab-grid">
+                    <!-- Project 01 -->
+                    <article class="lab-card">
+                        <div class="lab-card-header">
+                            <span class="lab-num">PROJECT / 01</span>
+                            <span class="lab-category">FULL-STACK / INTERACTIVE WEB APP</span>
+                        </div>
+                        <h3 class="lab-title">Interactive Shell &amp; Mini-Game Portfolio</h3>
+                        <p class="lab-desc">
+                            A retro interactive terminal shell with a custom JS parser and canvas arcade game, engineered to demonstrate custom DOM state handling.
                         </p>
-                        <p class="about-text">
-                            My workflow incorporates modern development tools and AI-assisted engineering practices to streamline problem-solving, ensure cross-browser consistency, and maintain lightning-fast page loading speeds.
-                        </p>
-                    </div>
-                </div>
 
-                <div class="about-stats-grid" style="margin-top: 30px;">
-                    <div class="stat-card">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Responsive &amp; Mobile-First</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">Liquid</span>
-                        <span class="stat-label">Expert Component Logic</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">API</span>
-                        <span class="stat-label">Admin &amp; Storefront Integration</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div class="lab-tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3 Grid</span>
+                            <span>Vanilla JS</span>
+                            <span>Canvas API</span>
+                        </div>
 
-        <!-- Skills Section -->
-        <section class="section bg-card" id="skills">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Technical Skills</h2>
-                    <p class="section-description">Curated tech stack for building modern storefronts and web applications.</p>
-                </div>
-                <div class="skills-grid">
-                    <!-- Category 1: Shopify -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">🛍️</div>
-                            <h3>Shopify Ecosystem</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li><span class="skill-bullet"></span>Shopify Theme Development</li>
-                            <li><span class="skill-bullet"></span>Liquid Engine &amp; Templates</li>
-                            <li><span class="skill-bullet"></span>Shopify Admin API</li>
-                            <li><span class="skill-bullet"></span>Storefront API (GraphQL/REST)</li>
-                            <li><span class="skill-bullet"></span>Metafields &amp; Metaobjects</li>
-                            <li><span class="skill-bullet"></span>Shopify Functions &amp; Webhooks</li>
-                            <li><span class="skill-bullet"></span>Cart API &amp; Variant Logic</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 2: Frontend -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">⚡</div>
-                            <h3>Frontend Engineering</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li><span class="skill-bullet"></span>HTML5 &amp; Semantic Web</li>
-                            <li><span class="skill-bullet"></span>CSS3 / Vanilla CSS / Grid / Flexbox</li>
-                            <li><span class="skill-bullet"></span>JavaScript (ES6+)</li>
-                            <li><span class="skill-bullet"></span>AJAX / Fetch API</li>
-                            <li><span class="skill-bullet"></span>Responsive Mobile-First Design</li>
-                            <li><span class="skill-bullet"></span>Web Performance Optimization</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 3: Development & Tools -->
-                    <div class="skill-category">
-                        <div class="category-header">
-                            <div class="category-icon">🛠️</div>
-                            <h3>Development &amp; Tools</h3>
-                        </div>
-                        <ul class="skill-list">
-                            <li><span class="skill-bullet"></span>Git &amp; GitHub Workflows</li>
-                            <li><span class="skill-bullet"></span>React &amp; Node.js</li>
-                            <li><span class="skill-bullet"></span>Prisma ORM &amp; PostgreSQL</li>
-                            <li><span class="skill-bullet"></span>REST &amp; GraphQL APIs</li>
-                            <li><span class="skill-bullet"></span>VS Code &amp; AI Engineering Workflows</li>
-                            <li><span class="skill-bullet"></span>Cloudflare Pages Hosting</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- General Projects Section -->
-        <section class="section" id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-description">A selection of web applications and developer tools.</p>
-                </div>
-                <div class="projects-grid">
-                    <!-- Project Card 1 -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-category">Full-Stack / Web App</span>
-                            <h3 class="project-title">Interactive Terminal Portfolio</h3>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-desc">A retro terminal interface with integrated arcade mini-game built to demonstrate interactive DOM manipulation and state management.</p>
-                            <div class="project-detail">
-                                <strong>Problem:</strong> Needed a unique, memorable portfolio presentation that stands out to tech recruiters.
-                            </div>
-                            <div class="project-detail">
-                                <strong>Solution:</strong> Built an interactive shell with custom command parsing, automated typewriter sequences, and canvas game logic in vanilla JS.
-                            </div>
-                            <div class="tech-stack">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                                <span>Canvas</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="htmlviewer.html" class="card-link" target="_blank" rel="noopener">Live Demo &rarr;</a>
-                            <a href="https://github.com/Atul8007/atul-ai" class="card-link secondary" target="_blank" rel="noopener">GitHub</a>
+                        <div class="lab-actions">
+                            <a href="htmlviewer.html" target="_blank" rel="noopener" class="btn btn-sm btn-primary" data-cursor="DEMO">
+                                <span>LIVE DEMO</span> &rarr;
+                            </a>
+                            <a href="https://github.com/Atul8007/atul-ai" target="_blank" rel="noopener" class="btn btn-sm btn-outline" data-cursor="CODE">
+                                <span>SOURCE CODE</span>
+                            </a>
                         </div>
                     </article>
 
-                    <!-- Project Card 2 -->
-                    <article class="project-card">
-                        <div class="project-header">
-                            <span class="project-category">E-Commerce Solution</span>
-                            <h3 class="project-title">Custom Wishlist Application</h3>
+                    <!-- Project 02 -->
+                    <article class="lab-card">
+                        <div class="lab-card-header">
+                            <span class="lab-num">PROJECT / 02</span>
+                            <span class="lab-category">SHOPIFY / CUSTOM STOREFRONT APP</span>
                         </div>
-                        <div class="project-body">
-                            <p class="project-desc">A lightweight, seamless wishlist solution for Shopify stores with guest saving and account sync support.</p>
-                            <div class="project-detail">
-                                <strong>Problem:</strong> Existing third-party apps slowed down storefront load times and required expensive recurring subscriptions.
-                            </div>
-                            <div class="project-detail">
-                                <strong>Solution:</strong> Engineered a client-side localStorage state manager synced with Shopify Customer Metafields via App Proxy.
-                            </div>
-                            <div class="tech-stack">
-                                <span>Liquid</span>
-                                <span>JavaScript</span>
-                                <span>Storefront API</span>
-                                <span>Metafields</span>
-                            </div>
+                        <h3 class="lab-title">Shopify Custom Wishlist Engine</h3>
+                        <p class="lab-desc">
+                            A zero-framework client-side wishlist system syncing local guest selections with Shopify Customer Metafields via App Proxy.
+                        </p>
+
+                        <div class="lab-tech-stack">
+                            <span>Liquid</span>
+                            <span>Storefront API</span>
+                            <span>Metafields</span>
+                            <span>App Proxy</span>
                         </div>
-                        <div class="project-footer">
-                            <a href="#contact" class="card-link">Inquire Demo &rarr;</a>
-                            <a href="https://github.com/Atul8007" class="card-link secondary" target="_blank" rel="noopener">GitHub</a>
+
+                        <div class="lab-actions">
+                            <a href="#contact" class="btn btn-sm btn-primary" data-cursor="INQUIRE">
+                                <span>INQUIRE DETAILS</span> &rarr;
+                            </a>
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-sm btn-outline" data-cursor="CODE">
+                                <span>GITHUB</span>
+                            </a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Shopify Projects Section -->
-        <section class="section bg-card" id="shopify">
+        <!-- Section 5: SHOPIFY SPECIALIZATION ("SHOPIFY, BUT DEEPER.") -->
+        <section class="section" id="shopify-deep">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Shopify Work &amp; Customizations</h2>
-                    <p class="section-description">Dedicated section highlighting specialized Liquid and Shopify storefront engineering.</p>
+                <div class="section-meta">
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">SHOPIFY, BUT DEEPER.</h2>
+                    <p class="section-sub">Hover or click layers in the architecture stack to inspect engine specialization.</p>
                 </div>
-                <div class="shopify-grid">
-                    <!-- Shopify Work 1 -->
-                    <div class="shopify-card">
-                        <div class="shopify-icon">🏷️</div>
-                        <h3>Complex Variant &amp; Swatch Logic</h3>
-                        <p>Built custom Liquid templates handling multi-dimensional product options, nested swatches, and dynamic price/inventory updates without page reloads.</p>
-                        <ul class="shopify-feature-list">
-                            <li>Dynamic variant image switching</li>
-                            <li>Real-time inventory status display</li>
-                            <li>Pre-order &amp; backorder custom workflows</li>
-                        </ul>
-                    </div>
 
-                    <!-- Shopify Work 2 -->
-                    <div class="shopify-card">
-                        <div class="shopify-icon">📦</div>
-                        <h3>Metafields &amp; Metaobjects Customization</h3>
-                        <p>Structured custom metadata schemas to allow store owners to edit rich content sections, size charts, and custom badges directly from Shopify Admin.</p>
-                        <ul class="shopify-feature-list">
-                            <li>Dynamic product specs &amp; tab rendering</li>
-                            <li>Custom color swatch mapping via Metaobjects</li>
-                            <li>Storefront Liquid template integration</li>
-                        </ul>
-                    </div>
-
-                    <!-- Shopify Work 3 -->
-                    <div class="shopify-card">
-                        <div class="shopify-icon">🛒</div>
-                        <h3>Custom Slide Cart &amp; Upsell Engine</h3>
-                        <p>Developed responsive, AJAX-powered drawer cart sections featuring automated free-shipping thresholds, cross-sell items, and instant cart notes.</p>
-                        <ul class="shopify-feature-list">
-                            <li>Asynchronous Section Rendering API</li>
-                            <li>Custom discount progress bar calculation</li>
-                            <li>Zero dependency AJAX cart management</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VS Code Extensions Section -->
-        <section class="section" id="extensions">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Developer Tools &amp; Extensions</h2>
-                    <p class="section-description">Tools built to enhance developer workflows and productivity.</p>
-                </div>
-                <div class="extensions-container">
-                    <div class="extension-card">
-                        <div class="extension-badge">Developer Tool</div>
-                        <h3 class="extension-title">Shopify Liquid Snippets Helper</h3>
-                        <p class="extension-desc">
-                            A productivity extension designed to streamline Shopify theme development with intelligent autocomplete, Liquid tag snippets, and schema validation.
-                        </p>
-                        <div class="extension-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Instant Liquid tag and filter suggestions</li>
-                                <li>Schema block generator for section settings</li>
-                                <li>Shortcuts for Metafield &amp; Metaobject tags</li>
-                            </ul>
+                <div class="arch-visualizer">
+                    <div class="arch-stack" id="arch-stack">
+                        <div class="arch-layer active" data-layer="storefront">
+                            <span class="layer-num">LAYER 01</span>
+                            <span class="layer-title">Storefront &amp; Liquid Theme Architecture</span>
+                            <span class="layer-status">RENDER ENGINE</span>
                         </div>
-                        <div class="extension-links">
-                            <a href="https://github.com/Atul8007" class="btn btn-secondary" target="_blank" rel="noopener">Developer Profile</a>
-                            <a href="https://github.com/Atul8007/atul-ai" class="btn btn-outline" target="_blank" rel="noopener">Source Repository</a>
+                        <div class="arch-layer" data-layer="liquid">
+                            <span class="layer-num">LAYER 02</span>
+                            <span class="layer-title">Liquid Templates, Sections &amp; Dynamic Blocks</span>
+                            <span class="layer-status">TEMPLATING</span>
+                        </div>
+                        <div class="arch-layer" data-layer="variants">
+                            <span class="layer-num">LAYER 03</span>
+                            <span class="layer-title">Product &amp; Multi-Dimensional Variant Logic</span>
+                            <span class="layer-status">PRODUCT MATRIX</span>
+                        </div>
+                        <div class="arch-layer" data-layer="metafields">
+                            <span class="layer-num">LAYER 04</span>
+                            <span class="layer-title">Metafields &amp; Metaobjects Custom Schemas</span>
+                            <span class="layer-status">DATA ARCHITECTURE</span>
+                        </div>
+                        <div class="arch-layer" data-layer="cart">
+                            <span class="layer-num">LAYER 05</span>
+                            <span class="layer-title">Cart AJAX API, Upsells &amp; Discount Rules</span>
+                            <span class="layer-status">COMMERCE FLOW</span>
+                        </div>
+                        <div class="arch-layer" data-layer="api">
+                            <span class="layer-num">LAYER 06</span>
+                            <span class="layer-title">Storefront GraphQL &amp; Admin REST APIs</span>
+                            <span class="layer-status">INTEGRATIONS</span>
+                        </div>
+                    </div>
+
+                    <!-- Arch Detail Inspector Panel -->
+                    <div class="arch-inspector" id="arch-inspector">
+                        <div class="inspector-badge" id="inspector-badge">INSPECTING: LAYER 01</div>
+                        <h3 id="inspector-title">Storefront &amp; Liquid Theme Architecture</h3>
+                        <p id="inspector-desc">Designing clean section schemas (`{% schema %}`), modular snippet includes, and decoupled JS components for Dawn and custom theme bases.</p>
+
+                        <div class="inspector-code">
+                            <div class="code-header">
+                                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                                <span class="code-file">section-product-main.liquid</span>
+                            </div>
+                            <pre><code id="inspector-code-snippet">{% schema %}
+{
+  "name": "Custom Product Core",
+  "settings": [
+    { "type": "checkbox", "id": "enable_ajax_cart", "label": "Enable AJAX Drawer", "default": true }
+  ]
+}
+{% endschema %}</code></pre>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Case Studies Section -->
-        <section class="section bg-card" id="case-studies">
+        <!-- Section 6: DEVELOPER TOOLS ("TOOLS I'VE BUILT") -->
+        <section class="section section-dark" id="tools">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Case Studies</h2>
-                    <p class="section-description">Technical breakdowns of complex problem-solving scenarios.</p>
+                <div class="section-meta">
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">TOOLS I'VE BUILT</h2>
+                    <p class="section-sub">Developer tools engineered to streamline theme coding and workflow speed.</p>
                 </div>
-                <div class="case-study-card">
-                    <div class="case-study-header">
-                        <span class="case-study-tag">Case Study</span>
-                        <h3>Optimizing Theme Performance &amp; Liquid Render Time</h3>
+
+                <div class="vscode-preview-container">
+                    <div class="vscode-window">
+                        <div class="vscode-titlebar">
+                            <div class="vscode-controls">
+                                <span class="v-btn close"></span>
+                                <span class="v-btn min"></span>
+                                <span class="v-btn max"></span>
+                            </div>
+                            <div class="vscode-title">Visual Studio Code — Shopify Liquid Snippets Helper</div>
+                        </div>
+
+                        <div class="vscode-body">
+                            <div class="vscode-sidebar">
+                                <div class="side-item active">📄 snippets.json</div>
+                                <div class="side-item">📄 extension.js</div>
+                                <div class="side-item">📄 README.md</div>
+                            </div>
+
+                            <div class="vscode-editor">
+                                <div class="line-nums">
+                                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                                </div>
+                                <div class="editor-content">
+                                    <div class="code-line"><span class="c-keyword">const</span> vscode = <span class="c-func">require</span>(<span class="c-str">'vscode'</span>);</div>
+                                    <div class="code-line"><span class="c-comment">// Register Shopify Liquid Auto-complete Helper</span></div>
+                                    <div class="code-line"><span class="c-keyword">function</span> <span class="c-func">activate</span>(context) {</div>
+                                    <div class="code-line">&nbsp;&nbsp;<span class="c-keyword">const</span> provider = vscode.languages.<span class="c-func">registerCompletionItemProvider</span>(<span class="c-str">'liquid'</span>, {</div>
+                                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-func">provideCompletionItems</span>() {</div>
+                                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-keyword">return</span> [<span class="c-str">'metafields.custom'</span>, <span class="c-str">'metaobjects'</span>, <span class="c-str">'section.settings'</span>];</div>
+                                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                                    <div class="code-line">&nbsp;&nbsp;});</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="case-study-steps">
-                        <div class="step">
-                            <div class="step-num">1</div>
-                            <div class="step-content">
-                                <h4>Problem</h4>
-                                <p>A high-volume merchant experienced slow page rendering due to redundant Liquid loops and unoptimized asset loading on product pages.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">2</div>
-                            <div class="step-content">
-                                <h4>Investigation</h4>
-                                <p>Analyzed theme render times using Shopify Theme Inspector. Identified repeated `all_products` lookups and un-lazy-loaded hero assets.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">3</div>
-                            <div class="step-content">
-                                <h4>Technical Approach</h4>
-                                <p>Refactored section Liquid logic to utilize native Metafield references, cached array filters, and implemented responsive srcset image loading.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">4</div>
-                            <div class="step-content">
-                                <h4>Implementation</h4>
-                                <p>Rebuilt product gallery sections using pure CSS grid &amp; light JS sliders, eliminating heavy third-party carousel dependencies.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-num">5</div>
-                            <div class="step-content">
-                                <h4>Result</h4>
-                                <p class="result-highlight">Result: Improved mobile Lighthouse Performance score by +35 points and reduced DOM content load time significantly.</p>
-                            </div>
+
+                    <div class="tool-meta-card">
+                        <h3>Shopify Liquid Snippets Helper</h3>
+                        <p>Streamlines theme development by auto-completing Liquid tags, Metafield paths, and section schema settings inside VS Code.</p>
+                        <div class="tool-links">
+                            <a href="https://github.com/Atul8007/atul-ai" target="_blank" rel="noopener" class="btn btn-secondary" data-cursor="VIEW">
+                                <span>GITHUB SOURCE</span> &rarr;
+                            </a>
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-outline" data-cursor="PROFILE">
+                                <span>DEVELOPER PROFILE</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Section 7: EXPERIENCE (Interactive Year Timeline) -->
         <section class="section" id="experience">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Professional Experience</h2>
-                    <p class="section-description">Proven track record in theme development and full-stack engineering.</p>
+                <div class="section-meta">
+                    <span class="section-num">06</span>
+                    <h2 class="section-title">EXPERIENCE</h2>
+                    <p class="section-sub">Verified engineering track record in Shopify &amp; full-stack software development.</p>
                 </div>
-                <div class="timeline">
-                    <!-- Role 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="role-title">Software Developer</h3>
-                                <span class="company-name">Webandcrafts</span>
-                                <span class="timeline-date">Dec 2024 – Present</span>
+
+                <div class="year-timeline-wrapper">
+                    <div class="year-selector" id="year-selector">
+                        <button class="year-btn active" data-year="2025">2024 – PRESENT</button>
+                        <button class="year-btn" data-year="2024">2024 (RDP)</button>
+                    </div>
+
+                    <div class="year-content-display" id="year-content-display">
+                        <!-- Content updated via JS -->
+                        <div class="exp-role-card">
+                            <div class="exp-role-header">
+                                <h3>Software Developer @ Webandcrafts</h3>
+                                <span class="exp-period">Dec 2024 – Present</span>
                             </div>
-                            <ul class="timeline-bullets">
+                            <ul class="exp-bullets">
                                 <li>Engineered custom, high-converting Shopify theme components using Liquid, resolving complex variant logic for high-SKU catalogs.</li>
                                 <li>Developed modular, reusable Shopify theme sections and dynamic blocks for marketing campaigns and storefront promotions.</li>
                                 <li>Collaborated with design and QA teams to guarantee 100% responsiveness and accessibility across mobile and desktop devices.</li>
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Role 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="role-title">Shopify Developer</h3>
-                                <span class="company-name">RDP Workstation</span>
-                                <span class="timeline-date">May 2024 – Oct 2024</span>
+        <!-- Section 8: ABOUT -->
+        <section class="section section-dark" id="about">
+            <div class="container">
+                <div class="section-meta">
+                    <span class="section-num">07</span>
+                    <h2 class="section-title">ABOUT ATUL</h2>
+                    <p class="section-sub">Engineering perspective and core philosophy.</p>
+                </div>
+
+                <div class="about-workshop-grid">
+                    <div class="about-portrait-area">
+                        <img src="assets/images/profile.png" alt="Atul Mundakkal - Software Engineer" class="about-portrait-img" loading="lazy">
+                        <div class="portrait-badge">KOCHI, INDIA / REMOTE</div>
+                    </div>
+
+                    <div class="about-workshop-content">
+                        <h3>Shopify &amp; Full-Stack Software Engineer</h3>
+                        <p>
+                            I specialize in Shopify theme architecture, Liquid template engineering, and custom web applications. Rather than relying on heavy third-party plugins that degrade site speed, I build lightweight, native Shopify solutions using clean Liquid code, structured Metafields, and asynchronous JavaScript.
+                        </p>
+                        <p>
+                            My approach combines technical rigor with AI-assisted developer workflows to deliver reliable, maintainable commerce systems that scale effortlessly.
+                        </p>
+
+                        <div class="about-highlights">
+                            <div class="h-item">
+                                <span class="h-num">50+</span>
+                                <span class="h-txt">Storefront Projects</span>
                             </div>
-                            <ul class="timeline-bullets">
-                                <li>Converted high-fidelity Figma designs into pixel-perfect, responsive Shopify storefronts.</li>
-                                <li>Optimized theme assets, Liquid code execution, and script loading to maximize site performance.</li>
-                                <li>Configured shop Metafields and custom theme settings for streamlined client content management.</li>
-                            </ul>
+                            <div class="h-item">
+                                <span class="h-num">0</span>
+                                <span class="h-txt">Framework Bloat</span>
+                            </div>
+                            <div class="h-item">
+                                <span class="h-num">100%</span>
+                                <span class="h-txt">Custom Liquid</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="section bg-card" id="contact">
+        <!-- Section 9: CONTACT ("GOT A SHOPIFY PROBLEM? LET'S SOLVE IT.") -->
+        <section class="section" id="contact">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-description">Interested in collaborating or discussing Shopify / Full-Stack projects? Reach out directly!</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <h3>Let's build something great</h3>
-                            <p>I am available for freelance projects, full-time opportunities, and technical consultations.</p>
-                            
-                            <div class="contact-method">
-                                <span class="contact-icon">✉️</span>
-                                <div>
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:atulmundakkal@outlook.com" class="contact-value">atulmundakkal@outlook.com</a>
-                                </div>
-                            </div>
+                <div class="contact-cta-box">
+                    <div class="cta-header">
+                        <span class="cta-subtitle">READY TO BUILD?</span>
+                        <h2 class="cta-title">GOT A SHOPIFY PROBLEM?<br><span class="text-gradient">LET'S SOLVE IT.</span></h2>
+                        <p class="cta-desc">Available for theme customizations, variant system fixes, custom app proxy integrations, and full-stack projects.</p>
+                    </div>
 
-                            <div class="contact-method">
-                                <span class="contact-icon">📱</span>
-                                <div>
-                                    <span class="contact-label">Phone / WhatsApp</span>
-                                    <a href="tel:+918281948007" class="contact-value">+91-8281948007</a>
-                                </div>
-                            </div>
+                    <div class="cta-buttons-grid">
+                        <a href="mailto:atulmundakkal@outlook.com" class="btn btn-primary-glow btn-lg" data-cursor="START">
+                            <span>START A CONVERSATION</span> &rarr;
+                        </a>
+                        <button class="btn btn-secondary btn-lg" id="copy-email-cta-btn" data-email="atulmundakkal@outlook.com" data-cursor="COPY">
+                            📋 COPY EMAIL ADDRESS
+                        </button>
+                    </div>
 
-                            <div class="contact-method">
-                                <span class="contact-icon">📍</span>
-                                <div>
-                                    <span class="contact-label">Location</span>
-                                    <span class="contact-value">Kochi, Kerala, India</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact-action">
-                            <h3>Direct Links</h3>
-                            <div class="social-links-grid">
-                                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="social-btn">
-                                    <span>GitHub Profile (Atul8007)</span>
-                                </a>
-                                <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" class="social-btn">
-                                    <span>LinkedIn Profile</span>
-                                </a>
-                                <button class="btn btn-primary btn-copy" id="copy-email-btn" data-email="atulmundakkal@outlook.com">
-                                    📋 Copy Email Address
-                                </button>
-                            </div>
-                        </div>
+                    <div class="social-links-row">
+                        <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="social-link-btn" data-cursor="GITHUB">
+                            <span>GITHUB (Atul8007)</span>
+                        </a>
+                        <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" class="social-link-btn" data-cursor="LINKEDIN">
+                            <span>LINKEDIN</span>
+                        </a>
+                        <a href="mailto:atulmundakkal@outlook.com" class="social-link-btn" data-cursor="EMAIL">
+                            <span>EMAIL DIRECT</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Hidden Interactive Terminal Modal -->
+    <div class="terminal-modal" id="terminal-modal" aria-hidden="true" role="dialog" aria-label="Interactive Terminal">
+        <div class="terminal-modal-content">
+            <div class="terminal-bar">
+                <div class="t-dots">
+                    <span class="t-dot close" id="close-terminal-btn"></span>
+                    <span class="t-dot min"></span>
+                    <span class="t-dot max"></span>
+                </div>
+                <div class="t-title">atul@workshop:~ (interactive-shell)</div>
+            </div>
+
+            <div class="terminal-output" id="terminal-output">
+                <div class="t-line">Welcome to Atul Workshop Terminal v2.0.0</div>
+                <div class="t-line">Type <span class="t-cmd">help</span> for available commands, or click shortcut tags below:</div>
+                <div class="t-shortcuts">
+                    <button class="t-tag" data-cmd="whoami">whoami</button>
+                    <button class="t-tag" data-cmd="shopify">shopify</button>
+                    <button class="t-tag" data-cmd="skills">skills</button>
+                    <button class="t-tag" data-cmd="projects">projects</button>
+                    <button class="t-tag" data-cmd="tools">tools</button>
+                    <button class="t-tag" data-cmd="experience">experience</button>
+                    <button class="t-tag" data-cmd="contact">contact</button>
+                    <button class="t-tag" data-cmd="sudo hire atul">sudo hire atul</button>
+                    <button class="t-tag" data-cmd="clear">clear</button>
+                </div>
+            </div>
+
+            <div class="terminal-input-line">
+                <span class="t-prompt">atul@workshop ~ %</span>
+                <input type="text" class="t-input" id="terminal-input" placeholder="Type command here..." autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <span class="footer-name">Atul Mundakkal</span>
-                <span class="footer-title">Shopify &amp; Full-Stack Developer</span>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <span class="f-logo">ATUL MUNDAKKAL</span>
+                <span class="f-sub">Shopify Developer &amp; Full-Stack Engineer</span>
             </div>
-            <div class="footer-links">
+            <div class="footer-tags">
+                <span>Liquid</span> · <span>Shopify</span> · <span>APIs</span> · <span>Developer Tools</span>
+            </div>
+            <div class="footer-links-row">
                 <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="mailto:atulmundakkal@outlook.com">Email</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="copyright-year">2026</span> Atul Mundakkal. Hosted on Cloudflare Pages.</p>
-                <button class="back-to-top" id="back-to-top" aria-label="Back to top of page">&uarr; Top</button>
+            <div class="footer-copy">
+                &copy; <span id="f-year">2026</span> Atul Mundakkal. Hosted on Cloudflare Pages.
             </div>
         </div>
     </footer>
