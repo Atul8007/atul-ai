@@ -67,17 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Developer & Full-Stack Engineer", tag: "DOCS", id: "overview" },
-        { title: "What I Work On", sub: "Themes, Variants, Checkout, APIs, Liquid, Developer Tools", tag: "DOMAINS", id: "focus" },
-        { title: "How I Solve Problems", sub: "Understand → Preserve → Improve → Replace sequence", tag: "APPROACH", id: "problem-solving" },
-        { title: "figclaw", sub: "AI-powered design-to-development workflow bridge (Claude to Figma)", tag: "PROJECT", id: "figclaw" },
-        { title: "Profile Switcher", sub: "Lightweight Shopify developer workflow tool for environment switching", tag: "PROJECT", id: "profile-switcher" },
-        { title: "ShopifyThemeCheck", sub: "Shopify theme inspection and developer tooling", tag: "PROJECT", id: "theme-check" },
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Engineer", tag: "DOCS", id: "overview" },
+        { title: "What I Work On", sub: "Themes & Liquid, Variants & Product Systems, Cart & Checkout, Shopify APIs, Developer Tools", tag: "DOMAINS", id: "focus" },
+        { title: "How I Solve Problems", sub: "01 Understand → 02 Preserve → 03 Improve → 04 Replace", tag: "APPROACH", id: "problem-solving" },
+        { title: "figclaw", sub: "Figma → Claude workflow bridge via Figma REST API", tag: "PROJECT", id: "figclaw" },
+        { title: "Profile Switcher", sub: "VS Code extension for Shopify CLI account management", tag: "PROJECT", id: "profile-switcher" },
+        { title: "Theme Inspector", sub: "Shopify storefront inspection Chrome extension (Manifest V3)", tag: "PROJECT", id: "theme-check" },
+        { title: "wacspace", sub: "Shopify CLI → AI development bridge", tag: "PROJECT", id: "wacspace" },
+        { title: "wishify", sub: "Shopify-native wishlist experiment using customer metafields", tag: "PROJECT", id: "wishify" },
         { title: "Technical Playground", sub: "API limit monitor & variant state sync demo", tag: "LAB", id: "playground" },
-        { title: "Capabilities Matrix", sub: "Ecosystem, Full-stack & Tooling proficiencies", tag: "MATRIX", id: "capabilities" },
-        { title: "About How I Work", sub: "Human explanation of engineering philosophy", tag: "ABOUT", id: "about-how-i-work" },
-        { title: "Experience Timeline", sub: "2024–Present developer timeline", tag: "TIMELINE", id: "experience" },
-        { title: "Available for Shopify Work", sub: "Contact & email direct links", tag: "CONTACT", id: "contact" }
+        { title: "Capabilities", sub: "Shopify Ecosystem, Full-Stack & Systems Thinking", tag: "MATRIX", id: "capabilities" },
+        { title: "About", sub: "Human explanation of engineering philosophy", tag: "ABOUT", id: "about-how-i-work" },
+        { title: "Experience", sub: "Webandcrafts, RDP Workstations, Ekatra Infotech", tag: "TIMELINE", id: "experience" },
+        { title: "Get in Touch", sub: "Contact & email direct links", tag: "CONTACT", id: "contact" }
     ];
 
     let selectedSearchIndex = 0;
@@ -188,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 5. ScrollSpy (Active Sidebar Link) ---
     const sectionIds = [
         'overview', 'focus', 'problem-solving',
-        'figclaw', 'profile-switcher', 'theme-check',
+        'figclaw', 'profile-switcher', 'theme-check', 'wacspace', 'wishify',
         'playground', 'capabilities', 'about-how-i-work', 'experience', 'contact'
     ];
 
@@ -351,10 +353,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const commandDict = {
         'help': () => 'Available commands: philosophy, work, tools, shopify, contact, sudo hire atul, clear',
-        'philosophy': () => 'HOW I SOLVE PROBLEMS: Understand → Preserve → Improve → Replace.',
-        'work': () => 'PUBLIC PROJECTS:\n1. figclaw (Claude + Figma API Bridge)\n2. Profile Switcher (Private Admin Developer Profile Utility)\n3. ShopifyThemeCheck (Shopify Theme & App Inspector Tool)',
-        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid 2.0\n- Multi-Option Variant Systems\n- Checkout & Metafield Sync\n- Storefront GraphQL & Admin REST APIs\n- Developer Tools & Utilities',
-        'tools': () => 'DEVELOPER TOOLS:\n- Profile Switcher Admin Utility\n- ShopifyThemeCheck Inspector Tool\n- figclaw (Claude + Figma API bridge)',
+        'philosophy': () => '01 Understand → 02 Preserve → 03 Improve → 04 Replace.',
+        'work': () => 'SELECTED PROJECTS:\n1. figclaw (Figma → Claude workflow bridge)\n2. Profile Switcher (VS Code extension for Shopify CLI)\n3. Theme Inspector (Shopify storefront inspection extension)\n4. wacspace (Shopify CLI → AI development bridge)\n5. wishify (Shopify-native wishlist experiment)',
+        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid\n- Variants & Product Systems\n- Cart & Checkout\n- Shopify APIs\n- Developer Tools',
+        'tools': () => 'DEVELOPER TOOLS & PROJECTS:\n- figclaw (Node.js, Figma REST API)\n- Profile Switcher (VS Code Extension API)\n- Theme Inspector (Manifest V3 Chrome Extension)\n- wacspace (Node.js, Shopify CLI)\n- wishify (TypeScript, Customer Metafields)',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
         'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nSystems Thinking ......... ✓\nDeveloper Tooling ......... ✓\nMinimal Infrastructure .... ✓ (₹0/month)\n\nSTATUS: AVAILABLE FOR SHOPIFY WORK.\nEmail: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'

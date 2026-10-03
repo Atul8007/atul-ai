@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="sidebar-group">
-                    <div class="sidebar-title">PROJECTS</div>
+                    <div class="sidebar-title">SELECTED PROJECTS</div>
                     <ul class="sidebar-links">
                         <li>
                             <a href="#figclaw" class="sidebar-link">
@@ -141,7 +141,19 @@
                         <li>
                             <a href="#theme-check" class="sidebar-link">
                                 <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
-                                ShopifyThemeCheck
+                                Theme Inspector
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#wacspace" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 1h4v2H6V1zm1 2h2v4H7V3zM4 7h8v2H4V7zm-2 2h12v5H2V9zm2 2v2h8v-2H4z"/></svg>
+                                wacspace
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#wishify" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                                wishify
                             </a>
                         </li>
                     </ul>
@@ -224,7 +236,7 @@
                 </nav>
 
                 <div class="doc-page-header">
-                    <div class="doc-tag">SHOPIFY DEVELOPER &amp; FULL-STACK ENGINEER</div>
+                    <div class="doc-tag">SHOPIFY FULL-STACK ENGINEER</div>
                     <h1 class="doc-title">ATUL MUNDAKKAL</h1>
                     <p class="hero-punchline">
                         I solve the parts of Shopify that don't come out of the box.
@@ -237,12 +249,12 @@
                         PERSPECTIVE ENGINE
                     </div>
                     <p>
-                        <strong>You should talk to Atul because you are looking for a better perspective on a solution you have been trying to figure out.</strong> I solve problems by understanding existing systems first, reducing friction, and engineering the simplest useful solution.
+                        I don't pitch expensive apps or rebuild stores from scratch. I read the Liquid code, inspect the theme data flow, and test the storefront state. I figure out what's working, fix what's causing friction, and build custom code only where Shopify's native options run out.
                     </p>
                 </div>
 
                 <div class="doc-actions-row">
-                    <a href="#projects" class="btn btn-primary"><span>View Projects →</span></a>
+                    <a href="#projects" class="btn btn-primary"><span>View Selected Projects →</span></a>
                     <a href="#contact" class="btn btn-secondary"><span>Contact Developer</span></a>
                     <button class="btn btn-secondary" id="hero-terminal-btn"><span>Open ATUL Shell [⌘K]</span></button>
                 </div>
@@ -253,74 +265,63 @@
             <!-- SECTION 1: WHAT I WORK ON (WITH RETRO PIXEL ART ICONS) -->
             <section class="doc-section" id="focus">
                 <h2>WHAT I WORK ON</h2>
-                <p class="section-intro">Specialized technical domains in Shopify storefront architecture and developer tooling.</p>
+                <p class="section-intro">Specialized technical domains in Shopify storefront architecture, Liquid, and developer tooling.</p>
 
                 <div class="focus-pills-grid">
                     
-                    <!-- Themes Pixel Icon -->
+                    <!-- Themes & Liquid -->
                     <div class="focus-pill-card">
                         <div class="p-icon-box">
                             <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <path fill="#38bdf8" d="M2 2h12v12H2V2zm2 2v2h8V4H4zm0 4v4h8V8H4z"/>
                             </svg>
                         </div>
-                        <div class="p-title">Themes</div>
-                        <p class="p-desc">Liquid 2.0, Dawn architecture, AJAX Section Rendering, Zero-dependency UI.</p>
+                        <div class="p-title">Themes &amp; Liquid</div>
+                        <p class="p-desc">Custom Shopify theme development, Liquid architecture, dynamic sections, and storefront performance.</p>
                     </div>
 
-                    <!-- Variants Pixel Icon (Pixelated Sneaker / Matrix Swatch) -->
+                    <!-- Variants & Product Systems -->
                     <div class="focus-pill-card">
                         <div class="p-icon-box">
                             <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <path fill="#95bf47" d="M5 4h6v2H5V4zm-2 2h2v4H3V6zm8 0h2v4h-2V6zm-6 4h6v2H5v-2zm-3 2h12v2H2v-2z"/>
                             </svg>
                         </div>
-                        <div class="p-title">Variants</div>
-                        <p class="p-desc">Complex multi-option variant matrix, custom swatches, real-time JSON state mutation.</p>
+                        <div class="p-title">Variants &amp; Product Systems</div>
+                        <p class="p-desc">Complex variant logic, custom swatches, and reliable variant state management.</p>
                     </div>
 
-                    <!-- Checkout Pixel Icon (Pixelated Receipt & Dollar) -->
+                    <!-- Cart & Checkout -->
                     <div class="focus-pill-card">
                         <div class="p-icon-box">
                             <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <path fill="#f59e0b" d="M3 1h10v14l-2-1-3 1-3-1-2 1V1zm3 3h4v2H6V4zm1 3h3v2H7V7zm-1 3h4v2H6v-2z"/>
                             </svg>
                         </div>
-                        <div class="p-title">Checkout</div>
-                        <p class="p-desc">Cart drawer state sync, Metafield integration, order flow friction reduction.</p>
+                        <div class="p-title">Cart &amp; Checkout</div>
+                        <p class="p-desc">Cart drawer systems, AJAX cart state sync, and custom purchase experiences built within Shopify's Checkout UI Extensions framework.</p>
                     </div>
 
-                    <!-- APIs Pixel Icon (Pixelated Cloud) -->
+                    <!-- Shopify APIs -->
                     <div class="focus-pill-card">
                         <div class="p-icon-box">
                             <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <path fill="#38bdf8" d="M5 4h6v2H5V4zM3 6h10v2H3V6zM2 8h12v4H2V8zm3 4h6v2H5v-2z"/>
                             </svg>
                         </div>
-                        <div class="p-title">APIs</div>
-                        <p class="p-desc">Storefront GraphQL, Admin REST, App Proxies, Customer &amp; Product Metaobjects.</p>
+                        <div class="p-title">Shopify APIs</div>
+                        <p class="p-desc">Storefront GraphQL, Admin REST, app proxies, metafields, and metaobjects.</p>
                     </div>
 
-                    <!-- Liquid Pixel Icon (Pixelated Water Drop / Code) -->
-                    <div class="focus-pill-card">
-                        <div class="p-icon-box">
-                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
-                                <path fill="#38bdf8" d="M7 1h2v3H7V1zM5 4h6v2H5V4zm-2 3h10v4H3V7zm2 4h6v2H5v-2zm2 2h2v2H7v-2z"/>
-                            </svg>
-                        </div>
-                        <div class="p-title">Liquid</div>
-                        <p class="p-desc">Custom snippet engineering, dynamic schema blocks, performance optimization.</p>
-                    </div>
-
-                    <!-- Developer Tools Pixel Icon (Pixelated Tool Box / Terminal) -->
-                    <div class="focus-pill-card">
+                    <!-- Developer Tools -->
+                    <div class="focus-pill-card" style="grid-column: span 2;">
                         <div class="p-icon-box">
                             <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
                                 <path fill="#95bf47" d="M4 2h8v2H4V2zM2 4h12v2H2V4zm0 3h12v7H2V7zm2 2v3h4V9H4zm5 0v1h3V9H9z"/>
                             </svg>
                         </div>
                         <div class="p-title">Developer Tools</div>
-                        <p class="p-desc">Chrome extensions, CLI workspace bridges, admin profile switchers, theme inspectors.</p>
+                        <p class="p-desc">Chrome extensions, VS Code extensions, CLI workflow tools, and storefront inspection utilities.</p>
                     </div>
 
                 </div>
@@ -333,13 +334,12 @@
                 <h2>HOW I SOLVE PROBLEMS</h2>
                 <p class="section-intro">A disciplined engineering sequence for handling complex storefront challenges.</p>
 
-                <!-- Flow Diagram (Understand -> Preserve -> Improve -> Replace) -->
                 <div class="problem-flow-box">
                     <div class="flow-step-node">
                         <div class="step-num-badge">01</div>
                         <div class="step-content">
                             <h3>Understand</h3>
-                            <p>Study the existing system, merchant workflow, data flow, and hard platform boundaries first.</p>
+                            <p>Study the existing theme, data flow, and platform boundaries first.</p>
                         </div>
                     </div>
 
@@ -349,7 +349,7 @@
                         <div class="step-num-badge">02</div>
                         <div class="step-content">
                             <h3>Preserve</h3>
-                            <p>Keep what already works well natively (Metafields, native sections) to minimize maintenance cost.</p>
+                            <p>Keep what already works natively. Minimize maintenance cost.</p>
                         </div>
                     </div>
 
@@ -359,7 +359,7 @@
                         <div class="step-num-badge">03</div>
                         <div class="step-content">
                             <h3>Improve</h3>
-                            <p>Extend native capabilities with lightweight client code or targeted Storefront API calls.</p>
+                            <p>Extend native capabilities with focused custom code or targeted API calls.</p>
                         </div>
                     </div>
 
@@ -369,7 +369,7 @@
                         <div class="step-num-badge">04</div>
                         <div class="step-content">
                             <h3>Replace</h3>
-                            <p>Replace only what is fundamentally broken or causing severe technical debt &amp; page slowdown.</p>
+                            <p>Replace only what is fundamentally broken. Not the entire system.</p>
                         </div>
                     </div>
                 </div>
@@ -378,11 +378,11 @@
             <hr class="doc-divider" id="projects">
 
             <!-- ==========================================================================
-                 SECTION 3: PROJECTS (ONLY 3 PUBLIC PROJECTS)
+                 SECTION 3: SELECTED PROJECTS
                  ========================================================================== -->
             <section class="doc-section">
-                <h2>PUBLIC PROJECTS</h2>
-                <p class="section-intro">Technical case studies formatted as developer documentation pages.</p>
+                <h2>SELECTED PROJECTS</h2>
+                <p class="section-intro">Real tools built to solve real development friction.</p>
 
                 <!-- PROJECT 1: FIGCLAW (#figclaw) -->
                 <article class="project-doc-page" id="figclaw">
@@ -390,7 +390,7 @@
                     <nav class="doc-breadcrumb" aria-label="Breadcrumb">
                         <ol>
                             <li><a href="#overview">Docs</a></li>
-                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#projects">Selected Projects</a></li>
                             <li aria-current="page">figclaw</li>
                         </ol>
                     </nav>
@@ -398,57 +398,26 @@
                     <header class="project-header">
                         <div class="project-meta-pill verified">
                             <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
-                            PUBLIC REPOSITORY / AI INTEGRATION
+                            Figma → Claude workflow bridge
                         </div>
                         <h1 class="project-title">figclaw</h1>
-                        <p class="project-description">AI-powered design-to-development workflow bridge connecting Claude AI directly to Figma.</p>
+                        <p class="project-description">Extracts Figma node geometry and styles via the Figma REST API and serializes them as structured context for AI coding prompts.</p>
                     </header>
 
                     <div class="project-actions">
                         <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
                     </div>
 
-                    <!-- Technical Step Workflow -->
-                    <div class="workflow-card">
-                        <div class="workflow-title">DESIGN-TO-CODE WORKFLOW</div>
-                        <div class="workflow-grid">
-                            <div class="wf-step">
-                                <span class="wf-num">1. Input</span>
-                                <p>Figma file URL &amp; target node token identifier</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">2. Processing</span>
-                                <p>Figma REST API parses layer geometries &amp; styles</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">3. Transformation</span>
-                                <p>Direct API bridge serializes design context</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">4. Output</span>
-                                <p>Automated code generation inside Claude AI</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Documentation Body -->
                     <div class="doc-content-body">
                         <section class="doc-sub-section">
-                            <h2>Overview</h2>
+                            <h2>What it does</h2>
                             <p>
-                                <strong>figclaw</strong> is a developer workflow tool engineered to connect Claude AI directly to Figma node graphs prior to official Model Context Protocol (MCP) support. It enables seamless extraction of design tokens, component hierarchies, and visual specs directly into AI prompting contexts.
+                                Fetches node data (<code>/v1/files/:key/nodes</code>), parses layer hierarchies, and outputs clean design tokens for pasting into Claude.
                             </p>
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Problem</h2>
-                            <p>
-                                Translating complex UI mockups into clean code required developers to manually copy-paste styles, measure pixel distances, and type CSS properties line by line. Existing developer handoff tools lacked direct execution bridges to AI coding assistants.
-                            </p>
-                        </section>
-
-                        <section class="doc-sub-section">
-                            <h2>Architecture &amp; Technical Code</h2>
+                            <h2>Architecture &amp; Code Snippet</h2>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="code-filename">figclaw-bridge.js</span>
@@ -466,12 +435,11 @@ async function fetchFigmaNodeContext(fileKey, nodeId) {
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Result &amp; Technology Stack</h2>
+                            <h2>Tech Stack</h2>
                             <div class="tech-stack-row">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Figma REST API</span>
-                                <span class="tech-tag">Claude AI Integration</span>
                                 <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Figma REST API</span>
+                                <span class="tech-tag">JavaScript</span>
                             </div>
                         </section>
                     </div>
@@ -486,7 +454,7 @@ async function fetchFigmaNodeContext(fileKey, nodeId) {
                     <nav class="doc-breadcrumb" aria-label="Breadcrumb">
                         <ol>
                             <li><a href="#overview">Docs</a></li>
-                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#projects">Selected Projects</a></li>
                             <li aria-current="page">Profile Switcher</li>
                         </ol>
                     </nav>
@@ -494,63 +462,28 @@ async function fetchFigmaNodeContext(fileKey, nodeId) {
                     <header class="project-header">
                         <div class="project-meta-pill private">
                             <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
-                            DEVELOPER UTILITY
+                            VS Code extension for Shopify CLI account management
                         </div>
                         <h1 class="project-title">Profile Switcher</h1>
-                        <p class="project-description">A lightweight Shopify developer workflow tool for switching development profiles/environments.</p>
+                        <p class="project-description">Switches the active Shopify CLI account by updating the CLI's <code>currentSessionId</code> config pointer. No token handling. No session manipulation.</p>
                     </header>
 
-                    <div class="project-actions">
-                        <span class="meta-tag-pill">Private Repository Utility</span>
-                    </div>
-
-                    <!-- Technical Step Workflow -->
-                    <div class="workflow-card">
-                        <div class="workflow-title">DEVELOPER WORKFLOW</div>
-                        <div class="workflow-grid">
-                            <div class="wf-step">
-                                <span class="wf-num">1. Select profile</span>
-                                <p>Choose target store development environment</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">2. Load configuration</span>
-                                <p>Fetch active store credentials &amp; API keys</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">3. Switch environment</span>
-                                <p>Hot-swap active admin session tokens</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">4. Continue development</span>
-                                <p>Resume theme dev with zero authentication breaks</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Documentation Body -->
                     <div class="doc-content-body">
                         <section class="doc-sub-section">
-                            <h2>Overview</h2>
+                            <h2>What it does</h2>
                             <p>
-                                <strong>Profile Switcher</strong> is a specialized developer utility built to simplify managing multiple client Shopify Admin stores and development environments without requiring repetitive manual logouts and credential re-entry.
+                                Reads your local Shopify CLI config, lists available accounts, and swaps the active pointer so <code>shopify theme dev</code> targets the right store.
                             </p>
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Problem</h2>
-                            <p>
-                                Shopify developers working across multiple client stores lose valuable time re-authenticating sessions and navigating between partner accounts. Standard browser session management often triggers unwanted logouts across active tabs.
-                            </p>
-                        </section>
-
-                        <section class="doc-sub-section">
-                            <h2>Architecture &amp; Technical Code</h2>
+                            <h2>Architecture &amp; Code Snippet</h2>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="code-filename">profile-switcher.js</span>
                                     <button class="copy-btn" data-code="profile-snippet">Copy</button>
                                 </div>
-                                <pre><code id="profile-snippet">// Profile Switcher Environment Loader
+                                <pre><code id="profile-snippet">// Profile Switcher Environment Pointer Swap
 function switchShopifyProfile(targetProfileKey) {
   const profileConfig = loadLocalProfileConfig(targetProfileKey);
   if (!profileConfig) throw new Error(`Profile "${targetProfileKey}" not found`);
@@ -562,11 +495,10 @@ function switchShopifyProfile(targetProfileKey) {
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Result &amp; Technology Stack</h2>
+                            <h2>Tech Stack</h2>
                             <div class="tech-stack-row">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Shopify Admin API</span>
-                                <span class="tech-tag">Developer Utility</span>
+                                <span class="tech-tag">VS Code Extension API</span>
+                                <span class="tech-tag">Shopify CLI config</span>
                             </div>
                         </section>
                     </div>
@@ -575,77 +507,49 @@ function switchShopifyProfile(targetProfileKey) {
 
                 <hr class="doc-divider">
 
-                <!-- PROJECT 3: SHOPIFYTHEMECHECK (#theme-check) -->
+                <!-- PROJECT 3: THEME INSPECTOR (#theme-check) -->
                 <article class="project-doc-page" id="theme-check">
                     
                     <nav class="doc-breadcrumb" aria-label="Breadcrumb">
                         <ol>
                             <li><a href="#overview">Docs</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li aria-current="page">ShopifyThemeCheck</li>
+                            <li><a href="#projects">Selected Projects</a></li>
+                            <li aria-current="page">Theme Inspector</li>
                         </ol>
                     </nav>
 
                     <header class="project-header">
                         <div class="project-meta-pill verified">
                             <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
-                            SHOPIFY INSPECTION TOOL
+                            Shopify storefront inspection Chrome extension
                         </div>
-                        <h1 class="project-title">ShopifyThemeCheck</h1>
-                        <p class="project-description">Shopify theme inspection and developer tooling.</p>
+                        <h1 class="project-title">Theme Inspector</h1>
+                        <p class="project-description">Extracts active theme identifiers, third-party app scripts, font files, and product JSON schemas from live Shopify storefronts.</p>
                     </header>
 
                     <div class="project-actions">
                         <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
                     </div>
 
-                    <!-- Technical Step Workflow -->
-                    <div class="workflow-card">
-                        <div class="workflow-title">INSPECTION WORKFLOW</div>
-                        <div class="workflow-grid">
-                            <div class="wf-step">
-                                <span class="wf-num">1. Detect</span>
-                                <p>Identify theme engine &amp; active asset bundles</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">2. Inspect</span>
-                                <p>Extract installed app scripts &amp; font files</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">3. Analyse</span>
-                                <p>Parse product JSON schemas &amp; Metafields</p>
-                            </div>
-                            <div class="wf-step">
-                                <span class="wf-num">4. Surface information</span>
-                                <p>Display clean technical asset breakdown</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Documentation Body -->
                     <div class="doc-content-body">
                         <section class="doc-sub-section">
-                            <h2>Overview</h2>
+                            <h2>What it does</h2>
                             <p>
-                                <strong>ShopifyThemeCheck</strong> is an inspection tool engineered for rapid storefront auditing. It automatically parses live Shopify store pages to extract active theme identifiers, third-party app scripts, custom font files, social media integrations, and raw product JSON schemas.
+                                One-click audit of theme name, app scripts, and product data. Runs entirely in-browser.
+                            </p>
+                            <p class="section-note" style="font-size:0.82rem; color:var(--text-muted); font-family:var(--font-mono);">
+                                <em>Note: Unlike Shopify's official Theme Inspector (Liquid profiling), this tool inspects runtime assets and third-party scripts.</em>
                             </p>
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Problem</h2>
-                            <p>
-                                Auditing a merchant's live storefront to diagnose script bloat, third-party app dependencies, or custom variant structure required tedious manual tracing through DevTools DOM trees and network requests.
-                            </p>
-                        </section>
-
-                        <section class="doc-sub-section">
-                            <h2>Architecture &amp; Technical Code</h2>
+                            <h2>Architecture &amp; Code Snippet</h2>
                             <div class="code-block">
                                 <div class="code-header">
-                                    <span class="code-filename">theme-check-inspector.js</span>
+                                    <span class="code-filename">theme-inspector.js</span>
                                     <button class="copy-btn" data-code="themecheck-snippet">Copy</button>
                                 </div>
-                                <pre><code id="themecheck-snippet">// ShopifyThemeCheck DOM & JSON Extractor
+                                <pre><code id="themecheck-snippet">// Theme Inspector DOM & JSON Extractor
 function inspectShopifyStorefront() {
   const themeData = window.Shopify ? window.Shopify.theme : null;
   const scriptTags = Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
@@ -661,12 +565,94 @@ function inspectShopifyStorefront() {
                         </section>
 
                         <section class="doc-sub-section">
-                            <h2>Result &amp; Technology Stack</h2>
+                            <h2>Tech Stack</h2>
                             <div class="tech-stack-row">
+                                <span class="tech-tag">Chrome Extension (Manifest V3)</span>
                                 <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">JSON Schema Extractor</span>
-                                <span class="tech-tag">Storefront Parsing</span>
-                                <span class="tech-tag">DOM Inspection</span>
+                                <span class="tech-tag">DOM inspection</span>
+                            </div>
+                        </section>
+                    </div>
+
+                </article>
+
+                <hr class="doc-divider">
+
+                <!-- PROJECT 4: WACSPACE (#wacspace) -->
+                <article class="project-doc-page" id="wacspace">
+                    
+                    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#overview">Docs</a></li>
+                            <li><a href="#projects">Selected Projects</a></li>
+                            <li aria-current="page">wacspace</li>
+                        </ol>
+                    </nav>
+
+                    <header class="project-header">
+                        <div class="project-meta-pill verified">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#38bdf8" d="M6 1h4v2H6V1zm1 2h2v4H7V3zM4 7h8v2H4V7zm-2 2h12v5H2V9zm2 2v2h8v-2H4z"/></svg>
+                            Shopify CLI → AI development bridge
+                        </div>
+                        <h1 class="project-title">wacspace</h1>
+                        <p class="project-description">Passes Shopify theme development context and commands into AI-assisted coding workflows.</p>
+                    </header>
+
+                    <div class="doc-content-body">
+                        <section class="doc-sub-section">
+                            <h2>What it does</h2>
+                            <p>
+                                Bridges CLI execution contexts directly with generative AI code prompts for faster theme iteration.
+                            </p>
+                        </section>
+
+                        <section class="doc-sub-section">
+                            <h2>Tech Stack</h2>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Shopify CLI</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </section>
+                    </div>
+
+                </article>
+
+                <hr class="doc-divider">
+
+                <!-- PROJECT 5: WISHIFY (#wishify) -->
+                <article class="project-doc-page" id="wishify">
+                    
+                    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#overview">Docs</a></li>
+                            <li><a href="#projects">Selected Projects</a></li>
+                            <li aria-current="page">wishify</li>
+                        </ol>
+                    </nav>
+
+                    <header class="project-header">
+                        <div class="project-meta-pill verified">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                            Shopify-native wishlist experiment
+                        </div>
+                        <h1 class="project-title">wishify</h1>
+                        <p class="project-description">Explores storing wishlist data in Shopify customer metafields with client-side state management.</p>
+                    </header>
+
+                    <div class="doc-content-body">
+                        <section class="doc-sub-section">
+                            <h2>What it does</h2>
+                            <p>
+                                Zero-database wishlist implementation leveraging Shopify's native Customer Metafields API for persistent user saves.
+                            </p>
+                        </section>
+
+                        <section class="doc-sub-section">
+                            <h2>Tech Stack</h2>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Shopify customer metafields</span>
                             </div>
                         </section>
                     </div>
@@ -774,7 +760,7 @@ function inspectShopifyStorefront() {
 
             <!-- SECTION 5: CAPABILITIES MATRIX -->
             <section class="doc-section" id="capabilities">
-                <h2>CAPABILITIES &amp; SYSTEMS MATRIX</h2>
+                <h2>CAPABILITIES</h2>
                 <p class="section-intro">Core engineering proficiencies grounded in practical Shopify development.</p>
 
                 <div class="cap-matrix-grid">
@@ -782,7 +768,7 @@ function inspectShopifyStorefront() {
                         <h3>Shopify Ecosystem</h3>
                         <ul>
                             <li>▹ Custom Theme Architecture (Liquid, Dawn Base)</li>
-                            <li>▹ Multi-Dimensional Variant Logic &amp; Swatches</li>
+                            <li>▹ Multi-Dimensional Variant Logic</li>
                             <li>▹ Customer &amp; Product Metafields / Metaobjects</li>
                             <li>▹ Storefront GraphQL &amp; Admin REST APIs</li>
                             <li>▹ AJAX Cart Drawer &amp; Section Rendering API</li>
@@ -790,35 +776,21 @@ function inspectShopifyStorefront() {
                     </div>
 
                     <div class="cap-card">
-                        <h3>Full-Stack Systems</h3>
+                        <h3>Full-Stack</h3>
                         <ul>
-                            <li>▹ Frontend Engineering (JavaScript ES6+, TypeScript, React)</li>
+                            <li>▹ JavaScript ES6+, TypeScript, React</li>
                             <li>▹ Node.js &amp; API Integration</li>
-                            <li>▹ Cloudflare Workers &amp; Pages Hosting (₹0/mo setup)</li>
                             <li>▹ Chrome Extension Architecture (Manifest V3)</li>
-                            <li>▹ Git &amp; Automated CI/CD Workflows</li>
+                            <li>▹ Git &amp; CI/CD Workflows</li>
                         </ul>
                     </div>
 
-                    <div class="cap-card">
+                    <div class="cap-card" style="grid-column: span 2;">
                         <h3>Systems Thinking</h3>
                         <ul>
-                            <li>▹ Platform Constraint Analysis &amp; Friction Reduction</li>
+                            <li>▹ Platform Constraint Analysis</li>
                             <li>▹ Decision Architecture (Keep / Extend / Replace)</li>
-                            <li>▹ Cost-Effective Platform Workarounds</li>
-                            <li>▹ Code-to-UX Interaction Mapping</li>
                             <li>▹ Zero Framework Over-Engineering</li>
-                        </ul>
-                    </div>
-
-                    <div class="cap-card">
-                        <h3>Developer Tooling</h3>
-                        <ul>
-                            <li>▹ VS Code Extensions (Liquid Snippet Helpers)</li>
-                            <li>▹ AI-to-Platform Direct Bridges (figclaw)</li>
-                            <li>▹ Shopify Admin Utilities (Profile Switcher)</li>
-                            <li>▹ Shopify Theme &amp; Asset Inspector Tools</li>
-                            <li>▹ Developer Workflow Automation</li>
                         </ul>
                     </div>
                 </div>
@@ -828,12 +800,12 @@ function inspectShopifyStorefront() {
 
             <!-- SECTION 6: ABOUT HOW I WORK -->
             <section class="doc-section" id="about-how-i-work">
-                <h2>ABOUT HOW I WORK</h2>
+                <h2>ABOUT</h2>
                 
                 <div class="doc-callout">
-                    <div class="callout-label">SHORT, HUMAN EXPLANATION</div>
+                    <div class="callout-label">PHILOSOPHY &amp; APPROACH</div>
                     <p>
-                        I don't start by pitching expensive apps or telling you to rebuild your store from scratch. First, I read your Liquid code, inspect your theme data flow, and test your storefront state. I figure out what's working, fix what's causing friction, and build custom code only where standard Shopify options run out.
+                        I don't pitch expensive apps or rebuild stores from scratch. I read the Liquid code, inspect the theme data flow, and test the storefront state. I figure out what's working, fix what's causing friction, and build custom code only where Shopify's native options run out.
                     </p>
                 </div>
             </section>
@@ -847,17 +819,26 @@ function inspectShopifyStorefront() {
 
                 <div class="timeline-list">
                     <div class="timeline-item">
-                        <div class="t-year">2026 — PRESENT</div>
+                        <div class="t-year">DEC 2024 — PRESENT</div>
                         <div class="t-desc">
-                            <strong>Shopify Full-Stack Developer &amp; Systems Builder</strong>
-                            <p>Engineering custom Liquid theme architectures, multi-option variant systems, developer tooling, and ₹0/mo Cloudflare Pages infrastructure solutions.</p>
+                            <strong>Shopify Developer — Webandcrafts</strong>
+                            <p>Shopify App Development. Building and extending Shopify storefronts.</p>
                         </div>
                     </div>
+
                     <div class="timeline-item">
-                        <div class="t-year">2024 — 2026</div>
+                        <div class="t-year">JUN 2024 — NOV 2024</div>
                         <div class="t-desc">
-                            <strong>Developer Tools &amp; AI Integration Engineering</strong>
-                            <p>Built public Chrome extensions, Figma-to-Claude bridges (`figclaw`), and Shopify Admin utilities (`Profile Switcher`, `ShopifyThemeCheck`).</p>
+                            <strong>Theme Developer — RDP Workstations</strong>
+                            <p>Liquid theme development and app integrations.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="t-year">JAN 2023 — JUN 2024</div>
+                        <div class="t-desc">
+                            <strong>Web Developer — Ekatra Infotech</strong>
+                            <p>Shopify, WordPress, and frontend development.</p>
                         </div>
                     </div>
                 </div>
@@ -865,14 +846,14 @@ function inspectShopifyStorefront() {
 
             <hr class="doc-divider">
 
-            <!-- SECTION 8: CONTACT & WORK AVAILABILITY -->
+            <!-- SECTION 8: GET IN TOUCH -->
             <section class="doc-section" id="contact">
-                <h2>AVAILABLE FOR SHOPIFY WORK</h2>
+                <h2>GET IN TOUCH</h2>
                 <p class="section-intro">Looking for a clear technical perspective on a Shopify or storefront solution you've been trying to figure out?</p>
 
                 <div class="doc-callout contact-box">
-                    <h3>GET IN TOUCH DIRECTLY</h3>
-                    <p>Reach out directly via email or connect on GitHub/LinkedIn.</p>
+                    <h3>REACH OUT DIRECTLY</h3>
+                    <p>Contact me via email or connect on GitHub/LinkedIn.</p>
 
                     <div class="doc-actions-row" style="margin-top: 16px;">
                         <a href="mailto:atulmundakkal@outlook.com" class="btn btn-primary"><span>Email Atul [atulmundakkal@outlook.com] →</span></a>
@@ -955,11 +936,13 @@ function inspectShopifyStorefront() {
             </div>
 
             <div class="f-col">
-                <div class="f-title">PROJECTS</div>
+                <div class="f-title">SELECTED PROJECTS</div>
                 <ul>
                     <li><a href="#figclaw">figclaw</a></li>
                     <li><a href="#profile-switcher">Profile Switcher</a></li>
-                    <li><a href="#theme-check">ShopifyThemeCheck</a></li>
+                    <li><a href="#theme-check">Theme Inspector</a></li>
+                    <li><a href="#wacspace">wacspace</a></li>
+                    <li><a href="#wishify">wishify</a></li>
                 </ul>
             </div>
 
