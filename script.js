@@ -40,21 +40,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Sidebar Mobile Drawer Toggle ---
+    // --- 3. Sidebar Collapse & Drawer Toggle System ---
     const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
     const docSidebar = document.getElementById('doc-sidebar');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
+    // Restore saved desktop sidebar state from localStorage
+    const savedSidebarState = localStorage.getItem('fde-sidebar-collapsed');
+    if (savedSidebarState === 'true' && window.innerWidth > 880) {
+        document.body.classList.add('sidebar-collapsed');
+        if (sidebarToggleBtn) sidebarToggleBtn.classList.add('active');
+    }
+
     if (sidebarToggleBtn && docSidebar) {
         sidebarToggleBtn.addEventListener('click', () => {
-            const active = docSidebar.classList.toggle('active');
-            sidebarToggleBtn.setAttribute('aria-expanded', active);
+            if (window.innerWidth > 880) {
+                // Desktop: Collapse / Expand Left Sidebar
+                const isCollapsed = document.body.classList.toggle('sidebar-collapsed');
+                sidebarToggleBtn.classList.toggle('active', isCollapsed);
+                sidebarToggleBtn.setAttribute('aria-expanded', !isCollapsed);
+                localStorage.setItem('fde-sidebar-collapsed', isCollapsed ? 'true' : 'false');
+            } else {
+                // Mobile: Slide Out Drawer Toggle
+                const active = docSidebar.classList.toggle('active');
+                sidebarToggleBtn.classList.toggle('active', active);
+                sidebarToggleBtn.setAttribute('aria-expanded', active);
+            }
         });
 
         sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
                 docSidebar.classList.remove('active');
-                if (sidebarToggleBtn) sidebarToggleBtn.setAttribute('aria-expanded', 'false');
+                if (window.innerWidth <= 880 && sidebarToggleBtn) {
+                    sidebarToggleBtn.classList.remove('active');
+                    sidebarToggleBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         });
     }
