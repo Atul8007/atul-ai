@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchDatabase = [
         { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Engineer", tag: "DOCS", url: "/index.html" },
         { title: "What I Work On", sub: "Themes & Liquid, Variants, Cart & Checkout, Shopify APIs, Developer Tools", tag: "DOMAINS", url: "/what-i-work-on.html" },
-        { title: "How I Solve Problems", sub: "01 Understand → 02 Preserve → 03 Improve → 04 Replace", tag: "APPROACH", url: "/how-i-solve-problems.html" },
+        { title: "Tech Stack & Dev Environment", sub: "Shopify CLI 3.x, Liquid 2.0, Dawn, Checkout UI Extensions, Cloudflare", tag: "STACK", url: "/tech-stack.html" },
         { title: "Selected Projects Directory", sub: "Overview of all 5 developer tools & platform integrations", tag: "PROJECTS", url: "/projects.html" },
         { title: "figclaw", sub: "Figma → Claude workflow bridge via Figma REST API", tag: "CASE STUDY", url: "/projects/figclaw.html" },
         { title: "Profile Switcher", sub: "VS Code extension for Shopify CLI account management", tag: "CASE STUDY", url: "/projects/profile-switcher.html" },

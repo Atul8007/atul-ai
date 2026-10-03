@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack & Dev Environment — Atul Mundakkal Developer Docs</title>
+    <meta name="description" content="Tools, frameworks, APIs, and dev environment: Shopify CLI 3.x, Liquid 2.0, Dawn, Checkout UI Extensions, Storefront GraphQL, Manifest V3, and Cloudflare Pages.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="doc-header" id="doc-header">
+        <div class="doc-header-container">
+            <div class="header-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" title="Toggle Sidebar [Collapse/Expand]"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg></button>
+                <a href="/index.html" class="doc-brand">
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">SHOPIFY DEV</span>
+                </a>
+            </div>
+
+            <nav class="doc-top-nav">
+                <a href="/index.html" class="top-nav-link">Overview</a>
+                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
+                <a href="/tech-stack.html" class="top-nav-link active">Tech Stack</a>
+                <a href="/projects.html" class="top-nav-link">Projects</a>
+                <a href="/lab.html" class="top-nav-link">Lab</a>
+                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
+                <a href="/contact.html" class="top-nav-link">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
+                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="doc-layout">
+        <!-- SIDEBAR -->
+        <aside class="doc-sidebar" id="doc-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-group">
+                    <div class="sidebar-title">EXPLORE</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/index.html" class="sidebar-link"><svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3 1h7l4 4v10H3V1zm2 3v1h4V4H5zm0 3v1h6V7H5zm0 3v1h6v-1H5zm0 3v1h4v-1H5z"/></svg> Overview</a></li>
+                        <li><a href="/what-i-work-on.html" class="sidebar-link"><svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M8 1h2v3H8V1zM6 4h4v2H6V4zm-2 2h6v2H4V6zm-1 2h4v2H3V8zm3 2h2v2H6v-2zm-1 2h2v3H5v-3z"/></svg> What I Work On</a></li>
+                        <li><a href="/tech-stack.html" class="sidebar-link active"><svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M4 2h8v2H4V2zM2 4h12v2H2V4zm0 3h12v7H2V7zm2 2v3h4V9H4zm5 0v1h3V9H9z"/></svg> Tech Stack &amp; Dev Environment</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-group">
+                    <div class="sidebar-title">SELECTED PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
+                        <li><a href="/projects/figclaw.html" class="sidebar-link">figclaw</a></li>
+                        <li><a href="/projects/profile-switcher.html" class="sidebar-link">Profile Switcher</a></li>
+                        <li><a href="/projects/theme-inspector.html" class="sidebar-link">Theme Inspector</a></li>
+                        <li><a href="/projects/wacspace.html" class="sidebar-link">wacspace</a></li>
+                        <li><a href="/projects/wishify.html" class="sidebar-link">wishify</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="doc-main">
+            <section class="doc-page-section">
+                <nav class="doc-breadcrumb">
+                    <ol>
+                        <li><a href="/index.html">Docs</a></li>
+                        <li aria-current="page">Tech Stack &amp; Dev Environment</li>
+                    </ol>
+                </nav>
+
+                <div class="doc-page-header">
+                    <div class="doc-tag">DEVELOPER INFRASTRUCTURE</div>
+                    <h1 class="doc-title">TECH STACK &amp; DEV ENVIRONMENT</h1>
+                    <p class="hero-punchline">The exact tools, frameworks, and APIs I use to build performant Shopify storefronts.</p>
+                </div>
+
+                <div class="focus-pills-grid" style="grid-template-columns: 1fr;">
+                    
+                    <!-- 1. SHOPIFY CORE & THEME ARCHITECTURE -->
+                    <div class="doc-callout">
+                        <div class="callout-label">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
+                            SHOPIFY CORE &amp; THEME ENGINE
+                        </div>
+                        <h3 style="font-family:var(--font-mono); margin-bottom:8px; color:var(--text-primary);">Shopify CLI 3.x, Dawn Base &amp; Liquid 2.0</h3>
+                        <p>Core development environment using <code>shopify theme dev</code> for hot-reloading theme previews, Dawn base section architecture, zero-dependency Liquid snippets, and Checkout UI Extensions for checkout customization.</p>
+                        <div class="tech-stack-row" style="margin-top:12px;">
+                            <span class="tech-tag">Shopify CLI 3.x</span>
+                            <span class="tech-tag">Liquid 2.0</span>
+                            <span class="tech-tag">Dawn Base</span>
+                            <span class="tech-tag">Checkout UI Extensions</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. APIS & DATA LAYERS -->
+                    <div class="doc-callout">
+                        <div class="callout-label">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#38bdf8" d="M5 4h6v2H5V4zM3 6h10v2H3V6zM2 8h12v4H2V8zm3 4h6v2H5v-2z"/></svg>
+                            APIS &amp; DATA LAYERS
+                        </div>
+                        <h3 style="font-family:var(--font-mono); margin-bottom:8px; color:var(--text-primary);">GraphQL, Admin REST, Metafields &amp; Metaobjects</h3>
+                        <p>Leveraging Shopify Storefront GraphQL for client-side data fetching, Admin REST APIs for store auditing, and native Metafields/Metaobjects to structure custom product &amp; customer schemas without third-party databases.</p>
+                        <div class="tech-stack-row" style="margin-top:12px;">
+                            <span class="tech-tag">Storefront GraphQL</span>
+                            <span class="tech-tag">Admin REST API</span>
+                            <span class="tech-tag">Customer Metafields</span>
+                            <span class="tech-tag">Product Metaobjects</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. FRONTEND & EXTENSION ARCHITECTURE -->
+                    <div class="doc-callout">
+                        <div class="callout-label">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h12v2H2V4zm0 3h12v7H2V7zm2 2v3h4V9H4zm5 0v1h3V9H9z"/></svg>
+                            FRONTEND &amp; EXTENSION ENGINEERING
+                        </div>
+                        <h3 style="font-family:var(--font-mono); margin-bottom:8px; color:var(--text-primary);">Vanilla ES6+, TypeScript &amp; Browser Extensions</h3>
+                        <p>Building high-performance DOM scripts without heavy JavaScript frameworks. Engineering Manifest V3 Chrome extensions (e.g. <code>Theme Inspector</code>) and VS Code extension tools (e.g. <code>Profile Switcher</code>) for developer productivity.</p>
+                        <div class="tech-stack-row" style="margin-top:12px;">
+                            <span class="tech-tag">JavaScript ES6+</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Chrome Extension (Manifest V3)</span>
+                            <span class="tech-tag">VS Code Extension API</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. INFRASTRUCTURE & EDGE HOSTING -->
+                    <div class="doc-callout">
+                        <div class="callout-label">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#95bf47" d="M2 11h3v4H2v-4zm4-4h3v8H6V7zm4-4h3v12h-3V3z"/></svg>
+                            INFRASTRUCTURE &amp; EDGE HOSTING
+                        </div>
+                        <h3 style="font-family:var(--font-mono); margin-bottom:8px; color:var(--text-primary);">Cloudflare Pages, Workers &amp; Git CI/CD</h3>
+                        <p>Deploying static documentation and edge proxy utilities on Cloudflare Pages/Workers targeting ₹0/month operating cost with automated GitHub Actions CI/CD deployment pipelines.</p>
+                        <div class="tech-stack-row" style="margin-top:12px;">
+                            <span class="tech-tag">Cloudflare Pages</span>
+                            <span class="tech-tag">Cloudflare Workers</span>
+                            <span class="tech-tag">Git &amp; GitHub Actions</span>
+                            <span class="tech-tag">₹0/mo Infrastructure Target</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- COMMAND PALETTE SEARCH MODAL (⌘K) -->
+    <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
+        <div class="search-modal-backdrop" id="search-backdrop"></div>
+        <div class="search-palette">
+            <div class="search-input-wrapper">
+                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search documentation, tools, APIs..." autocomplete="off">
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
