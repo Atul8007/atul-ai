@@ -1,173 +1,174 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selected Projects — Atul Mundakkal Developer Docs</title>
-    <meta name="description" content="Technical documentation directory for figclaw, Profile Switcher, Theme Inspector, wacspace, and wishify.">
-    <link rel="stylesheet" href="/style.css">
+    <title>Projects — Atul Mundakkal Developer Docs</title>
+    
+    <meta name="description" content="Selected developer projects and tools built around Shopify and modern commerce: FigClaw, Profile Switcher, ShopifyThemeCheck.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/projects.html">
+
+    <!-- Fonts: JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!-- GLOBAL HEADER -->
+    <!-- COMPACT DEVELOPER HEADER -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
+            
             <div class="header-left">
-                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" title="Toggle Sidebar [Collapse/Expand]"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg></button>
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
                 <a href="/index.html" class="doc-brand">
-                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
-                    <span class="brand-text">ATUL MUNDAKKAL</span>
-                    <span class="brand-badge">SHOPIFY DEV</span>
+                    <span class="brand-name">Atul Mundakkal</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-sub">Docs</span>
+                    <span class="brand-badge">Shopify Dev</span>
                 </a>
             </div>
 
             <nav class="doc-top-nav">
                 <a href="/index.html" class="top-nav-link">Overview</a>
-                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
-                <a href="/tech-stack.html" class="top-nav-link">Tech Stack</a>
                 <a href="/projects.html" class="top-nav-link active">Projects</a>
-                <a href="/lab.html" class="top-nav-link">Lab</a>
-                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
+                <a href="/about.html" class="top-nav-link">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
                 <a href="/contact.html" class="top-nav-link">Contact</a>
             </nav>
 
             <div class="header-right">
-                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
-                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                    <span class="search-label">Search docs...</span>
+                    <kbd class="search-kbd">⌘K</kbd>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-text" id="theme-text">LIGHT</span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="header-ext-link">GitHub ↗</a>
+                <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" class="header-ext-link">LinkedIn ↗</a>
             </div>
+
         </div>
     </header>
 
-    <div class="doc-layout">
+    <div class="doc-layout no-toc">
+
         <!-- SIDEBAR -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
+                
                 <div class="sidebar-group">
-                    <div class="sidebar-title">SELECTED PROJECTS</div>
+                    <div class="sidebar-title">DOCUMENTATION</div>
                     <ul class="sidebar-links">
-                        <li><a href="/projects.html" class="sidebar-link active">All Projects</a></li>
-                        <li><a href="/projects/figclaw.html" class="sidebar-link">figclaw</a></li>
-                        <li><a href="/projects/profile-switcher.html" class="sidebar-link">Profile Switcher</a></li>
-                        <li><a href="/projects/theme-inspector.html" class="sidebar-link">Theme Inspector</a></li>
-                        <li><a href="/projects/wacspace.html" class="sidebar-link">wacspace</a></li>
-                        <li><a href="/projects/wishify.html" class="sidebar-link">wishify</a></li>
+                        <li><a href="/index.html" class="sidebar-link">Overview</a></li>
                     </ul>
                 </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/projects.html" class="sidebar-link active">All Projects</a></li>
+                        <li><a href="/projects/figclaw.html" class="sidebar-link indent">FigClaw</a></li>
+                        <li><a href="/projects/profile-switcher.html" class="sidebar-link indent">Profile Switcher</a></li>
+                        <li><a href="/projects/theme-inspector.html" class="sidebar-link indent">ShopifyThemeCheck</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">BACKGROUND</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/about.html" class="sidebar-link">About</a></li>
+                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
+                        <li><a href="/contact.html" class="sidebar-link">Contact</a></li>
+                    </ul>
+                </div>
+
             </div>
         </aside>
 
         <main class="doc-main">
-            <section class="doc-page-section">
-                <nav class="doc-breadcrumb">
-                    <ol>
-                        <li><a href="/index.html">Docs</a></li>
-                        <li aria-current="page">Selected Projects</li>
-                    </ol>
-                </nav>
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li aria-current="page">Projects</li>
+                </ol>
+            </nav>
 
-                <div class="doc-page-header">
-                    <div class="doc-tag">PROJECT DIRECTORY</div>
-                    <h1 class="doc-title">SELECTED PROJECTS</h1>
-                    <p class="hero-punchline">Real tools built to solve real development friction.</p>
+            <header class="doc-page-header">
+                <h1 class="doc-title">Projects</h1>
+                <p class="doc-lead">
+                    Detailed technical documentation for developer tooling, extensions, and workflow applications built around Shopify.
+                </p>
+            </header>
+
+            <div class="doc-project-list">
+                
+                <div class="doc-project-item">
+                    <span class="project-num">01</span>
+                    <div class="project-info">
+                        <h3><a href="/projects/figclaw.html">FigClaw</a></h3>
+                        <p>Design-to-code workflow for turning structured design instructions into usable interfaces via Figma REST API.</p>
+                    </div>
+                    <a href="/projects/figclaw.html" class="project-action-link">View project →</a>
                 </div>
 
-                <div class="focus-pills-grid" style="grid-template-columns: 1fr;">
-                    
-                    <!-- figclaw -->
-                    <a href="/projects/figclaw.html" class="doc-callout" style="display:block; text-decoration:none;">
-                        <div class="callout-label">
-                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
-                            Figma → Claude workflow bridge
-                        </div>
-                        <h2 style="font-size:1.25rem; margin-bottom:6px; color:var(--accent-shopify);">figclaw</h2>
-                        <p style="margin-bottom:12px;">Extracts Figma node geometry and styles via the Figma REST API and serializes them as structured context for AI coding prompts.</p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Figma REST API</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag" style="background:var(--accent-shopify); color:#000; font-weight:700;">View Technical Docs →</span>
-                        </div>
-                    </a>
-
-                    <!-- Profile Switcher -->
-                    <a href="/projects/profile-switcher.html" class="doc-callout" style="display:block; text-decoration:none;">
-                        <div class="callout-label">
-                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
-                            VS Code extension for Shopify CLI account management
-                        </div>
-                        <h2 style="font-size:1.25rem; margin-bottom:6px; color:var(--accent-cyan);">Profile Switcher</h2>
-                        <p style="margin-bottom:12px;">Switches the active Shopify CLI account by updating the CLI's currentSessionId config pointer. No token handling. No session manipulation.</p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">VS Code Extension API</span>
-                            <span class="tech-tag">Shopify CLI config</span>
-                            <span class="tech-tag" style="background:var(--accent-cyan); color:#000; font-weight:700;">View Technical Docs →</span>
-                        </div>
-                    </a>
-
-                    <!-- Theme Inspector -->
-                    <a href="/projects/theme-inspector.html" class="doc-callout" style="display:block; text-decoration:none;">
-                        <div class="callout-label">
-                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
-                            Shopify storefront inspection Chrome extension
-                        </div>
-                        <h2 style="font-size:1.25rem; margin-bottom:6px; color:var(--accent-amber);">Theme Inspector</h2>
-                        <p style="margin-bottom:12px;">Extracts active theme identifiers, third-party app scripts, font files, and product JSON schemas from live Shopify storefronts.</p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">Chrome Extension (Manifest V3)</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">DOM inspection</span>
-                            <span class="tech-tag" style="background:var(--accent-amber); color:#000; font-weight:700;">View Technical Docs →</span>
-                        </div>
-                    </a>
-
-                    <!-- wacspace -->
-                    <a href="/projects/wacspace.html" class="doc-callout" style="display:block; text-decoration:none;">
-                        <div class="callout-label">
-                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#38bdf8" d="M6 1h4v2H6V1zm1 2h2v4H7V3zM4 7h8v2H4V7zm-2 2h12v5H2V9zm2 2v2h8v-2H4z"/></svg>
-                            Shopify CLI → AI development bridge
-                        </div>
-                        <h2 style="font-size:1.25rem; margin-bottom:6px; color:var(--accent-cyan);">wacspace</h2>
-                        <p style="margin-bottom:12px;">Passes Shopify theme development context and commands into AI-assisted coding workflows.</p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Shopify CLI</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag" style="background:var(--accent-cyan); color:#000; font-weight:700;">View Technical Docs →</span>
-                        </div>
-                    </a>
-
-                    <!-- wishify -->
-                    <a href="/projects/wishify.html" class="doc-callout" style="display:block; text-decoration:none;">
-                        <div class="callout-label">
-                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="margin-right:4px;"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
-                            Shopify-native wishlist experiment
-                        </div>
-                        <h2 style="font-size:1.25rem; margin-bottom:6px; color:var(--accent-shopify);">wishify</h2>
-                        <p style="margin-bottom:12px;">Explores storing wishlist data in Shopify customer metafields with client-side state management.</p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Shopify customer metafields</span>
-                            <span class="tech-tag" style="background:var(--accent-shopify); color:#000; font-weight:700;">View Technical Docs →</span>
-                        </div>
-                    </a>
-
+                <div class="doc-project-item">
+                    <span class="project-num">02</span>
+                    <div class="project-info">
+                        <h3><a href="/projects/profile-switcher.html">Profile Switcher</a></h3>
+                        <p>Shopify developer tooling for managing and switching CLI development contexts inside VS Code.</p>
+                    </div>
+                    <a href="/projects/profile-switcher.html" class="project-action-link">View project →</a>
                 </div>
-            </section>
+
+                <div class="doc-project-item">
+                    <span class="project-num">03</span>
+                    <div class="project-info">
+                        <h3><a href="/projects/theme-inspector.html">ShopifyThemeCheck</a></h3>
+                        <p>Shopify theme analysis / storefront asset and app script inspection Chrome extension.</p>
+                    </div>
+                    <a href="/projects/theme-inspector.html" class="project-action-link">View project →</a>
+                </div>
+
+            </div>
+
         </main>
+
     </div>
 
+    <!-- COMMAND PALETTE SEARCH MODAL -->
     <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
         <div class="search-modal-backdrop" id="search-backdrop"></div>
         <div class="search-palette">
             <div class="search-input-wrapper">
-                <input type="text" class="search-input" id="search-input" placeholder="Search documentation...">
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
             </div>
             <div class="search-results" id="search-results"></div>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">Atul Mundakkal / Developer Documentation</div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="/script.js"></script>
 </body>

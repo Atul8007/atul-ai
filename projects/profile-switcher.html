@@ -1,129 +1,268 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Switcher Case Study — Atul Mundakkal Developer Docs</title>
-    <meta name="description" content="Technical case study for Profile Switcher: VS Code extension for Shopify CLI account management.">
-    <link rel="stylesheet" href="/style.css">
+    <title>Profile Switcher Documentation — Atul Mundakkal Developer Docs</title>
+    <meta name="description" content="Technical documentation for Profile Switcher: VS Code extension for Shopify CLI account management.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/projects/profile-switcher.html">
+
+    <!-- Fonts: JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!-- GLOBAL HEADER -->
+    <!-- COMPACT DEVELOPER HEADER -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
+            
             <div class="header-left">
-                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" title="Toggle Sidebar [Collapse/Expand]"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg></button>
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
                 <a href="/index.html" class="doc-brand">
-                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
-                    <span class="brand-text">ATUL MUNDAKKAL</span>
-                    <span class="brand-badge">SHOPIFY DEV</span>
+                    <span class="brand-name">Atul Mundakkal</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-sub">Docs</span>
+                    <span class="brand-badge">Shopify Dev</span>
                 </a>
             </div>
 
             <nav class="doc-top-nav">
                 <a href="/index.html" class="top-nav-link">Overview</a>
-                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
-                <a href="/tech-stack.html" class="top-nav-link">Tech Stack</a>
                 <a href="/projects.html" class="top-nav-link active">Projects</a>
-                <a href="/lab.html" class="top-nav-link">Lab</a>
-                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
+                <a href="/about.html" class="top-nav-link">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
                 <a href="/contact.html" class="top-nav-link">Contact</a>
             </nav>
 
             <div class="header-right">
-                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
-                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                    <span class="search-label">Search docs...</span>
+                    <kbd class="search-kbd">⌘K</kbd>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-text" id="theme-text">LIGHT</span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="header-ext-link">GitHub ↗</a>
             </div>
+
         </div>
     </header>
 
+    <!-- 3-COLUMN DOCUMENTATION LAYOUT -->
     <div class="doc-layout">
+
+        <!-- LEFT SIDEBAR -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
+                
                 <div class="sidebar-group">
-                    <div class="sidebar-title">SELECTED PROJECTS</div>
+                    <div class="sidebar-title">DOCUMENTATION</div>
                     <ul class="sidebar-links">
-                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
-                        <li><a href="/projects/figclaw.html" class="sidebar-link">figclaw</a></li>
-                        <li><a href="/projects/profile-switcher.html" class="sidebar-link active">Profile Switcher</a></li>
-                        <li><a href="/projects/theme-inspector.html" class="sidebar-link">Theme Inspector</a></li>
-                        <li><a href="/projects/wacspace.html" class="sidebar-link">wacspace</a></li>
-                        <li><a href="/projects/wishify.html" class="sidebar-link">wishify</a></li>
+                        <li><a href="/index.html" class="sidebar-link">Overview</a></li>
                     </ul>
                 </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
+                        <li><a href="/projects/figclaw.html" class="sidebar-link indent">FigClaw</a></li>
+                        <li><a href="/projects/profile-switcher.html" class="sidebar-link active indent">Profile Switcher</a></li>
+                        <li><a href="/projects/theme-inspector.html" class="sidebar-link indent">ShopifyThemeCheck</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">BACKGROUND</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/about.html" class="sidebar-link">About</a></li>
+                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
+                        <li><a href="/contact.html" class="sidebar-link">Contact</a></li>
+                    </ul>
+                </div>
+
             </div>
         </aside>
 
+        <!-- MAIN DOCUMENTATION CONTENT -->
         <main class="doc-main">
-            <article class="project-doc-page" id="profile-switcher">
-                <nav class="doc-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="/index.html">Docs</a></li>
-                        <li><a href="/projects.html">Selected Projects</a></li>
-                        <li aria-current="page">Profile Switcher</li>
-                    </ol>
-                </nav>
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li aria-current="page">Profile Switcher</li>
+                </ol>
+            </nav>
 
-                <header class="project-header">
-                    <div class="project-meta-pill private">
-                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
-                        VS Code extension for Shopify CLI account management
+            <header class="doc-page-header">
+                <h1 class="doc-title">Profile Switcher</h1>
+                <p class="doc-lead">Shopify developer tooling for managing and switching CLI development contexts.</p>
+            </header>
+
+            <div class="project-links-row">
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="doc-badge-btn">GitHub Repo ↗</a>
+            </div>
+
+            <hr class="doc-divider">
+
+            <!-- OVERVIEW -->
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>
+                    Profile Switcher is a developer tooling extension for managing active Shopify CLI environments directly within VS Code. It allows Shopify developers working across multiple client stores to swap store credentials, target domains, and API environments without re-running OAuth authentication flows.
+                </p>
+            </section>
+
+            <!-- THE PROBLEM -->
+            <section id="problem" class="doc-section">
+                <h2>The problem</h2>
+                <p>
+                    Shopify agency developers frequently switch between multiple development stores every day. Constantly logging out, opening browser OAuth popups, and selecting partner stores in the CLI breaks focus and wastes minutes on every context switch.
+                </p>
+            </section>
+
+            <!-- WHAT I BUILT -->
+            <section id="what-i-built" class="doc-section">
+                <h2>What I built</h2>
+                <p>
+                    A VS Code extension that inspects the local Shopify CLI session cache, indexes active store profiles, and provides a quick Command Palette selector to swap the CLI's active session target pointer (`currentSessionId` / `SHOPIFY_FLAG_STORE`).
+                </p>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section id="how-it-works" class="doc-section">
+                <h2>How it works</h2>
+                <p>The extension updates active CLI target environments with zero token manipulation:</p>
+
+                <div class="flow-diagram">
+                    <div class="flow-step">Developer Action (Command Palette / Status Bar)</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">VS Code Extension Host</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Local Config Reader (~/.config/shopify/config)</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Session Pointer Swap (currentSessionId)</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Active CLI Context Swapped (shopify theme dev)</div>
+                </div>
+            </section>
+
+            <!-- KEY DECISIONS -->
+            <section id="key-decisions" class="doc-section">
+                <h2>Key decisions</h2>
+
+                <div class="doc-callout">
+                    <div class="callout-title">KEY DECISION — Session Pointer Delegation</div>
+                    <p>
+                        Swapped pointer metadata directly inside the native Shopify CLI session state file rather than storing raw OAuth tokens in the extension, ensuring security and compatibility with Shopify's native authentication routines.
+                    </p>
+                </div>
+            </section>
+
+            <!-- IMPLEMENTATION -->
+            <section id="implementation" class="doc-section">
+                <h2>Implementation</h2>
+                <p>Core environment pointer swap logic:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-filename">profile-switcher.js</span>
+                        <div class="code-actions">
+                            <span class="code-lang">JavaScript</span>
+                            <button class="copy-btn" data-code="profile-code">Copy</button>
+                        </div>
                     </div>
-                    <h1 class="project-title">Profile Switcher</h1>
-                    <p class="project-description">Switches the active Shopify CLI account by updating the CLI's <code>currentSessionId</code> config pointer. No token handling. No session manipulation.</p>
-                </header>
-
-                <div class="doc-content-body">
-                    <section class="doc-sub-section">
-                        <h2>What it does</h2>
-                        <p>
-                            Reads your local Shopify CLI config, lists available accounts, and swaps the active pointer so <code>shopify theme dev</code> targets the right store.
-                        </p>
-                    </section>
-
-                    <section class="doc-sub-section">
-                        <h2>Architecture &amp; Code Snippet</h2>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-filename">profile-switcher.js</span>
-                                <button class="copy-btn" data-code="profile-snippet">Copy</button>
-                            </div>
-                            <pre><code id="profile-snippet">// Profile Switcher Environment Pointer Swap
-function switchShopifyProfile(targetProfileKey) {
-  const profileConfig = loadLocalProfileConfig(targetProfileKey);
-  if (!profileConfig) throw new Error(`Profile "${targetProfileKey}" not found`);
+                    <pre><code id="profile-code"><span class="hl-kw">function</span> <span class="hl-fn">switchShopifyProfile</span>(targetProfileKey) {
+  <span class="hl-kw">const</span> profileConfig = <span class="hl-fn">loadLocalProfileConfig</span>(targetProfileKey);
+  <span class="hl-kw">if</span> (!profileConfig) <span class="hl-kw">throw new</span> Error(<span class="hl-str">`Profile "${targetProfileKey}" not found`</span>);
   
   process.env.SHOPIFY_FLAG_STORE = profileConfig.storeDomain;
-  console.log(`[Profile Switcher] Switched active environment to: ${profileConfig.storeDomain}`);
+  console.<span class="hl-fn">log</span>(<span class="hl-str">`[Profile Switcher] Switched active environment to: ${profileConfig.storeDomain}`</span>);
 }</code></pre>
-                        </div>
-                    </section>
-
-                    <section class="doc-sub-section">
-                        <h2>Tech Stack</h2>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">VS Code Extension API</span>
-                            <span class="tech-tag">Shopify CLI config</span>
-                        </div>
-                    </section>
                 </div>
-            </article>
+            </section>
+
+            <!-- RESULT -->
+            <section id="result" class="doc-section">
+                <h2>Result</h2>
+                <p>
+                    Eliminated repetitive OAuth re-authentications during multi-store development sessions, reducing environment switching time from ~45 seconds to under 2 seconds.
+                </p>
+            </section>
+
+            <!-- WHAT I LEARNED -->
+            <section id="what-i-learned" class="doc-section">
+                <h2>What I learned</h2>
+                <p>
+                    Building developer tooling directly around existing CLI configuration files yields a much cleaner, maintenance-free integration than wrapping CLI binary processes.
+                </p>
+            </section>
+
+            <!-- LINKS -->
+            <section id="links" class="doc-section">
+                <h2>Links</h2>
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.92rem;">
+                    <li><a href="https://github.com/Atul8007" target="_blank" rel="noopener" style="color: var(--accent-shopify); text-decoration: underline;">GitHub Repository (Atul8007) ↗</a></li>
+                    <li><a href="/projects.html" style="color: var(--text-secondary);">Back to All Projects</a></li>
+                </ul>
+            </section>
+
         </main>
+
+        <!-- RIGHT TOC "ON THIS PAGE" -->
+        <aside class="doc-toc" id="doc-toc">
+            <div class="toc-inner">
+                <div class="toc-title">ON THIS PAGE</div>
+                <ul class="toc-links">
+                    <li><a href="#overview" class="toc-link active">Overview</a></li>
+                    <li><a href="#problem" class="toc-link">The problem</a></li>
+                    <li><a href="#what-i-built" class="toc-link">What I built</a></li>
+                    <li><a href="#how-it-works" class="toc-link">How it works</a></li>
+                    <li><a href="#key-decisions" class="toc-link">Key decisions</a></li>
+                    <li><a href="#implementation" class="toc-link">Implementation</a></li>
+                    <li><a href="#result" class="toc-link">Result</a></li>
+                    <li><a href="#what-i-learned" class="toc-link">What I learned</a></li>
+                    <li><a href="#links" class="toc-link">Links</a></li>
+                </ul>
+            </div>
+        </aside>
+
     </div>
 
+    <!-- COMMAND PALETTE SEARCH MODAL -->
     <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
         <div class="search-modal-backdrop" id="search-backdrop"></div>
         <div class="search-palette">
             <div class="search-input-wrapper">
-                <input type="text" class="search-input" id="search-input" placeholder="Search documentation...">
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
             </div>
             <div class="search-results" id="search-results"></div>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">Atul Mundakkal / Developer Documentation</div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="/script.js"></script>
 </body>

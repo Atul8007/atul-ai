@@ -1,141 +1,272 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Inspector Case Study — Atul Mundakkal Developer Docs</title>
-    <meta name="description" content="Technical case study for Theme Inspector: Shopify storefront inspection Chrome extension (Manifest V3).">
-    <link rel="stylesheet" href="/style.css">
+    <title>ShopifyThemeCheck Documentation — Atul Mundakkal Developer Docs</title>
+    <meta name="description" content="Technical documentation for ShopifyThemeCheck: Shopify theme analysis and storefront asset inspection tool.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/projects/theme-inspector.html">
+
+    <!-- Fonts: JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!-- GLOBAL HEADER -->
+    <!-- COMPACT DEVELOPER HEADER -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
+            
             <div class="header-left">
-                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" title="Toggle Sidebar [Collapse/Expand]"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg></button>
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
                 <a href="/index.html" class="doc-brand">
-                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
-                    <span class="brand-text">ATUL MUNDAKKAL</span>
-                    <span class="brand-badge">SHOPIFY DEV</span>
+                    <span class="brand-name">Atul Mundakkal</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-sub">Docs</span>
+                    <span class="brand-badge">Shopify Dev</span>
                 </a>
             </div>
 
             <nav class="doc-top-nav">
                 <a href="/index.html" class="top-nav-link">Overview</a>
-                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
-                <a href="/tech-stack.html" class="top-nav-link">Tech Stack</a>
                 <a href="/projects.html" class="top-nav-link active">Projects</a>
-                <a href="/lab.html" class="top-nav-link">Lab</a>
-                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
+                <a href="/about.html" class="top-nav-link">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
                 <a href="/contact.html" class="top-nav-link">Contact</a>
             </nav>
 
             <div class="header-right">
-                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
-                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                    <span class="search-label">Search docs...</span>
+                    <kbd class="search-kbd">⌘K</kbd>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-text" id="theme-text">LIGHT</span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="header-ext-link">GitHub ↗</a>
             </div>
+
         </div>
     </header>
 
+    <!-- 3-COLUMN DOCUMENTATION LAYOUT -->
     <div class="doc-layout">
+
+        <!-- LEFT SIDEBAR -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
+                
                 <div class="sidebar-group">
-                    <div class="sidebar-title">SELECTED PROJECTS</div>
+                    <div class="sidebar-title">DOCUMENTATION</div>
                     <ul class="sidebar-links">
-                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
-                        <li><a href="/projects/figclaw.html" class="sidebar-link">figclaw</a></li>
-                        <li><a href="/projects/profile-switcher.html" class="sidebar-link">Profile Switcher</a></li>
-                        <li><a href="/projects/theme-inspector.html" class="sidebar-link active">Theme Inspector</a></li>
-                        <li><a href="/projects/wacspace.html" class="sidebar-link">wacspace</a></li>
-                        <li><a href="/projects/wishify.html" class="sidebar-link">wishify</a></li>
+                        <li><a href="/index.html" class="sidebar-link">Overview</a></li>
                     </ul>
                 </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
+                        <li><a href="/projects/figclaw.html" class="sidebar-link indent">FigClaw</a></li>
+                        <li><a href="/projects/profile-switcher.html" class="sidebar-link indent">Profile Switcher</a></li>
+                        <li><a href="/projects/theme-inspector.html" class="sidebar-link active indent">ShopifyThemeCheck</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">BACKGROUND</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/about.html" class="sidebar-link">About</a></li>
+                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
+                        <li><a href="/contact.html" class="sidebar-link">Contact</a></li>
+                    </ul>
+                </div>
+
             </div>
         </aside>
 
+        <!-- MAIN DOCUMENTATION CONTENT -->
         <main class="doc-main">
-            <article class="project-doc-page" id="theme-check">
-                <nav class="doc-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="/index.html">Docs</a></li>
-                        <li><a href="/projects.html">Selected Projects</a></li>
-                        <li aria-current="page">Theme Inspector</li>
-                    </ol>
-                </nav>
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li aria-current="page">ShopifyThemeCheck</li>
+                </ol>
+            </nav>
 
-                <header class="project-header">
-                    <div class="project-meta-pill verified">
-                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
-                        Shopify storefront inspection Chrome extension
-                    </div>
-                    <h1 class="project-title">Theme Inspector</h1>
-                    <p class="project-description">Extracts active theme identifiers, third-party app scripts, font files, and product JSON schemas from live Shopify storefronts.</p>
-                </header>
+            <header class="doc-page-header">
+                <h1 class="doc-title">ShopifyThemeCheck</h1>
+                <p class="doc-lead">Shopify theme analysis / developer tooling project for inspecting active storefront assets.</p>
+            </header>
 
-                <div class="project-actions">
-                    <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
+            <div class="project-links-row">
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="doc-badge-btn">GitHub Repo ↗</a>
+            </div>
+
+            <hr class="doc-divider">
+
+            <!-- OVERVIEW -->
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>
+                    ShopifyThemeCheck (Theme Inspector) is a browser extension tool designed to inspect live Shopify storefronts in real time. It extracts active theme IDs, liquid template names, third-party app script injections, and structured product JSON payloads in a single click.
+                </p>
+            </section>
+
+            <!-- THE PROBLEM -->
+            <section id="problem" class="doc-section">
+                <h2>The problem</h2>
+                <p>
+                    Auditing live client Shopify stores during technical onboarding requires manually searching browser DevTools DOM elements, inspecting inline global scripts (`window.Shopify`), and sifting through third-party app script tags to trace storefront performance bottlenecks.
+                </p>
+            </section>
+
+            <!-- WHAT I BUILT -->
+            <section id="what-i-built" class="doc-section">
+                <h2>What I built</h2>
+                <p>
+                    A Manifest V3 browser extension that scans the active storefront DOM, parses `window.Shopify.theme` metadata, filters injected external app scripts, and isolates product JSON schema nodes into an easy-to-read developer overlay.
+                </p>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section id="how-it-works" class="doc-section">
+                <h2>How it works</h2>
+                <p>The extension extracts runtime storefront state directly inside the active tab:</p>
+
+                <div class="flow-diagram">
+                    <div class="flow-step">Active Storefront Page Target</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Manifest V3 Content Script Execution</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">DOM & window.Shopify Context Extractor</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">App Script & Schema Parser</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">In-Browser Developer Overlay Panel</div>
                 </div>
+            </section>
 
-                <div class="doc-content-body">
-                    <section class="doc-sub-section">
-                        <h2>What it does</h2>
-                        <p>
-                            One-click audit of theme name, app scripts, and product data. Runs entirely in-browser.
-                        </p>
-                        <p class="section-note" style="font-size:0.82rem; color:var(--text-muted); font-family:var(--font-mono);">
-                            <em>Note: Unlike Shopify's official Theme Inspector (Liquid profiling), this tool inspects runtime assets and third-party scripts.</em>
-                        </p>
-                    </section>
+            <!-- KEY DECISIONS -->
+            <section id="key-decisions" class="doc-section">
+                <h2>Key decisions</h2>
 
-                    <section class="doc-sub-section">
-                        <h2>Architecture &amp; Code Snippet</h2>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-filename">theme-inspector.js</span>
-                                <button class="copy-btn" data-code="themecheck-snippet">Copy</button>
-                            </div>
-                            <pre><code id="themecheck-snippet">// Theme Inspector DOM & JSON Extractor
-function inspectShopifyStorefront() {
-  const themeData = window.Shopify ? window.Shopify.theme : null;
-  const scriptTags = Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
-  const productJson = document.querySelector('script[type="application/json"][id*="Product"]');
+                <div class="doc-callout">
+                    <div class="callout-title">WARNING — Zero Remote Server Dependency</div>
+                    <p>
+                        Engineered the inspection engine to run 100% locally within the browser extension runtime without calling external web servers, protecting store privacy and delivering instant execution.
+                    </p>
+                </div>
+            </section>
+
+            <!-- IMPLEMENTATION -->
+            <section id="implementation" class="doc-section">
+                <h2>Implementation</h2>
+                <p>Storefront runtime inspection logic:</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-filename">theme-inspector.js</span>
+                        <div class="code-actions">
+                            <span class="code-lang">JavaScript</span>
+                            <button class="copy-btn" data-code="themecheck-code">Copy</button>
+                        </div>
+                    </div>
+                    <pre><code id="themecheck-code"><span class="hl-kw">function</span> <span class="hl-fn">inspectShopifyStorefront</span>() {
+  <span class="hl-kw">const</span> themeData = window.Shopify ? window.Shopify.theme : null;
+  <span class="hl-kw">const</span> scriptTags = Array.<span class="hl-fn">from</span>(document.<span class="hl-fn">querySelectorAll</span>(<span class="hl-str">'script[src]'</span>)).<span class="hl-fn">map</span>(s => s.src);
+  <span class="hl-kw">const</span> productJson = document.<span class="hl-fn">querySelector</span>(<span class="hl-str">'script[type="application/json"][id*="Product"]'</span>);
   
-  return {
+  <span class="hl-kw">return</span> {
     theme: themeData,
-    installedAppScripts: scriptTags.filter(src => src.includes('apps') || src.includes('cdn')),
-    productSchema: productJson ? JSON.parse(productJson.textContent) : null
+    installedAppScripts: scriptTags.<span class="hl-fn">filter</span>(src => src.<span class="hl-fn">includes</span>(<span class="hl-str">'apps'</span>) || src.<span class="hl-fn">includes</span>(<span class="hl-str">'cdn'</span>)),
+    productSchema: productJson ? JSON.<span class="hl-fn">parse</span>(productJson.textContent) : null
   };
 }</code></pre>
-                        </div>
-                    </section>
-
-                    <section class="doc-sub-section">
-                        <h2>Tech Stack</h2>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">Chrome Extension (Manifest V3)</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">DOM inspection</span>
-                        </div>
-                    </section>
                 </div>
-            </article>
+            </section>
+
+            <!-- RESULT -->
+            <section id="result" class="doc-section">
+                <h2>Result</h2>
+                <p>
+                    Accelerates storefront diagnostics and theme audit workflows, providing instant insight into theme architecture and third-party app script footprint.
+                </p>
+            </section>
+
+            <!-- WHAT I LEARNED -->
+            <section id="what-i-learned" class="doc-section">
+                <h2>What I learned</h2>
+                <p>
+                    Understanding platform-specific global objects (`window.Shopify`) and script pattern matching allows developers to quickly inspect complex runtime behavior without intrusive debugging tools.
+                </p>
+            </section>
+
+            <!-- LINKS -->
+            <section id="links" class="doc-section">
+                <h2>Links</h2>
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.92rem;">
+                    <li><a href="https://github.com/Atul8007" target="_blank" rel="noopener" style="color: var(--accent-shopify); text-decoration: underline;">GitHub Repository (Atul8007) ↗</a></li>
+                    <li><a href="/projects.html" style="color: var(--text-secondary);">Back to All Projects</a></li>
+                </ul>
+            </section>
+
         </main>
+
+        <!-- RIGHT TOC "ON THIS PAGE" -->
+        <aside class="doc-toc" id="doc-toc">
+            <div class="toc-inner">
+                <div class="toc-title">ON THIS PAGE</div>
+                <ul class="toc-links">
+                    <li><a href="#overview" class="toc-link active">Overview</a></li>
+                    <li><a href="#problem" class="toc-link">The problem</a></li>
+                    <li><a href="#what-i-built" class="toc-link">What I built</a></li>
+                    <li><a href="#how-it-works" class="toc-link">How it works</a></li>
+                    <li><a href="#key-decisions" class="toc-link">Key decisions</a></li>
+                    <li><a href="#implementation" class="toc-link">Implementation</a></li>
+                    <li><a href="#result" class="toc-link">Result</a></li>
+                    <li><a href="#what-i-learned" class="toc-link">What I learned</a></li>
+                    <li><a href="#links" class="toc-link">Links</a></li>
+                </ul>
+            </div>
+        </aside>
+
     </div>
 
+    <!-- COMMAND PALETTE SEARCH MODAL -->
     <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
         <div class="search-modal-backdrop" id="search-backdrop"></div>
         <div class="search-palette">
             <div class="search-input-wrapper">
-                <input type="text" class="search-input" id="search-input" placeholder="Search documentation...">
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
             </div>
             <div class="search-results" id="search-results"></div>
         </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">Atul Mundakkal / Developer Documentation</div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="/script.js"></script>
 </body>

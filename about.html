@@ -1,87 +1,168 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Atul Mundakkal Developer Docs</title>
-    <meta name="description" content="Philosophy & approach explanation: I read Liquid code, inspect theme data flow, and test storefront state.">
-    <link rel="stylesheet" href="/style.css">
+    <meta name="description" content="Engineering approach and background for Atul Mundakkal, Shopify Full-Stack Developer.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/about.html">
+
+    <!-- Fonts: JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!-- GLOBAL HEADER -->
+    <!-- COMPACT DEVELOPER HEADER -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
+            
             <div class="header-left">
-                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" title="Toggle Sidebar [Collapse/Expand]"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg></button>
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
                 <a href="/index.html" class="doc-brand">
-                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
-                    <span class="brand-text">ATUL MUNDAKKAL</span>
-                    <span class="brand-badge">SHOPIFY DEV</span>
+                    <span class="brand-name">Atul Mundakkal</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-sub">Docs</span>
+                    <span class="brand-badge">Shopify Dev</span>
                 </a>
             </div>
 
             <nav class="doc-top-nav">
                 <a href="/index.html" class="top-nav-link">Overview</a>
-                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
-                <a href="/tech-stack.html" class="top-nav-link">Tech Stack</a>
                 <a href="/projects.html" class="top-nav-link">Projects</a>
-                <a href="/lab.html" class="top-nav-link">Lab</a>
-                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
                 <a href="/about.html" class="top-nav-link active">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
                 <a href="/contact.html" class="top-nav-link">Contact</a>
             </nav>
 
             <div class="header-right">
-                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
-                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                    <span class="search-label">Search docs...</span>
+                    <kbd class="search-kbd">⌘K</kbd>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-text" id="theme-text">LIGHT</span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="header-ext-link">GitHub ↗</a>
             </div>
+
         </div>
     </header>
 
-    <div class="doc-layout">
+    <div class="doc-layout no-toc">
+
+        <!-- SIDEBAR -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
+                
                 <div class="sidebar-group">
-                    <div class="sidebar-title">SYSTEMS &amp; LAB</div>
+                    <div class="sidebar-title">DOCUMENTATION</div>
                     <ul class="sidebar-links">
-                        <li><a href="/lab.html" class="sidebar-link">Technical Lab</a></li>
-                        <li><a href="/capabilities.html" class="sidebar-link">Capabilities</a></li>
-                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
-                        <li><a href="/about.html" class="sidebar-link active">About</a></li>
+                        <li><a href="/index.html" class="sidebar-link">Overview</a></li>
                     </ul>
                 </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
+                        <li><a href="/projects/figclaw.html" class="sidebar-link indent">FigClaw</a></li>
+                        <li><a href="/projects/profile-switcher.html" class="sidebar-link indent">Profile Switcher</a></li>
+                        <li><a href="/projects/theme-inspector.html" class="sidebar-link indent">ShopifyThemeCheck</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">BACKGROUND</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/about.html" class="sidebar-link active">About</a></li>
+                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
+                        <li><a href="/contact.html" class="sidebar-link">Contact</a></li>
+                    </ul>
+                </div>
+
             </div>
         </aside>
 
         <main class="doc-main">
-            <section class="doc-page-section">
-                <nav class="doc-breadcrumb">
-                    <ol>
-                        <li><a href="/index.html">Docs</a></li>
-                        <li aria-current="page">About</li>
-                    </ol>
-                </nav>
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li aria-current="page">About</li>
+                </ol>
+            </nav>
 
-                <div class="doc-page-header">
-                    <div class="doc-tag">PHILOSOPHY &amp; APPROACH</div>
-                    <h1 class="doc-title">ABOUT</h1>
-                    <p class="hero-punchline">Practical engineering without unnecessary complexity.</p>
+            <header class="doc-page-header">
+                <h1 class="doc-title">About</h1>
+                <p class="doc-lead">Engineering approach and platform philosophy.</p>
+            </header>
+
+            <div class="doc-callout">
+                <div class="callout-title">DEVELOPER APPROACH</div>
+                <p>
+                    I don't pitch expensive apps or rebuild stores from scratch. I read the Liquid code, inspect the theme data flow, and test the storefront state. I figure out what's working, fix what's causing friction, and build custom code only where Shopify's native options run out.
+                </p>
+            </div>
+
+            <hr class="doc-divider">
+
+            <section class="doc-section">
+                <h2>Engineering Principles</h2>
+                
+                <div class="doc-callout" style="border-left-color: var(--text-secondary);">
+                    <div class="callout-title" style="color: var(--text-primary);">01 — Understand Natively First</div>
+                    <p>Study existing theme architectures, Shopify platform APIs, and store data flows before writing new code.</p>
                 </div>
 
-                <div class="doc-callout">
-                    <div class="callout-label">SHORT, HUMAN EXPLANATION</div>
-                    <p style="font-size: 1rem; line-height: 1.6; color: var(--text-primary);">
-                        I don't pitch expensive apps or rebuild stores from scratch. I read the Liquid code, inspect the theme data flow, and test the storefront state. I figure out what's working, fix what's causing friction, and build custom code only where Shopify's native options run out.
-                    </p>
+                <div class="doc-callout" style="border-left-color: var(--text-secondary);">
+                    <div class="callout-title" style="color: var(--text-primary);">02 — Preserve What Works</div>
+                    <p>Keep native Liquid functionality intact to minimize merchant maintenance overhead and preserve store compatibility.</p>
+                </div>
+
+                <div class="doc-callout" style="border-left-color: var(--text-secondary);">
+                    <div class="callout-title" style="color: var(--text-primary);">03 — Extend & Simplify</div>
+                    <p>Build focused developer tooling, custom extensions, and clean Liquid modules without adding bloat.</p>
                 </div>
 
             </section>
+
         </main>
+
     </div>
+
+    <!-- COMMAND PALETTE SEARCH MODAL -->
+    <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
+        <div class="search-modal-backdrop" id="search-backdrop"></div>
+        <div class="search-palette">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">Atul Mundakkal / Developer Documentation</div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="/script.js"></script>
 </body>
