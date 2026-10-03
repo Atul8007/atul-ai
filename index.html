@@ -82,7 +82,7 @@
     <div class="doc-layout full-width">
         <main class="doc-main" style="max-width: 1280px; margin: 0 auto;">
             
-            <!-- TOP HERO BANNER (Shopify Dev Docs Style with User Palette) -->
+            <!-- TOP HERO BANNER WITH INTERACTIVE MINI TERMINAL -->
             <section class="shopify-hero-banner">
                 <div class="hero-left">
                     <h1>Shopify Dev Docs</h1>
@@ -95,34 +95,35 @@
                     </div>
                 </div>
 
-                <div class="hero-right-graphic">
-                    <div class="pixel-mockup-frame">
-                        <svg viewBox="0 0 320 180" width="100%" height="100%" shape-rendering="crispEdges" style="display:block;">
-                            <rect x="0" y="0" width="320" height="180" fill="#0b0f19" />
+                <!-- INTERACTIVE MINI TERMINAL COMPONENT -->
+                <div class="hero-right-terminal">
+                    <div class="mini-terminal-window">
+                        <div class="mini-term-header">
+                            <div class="mini-term-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <div class="mini-term-title">atul@system:~ (ATUL Shell v4.0)</div>
+                        </div>
 
-                            <!-- Header Bar -->
-                            <rect x="0" y="0" width="320" height="24" fill="#111827" />
-                            <rect x="12" y="8" width="8" height="8" fill="#95bf47" />
-                            <rect x="26" y="8" width="60" height="8" fill="#1f2937" />
-
-                            <!-- Desktop Wireframe Window -->
-                            <rect x="20" y="36" width="190" height="124" fill="#111827" stroke="#95bf47" stroke-width="2" />
-                            <rect x="28" y="44" width="174" height="16" fill="#1f2937" />
-                            <rect x="28" y="68" width="110" height="6" fill="#95bf47" opacity="0.9" />
-                            <rect x="28" y="80" width="150" height="4" fill="#38bdf8" />
-                            <rect x="28" y="90" width="130" height="4" fill="#6b7280" />
+                        <div class="mini-term-body" id="mini-term-body">
+                            <div class="t-line">ATUL.OS System Shell — Type <span class="t-hl">help</span> or click shortcuts below:</div>
                             
-                            <!-- Green Action Buttons in Window -->
-                            <rect x="28" y="128" width="48" height="18" fill="#95bf47" rx="2" />
-                            <rect x="84" y="128" width="48" height="18" fill="#1f2937" rx="2" />
+                            <div class="t-shortcuts-row">
+                                <button class="t-btn" data-cmd="help">help</button>
+                                <button class="t-btn" data-cmd="work">work</button>
+                                <button class="t-btn" data-cmd="shopify">shopify</button>
+                                <button class="t-btn" data-cmd="tools">tools</button>
+                                <button class="t-btn" data-cmd="sudo hire atul">sudo hire atul</button>
+                                <button class="t-btn" data-cmd="clear">clear</button>
+                            </div>
+                        </div>
 
-                            <!-- Mobile Wireframe Frame (Right overlay) -->
-                            <rect x="226" y="48" width="76" height="120" fill="#111827" stroke="#38bdf8" stroke-width="2" rx="4" />
-                            <rect x="236" y="58" width="56" height="20" fill="#1f2937" />
-                            <rect x="236" y="86" width="56" height="48" fill="#161e2e" stroke="#95bf47" stroke-width="1" />
-                            <rect x="242" y="92" width="44" height="4" fill="#95bf47" />
-                            <rect x="242" y="100" width="36" height="4" fill="#38bdf8" />
-                        </svg>
+                        <div class="mini-term-input-line">
+                            <span class="mini-term-prompt">atul@system ~ %</span>
+                            <input type="text" class="mini-term-input" id="mini-term-input" placeholder="Type command..." autocomplete="off" spellcheck="false">
+                        </div>
                     </div>
                 </div>
             </section>

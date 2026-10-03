@@ -247,4 +247,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 7. Interactive Mini Terminal (Hero Banner) ---
+    const miniTermInput = document.getElementById('mini-term-input');
+    const miniTermBody = document.getElementById('mini-term-body');
+    const miniTermBtns = document.querySelectorAll('.t-btn');
+
+    const miniCommandDict = {
+        'help': () => 'Available commands: philosophy, work, shopify, tools, contact, sudo hire atul, clear',
+        'philosophy': () => '01 Understand → 02 Preserve → 03 Improve → 04 Replace.',
+        'work': () => 'FEATURED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
+        'projects': () => 'FEATURED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
+        'shopify': () => 'SHOPIFY DEV:\n- Liquid Architecture & Theme Performance\n- Storefront GraphQL & Admin APIs\n- Checkout UI Extensions & Metafields',
+        'tools': () => 'DEVELOPER TOOLS:\n- FigClaw (Figma REST API → AI Context)\n- Profile Switcher (VS Code Extension API)\n- ShopifyThemeCheck (Manifest V3 Chrome Extension)',
+        'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: github.com/Atul8007\nLinkedIn: linkedin.com/in/atul-mundakkal',
+        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\n₹0/month Cloudflare Target . ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FULL-STACK PROJECTS.\nEmail: atulmundakkal@outlook.com`,
+        'clear': () => 'CLEAR'
+    };
+
+    function executeMiniCmd(cmd) {
+        if (!miniTermBody) return;
+        const clean = cmd.trim().toLowerCase();
+        if (!clean) return;
+
+        if (clean === 'clear') {
+            miniTermBody.innerHTML = '<div class="t-line">Terminal cleared. Type <span class="t-hl">help</span> for commands.</div>';
+            return;
+        }
+
+        const inputLine = document.createElement('div');
+        inputLine.className = 't-line';
+        inputLine.innerHTML = `<span class="t-prompt">atul@system ~ %</span> <span class="t-hl">${cmd}</span>`;
+        miniTermBody.appendChild(inputLine);
+
+        const response = miniCommandDict[clean] ? miniCommandDict[clean]() : `Command not recognized: "${clean}". Type "help" for valid commands.`;
+
+        const outputLine = document.createElement('div');
+        outputLine.className = 't-line';
+        outputLine.style.whiteSpace = 'pre-wrap';
+        outputLine.style.color = 'var(--text-secondary)';
+        outputLine.textContent = response;
+        miniTermBody.appendChild(outputLine);
+
+        miniTermBody.scrollTop = miniTermBody.scrollHeight;
+    }
+
+    if (miniTermInput) {
+        miniTermInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                executeMiniCmd(miniTermInput.value);
+                miniTermInput.value = '';
+            }
+        });
+    }
+
+    miniTermBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cmd = btn.getAttribute('data-cmd');
+            if (cmd) executeMiniCmd(cmd);
+        });
+    });
+
 });
