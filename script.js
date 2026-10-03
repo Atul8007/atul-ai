@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Developer & Full-Stack Engineer", tag: "DOCS", id: "overview" },
         { title: "What I Work On", sub: "Themes, Variants, Checkout, APIs, Liquid, Developer Tools", tag: "DOMAINS", id: "focus" },
         { title: "How I Solve Problems", sub: "Understand → Preserve → Improve → Replace sequence", tag: "APPROACH", id: "problem-solving" },
-        { title: "System Decision Engine", sub: "Interactive strategy matrix simulator", tag: "SIMULATOR", id: "decision-engine" },
         { title: "figclaw", sub: "AI-powered design-to-development workflow bridge (Claude to Figma)", tag: "PROJECT", id: "figclaw" },
         { title: "Profile Switcher", sub: "Lightweight Shopify developer workflow tool for environment switching", tag: "PROJECT", id: "profile-switcher" },
         { title: "ShopifyThemeCheck", sub: "Shopify theme inspection and developer tooling", tag: "PROJECT", id: "theme-check" },
@@ -188,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. ScrollSpy (Active Sidebar Link) ---
     const sectionIds = [
-        'overview', 'focus', 'problem-solving', 'decision-engine',
+        'overview', 'focus', 'problem-solving',
         'figclaw', 'profile-switcher', 'theme-check',
         'playground', 'capabilities', 'about-how-i-work', 'experience', 'contact'
     ];
@@ -245,47 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. System Decision Engine ---
-    const branchData = {
-        keep: {
-            badge: "STRATEGY: PRESERVE NATIVE",
-            title: "Preserve Working Platform Fundamentals",
-            desc: "When existing native features (like Shopify Customer Metafields or theme sections) already solve 80% of the problem, do not introduce extra databases or paid apps. Preserve native capabilities to minimize ongoing maintenance cost."
-        },
-        extend: {
-            badge: "STRATEGY: IMPROVE VIA CODE",
-            title: "Extend Native Capabilities via Lightweight APIs",
-            desc: "When native features fall short of specific merchant needs, build targeted client-side state managers or App Proxies around platform capabilities rather than replacing the core system."
-        },
-        replace: {
-            badge: "STRATEGY: REPLACE BROKEN FRICTION",
-            title: "Replace Fundamentally Unsuitable Workflows",
-            desc: "When an existing approach creates severe technical debt or massive performance degradation (e.g. heavy third-party app scripts), replace that specific friction point with simple custom engineering."
-        }
-    };
-
-    const branchBtns = document.querySelectorAll('.branch-btn');
-    const bBadge = document.getElementById('b-badge');
-    const bTitle = document.getElementById('b-title');
-    const bDesc = document.getElementById('b-desc');
-
-    branchBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            branchBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const key = btn.getAttribute('data-branch');
-            const data = branchData[key];
-
-            if (data) {
-                if (bBadge) bBadge.textContent = data.badge;
-                if (bTitle) bTitle.textContent = data.title;
-                if (bDesc) bDesc.textContent = data.desc;
-            }
-        });
-    });
-
-    // --- 8. Code ↔ UX State Synchronizer Playground ---
+    // --- 7. Code ↔ UX State Synchronizer Playground ---
     const syncJson = document.getElementById('sync-json');
     const uiPrice = document.getElementById('ui-price');
     const uAddBtn = document.getElementById('u-add-btn');
@@ -356,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 9. Interactive ATUL Shell Terminal ---
+    // --- 8. Interactive ATUL Shell Terminal ---
     const termModal = document.getElementById('terminal-modal');
     const heroTermBtn = document.getElementById('hero-terminal-btn');
     const sidebarTermBtn = document.getElementById('sidebar-terminal-btn');
@@ -443,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 10. Copy Email Helper ---
+    // --- 9. Copy Email Helper ---
     const copyEmailBtn = document.getElementById('copy-email-btn');
     if (copyEmailBtn) {
         copyEmailBtn.addEventListener('click', () => {
