@@ -33,17 +33,19 @@
 </head>
 <body>
 
-    <!-- GLOBAL HEADER (Shopify.dev Documentation Style) -->
+    <!-- GLOBAL HEADER (Shopify.dev Documentation Style with Pixel Art Branding) -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
             
             <div class="header-left">
                 <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" aria-expanded="false">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 3h12v2H2V3zm0 4h12v2H2V7zm0 4h12v2H2v-2z"/></svg>
                 </button>
 
                 <a href="#overview" class="doc-brand">
-                    <span class="brand-logo">◈</span>
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                        <path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                    </svg>
                     <span class="brand-text">ATUL MUNDAKKAL</span>
                     <span class="brand-badge">SHOPIFY DEV</span>
                 </a>
@@ -65,23 +67,25 @@
                 
                 <!-- Command Palette Search Trigger -->
                 <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
                     <span class="search-label">Search docs...</span>
                     <kbd class="search-kbd">⌘K</kbd>
                 </button>
 
                 <!-- Theme Switcher -->
                 <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
-                    <span class="theme-icon" id="theme-icon">🌙</span>
+                    <span class="theme-icon" id="theme-icon">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>
+                    </span>
                     <span class="theme-text" id="theme-text">DARK</span>
                 </button>
 
                 <!-- External Links -->
                 <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Profile">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v2H5V1zM3 3h2v2H3V3zm10 0h-2v2h2V3zM2 5h1v5H2V5zm12 0h-1v5h1V5zM3 10h2v2H3v-2zm10 0h-2v2h2v-2zM5 12h2v3H5v-3zm4 0h2v3H9v-3z"/></svg>
                 </a>
                 <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn Profile">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h3v3H2V2zm0 5h3v8H2V7zm5 0h3v1h1v1h1v6h-3v-5H9v5H7V7z"/></svg>
                 </a>
             </div>
 
@@ -91,45 +95,115 @@
     <!-- DOCUMENTATION LAYOUT CONTAINER -->
     <div class="doc-layout" id="doc-layout">
 
-        <!-- STICKY LEFT DOCUMENTATION SIDEBAR -->
+        <!-- STICKY LEFT DOCUMENTATION SIDEBAR WITH PIXEL ART ICONS -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
                 
                 <div class="sidebar-group">
                     <div class="sidebar-title">EXPLORE</div>
                     <ul class="sidebar-links">
-                        <li><a href="#overview" class="sidebar-link active"><span class="s-icon">📄</span> Overview</a></li>
-                        <li><a href="#focus" class="sidebar-link"><span class="s-icon">⚡</span> What I Work On</a></li>
-                        <li><a href="#problem-solving" class="sidebar-link"><span class="s-icon">🧠</span> How I Solve Problems</a></li>
+                        <li>
+                            <a href="#overview" class="sidebar-link active">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3 1h7l4 4v10H3V1zm2 3v1h4V4H5zm0 3v1h6V7H5zm0 3v1h6v-1H5zm0 3v1h4v-1H5z"/></svg>
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#focus" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M8 1h2v3H8V1zM6 4h4v2H6V4zm-2 2h6v2H4V6zm-1 2h4v2H3V8zm3 2h2v2H6v-2zm-1 2h2v3H5v-3z"/></svg>
+                                What I Work On
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#problem-solving" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M5 2h6v2H5V2zM3 4h2v2H3V4zm8 0h2v2h-2V4zM2 6h2v4H2V6zm10 0h2v4h-2V6zM4 10h2v2H4v-2zm4 0h2v2H8v-2zm-2 2h2v3H6v-3z"/></svg>
+                                How I Solve Problems
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-group">
                     <div class="sidebar-title">PROJECTS</div>
                     <ul class="sidebar-links">
-                        <li><a href="#figclaw" class="sidebar-link"><span class="s-sub-prefix">└</span> figclaw</a></li>
-                        <li><a href="#profile-switcher" class="sidebar-link"><span class="s-sub-prefix">└</span> Profile Switcher</a></li>
-                        <li><a href="#theme-check" class="sidebar-link"><span class="s-sub-prefix">└</span> ShopifyThemeCheck</a></li>
+                        <li>
+                            <a href="#figclaw" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                                figclaw
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#profile-switcher" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
+                                Profile Switcher
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#theme-check" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
+                                ShopifyThemeCheck
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-group">
                     <div class="sidebar-title">TECHNICAL LAB</div>
                     <ul class="sidebar-links">
-                        <li><a href="#playground" class="sidebar-link"><span class="s-icon">🧪</span> Technical Lab</a></li>
-                        <li><a href="#limit-simulator" class="sidebar-link"><span class="s-icon">📊</span> API Limit Monitor</a></li>
-                        <li><a href="#state-sync" class="sidebar-link"><span class="s-icon">🔄</span> Code ↔ UX State Sync</a></li>
+                        <li>
+                            <a href="#playground" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 1h4v2H6V1zm1 2h2v4H7V3zM4 7h8v2H4V7zm-2 2h12v5H2V9zm2 2v2h8v-2H4z"/></svg>
+                                Technical Lab
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#limit-simulator" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M2 11h3v4H2v-4zm4-4h3v8H6V7zm4-4h3v12h-3V3z"/></svg>
+                                API Limit Monitor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#state-sync" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M3 3h8v2H5v3H3V3zm10 4h-2v4h6V9h-4V7zM3 11h6v2H5v3H3v-5z"/></svg>
+                                Code ↔ UX State Sync
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-group">
                     <div class="sidebar-title">CAPABILITIES &amp; EXPERIENCE</div>
                     <ul class="sidebar-links">
-                        <li><a href="#capabilities" class="sidebar-link"><span class="s-icon">🛠️</span> Capability Matrix</a></li>
-                        <li><a href="#about-how-i-work" class="sidebar-link"><span class="s-icon">💬</span> About How I Work</a></li>
-                        <li><a href="#experience" class="sidebar-link"><span class="s-icon">⏳</span> Experience</a></li>
-                        <li><a href="#contact" class="sidebar-link"><span class="s-icon">📬</span> Contact &amp; Work</a></li>
-                        <li><button class="sidebar-link terminal-trigger" id="sidebar-terminal-btn"><span class="s-icon">⚡</span> Open ATUL Shell</button></li>
+                        <li>
+                            <a href="#capabilities" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M4 2h3v3H4V2zm5 0h3v3H9V2zM2 6h12v3H2V6zm2 4h3v4H4v-4zm5 0h3v4H9v-4z"/></svg>
+                                Capability Matrix
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about-how-i-work" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M2 3h12v8H4l-2 2V3zm3 3h6v2H5V6z"/></svg>
+                                About How I Work
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#experience" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M6 1h4v2H6V1zm-2 2h8v2H4V3zm-1 2h10v8H3V5zm2 2v4h6V7H5z"/></svg>
+                                Experience
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M2 3h12v10H2V3zm2 2v2l4 3 4-3V5H4zm0 4v2h8V9H4z"/></svg>
+                                Contact &amp; Work
+                            </a>
+                        </li>
+                        <li>
+                            <button class="sidebar-link terminal-trigger" id="sidebar-terminal-btn">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M2 2h12v12H2V2zm2 3v2l2-1-2-1zm4 3h4v1H8V8z"/></svg>
+                                Open ATUL Shell
+                            </button>
+                        </li>
                     </ul>
                 </div>
 
@@ -158,7 +232,10 @@
                 </div>
 
                 <div class="doc-callout">
-                    <div class="callout-label">PERSPECTIVE ENGINE</div>
+                    <div class="callout-label">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path fill="#95bf47" d="M6 1h4v2H6V1zM4 3h2v2H4V3zm6 0h2v2h-2V3zM3 5h2v6H3V5zm8 0h2v6h-2V5zM4 11h2v2H4v-2zm6 0h2v2h-2v-2zM6 13h4v2H6v-2z"/></svg>
+                        PERSPECTIVE ENGINE
+                    </div>
                     <p>
                         <strong>You should talk to Atul because you are looking for a better perspective on a solution you have been trying to figure out.</strong> I solve problems by understanding existing systems first, reducing friction, and engineering the simplest useful solution.
                     </p>
@@ -173,42 +250,79 @@
 
             <hr class="doc-divider">
 
-            <!-- SECTION 1: WHAT I WORK ON -->
+            <!-- SECTION 1: WHAT I WORK ON (WITH RETRO PIXEL ART ICONS) -->
             <section class="doc-section" id="focus">
                 <h2>WHAT I WORK ON</h2>
                 <p class="section-intro">Specialized technical domains in Shopify storefront architecture and developer tooling.</p>
 
                 <div class="focus-pills-grid">
+                    
+                    <!-- Themes Pixel Icon -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">🎨</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#38bdf8" d="M2 2h12v12H2V2zm2 2v2h8V4H4zm0 4v4h8V8H4z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">Themes</div>
                         <p class="p-desc">Liquid 2.0, Dawn architecture, AJAX Section Rendering, Zero-dependency UI.</p>
                     </div>
+
+                    <!-- Variants Pixel Icon (Pixelated Sneaker / Matrix Swatch) -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">🔀</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#95bf47" d="M5 4h6v2H5V4zm-2 2h2v4H3V6zm8 0h2v4h-2V6zm-6 4h6v2H5v-2zm-3 2h12v2H2v-2z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">Variants</div>
                         <p class="p-desc">Complex multi-option variant matrix, custom swatches, real-time JSON state mutation.</p>
                     </div>
+
+                    <!-- Checkout Pixel Icon (Pixelated Receipt & Dollar) -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">💳</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#f59e0b" d="M3 1h10v14l-2-1-3 1-3-1-2 1V1zm3 3h4v2H6V4zm1 3h3v2H7V7zm-1 3h4v2H6v-2z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">Checkout</div>
                         <p class="p-desc">Cart drawer state sync, Metafield integration, order flow friction reduction.</p>
                     </div>
+
+                    <!-- APIs Pixel Icon (Pixelated Cloud) -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">⚡</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#38bdf8" d="M5 4h6v2H5V4zM3 6h10v2H3V6zM2 8h12v4H2V8zm3 4h6v2H5v-2z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">APIs</div>
                         <p class="p-desc">Storefront GraphQL, Admin REST, App Proxies, Customer &amp; Product Metaobjects.</p>
                     </div>
+
+                    <!-- Liquid Pixel Icon (Pixelated Water Drop / Code) -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">💧</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#38bdf8" d="M7 1h2v3H7V1zM5 4h6v2H5V4zm-2 3h10v4H3V7zm2 4h6v2H5v-2zm2 2h2v2H7v-2z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">Liquid</div>
                         <p class="p-desc">Custom snippet engineering, dynamic schema blocks, performance optimization.</p>
                     </div>
+
+                    <!-- Developer Tools Pixel Icon (Pixelated Tool Box / Terminal) -->
                     <div class="focus-pill-card">
-                        <span class="p-icon">🛠️</span>
+                        <div class="p-icon-box">
+                            <svg class="px-icon-lg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                                <path fill="#95bf47" d="M4 2h8v2H4V2zM2 4h12v2H2V4zm0 3h12v7H2V7zm2 2v3h4V9H4zm5 0v1h3V9H9z"/>
+                            </svg>
+                        </div>
                         <div class="p-title">Developer Tools</div>
                         <p class="p-desc">Chrome extensions, CLI workspace bridges, admin profile switchers, theme inspectors.</p>
                     </div>
+
                 </div>
             </section>
 
@@ -282,7 +396,10 @@
                     </nav>
 
                     <header class="project-header">
-                        <div class="project-meta-pill verified">PUBLIC REPOSITORY / AI INTEGRATION</div>
+                        <div class="project-meta-pill verified">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#95bf47" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                            PUBLIC REPOSITORY / AI INTEGRATION
+                        </div>
                         <h1 class="project-title">figclaw</h1>
                         <p class="project-description">AI-powered design-to-development workflow bridge connecting Claude AI directly to Figma.</p>
                     </header>
@@ -375,7 +492,10 @@ async function fetchFigmaNodeContext(fileKey, nodeId) {
                     </nav>
 
                     <header class="project-header">
-                        <div class="project-meta-pill private">DEVELOPER UTILITY</div>
+                        <div class="project-meta-pill private">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
+                            DEVELOPER UTILITY
+                        </div>
                         <h1 class="project-title">Profile Switcher</h1>
                         <p class="project-description">A lightweight Shopify developer workflow tool for switching development profiles/environments.</p>
                     </header>
@@ -467,7 +587,10 @@ function switchShopifyProfile(targetProfileKey) {
                     </nav>
 
                     <header class="project-header">
-                        <div class="project-meta-pill verified">SHOPIFY INSPECTION TOOL</div>
+                        <div class="project-meta-pill verified">
+                            <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:12px;height:12px;vertical-align:middle;margin-right:2px;"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
+                            SHOPIFY INSPECTION TOOL
+                        </div>
                         <h1 class="project-title">ShopifyThemeCheck</h1>
                         <p class="project-description">Shopify theme inspection and developer tooling.</p>
                     </header>
@@ -564,7 +687,10 @@ function inspectShopifyStorefront() {
                     <!-- Simulator 1: API Limit Monitor -->
                     <div class="lab-card" id="limit-simulator">
                         <div class="lab-header">
-                            <span class="lab-title">API LIMIT MONITOR SIMULATOR</span>
+                            <span class="lab-title">
+                                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path fill="#38bdf8" d="M2 11h3v4H2v-4zm4-4h3v8H6V7zm4-4h3v12h-3V3z"/></svg>
+                                API LIMIT MONITOR SIMULATOR
+                            </span>
                             <span class="lab-tag">[Limit_Tracker Concept]</span>
                         </div>
                         <p class="lab-desc">Simulated monitor tracking rate limit utilization across AI providers.</p>
@@ -596,7 +722,10 @@ function inspectShopifyStorefront() {
                     <!-- Simulator 2: Code <-> Storefront State Sync -->
                     <div class="lab-card" id="state-sync">
                         <div class="lab-header">
-                            <span class="lab-title">CODE ↔ UX STATE SYNCHRONIZER</span>
+                            <span class="lab-title">
+                                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path fill="#95bf47" d="M3 3h8v2H5v3H3V3zm10 4h-2v4h6V9h-4V7zM3 11h6v2H5v3H3v-5z"/></svg>
+                                CODE ↔ UX STATE SYNCHRONIZER
+                            </span>
                             <span class="lab-tag">[Variant Logic]</span>
                         </div>
                         <p class="lab-desc">Click swatches below to see real-time JSON state mutation of `product.selected_variant`.</p>
@@ -769,7 +898,7 @@ function inspectShopifyStorefront() {
         <div class="search-modal-backdrop" id="search-backdrop"></div>
         <div class="search-palette">
             <div class="search-input-wrapper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
                 <input type="text" class="search-input" id="search-input" placeholder="Search documentation, projects, tools, skills... (ESC to close)" autocomplete="off" spellcheck="false">
                 <span class="search-esc-tag">ESC</span>
             </div>

@@ -1,6 +1,7 @@
 /* ==========================================================================
    ATUL MUNDAKKAL — SHOPIFY DEVELOPER DOCUMENTATION
    Inspired by Shopify.dev/docs/agents Visual & Layout Architecture
+   With Pixelated Retro 8-bit Icon System
    ========================================================================== */
 
 /* --- CSS Variables & Theme Definitions --- */
@@ -102,6 +103,56 @@ ul { list-style: none; }
 pre, code { font-family: var(--font-mono); }
 
 /* ==========================================================================
+   PIXEL ART RETRO ICON SYSTEM (8-bit Shopify.dev Style)
+   ========================================================================== */
+.px-icon {
+    width: 16px;
+    height: 16px;
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.px-icon-lg {
+    width: 24px;
+    height: 24px;
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.brand-pixel-logo {
+    width: 18px;
+    height: 18px;
+}
+
+.s-px-icon {
+    width: 15px;
+    height: 15px;
+    opacity: 0.9;
+}
+
+.p-icon-box {
+    width: 38px;
+    height: 38px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: var(--transition);
+}
+
+.focus-pill-card:hover .p-icon-box {
+    border-color: var(--accent-shopify);
+    background-color: var(--bg-surface-alt);
+}
+
+/* ==========================================================================
    GLOBAL HEADER (Shopify.dev Style)
    ========================================================================== */
 .doc-header {
@@ -151,8 +202,6 @@ pre, code { font-family: var(--font-mono); }
     font-size: 0.95rem;
     color: var(--text-primary);
 }
-
-.brand-logo { color: var(--accent-shopify); font-size: 1.1rem; }
 
 .brand-badge {
     font-size: 0.65rem;
@@ -312,8 +361,7 @@ pre, code { font-family: var(--font-mono); }
     font-weight: 700;
 }
 
-.s-icon { font-size: 0.85rem; opacity: 0.8; }
-.s-sub-prefix { font-family: var(--font-mono); color: var(--text-muted); }
+.s-sub-prefix { font-family: var(--font-mono); color: var(--text-muted); margin-right: 2px; }
 
 /* 2. MAIN CONTENT AREA */
 .doc-main {
@@ -367,7 +415,7 @@ pre, code { font-family: var(--font-mono); }
     margin-bottom: 24px;
 }
 
-.callout-label { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--accent-shopify); margin-bottom: 4px; }
+.callout-label { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; color: var(--accent-shopify); margin-bottom: 4px; display: flex; align-items: center; }
 .doc-callout p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
 
 .doc-actions-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -415,7 +463,6 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .focus-pill-card:hover { border-color: var(--accent-shopify); transform: translateY(-2px); }
-.p-icon { font-size: 1.3rem; display: block; margin-bottom: 6px; }
 .p-title { font-family: var(--font-mono); font-size: 0.92rem; font-weight: 700; color: var(--accent-shopify); margin-bottom: 4px; }
 .p-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
 
@@ -459,56 +506,13 @@ pre, code { font-family: var(--font-mono); }
 .step-content p { font-size: 0.82rem; color: var(--text-secondary); }
 .flow-arrow-down { font-family: var(--font-mono); color: var(--accent-shopify); text-align: center; font-weight: 700; font-size: 0.95rem; }
 
-/* Decision Engine Box */
-.decision-engine-box {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 20px;
-}
-
-.d-engine-header { margin-bottom: 12px; }
-.d-e-title { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-shopify); display: block; }
-.d-e-sub { font-size: 0.78rem; color: var(--text-muted); }
-
-.decision-branch-row { display: flex; gap: 8px; width: 100%; }
-.branch-btn {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 6px 10px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    flex: 1;
-    text-align: center;
-}
-
-.branch-btn:hover, .branch-btn.active {
-    border-color: var(--accent-shopify);
-    color: var(--accent-shopify);
-    background-color: var(--bg-surface-alt);
-}
-
-.branch-explanation {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    padding: 14px;
-    border-radius: var(--radius-sm);
-}
-
-.b-badge { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent-shopify); font-weight: 700; margin-bottom: 4px; }
-.branch-explanation h3 { font-size: 0.92rem; margin-bottom: 4px; }
-.branch-explanation p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
-
 /* PROJECT CASE STUDY PAGES */
 .project-doc-page { margin-bottom: 48px; }
 .project-header { margin-bottom: 18px; }
 
 .project-meta-pill {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 700;
@@ -613,7 +617,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .lab-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.lab-title { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); }
+.lab-title { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; }
 .lab-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); }
 .lab-desc { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px; }
 
