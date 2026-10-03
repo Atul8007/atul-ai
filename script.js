@@ -253,13 +253,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const miniTermBtns = document.querySelectorAll('.t-btn');
 
     const miniCommandDict = {
-        'help': () => 'Available commands: philosophy, work, shopify, tools, contact, sudo hire atul, clear',
+        'help': () => 'Available commands: philosophy, work, projects, shopify, tools, skills, bio, contact, sudo hire atul, clear',
         'philosophy': () => '01 Understand → 02 Preserve → 03 Improve → 04 Replace.',
-        'work': () => 'FEATURED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
-        'projects': () => 'FEATURED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
-        'shopify': () => 'SHOPIFY DEV:\n- Liquid Architecture & Theme Performance\n- Storefront GraphQL & Admin APIs\n- Checkout UI Extensions & Metafields',
-        'tools': () => 'DEVELOPER TOOLS:\n- FigClaw (Figma REST API → AI Context)\n- Profile Switcher (VS Code Extension API)\n- ShopifyThemeCheck (Manifest V3 Chrome Extension)',
-        'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: github.com/Atul8007\nLinkedIn: linkedin.com/in/atul-mundakkal',
+        'work': () => 'SELECTED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
+        'projects': () => 'SELECTED PROJECTS:\n1. FigClaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. ShopifyThemeCheck (/projects/theme-inspector.html)',
+        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid Architecture\n- Multi-Option Variant Systems\n- Cart Drawers & Checkout UI Extensions\n- Storefront GraphQL & Admin REST APIs\n- Developer Tools & Inspection Utilities',
+        'tools': () => 'DEVELOPER TOOLS:\n- FigClaw (Figma REST API → Structured AI Context)\n- Profile Switcher (VS Code Extension API)\n- ShopifyThemeCheck (Manifest V3 Chrome Extension)',
+        'skills': () => 'TECHNICAL SKILLS:\n- Themes & Liquid Architecture\n- Storefront GraphQL & Admin APIs\n- VS Code Extension API & Node.js\n- Manifest V3 Chrome Extension API\n- Checkout UI Extensions & Metafields',
+        'whoami': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build Shopify themes, apps, developer tools, and commerce experiences by working with the systems that already exist.',
+        'bio': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build Shopify themes, apps, developer tools, and commerce experiences by working with the systems that already exist.',
+        'about': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build Shopify themes, apps, developer tools, and commerce experiences by working with the systems that already exist.',
+        'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
         'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\n₹0/month Cloudflare Target . ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FULL-STACK PROJECTS.\nEmail: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'
     };
