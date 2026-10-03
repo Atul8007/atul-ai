@@ -1,67 +1,96 @@
 /* ==========================================================================
-   ATUL MUNDAKKAL — SHOPIFY DEVELOPER DOCUMENTATION
-   Inspired by Shopify.dev Documentation Architecture
-   With Pixelated Retro 8-bit Icon System & Color Codes
+   ATUL MUNDAKKAL — SHOPIFY DEV DOCS PORTFOLIO
+   Exact Visual Replica of Shopify.dev Docs (shopify.dev/docs)
    ========================================================================== */
 
-/* --- CSS Variables & Theme Definitions --- */
+/* --- CSS Variables & Theme Tokens --- */
 :root, [data-theme="dark"] {
-    --bg-main: #0b0f19;
-    --bg-surface: #111827;
-    --bg-surface-alt: #161e2e;
-    --bg-sidebar: #0e131f;
-    --border-color: #1f2937;
-    --border-accent: #374151;
+    --bg-main: #090d16;
+    --bg-header: #080c14;
+    --bg-surface: #0f172a;
+    --bg-surface-hover: #1e293b;
+    --bg-sidebar: #090d16;
+    --border-color: #1e293b;
+    --border-subtle: #172033;
 
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
 
-    --accent-shopify: #95bf47;
+    --accent-shopify: #10b981; /* Shopify Emerald Green */
+    --accent-shopify-bg: rgba(16, 185, 129, 0.12);
+    --accent-shopify-border: rgba(16, 185, 129, 0.3);
+
     --accent-cyan: #38bdf8;
+    --accent-purple: #c084fc;
+    --accent-indigo: #818cf8;
     --accent-warning: #f59e0b;
-    --accent-alert: #ef4444;
 
-    --code-bg: #030712;
-    --code-border: #1f2937;
-    --code-text: #e5e7eb;
+    /* Hero Teal Banner */
+    --hero-bg: #0a2220;
+    --hero-border: #143e3a;
+
+    /* Card Background Colors (Shopify Dev Docs Style) */
+    --card-apps-bg: #0f192a;
+    --card-apps-border: #1e2e4a;
+    --card-storefronts-bg: #1a1028;
+    --card-storefronts-border: #362054;
+    --card-agents-bg: #121536;
+    --card-agents-border: #2a2e66;
+
+    --code-bg: #020617;
+    --code-header-bg: #0f172a;
+    --code-text: #f8fafc;
+    --code-border: #1e293b;
 
     --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'San Francisco', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    --header-height: 54px;
+    --header-height: 56px;
     --sidebar-width: 240px;
     --toc-width: 220px;
-    --max-content-width: 780px;
-    --max-layout-width: 1400px;
+    --max-content-width: 1280px;
 
     --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 10px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
 
-    --transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] {
     --bg-main: #ffffff;
+    --bg-header: #ffffff;
     --bg-surface: #f8fafc;
-    --bg-surface-alt: #f1f5f9;
-    --bg-sidebar: #f8fafc;
+    --bg-surface-hover: #f1f5f9;
+    --bg-sidebar: #ffffff;
     --border-color: #e2e8f0;
-    --border-accent: #cbd5e1;
+    --border-subtle: #f1f5f9;
 
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #94a3b8;
 
-    --accent-shopify: #4d7c0f;
+    --accent-shopify: #059669;
     --accent-cyan: #0284c7;
+    --accent-purple: #9333ea;
+    --accent-indigo: #4f46e5;
     --accent-warning: #d97706;
-    --accent-alert: #dc2626;
+
+    --hero-bg: #064e3b;
+    --hero-border: #047857;
+
+    --card-apps-bg: #0f172a;
+    --card-apps-border: #334155;
+    --card-storefronts-bg: #1e1b4b;
+    --card-storefronts-border: #3730a3;
+    --card-agents-bg: #1e1e38;
+    --card-agents-border: #312e81;
 
     --code-bg: #0f172a;
-    --code-border: #334155;
+    --code-header-bg: #1e293b;
     --code-text: #f8fafc;
+    --code-border: #334155;
 }
 
 /* --- Base Reset & Norms --- */
@@ -97,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
 }
 
 a { color: inherit; text-decoration: none; transition: var(--transition); }
@@ -117,28 +146,20 @@ pre, code { font-family: var(--font-mono); }
     flex-shrink: 0;
 }
 
-.px-icon-lg {
-    width: 24px;
-    height: 24px;
-    shape-rendering: crispEdges;
-    image-rendering: pixelated;
-    display: block;
-}
-
 .brand-pixel-logo {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 .s-px-icon {
     width: 15px;
     height: 15px;
-    margin-right: 6px;
+    margin-right: 8px;
     opacity: 0.9;
 }
 
 /* ==========================================================================
-   GLOBAL HEADER (Shopify.dev Style with Retro Pixel Identity)
+   GLOBAL COMPACT HEADER (Exact Shopify.dev Style)
    ========================================================================== */
 .doc-header {
     position: fixed;
@@ -146,10 +167,9 @@ pre, code { font-family: var(--font-mono); }
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--bg-main);
+    background-color: var(--bg-header);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-    backdrop-filter: blur(10px);
 }
 
 .doc-header-container {
@@ -157,9 +177,9 @@ pre, code { font-family: var(--font-mono); }
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    max-width: var(--max-layout-width);
+    max-width: var(--max-content-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 .header-left {
@@ -186,31 +206,25 @@ pre, code { font-family: var(--font-mono); }
     gap: 8px;
     font-weight: 700;
     font-size: 0.95rem;
-    letter-spacing: -0.01em;
 }
 
 .brand-text {
     color: var(--text-primary);
     font-family: var(--font-sans);
+    letter-spacing: -0.01em;
 }
 
 .brand-badge {
-    background-color: rgba(149, 191, 71, 0.12);
-    color: var(--accent-shopify);
-    border: 1px solid rgba(149, 191, 71, 0.3);
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-left: 2px;
 }
 
 .doc-top-nav {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
 }
 
 .top-nav-link {
@@ -229,7 +243,7 @@ pre, code { font-family: var(--font-mono); }
 .top-nav-link.active::after {
     content: '';
     position: absolute;
-    bottom: -14px;
+    bottom: -15px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -242,53 +256,63 @@ pre, code { font-family: var(--font-mono); }
     gap: 12px;
 }
 
+/* Ask Assistant Pill (Shopify Dev Docs Style) */
+.ask-assistant-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--accent-shopify);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.ask-assistant-btn:hover {
+    background-color: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-shopify);
+}
+
 .search-trigger-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    padding: 4px 10px;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-sm);
-    font-size: 0.82rem;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .search-trigger-btn:hover {
-    border-color: var(--border-accent);
-    color: var(--text-secondary);
-}
-
-.search-kbd {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 1px 4px;
-    border-radius: 3px;
+    border-color: var(--text-muted);
+    color: var(--text-primary);
 }
 
 .theme-toggle-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 4px 8px;
+    width: 32px;
+    height: 32px;
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .theme-toggle-btn:hover {
-    border-color: var(--accent-warning);
     color: var(--text-primary);
+    border-color: var(--text-muted);
 }
 
 .icon-link {
@@ -306,13 +330,199 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* ==========================================================================
+   SHOPIFY DEV DOCS HERO BANNER (Top Deep Teal Box)
+   ========================================================================== */
+.shopify-hero-banner {
+    background-color: var(--hero-bg);
+    border: 1px solid var(--hero-border);
+    border-radius: var(--radius-lg);
+    padding: 44px 48px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 36px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-left h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.15;
+}
+
+.hero-left p {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 540px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--accent-shopify);
+    color: #000000;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 8px 18px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.hero-btn-primary:hover {
+    background-color: #34d399;
+    transform: translateY(-1px);
+}
+
+.hero-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 18px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.hero-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.hero-right-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pixel-mockup-frame {
+    width: 100%;
+    max-width: 380px;
+    background: #061715;
+    border: 1px solid #143e3a;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   SHOPIFY DEV DOCS 3-COLUMN CARD GRID
+   ========================================================================== */
+.shopify-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.shopify-card {
+    border-radius: var(--radius-lg);
+    padding: 28px 24px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.shopify-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Card Themes */
+.card-apps {
+    background-color: var(--card-apps-bg);
+    border: 1px solid var(--card-apps-border);
+}
+
+.card-storefronts {
+    background-color: var(--card-storefronts-bg);
+    border: 1px solid var(--card-storefronts-border);
+}
+
+.card-agents {
+    background-color: var(--card-agents-bg);
+    border: 1px solid var(--card-agents-border);
+}
+
+.card-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.card-content p {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.card-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    transition: var(--transition);
+}
+
+.shopify-card:hover .card-pill-btn {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-bottom-illustration {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.pixel-card-mockup {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
    DOCUMENTATION 3-COLUMN LAYOUT
    ========================================================================== */
 .doc-layout {
     display: grid;
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--toc-width);
     gap: 40px;
-    max-width: var(--max-layout-width);
+    max-width: var(--max-content-width);
     margin: 0 auto;
     padding-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
@@ -320,6 +530,11 @@ pre, code { font-family: var(--font-mono); }
 
 .doc-layout.no-toc {
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+}
+
+.doc-layout.full-width {
+    grid-template-columns: 1fr;
+    padding: calc(var(--header-height) + 32px) 24px 60px 24px;
 }
 
 /* --- Sticky Left Sidebar --- */
@@ -377,7 +592,7 @@ pre, code { font-family: var(--font-mono); }
 
 .sidebar-link.active {
     color: var(--accent-shopify);
-    background-color: rgba(149, 191, 71, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
     font-weight: 600;
 }
 
@@ -545,69 +760,7 @@ pre, code { font-family: var(--font-mono); }
 .doc-badge-btn:hover {
     border-color: var(--accent-shopify);
     color: var(--accent-shopify);
-    background-color: rgba(149, 191, 71, 0.08);
-}
-
-/* ==========================================================================
-   DOCUMENTATION PROJECT LIST (Documentation Style with Pixel Icons)
-   ========================================================================== */
-.doc-project-list {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.doc-project-item {
-    display: grid;
-    grid-template-columns: 56px 1fr 130px;
-    align-items: center;
-    padding: 20px 12px;
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.doc-project-item:hover {
-    background-color: var(--bg-surface);
-}
-
-.project-num-box {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.project-info h3 {
-    margin: 0 0 4px 0;
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.project-info p {
-    margin: 0;
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-}
-
-.project-action-link {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--accent-shopify);
-    font-weight: 600;
-    text-align: right;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 4px;
-}
-
-.doc-project-item:hover .project-action-link {
-    color: var(--accent-shopify);
-    transform: translateX(2px);
+    background-color: rgba(16, 185, 129, 0.08);
 }
 
 /* ==========================================================================
@@ -722,7 +875,7 @@ pre, code { font-family: var(--font-mono); }
 /* Syntax Highlighting */
 .hl-kw { color: #f472b6; }
 .hl-fn { color: #38bdf8; }
-.hl-str { color: #95bf47; }
+.hl-str { color: #10b981; }
 .hl-cmt { color: #64748b; font-style: italic; }
 
 /* ==========================================================================
@@ -813,7 +966,7 @@ pre, code { font-family: var(--font-mono); }
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     overflow: hidden;
     z-index: 2001;
 }
@@ -852,7 +1005,7 @@ pre, code { font-family: var(--font-mono); }
 
 .search-item:hover,
 .search-item.selected {
-    background-color: var(--bg-surface-alt);
+    background-color: var(--bg-surface-hover);
 }
 
 .s-item-title {
@@ -872,28 +1025,28 @@ pre, code { font-family: var(--font-mono); }
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--accent-shopify);
-    background-color: rgba(149, 191, 71, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
     padding: 2px 6px;
     border-radius: 3px;
 }
 
 /* ==========================================================================
-   FOOTER (Compact Documentation Footer with Pixel Logo)
+   FOOTER (Exact Shopify Dev Docs Style)
    ========================================================================== */
 .doc-footer {
     border-top: 1px solid var(--border-color);
-    background-color: var(--bg-main);
-    padding: 32px 20px;
+    background-color: var(--bg-header);
+    padding: 36px 24px;
     margin-top: 60px;
 }
 
 .doc-footer-container {
-    max-width: var(--max-layout-width);
+    max-width: var(--max-content-width);
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.83rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
 }
 
@@ -907,7 +1060,7 @@ pre, code { font-family: var(--font-mono); }
 
 .footer-links {
     display: flex;
-    gap: 16px;
+    gap: 20px;
 }
 
 .footer-links a:hover {
@@ -918,6 +1071,19 @@ pre, code { font-family: var(--font-mono); }
    RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 1024px) {
+    .shopify-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shopify-hero-banner {
+        grid-template-columns: 1fr;
+        padding: 32px 28px;
+    }
+
+    .hero-right-graphic {
+        display: none;
+    }
+
     .doc-layout {
         grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
         gap: 30px;
@@ -950,7 +1116,7 @@ pre, code { font-family: var(--font-mono); }
         height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.2s ease;
-        box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+        box-shadow: 5px 0 25px rgba(0,0,0,0.5);
     }
 
     .doc-sidebar.active {
@@ -959,17 +1125,5 @@ pre, code { font-family: var(--font-mono); }
 
     .doc-main {
         padding: 24px 20px 40px 20px;
-    }
-
-    .doc-project-item {
-        grid-template-columns: 44px 1fr;
-        gap: 8px;
-    }
-
-    .project-action-link {
-        grid-column: 2;
-        text-align: left;
-        justify-content: flex-start;
-        margin-top: 4px;
     }
 }
