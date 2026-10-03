@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Mundakkal — Shopify Developer Documentation</title>
+    <title>Atul Mundakkal — Shopify Developer & Full-Stack Engineer Docs</title>
     
     <!-- SEO & Technical Metadata -->
-    <meta name="description" content="Technical documentation and engineering case studies for Atul Mundakkal, Shopify Developer & Full-Stack Engineer. Case studies for figclaw, Profile Switcher, and ShopifyThemeCheck.">
-    <meta name="keywords" content="Shopify Developer, Technical Documentation, figclaw, Profile Switcher, ShopifyThemeCheck, Liquid, Storefront API, Atul Mundakkal">
+    <meta name="description" content="Atul Mundakkal — Shopify Developer & Full-Stack Engineer. Technical documentation, Liquid architecture, Storefront API, and developer tools for figclaw, Profile Switcher, and ShopifyThemeCheck.">
+    <meta name="keywords" content="Shopify Developer, Full-Stack Engineer, Liquid, Storefront API, figclaw, Profile Switcher, ShopifyThemeCheck, Atul Mundakkal">
     <meta name="author" content="Atul Mundakkal">
     <link rel="canonical" href="https://atul-ai.pages.dev">
 
@@ -15,13 +15,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://atul-ai.pages.dev">
     <meta property="og:title" content="Atul Mundakkal — Shopify Developer Documentation">
-    <meta property="og:description" content="Technical documentation and engineering case studies for figclaw, Profile Switcher, and ShopifyThemeCheck.">
+    <meta property="og:description" content="I solve the parts of Shopify that don't come out of the box. Technical documentation and developer tools.">
     <meta property="og:image" content="assets/images/og-preview.png">
 
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Atul Mundakkal — Developer Docs">
-    <meta name="twitter:description" content="Technical documentation and developer tools by Atul Mundakkal.">
+    <meta name="twitter:description" content="I solve the parts of Shopify that don't come out of the box.">
     <meta name="twitter:image" content="assets/images/og-preview.png">
 
     <!-- Google Fonts: Geist & JetBrains Mono -->
@@ -38,21 +38,25 @@
         <div class="doc-header-container">
             
             <div class="header-left">
-                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Project Navigation" aria-expanded="false">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation" aria-expanded="false">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
                 </button>
 
-                <a href="#about" class="doc-brand">
+                <a href="#overview" class="doc-brand">
                     <span class="brand-logo">◈</span>
-                    <span class="brand-text">ATUL</span>
-                    <span class="brand-badge">DOCS</span>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">SHOPIFY DEV</span>
                 </a>
             </div>
 
             <!-- Top Header Navigation -->
             <nav class="doc-top-nav">
-                <a href="#projects" class="top-nav-link active">Projects</a>
-                <a href="#about" class="top-nav-link">About</a>
+                <a href="#overview" class="top-nav-link active">Overview</a>
+                <a href="#focus" class="top-nav-link">Focus</a>
+                <a href="#problem-solving" class="top-nav-link">Approach</a>
+                <a href="#projects" class="top-nav-link">Projects</a>
+                <a href="#playground" class="top-nav-link">Lab</a>
+                <a href="#capabilities" class="top-nav-link">Capabilities</a>
                 <a href="#contact" class="top-nav-link">Contact</a>
             </nav>
 
@@ -87,14 +91,17 @@
     <!-- DOCUMENTATION LAYOUT CONTAINER -->
     <div class="doc-layout" id="doc-layout">
 
-        <!-- STICKY LEFT PROJECT SIDEBAR (ONLY 3 PROJECTS) -->
+        <!-- STICKY LEFT DOCUMENTATION SIDEBAR -->
         <aside class="doc-sidebar" id="doc-sidebar">
             <div class="sidebar-inner">
                 
                 <div class="sidebar-group">
-                    <div class="sidebar-title">OVERVIEW</div>
+                    <div class="sidebar-title">EXPLORE</div>
                     <ul class="sidebar-links">
-                        <li><a href="#about" class="sidebar-link active"><span class="s-icon">📄</span> About &amp; Approach</a></li>
+                        <li><a href="#overview" class="sidebar-link active"><span class="s-icon">📄</span> Overview</a></li>
+                        <li><a href="#focus" class="sidebar-link"><span class="s-icon">⚡</span> What I Work On</a></li>
+                        <li><a href="#problem-solving" class="sidebar-link"><span class="s-icon">🧠</span> How I Solve Problems</a></li>
+                        <li><a href="#decision-engine" class="sidebar-link"><span class="s-icon">⚙️</span> System Decision Engine</a></li>
                     </ul>
                 </div>
 
@@ -108,131 +115,250 @@
                 </div>
 
                 <div class="sidebar-group">
-                    <div class="sidebar-title">CONTACT</div>
+                    <div class="sidebar-title">TECHNICAL LAB</div>
                     <ul class="sidebar-links">
-                        <li><a href="#contact" class="sidebar-link"><span class="s-icon">📬</span> Available for Work</a></li>
+                        <li><a href="#playground" class="sidebar-link"><span class="s-icon">🧪</span> Technical Lab</a></li>
+                        <li><a href="#limit-simulator" class="sidebar-link"><span class="s-icon">📊</span> API Limit Monitor</a></li>
+                        <li><a href="#state-sync" class="sidebar-link"><span class="s-icon">🔄</span> Code ↔ UX State Sync</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">CAPABILITIES &amp; EXPERIENCE</div>
+                    <ul class="sidebar-links">
+                        <li><a href="#capabilities" class="sidebar-link"><span class="s-icon">🛠️</span> Capability Matrix</a></li>
+                        <li><a href="#about-how-i-work" class="sidebar-link"><span class="s-icon">💬</span> About How I Work</a></li>
+                        <li><a href="#experience" class="sidebar-link"><span class="s-icon">⏳</span> Experience</a></li>
+                        <li><a href="#contact" class="sidebar-link"><span class="s-icon">📬</span> Contact &amp; Work</a></li>
+                        <li><button class="sidebar-link terminal-trigger" id="sidebar-terminal-btn"><span class="s-icon">⚡</span> Open ATUL Shell</button></li>
                     </ul>
                 </div>
 
             </div>
         </aside>
 
-        <!-- MAIN CONTENT AREA -->
+        <!-- MAIN DOCUMENTATION CONTENT AREA -->
         <main class="doc-main" id="doc-main">
             
-            <!-- OVERVIEW / ABOUT SECTION -->
-            <section class="doc-page-section" id="about">
+            <!-- OVERVIEW SECTION -->
+            <section class="doc-page-section" id="overview">
                 <nav class="doc-breadcrumb" aria-label="Breadcrumb">
                     <ol>
-                        <li><a href="#about">Docs</a></li>
-                        <li><a href="#about">Developer Workspace</a></li>
-                        <li aria-current="page">Overview</li>
+                        <li><a href="#overview">Docs</a></li>
+                        <li><a href="#overview">Developer Workspace</a></li>
+                        <li aria-current="page" id="breadcrumb-current">Overview</li>
                     </ol>
                 </nav>
 
                 <div class="doc-page-header">
                     <div class="doc-tag">SHOPIFY DEVELOPER &amp; FULL-STACK ENGINEER</div>
                     <h1 class="doc-title">ATUL MUNDAKKAL</h1>
-                    <p class="doc-subtitle">I solve the parts of Shopify that don't come out of the box.</p>
+                    <p class="hero-punchline">
+                        I solve the parts of Shopify that don't come out of the box.
+                    </p>
                 </div>
 
                 <div class="doc-callout">
-                    <div class="callout-label">TECHNICAL APPROACH</div>
+                    <div class="callout-label">PERSPECTIVE ENGINE</div>
                     <p>
-                        Don't rebuild everything just because you can. Understand the existing system first. Keep what works natively. Extend platform capabilities via lightweight code. Replace only what is fundamentally broken.
+                        <strong>You should talk to Atul because you are looking for a better perspective on a solution you have been trying to figure out.</strong> I solve problems by understanding existing systems first, reducing friction, and engineering the simplest useful solution.
                     </p>
                 </div>
 
                 <div class="doc-actions-row">
-                    <a href="#figclaw" class="btn btn-primary"><span>View Projects →</span></a>
+                    <a href="#projects" class="btn btn-primary"><span>View Projects →</span></a>
                     <a href="#contact" class="btn btn-secondary"><span>Contact Developer</span></a>
+                    <button class="btn btn-secondary" id="hero-terminal-btn"><span>Open ATUL Shell [⌘K]</span></button>
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 1: WHAT I WORK ON -->
+            <section class="doc-section" id="focus">
+                <h2>WHAT I WORK ON</h2>
+                <p class="section-intro">Specialized technical domains in Shopify storefront architecture and developer tooling.</p>
+
+                <div class="focus-pills-grid">
+                    <div class="focus-pill-card">
+                        <span class="p-icon">🎨</span>
+                        <div class="p-title">Themes</div>
+                        <p class="p-desc">Liquid 2.0, Dawn architecture, AJAX Section Rendering, Zero-dependency UI.</p>
+                    </div>
+                    <div class="focus-pill-card">
+                        <span class="p-icon">🔀</span>
+                        <div class="p-title">Variants</div>
+                        <p class="p-desc">Complex multi-option variant matrix, custom swatches, real-time JSON state mutation.</p>
+                    </div>
+                    <div class="focus-pill-card">
+                        <span class="p-icon">💳</span>
+                        <div class="p-title">Checkout</div>
+                        <p class="p-desc">Cart drawer state sync, Metafield integration, order flow friction reduction.</p>
+                    </div>
+                    <div class="focus-pill-card">
+                        <span class="p-icon">⚡</span>
+                        <div class="p-title">APIs</div>
+                        <p class="p-desc">Storefront GraphQL, Admin REST, App Proxies, Customer &amp; Product Metaobjects.</p>
+                    </div>
+                    <div class="focus-pill-card">
+                        <span class="p-icon">💧</span>
+                        <div class="p-title">Liquid</div>
+                        <p class="p-desc">Custom snippet engineering, dynamic schema blocks, performance optimization.</p>
+                    </div>
+                    <div class="focus-pill-card">
+                        <span class="p-icon">🛠️</span>
+                        <div class="p-title">Developer Tools</div>
+                        <p class="p-desc">Chrome extensions, CLI workspace bridges, admin profile switchers, theme inspectors.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 2: HOW I SOLVE PROBLEMS & DECISION ENGINE -->
+            <section class="doc-section" id="problem-solving">
+                <h2>HOW I SOLVE PROBLEMS</h2>
+                <p class="section-intro">A disciplined engineering sequence for handling complex storefront challenges.</p>
+
+                <!-- Flow Diagram (Understand -> Preserve -> Improve -> Replace) -->
+                <div class="problem-flow-box">
+                    <div class="flow-step-node">
+                        <div class="step-num-badge">01</div>
+                        <div class="step-content">
+                            <h3>Understand</h3>
+                            <p>Study the existing system, merchant workflow, data flow, and hard platform boundaries first.</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <div class="flow-step-node">
+                        <div class="step-num-badge">02</div>
+                        <div class="step-content">
+                            <h3>Preserve</h3>
+                            <p>Keep what already works well natively (Metafields, native sections) to minimize maintenance cost.</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <div class="flow-step-node">
+                        <div class="step-num-badge">03</div>
+                        <div class="step-content">
+                            <h3>Improve</h3>
+                            <p>Extend native capabilities with lightweight client code or targeted Storefront API calls.</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-arrow-down">↓</div>
+
+                    <div class="flow-step-node highlight">
+                        <div class="step-num-badge">04</div>
+                        <div class="step-content">
+                            <h3>Replace</h3>
+                            <p>Replace only what is fundamentally broken or causing severe technical debt &amp; page slowdown.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive System Decision Engine Simulator -->
+                <div class="decision-engine-box" id="decision-engine" style="margin-top: 28px;">
+                    <div class="d-engine-header">
+                        <span class="d-e-title">SYSTEM DECISION ENGINE SIMULATOR</span>
+                        <span class="d-e-sub">Select a decision branch to inspect strategy</span>
+                    </div>
+
+                    <div class="decision-branch-row">
+                        <button class="branch-btn active" data-branch="keep">[ PRESERVE NATIVE ]</button>
+                        <button class="branch-btn" data-branch="extend">[ IMPROVE VIA CODE ]</button>
+                        <button class="branch-btn" data-branch="replace">[ REPLACE FRICTION ]</button>
+                    </div>
+
+                    <div class="branch-explanation" id="branch-explanation" style="margin-top: 16px;">
+                        <div class="b-badge" id="b-badge">STRATEGY: PRESERVE NATIVE</div>
+                        <h3 id="b-title">Preserve Working Platform Fundamentals</h3>
+                        <p id="b-desc">When existing native features (like Shopify Customer Metafields or theme sections) already solve 80% of the problem, do not introduce extra databases or paid apps. Preserve native capabilities to minimize ongoing maintenance cost.</p>
+                    </div>
                 </div>
             </section>
 
             <hr class="doc-divider" id="projects">
 
             <!-- ==========================================================================
-                 PROJECT 1: FIGCLAW (#figclaw)
+                 SECTION 3: PROJECTS (ONLY 3 PUBLIC PROJECTS)
                  ========================================================================== -->
-            <article class="project-doc-page" id="figclaw">
-                
-                <nav class="doc-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="#about">Docs</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li aria-current="page">figclaw</li>
-                    </ol>
-                </nav>
+            <section class="doc-section">
+                <h2>PUBLIC PROJECTS</h2>
+                <p class="section-intro">Technical case studies formatted as developer documentation pages.</p>
 
-                <header class="project-header">
-                    <div class="project-meta-pill verified">PUBLIC REPOSITORY / AI INTEGRATION</div>
-                    <h1 class="project-title">figclaw</h1>
-                    <p class="project-description">AI-powered design-to-development workflow bridge connecting Claude AI directly to Figma.</p>
-                </header>
+                <!-- PROJECT 1: FIGCLAW (#figclaw) -->
+                <article class="project-doc-page" id="figclaw">
+                    
+                    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#overview">Docs</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li aria-current="page">figclaw</li>
+                        </ol>
+                    </nav>
 
-                <div class="project-actions">
-                    <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
-                </div>
+                    <header class="project-header">
+                        <div class="project-meta-pill verified">PUBLIC REPOSITORY / AI INTEGRATION</div>
+                        <h1 class="project-title">figclaw</h1>
+                        <p class="project-description">AI-powered design-to-development workflow bridge connecting Claude AI directly to Figma.</p>
+                    </header>
 
-                <!-- Technical Step Workflow -->
-                <div class="workflow-card">
-                    <div class="workflow-title">DESIGN-TO-CODE WORKFLOW</div>
-                    <div class="workflow-grid">
-                        <div class="wf-step">
-                            <span class="wf-num">1. Input</span>
-                            <p>Figma file URL &amp; target node token identifier</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">2. Processing</span>
-                            <p>Figma REST API parses layer geometries &amp; styles</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">3. Transformation</span>
-                            <p>Direct API bridge serializes design context</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">4. Output</span>
-                            <p>Automated code generation inside Claude AI</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
+                    </div>
+
+                    <!-- Technical Step Workflow -->
+                    <div class="workflow-card">
+                        <div class="workflow-title">DESIGN-TO-CODE WORKFLOW</div>
+                        <div class="workflow-grid">
+                            <div class="wf-step">
+                                <span class="wf-num">1. Input</span>
+                                <p>Figma file URL &amp; target node token identifier</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">2. Processing</span>
+                                <p>Figma REST API parses layer geometries &amp; styles</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">3. Transformation</span>
+                                <p>Direct API bridge serializes design context</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">4. Output</span>
+                                <p>Automated code generation inside Claude AI</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Documentation Sections -->
-                <div class="doc-content-body">
-                    
-                    <section class="doc-sub-section">
-                        <h2>Overview</h2>
-                        <p>
-                            <strong>figclaw</strong> is a developer workflow tool engineered to connect Claude AI directly to Figma node graphs prior to official Model Context Protocol (MCP) support. It enables seamless extraction of design tokens, component hierarchies, and visual specs directly into AI prompting contexts.
-                        </p>
-                    </section>
+                    <!-- Documentation Body -->
+                    <div class="doc-content-body">
+                        <section class="doc-sub-section">
+                            <h2>Overview</h2>
+                            <p>
+                                <strong>figclaw</strong> is a developer workflow tool engineered to connect Claude AI directly to Figma node graphs prior to official Model Context Protocol (MCP) support. It enables seamless extraction of design tokens, component hierarchies, and visual specs directly into AI prompting contexts.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Problem</h2>
-                        <p>
-                            Translating complex UI mockups into clean code required developers to manually copy-paste styles, measure pixel distances, and type CSS properties line by line. Existing developer handoff tools lacked direct execution bridges to AI coding assistants.
-                        </p>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Problem</h2>
+                            <p>
+                                Translating complex UI mockups into clean code required developers to manually copy-paste styles, measure pixel distances, and type CSS properties line by line. Existing developer handoff tools lacked direct execution bridges to AI coding assistants.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>How It Works</h2>
-                        <p>
-                            The tool connects directly to Figma's REST API, traverses the document tree for specified frame IDs, filters out unnecessary metadata, and structures visual tokens into clean JSON representation optimized for LLM comprehension.
-                        </p>
-                    </section>
-
-                    <section class="doc-sub-section">
-                        <h2>Architecture &amp; Technical Decisions</h2>
-                        <p>
-                            Built using pure JavaScript with zero extraneous external dependencies to guarantee zero setup friction and fast API execution.
-                        </p>
-
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-filename">figclaw-bridge.js</span>
-                                <button class="copy-btn" data-code="figclaw-snippet">Copy</button>
-                            </div>
-                            <pre><code id="figclaw-snippet">// figclaw API Execution Snippet
+                        <section class="doc-sub-section">
+                            <h2>Architecture &amp; Technical Code</h2>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-filename">figclaw-bridge.js</span>
+                                    <button class="copy-btn" data-code="figclaw-snippet">Copy</button>
+                                </div>
+                                <pre><code id="figclaw-snippet">// figclaw API Execution Snippet
 async function fetchFigmaNodeContext(fileKey, nodeId) {
   const response = await fetch(`https://api.figma.com/v1/files/${fileKey}/nodes?ids=${nodeId}`, {
     headers: { 'X-Figma-Token': process.env.FIGMA_ACCESS_TOKEN }
@@ -240,103 +366,92 @@ async function fetchFigmaNodeContext(fileKey, nodeId) {
   const data = await response.json();
   return parseFigmaNodeGraph(data.nodes[nodeId].document);
 }</code></pre>
-                        </div>
-                    </section>
+                            </div>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Result &amp; Technology Stack</h2>
-                        <p>
-                            Eliminated manual measurement overhead and streamlined design-to-code iteration cycles.
-                        </p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Figma REST API</span>
-                            <span class="tech-tag">Claude AI Integration</span>
-                            <span class="tech-tag">Node.js</span>
-                        </div>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Result &amp; Technology Stack</h2>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Figma REST API</span>
+                                <span class="tech-tag">Claude AI Integration</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                        </section>
+                    </div>
 
-                </div>
+                </article>
 
-            </article>
+                <hr class="doc-divider">
 
-            <hr class="doc-divider">
+                <!-- PROJECT 2: PROFILE SWITCHER (#profile-switcher) -->
+                <article class="project-doc-page" id="profile-switcher">
+                    
+                    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#overview">Docs</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li aria-current="page">Profile Switcher</li>
+                        </ol>
+                    </nav>
 
-            <!-- ==========================================================================
-                 PROJECT 2: PROFILE SWITCHER (#profile-switcher)
-                 ========================================================================== -->
-            <article class="project-doc-page" id="profile-switcher">
-                
-                <nav class="doc-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="#about">Docs</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li aria-current="page">Profile Switcher</li>
-                    </ol>
-                </nav>
+                    <header class="project-header">
+                        <div class="project-meta-pill private">DEVELOPER UTILITY</div>
+                        <h1 class="project-title">Profile Switcher</h1>
+                        <p class="project-description">A lightweight Shopify developer workflow tool for switching development profiles/environments.</p>
+                    </header>
 
-                <header class="project-header">
-                    <div class="project-meta-pill private">DEVELOPER UTILITY</div>
-                    <h1 class="project-title">Profile Switcher</h1>
-                    <p class="project-description">A lightweight Shopify developer workflow tool for switching development profiles/environments.</p>
-                </header>
+                    <div class="project-actions">
+                        <span class="meta-tag-pill">Private Repository Utility</span>
+                    </div>
 
-                <div class="project-actions">
-                    <span class="meta-tag-pill">Private Repository Utility</span>
-                </div>
-
-                <!-- Technical Step Workflow -->
-                <div class="workflow-card">
-                    <div class="workflow-title">DEVELOPER WORKFLOW</div>
-                    <div class="workflow-grid">
-                        <div class="wf-step">
-                            <span class="wf-num">1. Select profile</span>
-                            <p>Choose target store development environment</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">2. Load configuration</span>
-                            <p>Fetch active store credentials &amp; API keys</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">3. Switch environment</span>
-                            <p>Hot-swap active admin session tokens</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">4. Continue development</span>
-                            <p>Resume theme dev with zero authentication breaks</p>
+                    <!-- Technical Step Workflow -->
+                    <div class="workflow-card">
+                        <div class="workflow-title">DEVELOPER WORKFLOW</div>
+                        <div class="workflow-grid">
+                            <div class="wf-step">
+                                <span class="wf-num">1. Select profile</span>
+                                <p>Choose target store development environment</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">2. Load configuration</span>
+                                <p>Fetch active store credentials &amp; API keys</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">3. Switch environment</span>
+                                <p>Hot-swap active admin session tokens</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">4. Continue development</span>
+                                <p>Resume theme dev with zero authentication breaks</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Documentation Sections -->
-                <div class="doc-content-body">
-                    
-                    <section class="doc-sub-section">
-                        <h2>Overview</h2>
-                        <p>
-                            <strong>Profile Switcher</strong> is a specialized developer utility built to simplify managing multiple client Shopify Admin stores and development environments without requiring repetitive manual logouts and credential re-entry.
-                        </p>
-                    </section>
+                    <!-- Documentation Body -->
+                    <div class="doc-content-body">
+                        <section class="doc-sub-section">
+                            <h2>Overview</h2>
+                            <p>
+                                <strong>Profile Switcher</strong> is a specialized developer utility built to simplify managing multiple client Shopify Admin stores and development environments without requiring repetitive manual logouts and credential re-entry.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Problem</h2>
-                        <p>
-                            Shopify developers working across multiple client stores lose valuable time re-authenticating sessions and navigating between partner accounts. Standard browser session management often triggers unwanted logouts across active tabs.
-                        </p>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Problem</h2>
+                            <p>
+                                Shopify developers working across multiple client stores lose valuable time re-authenticating sessions and navigating between partner accounts. Standard browser session management often triggers unwanted logouts across active tabs.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Architecture &amp; Security Considerations</h2>
-                        <p>
-                            The utility operates locally in the developer's workspace. It isolates store configurations and handles credential switching securely without exposing keys to external third-party servers.
-                        </p>
-
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-filename">profile-switcher.js</span>
-                                <button class="copy-btn" data-code="profile-snippet">Copy</button>
-                            </div>
-                            <pre><code id="profile-snippet">// Profile Switcher Environment Loader
+                        <section class="doc-sub-section">
+                            <h2>Architecture &amp; Technical Code</h2>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-filename">profile-switcher.js</span>
+                                    <button class="copy-btn" data-code="profile-snippet">Copy</button>
+                                </div>
+                                <pre><code id="profile-snippet">// Profile Switcher Environment Loader
 function switchShopifyProfile(targetProfileKey) {
   const profileConfig = loadLocalProfileConfig(targetProfileKey);
   if (!profileConfig) throw new Error(`Profile "${targetProfileKey}" not found`);
@@ -344,102 +459,91 @@ function switchShopifyProfile(targetProfileKey) {
   process.env.SHOPIFY_FLAG_STORE = profileConfig.storeDomain;
   console.log(`[Profile Switcher] Switched active environment to: ${profileConfig.storeDomain}`);
 }</code></pre>
-                        </div>
-                    </section>
+                            </div>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Result &amp; Technology Stack</h2>
-                        <p>
-                            Drastically reduced context switching overhead when managing multiple live merchant stores.
-                        </p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Shopify Admin API</span>
-                            <span class="tech-tag">Developer Utility</span>
-                        </div>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Result &amp; Technology Stack</h2>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Shopify Admin API</span>
+                                <span class="tech-tag">Developer Utility</span>
+                            </div>
+                        </section>
+                    </div>
 
-                </div>
+                </article>
 
-            </article>
+                <hr class="doc-divider">
 
-            <hr class="doc-divider">
+                <!-- PROJECT 3: SHOPIFYTHEMECHECK (#theme-check) -->
+                <article class="project-doc-page" id="theme-check">
+                    
+                    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#overview">Docs</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li aria-current="page">ShopifyThemeCheck</li>
+                        </ol>
+                    </nav>
 
-            <!-- ==========================================================================
-                 PROJECT 3: SHOPIFYTHEMECHECK (#theme-check)
-                 ========================================================================== -->
-            <article class="project-doc-page" id="theme-check">
-                
-                <nav class="doc-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="#about">Docs</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li aria-current="page">ShopifyThemeCheck</li>
-                    </ol>
-                </nav>
+                    <header class="project-header">
+                        <div class="project-meta-pill verified">SHOPIFY INSPECTION TOOL</div>
+                        <h1 class="project-title">ShopifyThemeCheck</h1>
+                        <p class="project-description">Shopify theme inspection and developer tooling.</p>
+                    </header>
 
-                <header class="project-header">
-                    <div class="project-meta-pill verified">SHOPIFY INSPECTION TOOL</div>
-                    <h1 class="project-title">ShopifyThemeCheck</h1>
-                    <p class="project-description">Shopify theme inspection and developer tooling.</p>
-                </header>
+                    <div class="project-actions">
+                        <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
+                    </div>
 
-                <div class="project-actions">
-                    <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-primary btn-sm">[ View on GitHub / Atul8007 ] →</a>
-                </div>
-
-                <!-- Technical Step Workflow -->
-                <div class="workflow-card">
-                    <div class="workflow-title">INSPECTION WORKFLOW</div>
-                    <div class="workflow-grid">
-                        <div class="wf-step">
-                            <span class="wf-num">1. Detect</span>
-                            <p>Identify theme engine &amp; active asset bundles</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">2. Inspect</span>
-                            <p>Extract installed app scripts &amp; font files</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">3. Analyse</span>
-                            <p>Parse product JSON schemas &amp; Metafields</p>
-                        </div>
-                        <div class="wf-step">
-                            <span class="wf-num">4. Surface information</span>
-                            <p>Display clean technical asset breakdown</p>
+                    <!-- Technical Step Workflow -->
+                    <div class="workflow-card">
+                        <div class="workflow-title">INSPECTION WORKFLOW</div>
+                        <div class="workflow-grid">
+                            <div class="wf-step">
+                                <span class="wf-num">1. Detect</span>
+                                <p>Identify theme engine &amp; active asset bundles</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">2. Inspect</span>
+                                <p>Extract installed app scripts &amp; font files</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">3. Analyse</span>
+                                <p>Parse product JSON schemas &amp; Metafields</p>
+                            </div>
+                            <div class="wf-step">
+                                <span class="wf-num">4. Surface information</span>
+                                <p>Display clean technical asset breakdown</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Documentation Sections -->
-                <div class="doc-content-body">
-                    
-                    <section class="doc-sub-section">
-                        <h2>Overview</h2>
-                        <p>
-                            <strong>ShopifyThemeCheck</strong> is an inspection tool engineered for rapid storefront auditing. It automatically parses live Shopify store pages to extract active theme identifiers, third-party app scripts, custom font files, social media integrations, and raw product JSON schemas.
-                        </p>
-                    </section>
+                    <!-- Documentation Body -->
+                    <div class="doc-content-body">
+                        <section class="doc-sub-section">
+                            <h2>Overview</h2>
+                            <p>
+                                <strong>ShopifyThemeCheck</strong> is an inspection tool engineered for rapid storefront auditing. It automatically parses live Shopify store pages to extract active theme identifiers, third-party app scripts, custom font files, social media integrations, and raw product JSON schemas.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Problem</h2>
-                        <p>
-                            Auditing a merchant's live storefront to diagnose script bloat, third-party app dependencies, or custom variant structure required tedious manual tracing through DevTools DOM trees and network requests.
-                        </p>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Problem</h2>
+                            <p>
+                                Auditing a merchant's live storefront to diagnose script bloat, third-party app dependencies, or custom variant structure required tedious manual tracing through DevTools DOM trees and network requests.
+                            </p>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>How It Works &amp; Architecture</h2>
-                        <p>
-                            The tool parses the DOM head and window global objects (e.g. <code>Shopify.theme</code>, <code>Shopify.Shop</code>) to extract structured technical metadata in real time.
-                        </p>
-
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-filename">theme-check-inspector.js</span>
-                                <button class="copy-btn" data-code="themecheck-snippet">Copy</button>
-                            </div>
-                            <pre><code id="themecheck-snippet">// ShopifyThemeCheck DOM & JSON Extractor
+                        <section class="doc-sub-section">
+                            <h2>Architecture &amp; Technical Code</h2>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-filename">theme-check-inspector.js</span>
+                                    <button class="copy-btn" data-code="themecheck-snippet">Copy</button>
+                                </div>
+                                <pre><code id="themecheck-snippet">// ShopifyThemeCheck DOM & JSON Extractor
 function inspectShopifyStorefront() {
   const themeData = window.Shopify ? window.Shopify.theme : null;
   const scriptTags = Array.from(document.querySelectorAll('script[src]')).map(s => s.src);
@@ -451,35 +555,215 @@ function inspectShopifyStorefront() {
     productSchema: productJson ? JSON.parse(productJson.textContent) : null
   };
 }</code></pre>
-                        </div>
-                    </section>
+                            </div>
+                        </section>
 
-                    <section class="doc-sub-section">
-                        <h2>Result &amp; Technology Stack</h2>
-                        <p>
-                            Provides instant visibility into live store architecture for performance optimization and bug diagnosis.
-                        </p>
-                        <div class="tech-stack-row">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">JSON Schema Extractor</span>
-                            <span class="tech-tag">Storefront Parsing</span>
-                            <span class="tech-tag">DOM Inspection</span>
-                        </div>
-                    </section>
+                        <section class="doc-sub-section">
+                            <h2>Result &amp; Technology Stack</h2>
+                            <div class="tech-stack-row">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">JSON Schema Extractor</span>
+                                <span class="tech-tag">Storefront Parsing</span>
+                                <span class="tech-tag">DOM Inspection</span>
+                            </div>
+                        </section>
+                    </div>
 
-                </div>
+                </article>
 
-            </article>
+            </section>
 
             <hr class="doc-divider">
 
-            <!-- CONTACT & WORK AVAILABILITY SECTION -->
-            <section class="doc-page-section" id="contact">
+            <!-- SECTION 4: TECHNICAL PLAYGROUND (LAB) -->
+            <section class="doc-section" id="playground">
+                <h2>TECHNICAL PLAYGROUND</h2>
+                <p class="section-intro">Interactive simulations demonstrating tool utilities and live code-to-UX state mutation.</p>
+
+                <div class="lab-grid">
+                    
+                    <!-- Simulator 1: API Limit Monitor -->
+                    <div class="lab-card" id="limit-simulator">
+                        <div class="lab-header">
+                            <span class="lab-title">API LIMIT MONITOR SIMULATOR</span>
+                            <span class="lab-tag">[Limit_Tracker Concept]</span>
+                        </div>
+                        <p class="lab-desc">Simulated monitor tracking rate limit utilization across AI providers.</p>
+
+                        <div class="limit-monitor-box">
+                            <div class="limit-row">
+                                <span class="l-name">Perplexity API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 45%;"></div></div>
+                                <span class="l-val">45%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Claude 3.7 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 78%;"></div></div>
+                                <span class="l-val warning">78%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Gemini 2.5 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 25%;"></div></div>
+                                <span class="l-val">25%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">DeepSeek R1 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 90%;"></div></div>
+                                <span class="l-val alert">90%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulator 2: Code <-> Storefront State Sync -->
+                    <div class="lab-card" id="state-sync">
+                        <div class="lab-header">
+                            <span class="lab-title">CODE ↔ UX STATE SYNCHRONIZER</span>
+                            <span class="lab-tag">[Variant Logic]</span>
+                        </div>
+                        <p class="lab-desc">Click swatches below to see real-time JSON state mutation of `product.selected_variant`.</p>
+
+                        <div class="state-sync-grid">
+                            <div class="sync-code">
+                                <pre><code id="sync-json">{
+  "id": 4829104,
+  "title": "Black / Medium",
+  "price": "$49.00",
+  "available": true,
+  "sku": "ATUL-BLK-M"
+}</code></pre>
+                            </div>
+                            <div class="sync-ui">
+                                <div class="ui-product">Custom Product Core</div>
+                                <div class="ui-price" id="ui-price">$49.00</div>
+
+                                <div class="ui-group">
+                                    <span class="u-lbl">COLOR:</span>
+                                    <div class="u-swatches" id="u-colors">
+                                        <button class="u-swatch active" data-color="Black" style="background:#1e293b;"></button>
+                                        <button class="u-swatch" data-color="Olive" style="background:#95bf47;"></button>
+                                        <button class="u-swatch" data-color="Cyan" style="background:#38bdf8;"></button>
+                                    </div>
+                                </div>
+
+                                <div class="ui-group">
+                                    <span class="u-lbl">SIZE:</span>
+                                    <div class="u-sizes" id="u-sizes">
+                                        <button class="u-size-btn" data-size="S">S</button>
+                                        <button class="u-size-btn active" data-size="M">M</button>
+                                        <button class="u-size-btn" data-size="L">L</button>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary u-btn" id="u-add-btn">[ ADD TO CART — $49.00 ]</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 5: CAPABILITIES MATRIX -->
+            <section class="doc-section" id="capabilities">
+                <h2>CAPABILITIES &amp; SYSTEMS MATRIX</h2>
+                <p class="section-intro">Core engineering proficiencies grounded in practical Shopify development.</p>
+
+                <div class="cap-matrix-grid">
+                    <div class="cap-card">
+                        <h3>Shopify Ecosystem</h3>
+                        <ul>
+                            <li>▹ Custom Theme Architecture (Liquid, Dawn Base)</li>
+                            <li>▹ Multi-Dimensional Variant Logic &amp; Swatches</li>
+                            <li>▹ Customer &amp; Product Metafields / Metaobjects</li>
+                            <li>▹ Storefront GraphQL &amp; Admin REST APIs</li>
+                            <li>▹ AJAX Cart Drawer &amp; Section Rendering API</li>
+                        </ul>
+                    </div>
+
+                    <div class="cap-card">
+                        <h3>Full-Stack Systems</h3>
+                        <ul>
+                            <li>▹ Frontend Engineering (JavaScript ES6+, TypeScript, React)</li>
+                            <li>▹ Node.js &amp; API Integration</li>
+                            <li>▹ Cloudflare Workers &amp; Pages Hosting (₹0/mo setup)</li>
+                            <li>▹ Chrome Extension Architecture (Manifest V3)</li>
+                            <li>▹ Git &amp; Automated CI/CD Workflows</li>
+                        </ul>
+                    </div>
+
+                    <div class="cap-card">
+                        <h3>Systems Thinking</h3>
+                        <ul>
+                            <li>▹ Platform Constraint Analysis &amp; Friction Reduction</li>
+                            <li>▹ Decision Architecture (Keep / Extend / Replace)</li>
+                            <li>▹ Cost-Effective Platform Workarounds</li>
+                            <li>▹ Code-to-UX Interaction Mapping</li>
+                            <li>▹ Zero Framework Over-Engineering</li>
+                        </ul>
+                    </div>
+
+                    <div class="cap-card">
+                        <h3>Developer Tooling</h3>
+                        <ul>
+                            <li>▹ VS Code Extensions (Liquid Snippet Helpers)</li>
+                            <li>▹ AI-to-Platform Direct Bridges (figclaw)</li>
+                            <li>▹ Shopify Admin Utilities (Profile Switcher)</li>
+                            <li>▹ Shopify Theme &amp; Asset Inspector Tools</li>
+                            <li>▹ Developer Workflow Automation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 6: ABOUT HOW I WORK -->
+            <section class="doc-section" id="about-how-i-work">
+                <h2>ABOUT HOW I WORK</h2>
+                
+                <div class="doc-callout">
+                    <div class="callout-label">SHORT, HUMAN EXPLANATION</div>
+                    <p>
+                        I don't start by pitching expensive apps or telling you to rebuild your store from scratch. First, I read your Liquid code, inspect your theme data flow, and test your storefront state. I figure out what's working, fix what's causing friction, and build custom code only where standard Shopify options run out.
+                    </p>
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 7: EXPERIENCE -->
+            <section class="doc-section" id="experience">
+                <h2>EXPERIENCE</h2>
+                <p class="section-intro">Developer timeline and continuous engineering focus.</p>
+
+                <div class="timeline-list">
+                    <div class="timeline-item">
+                        <div class="t-year">2026 — PRESENT</div>
+                        <div class="t-desc">
+                            <strong>Shopify Full-Stack Developer &amp; Systems Builder</strong>
+                            <p>Engineering custom Liquid theme architectures, multi-option variant systems, developer tooling, and ₹0/mo Cloudflare Pages infrastructure solutions.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-year">2024 — 2026</div>
+                        <div class="t-desc">
+                            <strong>Developer Tools &amp; AI Integration Engineering</strong>
+                            <p>Built public Chrome extensions, Figma-to-Claude bridges (`figclaw`), and Shopify Admin utilities (`Profile Switcher`, `ShopifyThemeCheck`).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 8: CONTACT & WORK AVAILABILITY -->
+            <section class="doc-section" id="contact">
                 <h2>AVAILABLE FOR SHOPIFY WORK</h2>
-                <p class="doc-subtitle">Looking for a clear technical perspective on a Shopify or storefront solution you've been trying to figure out?</p>
+                <p class="section-intro">Looking for a clear technical perspective on a Shopify or storefront solution you've been trying to figure out?</p>
 
                 <div class="doc-callout contact-box">
-                    <h3>GET IN TOUCH</h3>
+                    <h3>GET IN TOUCH DIRECTLY</h3>
                     <p>Reach out directly via email or connect on GitHub/LinkedIn.</p>
 
                     <div class="doc-actions-row" style="margin-top: 16px;">
@@ -507,7 +791,7 @@ function inspectShopifyStorefront() {
         <div class="search-palette">
             <div class="search-input-wrapper">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <input type="text" class="search-input" id="search-input" placeholder="Search projects, tools, Liquid, APIs... (ESC to close)" autocomplete="off" spellcheck="false">
+                <input type="text" class="search-input" id="search-input" placeholder="Search documentation, projects, tools, skills... (ESC to close)" autocomplete="off" spellcheck="false">
                 <span class="search-esc-tag">ESC</span>
             </div>
 
@@ -519,6 +803,36 @@ function inspectShopifyStorefront() {
                 <span class="s-foot-item"><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
                 <span class="s-foot-item"><kbd>↵</kbd> Select</span>
                 <span class="s-foot-item"><kbd>ESC</kbd> Close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE TERMINAL SHELL MODAL -->
+    <div class="fde-terminal-modal" id="terminal-modal" aria-hidden="true" role="dialog" aria-label="ATUL Shell">
+        <div class="term-window">
+            <div class="term-header">
+                <span class="t-close" id="close-terminal-btn">✕</span>
+                <span class="t-title">atul@system:~ (ATUL Shell v4.0)</span>
+            </div>
+
+            <div class="term-body" id="term-body">
+                <div class="t-line">ATUL.OS System Shell — Type <span class="t-hl">help</span> for commands or click shortcuts below:</div>
+                <div class="t-shortcuts">
+                    <button class="t-btn" data-cmd="help">help</button>
+                    <button class="t-btn" data-cmd="philosophy">philosophy</button>
+                    <button class="t-btn" data-cmd="work">work</button>
+                    <button class="t-btn" data-cmd="tools">tools</button>
+                    <button class="t-btn" data-cmd="experiments">experiments</button>
+                    <button class="t-btn" data-cmd="shopify">shopify</button>
+                    <button class="t-btn" data-cmd="contact">contact</button>
+                    <button class="t-btn" data-cmd="sudo hire atul">sudo hire atul</button>
+                    <button class="t-btn" data-cmd="clear">clear</button>
+                </div>
+            </div>
+
+            <div class="term-input-line">
+                <span class="t-prompt">atul@system ~ %</span>
+                <input type="text" class="t-input" id="term-input" placeholder="Type command..." autocomplete="off" spellcheck="false">
             </div>
         </div>
     </div>
