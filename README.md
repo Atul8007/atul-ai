@@ -1,6 +1,6 @@
 # Atul Mundakkal — Developer Portfolio
 
-Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-Stack Engineer), designed for static hosting on **Cloudflare Pages** (Zero Budget architecture).
+Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-Stack Engineer), designed for static hosting on **Cloudflare Pages**.
 
 ## Project Structure
 
@@ -79,6 +79,6 @@ If you decide to link a custom domain in the future:
 
 ## Architecture Principles
 
-- **Zero Budget**: Uses free Cloudflare Pages hosting and GitHub.
+- **Cloudflare Edge Hosting**: Uses Cloudflare Pages hosting and GitHub.
 - **Static First**: Built using standard HTML5, CSS3, and Vanilla JavaScript.
 - **Lightning Fast**: No framework bloat, minimal bundle size.

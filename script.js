@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'bio': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build Shopify themes, apps, developer tools, and commerce experiences by working with the systems that already exist.',
         'about': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build Shopify themes, apps, developer tools, and commerce experiences by working with the systems that already exist.',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
-        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\n₹0/month Cloudflare Target . ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FULL-STACK PROJECTS.\nEmail: atulmundakkal@outlook.com`,
+        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\nEdge & Cloud Architecture .. ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FULL-STACK PROJECTS.\nEmail: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'
     };
 
