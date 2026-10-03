@@ -1,47 +1,50 @@
 /* ==========================================================================
    ATUL MUNDAKKAL — SHOPIFY DEV DOCS PORTFOLIO
    Exact Visual Replica of Shopify.dev Docs (shopify.dev/docs)
+   With Restored User Color Codes (#95bf47, #0b0f19, #111827, #38bdf8, #f59e0b)
    ========================================================================== */
 
 /* --- CSS Variables & Theme Tokens --- */
 :root, [data-theme="dark"] {
-    --bg-main: #090d16;
-    --bg-header: #080c14;
-    --bg-surface: #0f172a;
-    --bg-surface-hover: #1e293b;
-    --bg-sidebar: #090d16;
-    --border-color: #1e293b;
-    --border-subtle: #172033;
+    --bg-main: #0b0f19;
+    --bg-header: #0b0f19;
+    --bg-surface: #111827;
+    --bg-surface-alt: #161e2e;
+    --bg-surface-hover: #1f2937;
+    --bg-sidebar: #0e131f;
+    --border-color: #1f2937;
+    --border-subtle: #161e2e;
 
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
 
-    --accent-shopify: #10b981; /* Shopify Emerald Green */
-    --accent-shopify-bg: rgba(16, 185, 129, 0.12);
-    --accent-shopify-border: rgba(16, 185, 129, 0.3);
+    --accent-shopify: #95bf47; /* User Requested Shopify Pixel Green */
+    --accent-shopify-bg: rgba(149, 191, 71, 0.12);
+    --accent-shopify-border: rgba(149, 191, 71, 0.3);
 
     --accent-cyan: #38bdf8;
     --accent-purple: #c084fc;
     --accent-indigo: #818cf8;
     --accent-warning: #f59e0b;
+    --accent-alert: #ef4444;
 
-    /* Hero Teal Banner */
-    --hero-bg: #0a2220;
-    --hero-border: #143e3a;
+    /* Hero Banner */
+    --hero-bg: #111827;
+    --hero-border: #1f2937;
 
-    /* Card Background Colors (Shopify Dev Docs Style) */
-    --card-apps-bg: #0f192a;
-    --card-apps-border: #1e2e4a;
-    --card-storefronts-bg: #1a1028;
-    --card-storefronts-border: #362054;
-    --card-agents-bg: #121536;
-    --card-agents-border: #2a2e66;
+    /* Card Background Colors (Shopify Dev Docs Style with User Palette) */
+    --card-apps-bg: #111827;
+    --card-apps-border: #1f2937;
+    --card-storefronts-bg: #161e2e;
+    --card-storefronts-border: #1f2937;
+    --card-agents-bg: #111827;
+    --card-agents-border: #1f2937;
 
-    --code-bg: #020617;
-    --code-header-bg: #0f172a;
-    --code-text: #f8fafc;
-    --code-border: #1e293b;
+    --code-bg: #030712;
+    --code-header-bg: #111827;
+    --code-text: #e5e7eb;
+    --code-border: #1f2937;
 
     --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'San Francisco', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -53,16 +56,17 @@
 
     --radius-sm: 4px;
     --radius-md: 8px;
-    --radius-lg: 16px;
+    --radius-lg: 14px;
 
-    --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="light"] {
     --bg-main: #ffffff;
     --bg-header: #ffffff;
     --bg-surface: #f8fafc;
-    --bg-surface-hover: #f1f5f9;
+    --bg-surface-alt: #f1f5f9;
+    --bg-surface-hover: #e2e8f0;
     --bg-sidebar: #ffffff;
     --border-color: #e2e8f0;
     --border-subtle: #f1f5f9;
@@ -71,21 +75,21 @@
     --text-secondary: #475569;
     --text-muted: #94a3b8;
 
-    --accent-shopify: #059669;
+    --accent-shopify: #4d7c0f;
     --accent-cyan: #0284c7;
     --accent-purple: #9333ea;
     --accent-indigo: #4f46e5;
     --accent-warning: #d97706;
 
-    --hero-bg: #064e3b;
-    --hero-border: #047857;
+    --hero-bg: #f8fafc;
+    --hero-border: #e2e8f0;
 
-    --card-apps-bg: #0f172a;
-    --card-apps-border: #334155;
-    --card-storefronts-bg: #1e1b4b;
-    --card-storefronts-border: #3730a3;
-    --card-agents-bg: #1e1e38;
-    --card-agents-border: #312e81;
+    --card-apps-bg: #f8fafc;
+    --card-apps-border: #e2e8f0;
+    --card-storefronts-bg: #f8fafc;
+    --card-storefronts-border: #e2e8f0;
+    --card-agents-bg: #f8fafc;
+    --card-agents-border: #e2e8f0;
 
     --code-bg: #0f172a;
     --code-header-bg: #1e293b;
@@ -126,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
 }
 
 a { color: inherit; text-decoration: none; transition: var(--transition); }
@@ -159,7 +163,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* ==========================================================================
-   GLOBAL COMPACT HEADER (Exact Shopify.dev Style)
+   GLOBAL COMPACT HEADER (Exact Shopify.dev Style with User Palette)
    ========================================================================== */
 .doc-header {
     position: fixed;
@@ -215,10 +219,16 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .brand-badge {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 400;
-    margin-left: 2px;
+    background-color: var(--accent-shopify-bg);
+    color: var(--accent-shopify);
+    border: 1px solid var(--accent-shopify-border);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .doc-top-nav {
@@ -261,8 +271,8 @@ pre, code { font-family: var(--font-mono); }
     display: flex;
     align-items: center;
     gap: 6px;
-    background-color: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background-color: var(--accent-shopify-bg);
+    border: 1px solid var(--accent-shopify-border);
     color: var(--accent-shopify);
     padding: 4px 12px;
     border-radius: 20px;
@@ -273,7 +283,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .ask-assistant-btn:hover {
-    background-color: rgba(16, 185, 129, 0.2);
+    background-color: rgba(149, 191, 71, 0.2);
     border-color: var(--accent-shopify);
 }
 
@@ -292,7 +302,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .search-trigger-btn:hover {
-    border-color: var(--text-muted);
+    border-color: var(--border-accent);
     color: var(--text-primary);
 }
 
@@ -311,8 +321,8 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .theme-toggle-btn:hover {
-    color: var(--text-primary);
-    border-color: var(--text-muted);
+    color: var(--accent-warning);
+    border-color: var(--accent-warning);
 }
 
 .icon-link {
@@ -330,7 +340,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* ==========================================================================
-   SHOPIFY DEV DOCS HERO BANNER (Top Deep Teal Box)
+   SHOPIFY DEV DOCS HERO BANNER
    ========================================================================== */
 .shopify-hero-banner {
     background-color: var(--hero-bg);
@@ -350,14 +360,14 @@ pre, code { font-family: var(--font-mono); }
     font-size: 2.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 14px;
     line-height: 1.15;
 }
 
 .hero-left p {
     font-size: 1.05rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 24px;
     max-width: 540px;
@@ -374,7 +384,7 @@ pre, code { font-family: var(--font-mono); }
     align-items: center;
     gap: 6px;
     background-color: var(--accent-shopify);
-    color: #000000;
+    color: #0b0f19;
     font-weight: 700;
     font-size: 0.88rem;
     padding: 8px 18px;
@@ -383,7 +393,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .hero-btn-primary:hover {
-    background-color: #34d399;
+    background-color: #a8d653;
     transform: translateY(-1px);
 }
 
@@ -391,9 +401,9 @@ pre, code { font-family: var(--font-mono); }
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.88rem;
     padding: 8px 18px;
@@ -402,7 +412,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .hero-btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--bg-surface-hover);
 }
 
 .hero-right-graphic {
@@ -415,8 +425,8 @@ pre, code { font-family: var(--font-mono); }
 .pixel-mockup-frame {
     width: 100%;
     max-width: 380px;
-    background: #061715;
-    border: 1px solid #143e3a;
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 16px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -439,7 +449,7 @@ pre, code { font-family: var(--font-mono); }
     flex-direction: column;
     justify-content: space-between;
     min-height: 380px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
     position: relative;
     overflow: hidden;
 }
@@ -468,14 +478,14 @@ pre, code { font-family: var(--font-mono); }
 .card-content h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: 10px;
     letter-spacing: -0.02em;
 }
 
 .card-content p {
     font-size: 0.92rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.55;
     margin-bottom: 20px;
 }
@@ -484,9 +494,9 @@ pre, code { font-family: var(--font-mono); }
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     font-size: 0.85rem;
     font-weight: 600;
     padding: 8px 16px;
@@ -496,8 +506,8 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .shopify-card:hover .card-pill-btn {
-    background-color: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--accent-shopify);
+    color: var(--accent-shopify);
 }
 
 .card-bottom-illustration {
@@ -511,8 +521,8 @@ pre, code { font-family: var(--font-mono); }
     width: 100%;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
 }
 
 /* ==========================================================================
@@ -592,7 +602,7 @@ pre, code { font-family: var(--font-mono); }
 
 .sidebar-link.active {
     color: var(--accent-shopify);
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: var(--accent-shopify-bg);
     font-weight: 600;
 }
 
@@ -760,7 +770,7 @@ pre, code { font-family: var(--font-mono); }
 .doc-badge-btn:hover {
     border-color: var(--accent-shopify);
     color: var(--accent-shopify);
-    background-color: rgba(16, 185, 129, 0.08);
+    background-color: var(--accent-shopify-bg);
 }
 
 /* ==========================================================================
@@ -813,7 +823,7 @@ pre, code { font-family: var(--font-mono); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0f172a;
+    background-color: var(--code-header-bg);
     padding: 8px 14px;
     border-bottom: 1px solid var(--code-border);
     font-family: var(--font-mono);
@@ -821,7 +831,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .code-filename {
-    color: #94a3b8;
+    color: #9ca3af;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -835,15 +845,15 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .code-lang {
-    color: #64748b;
+    color: #6b7280;
     text-transform: uppercase;
     font-size: 0.7rem;
 }
 
 .copy-btn {
     background-color: transparent;
-    border: 1px solid #475569;
-    color: #cbd5e1;
+    border: 1px solid #374151;
+    color: #9ca3af;
     font-family: var(--font-mono);
     font-size: 0.72rem;
     padding: 2px 7px;
@@ -853,8 +863,8 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .copy-btn:hover {
-    background-color: #334155;
-    color: #ffffff;
+    background-color: #1f2937;
+    color: #f9fafb;
 }
 
 .code-block pre {
@@ -875,8 +885,8 @@ pre, code { font-family: var(--font-mono); }
 /* Syntax Highlighting */
 .hl-kw { color: #f472b6; }
 .hl-fn { color: #38bdf8; }
-.hl-str { color: #10b981; }
-.hl-cmt { color: #64748b; font-style: italic; }
+.hl-str { color: #95bf47; }
+.hl-cmt { color: #6b7280; font-style: italic; }
 
 /* ==========================================================================
    STICKY RIGHT "ON THIS PAGE" TOC
@@ -1025,7 +1035,7 @@ pre, code { font-family: var(--font-mono); }
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--accent-shopify);
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: var(--accent-shopify-bg);
     padding: 2px 6px;
     border-radius: 3px;
 }
