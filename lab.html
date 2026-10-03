@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Lab — Atul Mundakkal Developer Docs</title>
+    <meta name="description" content="Interactive simulations demonstrating rate limit monitors and real-time code to storefront state mutation.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="doc-header" id="doc-header">
+        <div class="doc-header-container">
+            <div class="header-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Navigation"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 3h12v2H2V3zm0 4h12v2H2V7zm0 4h12v2H2v-2z"/></svg></button>
+                <a href="/index.html" class="doc-brand">
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/></svg>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">SHOPIFY DEV</span>
+                </a>
+            </div>
+
+            <nav class="doc-top-nav">
+                <a href="/index.html" class="top-nav-link">Overview</a>
+                <a href="/what-i-work-on.html" class="top-nav-link">Work</a>
+                <a href="/how-i-solve-problems.html" class="top-nav-link">Approach</a>
+                <a href="/projects.html" class="top-nav-link">Projects</a>
+                <a href="/lab.html" class="top-nav-link active">Lab</a>
+                <a href="/capabilities.html" class="top-nav-link">Capabilities</a>
+                <a href="/contact.html" class="top-nav-link">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <button class="search-trigger-btn" id="search-trigger-btn"><svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg><span class="search-label">Search docs...</span><kbd class="search-kbd">⌘K</kbd></button>
+                <button class="theme-toggle-btn" id="theme-toggle-btn"><span class="theme-text" id="theme-text">DARK</span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="doc-layout">
+        <aside class="doc-sidebar" id="doc-sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-group">
+                    <div class="sidebar-title">SYSTEMS &amp; LAB</div>
+                    <ul class="sidebar-links">
+                        <li><a href="/lab.html" class="sidebar-link active">Technical Lab</a></li>
+                        <li><a href="/capabilities.html" class="sidebar-link">Capabilities</a></li>
+                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="doc-main">
+            <section class="doc-page-section">
+                <nav class="doc-breadcrumb">
+                    <ol>
+                        <li><a href="/index.html">Docs</a></li>
+                        <li aria-current="page">Technical Lab</li>
+                    </ol>
+                </nav>
+
+                <div class="doc-page-header">
+                    <div class="doc-tag">INTERACTIVE SIMULATIONS</div>
+                    <h1 class="doc-title">TECHNICAL LAB</h1>
+                    <p class="hero-punchline">Interactive simulations demonstrating tool utilities and live code-to-UX state mutation.</p>
+                </div>
+
+                <div class="lab-grid">
+                    
+                    <!-- Simulator 1: API Limit Monitor -->
+                    <div class="lab-card" id="limit-simulator">
+                        <div class="lab-header">
+                            <span class="lab-title">
+                                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path fill="#38bdf8" d="M2 11h3v4H2v-4zm4-4h3v8H6V7zm4-4h3v12h-3V3z"/></svg>
+                                API LIMIT MONITOR SIMULATOR
+                            </span>
+                            <span class="lab-tag">[Limit_Tracker Concept]</span>
+                        </div>
+                        <p class="lab-desc">Simulated monitor tracking rate limit utilization across AI providers.</p>
+
+                        <div class="limit-monitor-box">
+                            <div class="limit-row">
+                                <span class="l-name">Perplexity API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 45%;"></div></div>
+                                <span class="l-val">45%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Claude 3.7 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 78%;"></div></div>
+                                <span class="l-val warning">78%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Gemini 2.5 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 25%;"></div></div>
+                                <span class="l-val">25%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">DeepSeek R1 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 90%;"></div></div>
+                                <span class="l-val alert">90%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulator 2: Code <-> Storefront State Sync -->
+                    <div class="lab-card" id="state-sync">
+                        <div class="lab-header">
+                            <span class="lab-title">
+                                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><path fill="#95bf47" d="M3 3h8v2H5v3H3V3zm10 4h-2v4h6V9h-4V7zM3 11h6v2H5v3H3v-5z"/></svg>
+                                CODE ↔ UX STATE SYNCHRONIZER
+                            </span>
+                            <span class="lab-tag">[Variant Logic]</span>
+                        </div>
+                        <p class="lab-desc">Click swatches below to see real-time JSON state mutation of <code>product.selected_variant</code>.</p>
+
+                        <div class="state-sync-grid">
+                            <div class="sync-code">
+                                <pre><code id="sync-json">{
+  "id": 4829104,
+  "title": "Black / Medium",
+  "price": "$49.00",
+  "available": true,
+  "sku": "ATUL-BLK-M"
+}</code></pre>
+                            </div>
+                            <div class="sync-ui">
+                                <div class="ui-product">Custom Product Core</div>
+                                <div class="ui-price" id="ui-price">$49.00</div>
+
+                                <div class="ui-group">
+                                    <span class="u-lbl">COLOR:</span>
+                                    <div class="u-swatches" id="u-colors">
+                                        <button class="u-swatch active" data-color="Black" style="background:#1e293b;"></button>
+                                        <button class="u-swatch" data-color="Olive" style="background:#95bf47;"></button>
+                                        <button class="u-swatch" data-color="Cyan" style="background:#38bdf8;"></button>
+                                    </div>
+                                </div>
+
+                                <div class="ui-group">
+                                    <span class="u-lbl">SIZE:</span>
+                                    <div class="u-sizes" id="u-sizes">
+                                        <button class="u-size-btn" data-size="S">S</button>
+                                        <button class="u-size-btn active" data-size="M">M</button>
+                                        <button class="u-size-btn" data-size="L">L</button>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary u-btn" id="u-add-btn">[ ADD TO CART — $49.00 ]</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

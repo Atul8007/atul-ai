@@ -1,6 +1,6 @@
 /**
- * ATUL MUNDAKKAL — SHOPIFY DEVELOPER & FULL-STACK ENGINEER
- * Complete Documentation Engine & Command Palette Search (Pure Vanilla ES6+)
+ * ATUL MUNDAKKAL — SHOPIFY FULL-STACK ENGINEER
+ * Multi-Page Documentation Engine & Command Palette Search
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('fde-doc-theme', theme);
         if (themeIcon && themeText) {
             if (theme === 'dark') {
-                themeIcon.textContent = '🌙';
+                themeIcon.innerHTML = `<svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>`;
                 themeText.textContent = 'DARK';
             } else {
-                themeIcon.textContent = '☀️';
+                themeIcon.innerHTML = `<svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M7 1h2v2H7V1zm-4 2h2v2H3V3zm10 0h-2v2h2V3zM1 7h2v2H1V7zm13 0h2v2h-2V7zM3 11h2v2H3v-2zm10 0h-2v2h2v-2zM7 13h2v2H7v-2zm-1-6h4v4H6V7z"/></svg>`;
                 themeText.textContent = 'LIGHT';
             }
         }
@@ -59,7 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. Command Palette Search Engine (⌘K / Ctrl+K) ---
+    // --- 4. Multi-Page Active Link Highlighting ---
+    const currentPath = window.location.pathname.toLowerCase();
+    sidebarLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        const linkPath = href.toLowerCase();
+        
+        // Exact match or basename match
+        if (
+            (currentPath === '/' && (linkPath === '/index.html' || linkPath === '/')) ||
+            (currentPath.endsWith(linkPath) && linkPath !== '/') ||
+            (currentPath.includes('/projects/') && linkPath.includes(currentPath.split('/').pop()))
+        ) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // --- 5. Command Palette Search Engine (⌘K / Ctrl+K) Across Multi-Pages ---
     const searchModal = document.getElementById('search-modal');
     const searchTriggerBtn = document.getElementById('search-trigger-btn');
     const searchBackdrop = document.getElementById('search-backdrop');
@@ -67,19 +86,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Engineer", tag: "DOCS", id: "overview" },
-        { title: "What I Work On", sub: "Themes & Liquid, Variants & Product Systems, Cart & Checkout, Shopify APIs, Developer Tools", tag: "DOMAINS", id: "focus" },
-        { title: "How I Solve Problems", sub: "01 Understand → 02 Preserve → 03 Improve → 04 Replace", tag: "APPROACH", id: "problem-solving" },
-        { title: "figclaw", sub: "Figma → Claude workflow bridge via Figma REST API", tag: "PROJECT", id: "figclaw" },
-        { title: "Profile Switcher", sub: "VS Code extension for Shopify CLI account management", tag: "PROJECT", id: "profile-switcher" },
-        { title: "Theme Inspector", sub: "Shopify storefront inspection Chrome extension (Manifest V3)", tag: "PROJECT", id: "theme-check" },
-        { title: "wacspace", sub: "Shopify CLI → AI development bridge", tag: "PROJECT", id: "wacspace" },
-        { title: "wishify", sub: "Shopify-native wishlist experiment using customer metafields", tag: "PROJECT", id: "wishify" },
-        { title: "Technical Playground", sub: "API limit monitor & variant state sync demo", tag: "LAB", id: "playground" },
-        { title: "Capabilities", sub: "Shopify Ecosystem, Full-Stack & Systems Thinking", tag: "MATRIX", id: "capabilities" },
-        { title: "About", sub: "Human explanation of engineering philosophy", tag: "ABOUT", id: "about-how-i-work" },
-        { title: "Experience", sub: "Webandcrafts, RDP Workstations, Ekatra Infotech", tag: "TIMELINE", id: "experience" },
-        { title: "Get in Touch", sub: "Contact & email direct links", tag: "CONTACT", id: "contact" }
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Engineer", tag: "DOCS", url: "/index.html" },
+        { title: "What I Work On", sub: "Themes & Liquid, Variants, Cart & Checkout, Shopify APIs, Developer Tools", tag: "DOMAINS", url: "/what-i-work-on.html" },
+        { title: "How I Solve Problems", sub: "01 Understand → 02 Preserve → 03 Improve → 04 Replace", tag: "APPROACH", url: "/how-i-solve-problems.html" },
+        { title: "Selected Projects Directory", sub: "Overview of all 5 developer tools & platform integrations", tag: "PROJECTS", url: "/projects.html" },
+        { title: "figclaw", sub: "Figma → Claude workflow bridge via Figma REST API", tag: "CASE STUDY", url: "/projects/figclaw.html" },
+        { title: "Profile Switcher", sub: "VS Code extension for Shopify CLI account management", tag: "CASE STUDY", url: "/projects/profile-switcher.html" },
+        { title: "Theme Inspector", sub: "Shopify storefront inspection Chrome extension (Manifest V3)", tag: "CASE STUDY", url: "/projects/theme-inspector.html" },
+        { title: "wacspace", sub: "Shopify CLI → AI development bridge", tag: "CASE STUDY", url: "/projects/wacspace.html" },
+        { title: "wishify", sub: "Shopify-native wishlist experiment using customer metafields", tag: "CASE STUDY", url: "/projects/wishify.html" },
+        { title: "Technical Lab", sub: "API limit monitor & variant state sync demo", tag: "LAB", url: "/lab.html" },
+        { title: "Capabilities", sub: "Shopify Ecosystem, Full-Stack & Systems Thinking", tag: "MATRIX", url: "/capabilities.html" },
+        { title: "Experience Timeline", sub: "Webandcrafts, RDP Workstations, Ekatra Infotech", tag: "TIMELINE", url: "/experience.html" },
+        { title: "About", sub: "Engineering philosophy & approach explanation", tag: "ABOUT", url: "/about.html" },
+        { title: "Get in Touch", sub: "Contact & email direct links", tag: "CONTACT", url: "/contact.html" }
     ];
 
     let selectedSearchIndex = 0;
@@ -120,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         searchResults.innerHTML = filtered.map((item, idx) => `
-            <div class="search-item ${idx === 0 ? 'selected' : ''}" data-id="${item.id}" data-idx="${idx}">
+            <div class="search-item ${idx === 0 ? 'selected' : ''}" data-url="${item.url}" data-idx="${idx}">
                 <div class="s-item-left">
                     <span class="s-item-title">${item.title}</span>
                     <span class="s-item-sub">${item.sub}</span>
@@ -132,10 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemEls = searchResults.querySelectorAll('.search-item');
         itemEls.forEach(el => {
             el.addEventListener('click', () => {
-                const targetId = el.getAttribute('data-id');
+                const targetUrl = el.getAttribute('data-url');
                 closeSearch();
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                window.location.href = targetUrl;
             });
         });
     }
@@ -178,53 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const activeItem = items[selectedSearchIndex];
                 if (activeItem) {
-                    const targetId = activeItem.getAttribute('data-id');
+                    const targetUrl = activeItem.getAttribute('data-url');
                     closeSearch();
-                    const targetEl = document.getElementById(targetId);
-                    if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = targetUrl;
                 }
             }
         });
     }
-
-    // --- 5. ScrollSpy (Active Sidebar Link) ---
-    const sectionIds = [
-        'overview', 'focus', 'problem-solving',
-        'figclaw', 'profile-switcher', 'theme-check', 'wacspace', 'wishify',
-        'playground', 'capabilities', 'about-how-i-work', 'experience', 'contact'
-    ];
-
-    const breadcrumbCurrent = document.getElementById('breadcrumb-current');
-    const navSidebarLinks = document.querySelectorAll('.sidebar-link');
-
-    function updateActiveDocSection() {
-        let currentSection = 'overview';
-        const scrollPosition = window.scrollY + 120;
-
-        for (const id of sectionIds) {
-            const el = document.getElementById(id);
-            if (el && el.offsetTop <= scrollPosition) {
-                currentSection = id;
-            }
-        }
-
-        if (breadcrumbCurrent) {
-            const cleanTitle = currentSection.replace('-', ' ').toUpperCase();
-            breadcrumbCurrent.textContent = cleanTitle === 'OVERVIEW' ? 'Overview' : cleanTitle;
-        }
-
-        navSidebarLinks.forEach(link => {
-            const href = link.getAttribute('href')?.replace('#', '');
-            if (href === currentSection) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', updateActiveDocSection, { passive: true });
-    updateActiveDocSection();
 
     // --- 6. Code Copy Buttons ---
     const copyBtns = document.querySelectorAll('.copy-btn');
@@ -354,8 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandDict = {
         'help': () => 'Available commands: philosophy, work, tools, shopify, contact, sudo hire atul, clear',
         'philosophy': () => '01 Understand → 02 Preserve → 03 Improve → 04 Replace.',
-        'work': () => 'SELECTED PROJECTS:\n1. figclaw (Figma → Claude workflow bridge)\n2. Profile Switcher (VS Code extension for Shopify CLI)\n3. Theme Inspector (Shopify storefront inspection extension)\n4. wacspace (Shopify CLI → AI development bridge)\n5. wishify (Shopify-native wishlist experiment)',
-        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid\n- Variants & Product Systems\n- Cart & Checkout\n- Shopify APIs\n- Developer Tools',
+        'work': () => 'SELECTED PROJECTS:\n1. figclaw (/projects/figclaw.html)\n2. Profile Switcher (/projects/profile-switcher.html)\n3. Theme Inspector (/projects/theme-inspector.html)\n4. wacspace (/projects/wacspace.html)\n5. wishify (/projects/wishify.html)',
+        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid (/what-i-work-on.html)\n- Variants & Product Systems\n- Cart & Checkout\n- Shopify APIs\n- Developer Tools',
         'tools': () => 'DEVELOPER TOOLS & PROJECTS:\n- figclaw (Node.js, Figma REST API)\n- Profile Switcher (VS Code Extension API)\n- Theme Inspector (Manifest V3 Chrome Extension)\n- wacspace (Node.js, Shopify CLI)\n- wishify (TypeScript, Customer Metafields)',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
         'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nSystems Thinking ......... ✓\nDeveloper Tooling ......... ✓\nMinimal Infrastructure .... ✓ (₹0/month)\n\nSTATUS: AVAILABLE FOR SHOPIFY WORK.\nEmail: atulmundakkal@outlook.com`,
