@@ -1,5 +1,5 @@
 /**
- * ATUL MUNDAKKAL — SHOPIFY FULL-STACK DEVELOPER (FDE) DOCS
+ * ATUL MUNDAKKAL — SHOPIFY DEVELOPER & FULL-STACK ENGINEER
  * Documentation Engine & Command Palette Search (Pure Vanilla ES6+)
  */
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.top = `${e.clientY}px`;
         });
 
-        const interactiveEls = document.querySelectorAll('a, button, .branch-btn, .u-swatch, .u-size-btn, .doc-case-study, .search-item');
+        const interactiveEls = document.querySelectorAll('a, button, .branch-btn, .u-swatch, .u-size-btn, .doc-case-study, .search-item, .focus-pill-card');
         interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 const tag = el.getAttribute('data-cursor') || 'INSPECT';
@@ -90,22 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview & Introduction", sub: "Developer Documentation & Position", tag: "DOCS", id: "overview" },
-        { title: "Engineering Philosophy", sub: "Keep, Extend, or Replace approach", tag: "PHILOSOPHY", id: "philosophy" },
-        { title: "System Decision Engine", sub: "Platform constraint decision matrix", tag: "ENGINE", id: "decision-engine" },
-        { title: "Shopify Theme Architecture", sub: "Liquid, Dawn base, Section Rendering API", tag: "SHOPIFY", id: "shopify-architecture" },
-        { title: "Storefront APIs & Liquid Code", sub: "GraphQL schemas & variant picker code", tag: "CODE", id: "storefront-code" },
-        { title: "figclaw", sub: "Claude to Figma direct API connection bridge", tag: "PROJECT", id: "figclaw" },
-        { title: "Limit_Tracker", sub: "Public Chrome extension for API usage limits", tag: "PROJECT", id: "limit-tracker" },
-        { title: "Shopify-Profile-Switcher", sub: "Private Admin developer profile utility", tag: "TOOL", id: "profile-switcher" },
-        { title: "ShopifyThemeCheck", sub: "Shopify theme, app script & asset inspector", tag: "TOOL", id: "theme-check" },
-        { title: "wacspace", sub: "Direct Shopify CLI to Claude Code bridge", tag: "PROJECT", id: "wacspace" },
-        { title: "wishify", sub: "Private wishlist logic using Customer Metafields", tag: "PROJECT", id: "wishify" },
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Developer", tag: "HERO", id: "overview" },
+        { title: "What I Work On", sub: "Themes, Variants, Checkout, APIs, Liquid, Tools", tag: "DOMAINS", id: "focus" },
+        { title: "How I Solve Problems", sub: "Understand → Preserve → Improve → Replace", tag: "APPROACH", id: "problem-solving" },
+        { title: "figclaw", sub: "Claude to Figma direct API bridge", tag: "PROJECT", id: "figclaw" },
+        { title: "Limit_Tracker", sub: "Public Chrome extension for API rate limits", tag: "EXTENSION", id: "limit-tracker" },
+        { title: "Shopify-Profile-Switcher", sub: "Private Admin developer profile utility", tag: "UTILITY", id: "profile-switcher" },
+        { title: "ShopifyThemeCheck", sub: "Shopify theme, app script & asset inspector", tag: "INSPECTOR", id: "theme-check" },
+        { title: "wacspace", sub: "Direct Shopify CLI to Claude Code bridge", tag: "BRIDGE", id: "wacspace" },
+        { title: "wishify", sub: "Wishlist logic with Customer Metafields", tag: "APPLICATION", id: "wishify" },
         { title: "wimb", sub: "Distance metric experiment for state certainty", tag: "EXPERIMENT", id: "wimb" },
-        { title: "API Limit Monitor Simulator", sub: "Interactive rate limit monitoring demo", tag: "LAB", id: "limit-simulator" },
-        { title: "Code ↔ UX State Synchronizer", sub: "Live product.selected_variant mutation", tag: "LAB", id: "state-sync" },
-        { title: "Capabilities Matrix", sub: "Ecosystem, Full-stack & Tooling skills", tag: "MATRIX", id: "capabilities" },
-        { title: "Contact & Consultation", sub: "Email Atul Mundakkal & direct links", tag: "CONTACT", id: "contact" }
+        { title: "Tools I've Built", sub: "Extensions, inspectors, and utilities", tag: "TOOLS", id: "tools-built" },
+        { title: "About How I Work", sub: "Short human explanation of systems approach", tag: "ABOUT", id: "about-how-i-work" },
+        { title: "Experience Timeline", sub: "2024–Present Shopify developer journey", tag: "TIMELINE", id: "experience" },
+        { title: "Available for Shopify Work", sub: "Contact & email links", tag: "CONTACT", id: "contact" }
     ];
 
     let selectedSearchIndex = 0;
@@ -141,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedSearchIndex = 0;
 
         if (filtered.length === 0) {
-            searchResults.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No matching documentation or project found.</div>';
+            searchResults.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No matching result found.</div>';
             return;
         }
 
@@ -215,16 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 6. ScrollSpy (TOC & Sidebar Active State) ---
     const sectionIds = [
-        'overview', 'philosophy', 'decision-engine', 'shopify-architecture',
-        'storefront-code', 'projects', 'figclaw', 'limit-tracker',
-        'profile-switcher', 'theme-check', 'wacspace', 'wishify',
-        'wimb', 'playground', 'capabilities', 'contact'
+        'overview', 'focus', 'problem-solving', 'selected-work',
+        'figclaw', 'limit-tracker', 'profile-switcher', 'theme-check',
+        'wacspace', 'wishify', 'wimb', 'tools-built',
+        'about-how-i-work', 'experience', 'contact'
     ];
 
     const breadcrumbCurrent = document.getElementById('breadcrumb-current');
     const tocLinks = document.querySelectorAll('.toc-link');
     const navSidebarLinks = document.querySelectorAll('.sidebar-link');
-    const topNavLinks = document.querySelectorAll('.top-nav-link');
 
     function updateActiveDocSection() {
         let currentSection = 'overview';
@@ -267,39 +264,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveDocSection, { passive: true });
     updateActiveDocSection();
 
-    // --- 7. Code Copy Buttons ---
-    const copyBtns = document.querySelectorAll('.copy-code-btn');
-    copyBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-code');
-            const codeEl = document.getElementById(targetId);
-            if (codeEl && navigator.clipboard) {
-                navigator.clipboard.writeText(codeEl.textContent.trim()).then(() => {
-                    const originalText = btn.textContent;
-                    btn.textContent = 'COPIED!';
-                    btn.style.color = 'var(--accent-shopify)';
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                        btn.style.color = '';
-                    }, 2000);
-                });
-            }
-        });
-    });
-
-    // --- 8. Interactive System Decision Engine ---
+    // --- 7. Interactive System Decision Engine ---
     const branchData = {
         keep: {
-            badge: "STRATEGY: KEEP NATIVE",
+            badge: "STRATEGY: PRESERVE NATIVE",
             title: "Preserve Working Platform Fundamentals",
             desc: "When existing native features (like Shopify Customer Metafields or theme sections) already solve 80% of the problem, do not introduce extra databases or paid apps. Preserve native capabilities to minimize ongoing maintenance cost.",
-            output: "KEEP NATIVE PLATFORM"
+            output: "PRESERVE NATIVE PLATFORM"
         },
         extend: {
-            badge: "STRATEGY: EXTEND VIA CODE",
+            badge: "STRATEGY: IMPROVE VIA CODE",
             title: "Extend Native Capabilities via Lightweight APIs",
             desc: "When native features fall short of specific merchant needs, build targeted client-side state managers or App Proxies around platform capabilities rather than replacing the core system.",
-            output: "EXTEND VIA LIGHTWEIGHT CODE"
+            output: "IMPROVE VIA LIGHTWEIGHT CODE"
         },
         replace: {
             badge: "STRATEGY: REPLACE BROKEN FRICTION",
@@ -332,78 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 9. Code ↔ UX State Synchronizer Playground ---
-    const syncJson = document.getElementById('sync-json');
-    const uiPrice = document.getElementById('ui-price');
-    const uAddBtn = document.getElementById('u-add-btn');
-    const colorSwatches = document.querySelectorAll('#u-colors .u-swatch');
-    const sizeBtns = document.querySelectorAll('#u-sizes .u-size-btn');
-
-    let currentSelection = { color: 'Black', size: 'M' };
-
-    const variantMatrix = {
-        'Black-S': { id: 4829103, price: 4900, sku: 'ATUL-BLK-S', avail: true },
-        'Black-M': { id: 4829104, price: 4900, sku: 'ATUL-BLK-M', avail: true },
-        'Black-L': { id: 4829105, price: 4900, sku: 'ATUL-BLK-L', avail: false },
-        'Olive-S': { id: 4829203, price: 5400, sku: 'ATUL-OLV-S', avail: true },
-        'Olive-M': { id: 4829204, price: 5400, sku: 'ATUL-OLV-M', avail: true },
-        'Olive-L': { id: 4829205, price: 5400, sku: 'ATUL-OLV-L', avail: true },
-        'Cyan-S':  { id: 4829303, price: 5900, sku: 'ATUL-CYN-S', avail: false },
-        'Cyan-M':  { id: 4829304, price: 5900, sku: 'ATUL-CYN-M', avail: true },
-        'Cyan-L':  { id: 4829305, price: 5900, sku: 'ATUL-CYN-L', avail: true }
-    };
-
-    function updatePlaygroundState() {
-        const key = `${currentSelection.color}-${currentSelection.size}`;
-        const data = variantMatrix[key] || { id: 0, price: 0, sku: 'N/A', avail: false };
-        const priceFormatted = `$${(data.price / 100).toFixed(2)}`;
-
-        if (syncJson) {
-            syncJson.textContent = JSON.stringify({
-                id: data.id,
-                title: `${currentSelection.color} / ${currentSelection.size}`,
-                option1: currentSelection.color,
-                option2: currentSelection.size,
-                price: priceFormatted,
-                available: data.avail,
-                sku: data.sku
-            }, null, 2);
-        }
-
-        if (uiPrice) uiPrice.textContent = priceFormatted;
-
-        if (uAddBtn) {
-            if (data.avail) {
-                uAddBtn.textContent = `[ ADD TO CART — ${priceFormatted} ]`;
-                uAddBtn.style.opacity = '1';
-                uAddBtn.disabled = false;
-            } else {
-                uAddBtn.textContent = '[ SOLD OUT ]';
-                uAddBtn.style.opacity = '0.5';
-                uAddBtn.disabled = true;
-            }
-        }
-    }
-
-    colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', () => {
-            colorSwatches.forEach(s => s.classList.remove('active'));
-            swatch.classList.add('active');
-            currentSelection.color = swatch.getAttribute('data-color');
-            updatePlaygroundState();
-        });
-    });
-
-    sizeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            sizeBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentSelection.size = btn.getAttribute('data-size');
-            updatePlaygroundState();
-        });
-    });
-
-    // --- 10. Interactive ATUL Shell Terminal ---
+    // --- 8. Interactive ATUL Shell Terminal ---
     const termModal = document.getElementById('terminal-modal');
     const heroTermBtn = document.getElementById('hero-terminal-btn');
     const sidebarTermBtn = document.getElementById('sidebar-terminal-btn');
@@ -439,13 +345,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const commandDict = {
         'help': () => 'Available commands: philosophy, work, tools, experiments, shopify, contact, sudo hire atul, clear',
-        'philosophy': () => 'CORE PHILOSOPHY: Don\'t rebuild everything just because you can. Understand existing systems. Keep what works. Extend what can be improved. Replace what is broken. Build the simplest useful solution.',
-        'work': () => 'VERIFIED PROJECTS:\n1. figclaw (Public AI+Figma integration)\n2. Limit_Tracker (Public Chrome API Usage Extension)\n3. Shopify-Profile-Switcher (Private Admin Developer Utility)\n4. ShopifyThemeCheck (Shopify Theme & App Inspector Tool)\n5. wacspace (Shopify + Claude Code Direct Bridge)\n6. wishify (Wishlist / E-Commerce Logic)\n7. wimb (Distance Metric Experiment)',
-        'shopify': () => 'SHOPIFY CAPABILITIES:\n- Custom Theme Architecture (Liquid, Dawn Base)\n- Multi-Dimensional Variant Logic & Swatches\n- Customer & Product Metafields / Metaobjects\n- Storefront GraphQL & Admin REST APIs\n- AJAX Cart Drawer & Section Rendering API',
-        'tools': () => 'DEVELOPER TOOLS:\n- Limit_Tracker Chrome Extension\n- Shopify-Profile-Switcher Admin Utility\n- ShopifyThemeCheck Extractor Tool\n- figclaw (Claude + Figma bridge)\n- wacspace (Shopify + Claude Code bridge)',
-        'experiments': () => 'EXPERIMENTS:\n- wimb (Certainty under uncertainty metric engine)\n- Code <-> Storefront State Synchronizer Playground',
+        'philosophy': () => 'HOW I SOLVE PROBLEMS: Understand → Preserve → Improve → Replace.',
+        'work': () => 'SELECTED WORK:\n1. figclaw (Claude + Figma API Bridge)\n2. Limit_Tracker (Public Chrome API Usage Extension)\n3. Shopify-Profile-Switcher (Private Admin Developer Utility)\n4. ShopifyThemeCheck (Shopify Theme & App Inspector Tool)\n5. wacspace (Shopify + Claude Code Direct Bridge)\n6. wishify (Wishlist / E-Commerce Logic)\n7. wimb (Distance Metric Experiment)',
+        'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid 2.0\n- Multi-Dimensional Variant Logic\n- Checkout & Metafield Sync\n- Storefront GraphQL & Admin REST APIs\n- Developer Tools & Utilities',
+        'tools': () => 'TOOLS I\'VE BUILT:\n- Limit_Tracker Chrome Extension\n- ShopifyThemeCheck Extractor Tool\n- Shopify-Profile-Switcher Admin Utility\n- figclaw (Claude + Figma bridge)\n- wacspace (Shopify + Claude Code bridge)',
+        'experiments': () => 'EXPERIMENTS:\n- wimb (Certainty under uncertainty metric engine)',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
-        'sudo hire atul': () => `Checking system compatibility...\nSystems Thinking ......... ✓\nShopify Engineering ....... ✓\nDeveloper Tooling ......... ✓\nMinimal Infrastructure .... ✓ (₹0/month)\n\nSTATUS: READY TO COLLABORATE.\nEmail: atulmundakkal@outlook.com`,
+        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nSystems Thinking ......... ✓\nDeveloper Tooling ......... ✓\nMinimal Infrastructure .... ✓ (₹0/month)\n\nSTATUS: AVAILABLE FOR SHOPIFY WORK.\nEmail: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'
     };
 
@@ -491,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 11. Copy Email Helper ---
+    // --- 9. Copy Email Helper ---
     const copyEmailBtn = document.getElementById('copy-email-btn');
     if (copyEmailBtn) {
         copyEmailBtn.addEventListener('click', () => {
