@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +7,16 @@
     <meta name="description" content="Technical documentation for Profile Switcher: VS Code extension for Shopify CLI account management.">
     <link rel="canonical" href="https://atul-ai.pages.dev/projects/profile-switcher.html">
 
-    <!-- Fonts: JetBrains Mono -->
+    <!-- Google Fonts: Geist & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!-- COMPACT DEVELOPER HEADER -->
+    <!-- COMPACT DEVELOPER HEADER (Shopify Dev Docs Style) -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
             
@@ -26,10 +26,11 @@
                 </button>
 
                 <a href="/index.html" class="doc-brand">
-                    <span class="brand-name">Atul Mundakkal</span>
-                    <span class="brand-divider">/</span>
-                    <span class="brand-sub">Docs</span>
-                    <span class="brand-badge">Shopify Dev</span>
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                        <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                    </svg>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">dev docs</span>
                 </a>
             </div>
 
@@ -42,17 +43,25 @@
             </nav>
 
             <div class="header-right">
+                <button class="ask-assistant-btn" id="ask-assistant-btn" aria-label="Ask Assistant">
+                    <span style="font-size:0.9rem;">✦</span>
+                    <span>Ask assistant</span>
+                    <kbd style="font-family:var(--font-mono); font-size:0.68rem; opacity:0.7;">/</kbd>
+                </button>
+
                 <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
                     <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
-                    <span class="search-label">Search docs...</span>
-                    <kbd class="search-kbd">⌘K</kbd>
                 </button>
 
                 <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
-                    <span class="theme-text" id="theme-text">LIGHT</span>
+                    <span class="theme-icon" id="theme-icon">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>
+                    </span>
                 </button>
 
-                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="header-ext-link">GitHub ↗</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Profile">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v2H5V1zM3 3h2v2H3V3zm10 0h-2v2h2V3zM2 5h1v5H2V5zm12 0h-1v5h1V5zM3 10h2v2H3v-2zm10 0h-2v2h2v-2zM5 12h2v3H5v-3zm4 0h2v3H9v-3z"/></svg>
+                </a>
             </div>
 
         </div>
@@ -68,26 +77,66 @@
                 <div class="sidebar-group">
                     <div class="sidebar-title">DOCUMENTATION</div>
                     <ul class="sidebar-links">
-                        <li><a href="/index.html" class="sidebar-link">Overview</a></li>
+                        <li>
+                            <a href="/index.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3 1h7l4 4v10H3V1zm2 3v1h4V4H5zm0 3v1h6V7H5zm0 3v1h6v-1H5zm0 3v1h4v-1H5z"/></svg>
+                                Overview
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-group">
                     <div class="sidebar-title">PROJECTS</div>
                     <ul class="sidebar-links">
-                        <li><a href="/projects.html" class="sidebar-link">All Projects</a></li>
-                        <li><a href="/projects/figclaw.html" class="sidebar-link indent">FigClaw</a></li>
-                        <li><a href="/projects/profile-switcher.html" class="sidebar-link active indent">Profile Switcher</a></li>
-                        <li><a href="/projects/theme-inspector.html" class="sidebar-link indent">ShopifyThemeCheck</a></li>
+                        <li>
+                            <a href="/projects.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M2 2h12v12H2V2zm2 2v8h8V4H4z"/></svg>
+                                All Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/figclaw.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                                FigClaw
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/profile-switcher.html" class="sidebar-link active indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
+                                Profile Switcher
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/theme-inspector.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
+                                ShopifyThemeCheck
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="sidebar-group">
                     <div class="sidebar-title">BACKGROUND</div>
                     <ul class="sidebar-links">
-                        <li><a href="/about.html" class="sidebar-link">About</a></li>
-                        <li><a href="/experience.html" class="sidebar-link">Experience</a></li>
-                        <li><a href="/contact.html" class="sidebar-link">Contact</a></li>
+                        <li>
+                            <a href="/about.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M2 3h12v8H4l-2 2V3zm3 3h6v2H5V6z"/></svg>
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/experience.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M6 1h4v2H6V1zm-2 2h8v2H4V3zm-1 2h10v8H3V5zm2 2v4h6V7H5z"/></svg>
+                                Experience
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M2 3h12v10H2V3zm2 2v2l4 3 4-3V5H4zm0 4v2h8V9H4z"/></svg>
+                                Contact
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
@@ -106,6 +155,7 @@
             </nav>
 
             <header class="doc-page-header">
+                <div class="doc-tag">SHOPIFY CLI DEVELOPER TOOLING</div>
                 <h1 class="doc-title">Profile Switcher</h1>
                 <p class="doc-lead">Shopify developer tooling for managing and switching CLI development contexts.</p>
             </header>
@@ -162,8 +212,11 @@
             <section id="key-decisions" class="doc-section">
                 <h2>Key decisions</h2>
 
-                <div class="doc-callout">
-                    <div class="callout-title">KEY DECISION — Session Pointer Delegation</div>
+                <div class="doc-callout" style="border-left-color: var(--accent-purple);">
+                    <div class="callout-title" style="color: var(--accent-purple);">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#c084fc" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
+                        KEY DECISION — Session Pointer Delegation
+                    </div>
                     <p>
                         Swapped pointer metadata directly inside the native Shopify CLI session state file rather than storing raw OAuth tokens in the extension, ensuring security and compatibility with Shopify's native authentication routines.
                     </p>
@@ -245,6 +298,7 @@
         <div class="search-modal-backdrop" id="search-backdrop"></div>
         <div class="search-palette">
             <div class="search-input-wrapper">
+                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
                 <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
             </div>
             <div class="search-results" id="search-results"></div>
@@ -254,7 +308,12 @@
     <!-- FOOTER -->
     <footer class="doc-footer">
         <div class="doc-footer-container">
-            <div class="footer-brand">Atul Mundakkal / Developer Documentation</div>
+            <div class="footer-brand">
+                <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                    <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                </svg>
+                <span>ATUL MUNDAKKAL / dev docs</span>
+            </div>
             <div class="footer-links">
                 <a href="/index.html">Overview</a>
                 <a href="/projects.html">Projects</a>

@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Theme Toggle System (Default to Dark Retro Theme) ---
     const themeBtn = document.getElementById('theme-toggle-btn');
     const themeIcon = document.getElementById('theme-icon');
-    const themeText = document.getElementById('theme-text');
     const htmlEl = document.documentElement;
 
     const savedTheme = localStorage.getItem('atul-doc-theme') || 'dark';
@@ -17,13 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function setTheme(theme) {
         htmlEl.setAttribute('data-theme', theme);
         localStorage.setItem('atul-doc-theme', theme);
-        if (themeIcon && themeText) {
+        if (themeIcon) {
             if (theme === 'dark') {
                 themeIcon.innerHTML = `<svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>`;
-                themeText.textContent = 'DARK';
             } else {
                 themeIcon.innerHTML = `<svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M7 1h2v2H7V1zm-4 2h2v2H3V3zm10 0h-2v2h2V3zM1 7h2v2H1V7zm13 0h2v2h-2V7zM3 11h2v2H3v-2zm10 0h-2v2h2v-2zM7 13h2v2H7v-2zm-1-6h4v4H6V7z"/></svg>`;
-                themeText.textContent = 'LIGHT';
             }
         }
     }
@@ -103,15 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(sec => observer.observe(sec));
     }
 
-    // --- 5. Command Palette Search Engine (⌘K) ---
+    // --- 5. Command Palette Search & Assistant Engine (⌘K or /) ---
     const searchModal = document.getElementById('search-modal');
     const searchTriggerBtn = document.getElementById('search-trigger-btn');
+    const askAssistantBtn = document.getElementById('ask-assistant-btn');
     const searchBackdrop = document.getElementById('search-backdrop');
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "DOCS", url: "/index.html" },
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "DOCS", url: "/index.html" },
         { title: "Projects Directory", sub: "Featured developer tools: FigClaw, Profile Switcher, ShopifyThemeCheck", tag: "PROJECTS", url: "/projects.html" },
         { title: "FigClaw", sub: "Design-to-code workflow for turning structured design instructions into usable interfaces", tag: "CASE STUDY", url: "/projects/figclaw.html" },
         { title: "Profile Switcher", sub: "Shopify developer tooling for managing and switching CLI development contexts", tag: "CASE STUDY", url: "/projects/profile-switcher.html" },
@@ -179,12 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (searchTriggerBtn) searchTriggerBtn.addEventListener('click', openSearch);
+    if (askAssistantBtn) askAssistantBtn.addEventListener('click', openSearch);
     if (searchBackdrop) searchBackdrop.addEventListener('click', closeSearch);
 
     document.addEventListener('keydown', (e) => {
+        const isInput = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+        
         if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
             searchModal && searchModal.classList.contains('active') ? closeSearch() : openSearch();
+        } else if (e.key === '/' && !isInput) {
+            e.preventDefault();
+            openSearch();
         } else if (e.key === 'Escape') {
             closeSearch();
         }
