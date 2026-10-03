@@ -1,5 +1,5 @@
 /**
- * ATUL MUNDAKKAL — DEVELOPER DOCUMENTATION ENGINE
+ * ATUL MUNDAKKAL — DEVELOPER PORTFOLIO ENGINE
  * Inspired by Shopify.dev Documentation System & Pixelated Retro Icons
  */
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "DOCS", url: "/index.html" },
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "PORTFOLIO", url: "/index.html" },
         { title: "Projects Directory", sub: "Featured developer tools: FigClaw, Profile Switcher, ShopifyThemeCheck", tag: "PROJECTS", url: "/projects.html" },
         { title: "FigClaw", sub: "Design-to-code workflow for turning structured design instructions into usable interfaces", tag: "CASE STUDY", url: "/projects/figclaw.html" },
         { title: "Profile Switcher", sub: "Shopify developer tooling for managing and switching CLI development contexts", tag: "CASE STUDY", url: "/projects/profile-switcher.html" },
