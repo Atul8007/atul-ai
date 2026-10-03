@@ -1,35 +1,35 @@
 /* ==========================================================================
-   ATUL MUNDAKKAL — DEVELOPER DOCUMENTATION PORTFOLIO
-   Design System & UX Architecture Inspired by Shopify.dev Documentation
+   ATUL MUNDAKKAL — SHOPIFY DEVELOPER DOCUMENTATION
+   Inspired by Shopify.dev Documentation Architecture
+   With Pixelated Retro 8-bit Icon System & Color Codes
    ========================================================================== */
 
-/* --- CSS Variables & Design Tokens --- */
-:root, [data-theme="light"] {
-    --bg-main: #ffffff;
-    --bg-surface: #f6f6f7;
-    --bg-surface-hover: #edeef0;
-    --bg-sidebar: #ffffff;
-    --border-color: #e1e3e5;
-    --border-subtle: #ebebeb;
+/* --- CSS Variables & Theme Definitions --- */
+:root, [data-theme="dark"] {
+    --bg-main: #0b0f19;
+    --bg-surface: #111827;
+    --bg-surface-alt: #161e2e;
+    --bg-sidebar: #0e131f;
+    --border-color: #1f2937;
+    --border-accent: #374151;
 
-    --text-primary: #1a1a1a;
-    --text-secondary: #5c5f62;
-    --text-muted: #8c9196;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
 
-    --accent-shopify: #008060; /* Authentic Shopify Emerald Green */
-    --accent-shopify-hover: #006e52;
-    --accent-shopify-bg: #f0fdf4;
-    --accent-shopify-border: #bbf7d0;
+    --accent-shopify: #95bf47;
+    --accent-cyan: #38bdf8;
+    --accent-warning: #f59e0b;
+    --accent-alert: #ef4444;
 
-    --code-bg: #0f172a;
-    --code-header-bg: #1e293b;
-    --code-text: #f8fafc;
-    --code-border: #334155;
+    --code-bg: #030712;
+    --code-border: #1f2937;
+    --code-text: #e5e7eb;
 
-    --font-sans: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Geist', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'San Francisco', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
-    --header-height: 52px;
+    --header-height: 54px;
     --sidebar-width: 240px;
     --toc-width: 220px;
     --max-content-width: 780px;
@@ -37,35 +37,34 @@
 
     --radius-sm: 4px;
     --radius-md: 6px;
-    --radius-lg: 8px;
+    --radius-lg: 10px;
 
-    --transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-theme="dark"] {
-    --bg-main: #0d1117;
-    --bg-surface: #161b22;
-    --bg-surface-hover: #21262d;
-    --bg-sidebar: #0d1117;
-    --border-color: #30363d;
-    --border-subtle: #21262d;
+[data-theme="light"] {
+    --bg-main: #ffffff;
+    --bg-surface: #f8fafc;
+    --bg-surface-alt: #f1f5f9;
+    --bg-sidebar: #f8fafc;
+    --border-color: #e2e8f0;
+    --border-accent: #cbd5e1;
 
-    --text-primary: #f0f6fc;
-    --text-secondary: #8b949e;
-    --text-muted: #6e7681;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
 
-    --accent-shopify: #10b981;
-    --accent-shopify-hover: #34d399;
-    --accent-shopify-bg: rgba(16, 185, 129, 0.1);
-    --accent-shopify-border: rgba(16, 185, 129, 0.3);
+    --accent-shopify: #4d7c0f;
+    --accent-cyan: #0284c7;
+    --accent-warning: #d97706;
+    --accent-alert: #dc2626;
 
-    --code-bg: #161b22;
-    --code-header-bg: #21262d;
-    --code-text: #e6edf3;
-    --code-border: #30363d;
+    --code-bg: #0f172a;
+    --code-border: #334155;
+    --code-text: #f8fafc;
 }
 
-/* --- Reset & Base Styles --- */
+/* --- Base Reset & Norms --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -86,7 +85,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 :focus-visible {
@@ -98,29 +97,48 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
+a { color: inherit; text-decoration: none; transition: var(--transition); }
 ul, ol { list-style: none; }
 pre, code { font-family: var(--font-mono); }
 
-/* --- Icons --- */
+/* ==========================================================================
+   PIXEL ART RETRO ICON SYSTEM (8-bit Pixelated SVG Icons)
+   ========================================================================== */
 .px-icon {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
     display: inline-block;
     vertical-align: middle;
     flex-shrink: 0;
 }
 
+.px-icon-lg {
+    width: 24px;
+    height: 24px;
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.brand-pixel-logo {
+    width: 18px;
+    height: 18px;
+}
+
+.s-px-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    opacity: 0.9;
+}
+
 /* ==========================================================================
-   GLOBAL COMPACT HEADER (Shopify.dev Style)
+   GLOBAL HEADER (Shopify.dev Style with Retro Pixel Identity)
    ========================================================================== */
 .doc-header {
     position: fixed;
@@ -131,6 +149,7 @@ pre, code { font-family: var(--font-mono); }
     background-color: var(--bg-main);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
 .doc-header-container {
@@ -153,7 +172,7 @@ pre, code { font-family: var(--font-mono); }
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     padding: 4px 7px;
@@ -165,37 +184,27 @@ pre, code { font-family: var(--font-mono); }
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
-}
-
-.brand-name {
-    color: var(--text-primary);
     letter-spacing: -0.01em;
 }
 
-.brand-divider {
-    color: var(--border-color);
-    font-weight: 300;
-}
-
-.brand-sub {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 400;
+.brand-text {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
 }
 
 .brand-badge {
-    background-color: var(--accent-shopify-bg);
+    background-color: rgba(149, 191, 71, 0.12);
     color: var(--accent-shopify);
-    border: 1px solid var(--accent-shopify-border);
+    border: 1px solid rgba(149, 191, 71, 0.3);
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 1px 6px;
     border-radius: 3px;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
 }
 
 .doc-top-nav {
@@ -220,7 +229,7 @@ pre, code { font-family: var(--font-mono); }
 .top-nav-link.active::after {
     content: '';
     position: absolute;
-    bottom: -13px;
+    bottom: -14px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -248,7 +257,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .search-trigger-btn:hover {
-    border-color: var(--text-muted);
+    border-color: var(--border-accent);
     color: var(--text-secondary);
 }
 
@@ -263,7 +272,10 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .theme-toggle-btn {
-    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     font-family: var(--font-mono);
@@ -275,18 +287,22 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .theme-toggle-btn:hover {
-    background-color: var(--bg-surface);
+    border-color: var(--accent-warning);
     color: var(--text-primary);
 }
 
-.header-ext-link {
-    font-size: 0.82rem;
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text-secondary);
-    font-weight: 500;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
 }
 
-.header-ext-link:hover {
-    color: var(--accent-shopify);
+.icon-link:hover {
+    color: var(--accent-cyan);
 }
 
 /* ==========================================================================
@@ -339,8 +355,9 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .sidebar-link {
-    display: block;
-    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
     font-size: 0.86rem;
     color: var(--text-secondary);
     border-radius: var(--radius-sm);
@@ -349,7 +366,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .sidebar-link.indent {
-    padding-left: 20px;
+    padding-left: 24px;
     font-size: 0.83rem;
 }
 
@@ -360,7 +377,7 @@ pre, code { font-family: var(--font-mono); }
 
 .sidebar-link.active {
     color: var(--accent-shopify);
-    background-color: var(--accent-shopify-bg);
+    background-color: rgba(149, 191, 71, 0.1);
     font-weight: 600;
 }
 
@@ -403,6 +420,16 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* Documentation Content Typography */
+.doc-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-shopify);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
 .doc-title {
     font-size: 2.2rem;
     font-weight: 800;
@@ -456,7 +483,7 @@ pre, code { font-family: var(--font-mono); }
 .doc-main code {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
+    color: var(--accent-cyan);
     font-family: var(--font-mono);
     font-size: 0.84em;
     padding: 2px 5px;
@@ -474,6 +501,9 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.75rem;
     font-weight: 700;
     font-family: var(--font-mono);
@@ -515,11 +545,11 @@ pre, code { font-family: var(--font-mono); }
 .doc-badge-btn:hover {
     border-color: var(--accent-shopify);
     color: var(--accent-shopify);
-    background-color: var(--accent-shopify-bg);
+    background-color: rgba(149, 191, 71, 0.08);
 }
 
 /* ==========================================================================
-   DOCUMENTATION PROJECT LIST (Documentation Style)
+   DOCUMENTATION PROJECT LIST (Documentation Style with Pixel Icons)
    ========================================================================== */
 .doc-project-list {
     display: flex;
@@ -530,7 +560,7 @@ pre, code { font-family: var(--font-mono); }
 
 .doc-project-item {
     display: grid;
-    grid-template-columns: 48px 1fr 120px;
+    grid-template-columns: 56px 1fr 130px;
     align-items: center;
     padding: 20px 12px;
     border-bottom: 1px solid var(--border-color);
@@ -541,7 +571,10 @@ pre, code { font-family: var(--font-mono); }
     background-color: var(--bg-surface);
 }
 
-.project-num {
+.project-num-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-mono);
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -573,7 +606,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .doc-project-item:hover .project-action-link {
-    color: var(--accent-shopify-hover);
+    color: var(--accent-shopify);
     transform: translateX(2px);
 }
 
@@ -607,8 +640,9 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .flow-arrow {
-    color: var(--text-muted);
+    color: var(--accent-cyan);
     font-size: 1rem;
+    font-family: var(--font-mono);
 }
 
 /* ==========================================================================
@@ -626,7 +660,7 @@ pre, code { font-family: var(--font-mono); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--code-header-bg);
+    background-color: #0f172a;
     padding: 8px 14px;
     border-bottom: 1px solid var(--code-border);
     font-family: var(--font-mono);
@@ -636,6 +670,9 @@ pre, code { font-family: var(--font-mono); }
 .code-filename {
     color: #94a3b8;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .code-actions {
@@ -682,10 +719,10 @@ pre, code { font-family: var(--font-mono); }
     color: inherit;
 }
 
-/* Syntax Highlighting Simple Rules */
+/* Syntax Highlighting */
 .hl-kw { color: #f472b6; }
 .hl-fn { color: #38bdf8; }
-.hl-str { color: #4ade80; }
+.hl-str { color: #95bf47; }
 .hl-cmt { color: #64748b; font-style: italic; }
 
 /* ==========================================================================
@@ -765,18 +802,18 @@ pre, code { font-family: var(--font-mono); }
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
 }
 
 .search-palette {
     position: relative;
     width: 100%;
     max-width: 580px;
-    background-color: var(--bg-main);
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     z-index: 2001;
 }
@@ -784,6 +821,7 @@ pre, code { font-family: var(--font-mono); }
 .search-input-wrapper {
     display: flex;
     align-items: center;
+    gap: 10px;
     padding: 14px 16px;
     border-bottom: 1px solid var(--border-color);
 }
@@ -808,13 +846,13 @@ pre, code { font-family: var(--font-mono); }
     align-items: center;
     justify-content: space-between;
     padding: 10px 16px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-color);
     cursor: pointer;
 }
 
 .search-item:hover,
 .search-item.selected {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-surface-alt);
 }
 
 .s-item-title {
@@ -834,13 +872,13 @@ pre, code { font-family: var(--font-mono); }
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--accent-shopify);
-    background-color: var(--accent-shopify-bg);
+    background-color: rgba(149, 191, 71, 0.1);
     padding: 2px 6px;
     border-radius: 3px;
 }
 
 /* ==========================================================================
-   FOOTER (Compact Documentation Footer)
+   FOOTER (Compact Documentation Footer with Pixel Logo)
    ========================================================================== */
 .doc-footer {
     border-top: 1px solid var(--border-color);
@@ -860,6 +898,9 @@ pre, code { font-family: var(--font-mono); }
 }
 
 .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -874,7 +915,7 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Documentation Adaptations)
+   RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 1024px) {
     .doc-layout {
@@ -909,7 +950,7 @@ pre, code { font-family: var(--font-mono); }
         height: calc(100vh - var(--header-height));
         z-index: 999;
         transition: left 0.2s ease;
-        box-shadow: 5px 0 25px rgba(0,0,0,0.1);
+        box-shadow: 5px 0 25px rgba(0,0,0,0.3);
     }
 
     .doc-sidebar.active {
@@ -921,7 +962,7 @@ pre, code { font-family: var(--font-mono); }
     }
 
     .doc-project-item {
-        grid-template-columns: 36px 1fr;
+        grid-template-columns: 44px 1fr;
         gap: 8px;
     }
 
