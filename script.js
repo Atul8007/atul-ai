@@ -1,6 +1,6 @@
 /**
- * ATUL.OS — SHOPIFY ENGINEERING WORKSPACE ENGINE
- * Pure Vanilla JavaScript (ES6+) — Zero Dependency Architecture
+ * ATUL MUNDAKKAL — SHOPIFY FULL-STACK DEVELOPER (FDE)
+ * Pure Vanilla JavaScript (ES6+) — Zero Framework Dependencies
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,8 +8,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('f-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // --- 2. Precision Contextual Cursor ---
-    const cursor = document.getElementById('os-cursor');
+    // --- 2. Dark / Light Theme Toggle System ---
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    const htmlEl = document.documentElement;
+
+    const savedTheme = localStorage.getItem('fde-theme') || 'dark';
+    setTheme(savedTheme);
+
+    function setTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('fde-theme', theme);
+        if (themeIcon && themeText) {
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'DARK';
+            } else {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'LIGHT';
+            }
+        }
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            setTheme(next);
+        });
+    }
+
+    // --- 3. Precision Contextual Cursor ---
+    const cursor = document.getElementById('fde-cursor');
     const cursorTag = document.getElementById('cursor-tag');
 
     if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -18,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.top = `${e.clientY}px`;
         });
 
-        const interactiveEls = document.querySelectorAll('[data-cursor], a, button, .node-item, .work-row-summary, .d-btn, .sys-tab, .swatch, .size-btn');
+        const interactiveEls = document.querySelectorAll('[data-cursor], a, button, .branch-btn, .u-swatch, .u-size-btn, .case-card');
         interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                const tag = el.getAttribute('data-cursor') || 'OPEN';
+                const tag = el.getAttribute('data-cursor') || 'INSPECT';
                 if (cursorTag) cursorTag.textContent = tag;
                 cursor.classList.add('active');
             });
@@ -31,7 +62,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Central Node Visualizer Diagram ---
+    // --- 4. Interactive Decision Engine (Hero Visual) ---
+    const branchData = {
+        keep: {
+            badge: "DECISION STRATEGY: KEEP NATIVE",
+            title: "Preserve Working Platform Fundamentals",
+            desc: "When native features (like Shopify Customer Metafields or theme sections) already solve 80% of the problem, do not introduce extra databases or paid apps. Preserve native capabilities to minimize ongoing maintenance cost.",
+            output: "KEEP NATIVE PLATFORM"
+        },
+        extend: {
+            badge: "DECISION STRATEGY: EXTEND CAPABILITIES",
+            title: "Extend Native Features via Lightweight Code",
+            desc: "When native features fall short of specific merchant needs, build targeted client-side state managers or App Proxies around platform capabilities rather than replacing the core system.",
+            output: "EXTEND VIA LIGHTWEIGHT CODE"
+        },
+        replace: {
+            badge: "DECISION STRATEGY: REPLACE BROKEN WORKFLOW",
+            title: "Replace Fundamentally Unsuitable Workflows",
+            desc: "When an existing approach creates severe technical debt or massive performance degradation (e.g. heavy third-party app scripts), replace that specific friction point with simple custom engineering.",
+            output: "REPLACE SPECIFIC FRICTION POINT"
+        }
+    };
+
+    const branchBtns = document.querySelectorAll('.branch-btn');
+    const bBadge = document.getElementById('b-badge');
+    const bTitle = document.getElementById('b-title');
+    const bDesc = document.getElementById('b-desc');
+    const diagramOutputNode = document.getElementById('diagram-output-node');
+
+    branchBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            branchBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const key = btn.getAttribute('data-branch');
+            const data = branchData[key];
+
+            if (data) {
+                if (bBadge) bBadge.textContent = data.badge;
+                if (bTitle) bTitle.textContent = data.title;
+                if (bDesc) bDesc.textContent = data.desc;
+                if (diagramOutputNode) diagramOutputNode.textContent = data.output;
+            }
+        });
+    });
+
+    // --- 5. Central Node Visualizer Diagram ---
     const nodeItems = document.querySelectorAll('.node-item');
     const inspHeader = document.getElementById('insp-header');
     const inspDesc = document.getElementById('insp-desc');
@@ -48,10 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (inspHeader) inspHeader.textContent = `NODE // ${title}`;
             if (inspDesc) inspDesc.textContent = desc;
 
-            // Highlight line
             const line = document.getElementById(`line-${key}`);
             if (line) {
-                line.style.stroke = '#95bf47';
+                line.style.stroke = 'var(--accent-shopify)';
                 line.style.strokeWidth = '2.5';
                 line.style.strokeDasharray = 'none';
             }
@@ -73,69 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 4. Expandable WORK Index Rows ---
-    const workRows = document.querySelectorAll('.work-row');
-    workRows.forEach(row => {
-        const summary = row.querySelector('.work-row-summary');
-        if (summary) {
-            summary.addEventListener('click', () => {
-                const isOpen = row.classList.contains('open');
-                workRows.forEach(r => r.classList.remove('open'));
-                if (!isOpen) row.classList.add('open');
-            });
-        }
-    });
+    // --- 6. Code <-> Storefront Interaction Playground ---
+    const syncJson = document.getElementById('sync-json');
+    const uiPrice = document.getElementById('ui-price');
+    const uAddBtn = document.getElementById('u-add-btn');
+    const colorSwatches = document.querySelectorAll('#u-colors .u-swatch');
+    const sizeBtns = document.querySelectorAll('#u-sizes .u-size-btn');
 
-    // --- 5. LAB DEBUG MODE ---
-    const debugData = {
-        variants: {
-            failSteps: `<span>USER SELECTION</span> &rarr; <span>STATE CHANGE</span> &rarr; <span>ASYNC REQUEST</span> &rarr; <span class="err">STALE RESPONSE</span> &rarr; <span class="err">WRONG VARIANT</span>`,
-            fixText: "Request identity tracking + State validation + Centralized option matrix listener"
-        },
-        cart: {
-            failSteps: `<span>ADD TO CART</span> &rarr; <span>THEME REDIRECT</span> &rarr; <span class="err">LAYOUT SHIFT</span> &rarr; <span class="err">SLOW CHECKOUT</span>`,
-            fixText: "Asynchronous Fetch API + Section Rendering API + Drawer cart state manager"
-        },
-        speed: {
-            failSteps: `<span>PAGE LOAD</span> &rarr; <span>NESTED LIQUID LOOPS</span> &rarr; <span class="err">TTFB DELAY</span> &rarr; <span class="err">UN-OPTIMIZED IMAGES</span>`,
-            fixText: "Metafield direct references + Cached liquid filters + Responsive srcset image loading"
-        },
-        metafields: {
-            failSteps: `<span>ADMIN INPUT</span> &rarr; <span class="err">UNSTRUCTURED TEXT</span> &rarr; <span class="err">THEME CONFLICT</span> &rarr; <span>BROKEN TABS</span>`,
-            fixText: "Strict Metafield/Metaobject definitions + Liquid object mapping + Merchant-proof admin schema"
-        }
-    };
-
-    const dBtns = document.querySelectorAll('.d-btn');
-    const dFailSteps = document.getElementById('d-failure-steps');
-    const dFixContent = document.getElementById('d-fix-content');
-
-    dBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            dBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const key = btn.getAttribute('data-debug');
-            const data = debugData[key];
-
-            if (data) {
-                if (dFailSteps) dFailSteps.innerHTML = data.failSteps;
-                if (dFixContent) dFixContent.textContent = data.fixText;
-            }
-        });
-    });
-
-    // --- 6. Signature Code <-> Storefront Interaction Demo ---
-    const stateCode = document.getElementById('sig-state-code');
-    const sfPrice = document.getElementById('sf-price');
-    const sfAddBtn = document.getElementById('sf-add-btn');
-    const colorSwatches = document.querySelectorAll('#sf-color-swatches .swatch');
-    const sizeBtns = document.querySelectorAll('#sf-size-buttons .size-btn');
-
-    let currentSelection = {
-        color: 'Black',
-        size: 'M'
-    };
+    let currentSelection = { color: 'Black', size: 'M' };
 
     const variantMatrix = {
         'Black-S': { id: 4829103, price: 4900, sku: 'ATUL-BLK-S', avail: true },
@@ -149,35 +169,34 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cyan-L':  { id: 4829305, price: 5900, sku: 'ATUL-CYN-L', avail: true }
     };
 
-    function updateSignatureState() {
+    function updatePlaygroundState() {
         const key = `${currentSelection.color}-${currentSelection.size}`;
         const data = variantMatrix[key] || { id: 0, price: 0, sku: 'N/A', avail: false };
         const priceFormatted = `$${(data.price / 100).toFixed(2)}`;
 
-        // Update JSON Code Box
-        if (stateCode) {
-            stateCode.textContent = JSON.stringify({
+        if (syncJson) {
+            syncJson.textContent = JSON.stringify({
                 id: data.id,
                 title: `${currentSelection.color} / ${currentSelection.size}`,
                 option1: currentSelection.color,
                 option2: currentSelection.size,
-                price: data.price,
+                price: priceFormatted,
                 available: data.avail,
                 sku: data.sku
             }, null, 2);
         }
 
-        // Update Storefront Price & Button State
-        if (sfPrice) sfPrice.textContent = priceFormatted;
-        if (sfAddBtn) {
+        if (uiPrice) uiPrice.textContent = priceFormatted;
+
+        if (uAddBtn) {
             if (data.avail) {
-                sfAddBtn.textContent = `[ ADD TO CART — ${priceFormatted} ]`;
-                sfAddBtn.style.opacity = '1';
-                sfAddBtn.disabled = false;
+                uAddBtn.textContent = `[ ADD TO CART — ${priceFormatted} ]`;
+                uAddBtn.style.opacity = '1';
+                uAddBtn.disabled = false;
             } else {
-                sfAddBtn.textContent = '[ SOLD OUT ]';
-                sfAddBtn.style.opacity = '0.5';
-                sfAddBtn.disabled = true;
+                uAddBtn.textContent = '[ SOLD OUT ]';
+                uAddBtn.style.opacity = '0.5';
+                uAddBtn.disabled = true;
             }
         }
     }
@@ -187,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             colorSwatches.forEach(s => s.classList.remove('active'));
             swatch.classList.add('active');
             currentSelection.color = swatch.getAttribute('data-color');
-            updateSignatureState();
+            updatePlaygroundState();
         });
     });
 
@@ -196,29 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
             sizeBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentSelection.size = btn.getAttribute('data-size');
-            updateSignatureState();
+            updatePlaygroundState();
         });
     });
 
-    // --- 7. SYSTEM View Switcher ---
-    const sysTabs = document.querySelectorAll('.sys-tab');
-    const sysViews = document.querySelectorAll('.sys-view');
-
-    sysTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            sysTabs.forEach(t => t.classList.remove('active'));
-            sysViews.forEach(v => v.classList.remove('active'));
-
-            tab.classList.add('active');
-            const targetId = tab.getAttribute('data-sys');
-
-            if (targetId === 'stack') document.getElementById('view-stack')?.classList.add('active');
-            if (targetId === 'about') document.getElementById('view-about')?.classList.add('active');
-            if (targetId === 'experience') document.getElementById('view-experience')?.classList.add('active');
-        });
-    });
-
-    // --- 8. Interactive Terminal Modal ---
+    // --- 7. Interactive Terminal Shell Modal ---
     const termModal = document.getElementById('terminal-modal');
     const openTermBtn = document.getElementById('open-terminal-btn');
     const closeTermBtn = document.getElementById('close-terminal-btn');
@@ -251,38 +252,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const commandDict = {
-        'help': () => 'Supported commands: whoami, about, skills, shopify, projects, tools, experience, contact, sudo hire atul, clear',
-        'whoami': () => 'ATUL MUNDAKKAL — Shopify Developer & Full-Stack Engineer based in India.',
-        'about': () => 'FOCUS: I build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
-        'shopify': () => 'CORE SPECIALIZATION:\n- Liquid Theme Architecture & Custom Sections\n- Variant State & Swatch Logic\n- Metafields & Metaobjects Schemas\n- Storefront GraphQL & Admin REST APIs\n- AJAX Drawer Carts & Zero-Dependency Code',
-        'projects': () => '1. SHOPIFY WISHLIST ENGINE (Metafields + App Proxy)\n2. SHOPIFY DEVELOPER TOOLS (VS Code Snippet Extension)\n3. INTERACTIVE TERMINAL SHELL (htmlviewer.html)',
-        'tools': () => 'SHOPIFY LIQUID SNIPPETS HELPER — VS Code extension for Liquid auto-completion and section schema generation.',
-        'experience': () => '- SOFTWARE DEVELOPER @ WEBANDCRAFTS (Dec 2024 - Present)\n- SHOPIFY DEVELOPER @ RDP WORKSTATION (May 2024 - Oct 2024)',
+        'help': () => 'Available commands: philosophy, work, tools, experiments, shopify, contact, sudo hire atul, clear',
+        'philosophy': () => 'CORE PHILOSOPHY: Don\'t rebuild everything just because you can. Understand existing systems. Keep what works. Extend what can be improved. Replace what is broken. Build the simplest useful solution.',
+        'work': () => 'VERIFIED PROJECTS:\n1. figclaw (Public AI+Figma integration)\n2. Limit_Tracker (Public Chrome API Usage Extension)\n3. Shopify-Profile-Switcher (Private Admin Developer Utility)\n4. ShopifyThemeCheck (Shopify Theme & App Inspector Tool)\n5. wacspace (Shopify + Claude Code Direct Bridge)\n6. wishify (Wishlist / E-Commerce Logic)\n7. wimb (Distance Metric Experiment)',
+        'shopify': () => 'SHOPIFY CAPABILITIES:\n- Custom Theme Architecture (Liquid, Dawn Base)\n- Multi-Dimensional Variant Logic & Swatches\n- Customer & Product Metafields / Metaobjects\n- Storefront GraphQL & Admin REST APIs\n- AJAX Cart Drawer & Section Rendering API',
+        'tools': () => 'DEVELOPER TOOLS:\n- Limit_Tracker Chrome Extension\n- Shopify-Profile-Switcher Admin Utility\n- ShopifyThemeCheck Extractor Tool\n- figclaw (Claude + Figma bridge)\n- wacspace (Shopify + Claude Code bridge)',
+        'experiments': () => 'EXPERIMENTS:\n- wimb (Certainty under uncertainty metric engine)\n- Code <-> Storefront State Synchronizer Playground',
         'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
-        'sudo hire atul': () => `Checking compatibility...\nShopify ................. ✓\nLiquid .................. ✓\nProblem solving ......... ✓\nDeveloper tools ......... ✓\n\nSTATUS: READY. Email: atulmundakkal@outlook.com`,
+        'sudo hire atul': () => `Checking system compatibility...\nSystems Thinking ......... ✓\nShopify Engineering ....... ✓\nDeveloper Tooling ......... ✓\nMinimal Infrastructure .... ✓ (₹0/month)\n\nSTATUS: READY TO COLLABORATE.\nEmail: atulmundakkal@outlook.com`,
         'clear': () => 'CLEAR'
     };
 
-    function executeTermCmd(cmd) {
+    function executeCmd(cmd) {
         const clean = cmd.trim().toLowerCase();
         if (!clean) return;
 
         if (clean === 'clear') {
-            termBody.innerHTML = '<div class="term-line">Terminal cleared. Type <span class="hl">help</span> for available commands.</div>';
+            termBody.innerHTML = '<div class="t-line">Terminal cleared. Type <span class="t-hl">help</span> for commands.</div>';
             return;
         }
 
         const inputLine = document.createElement('div');
-        inputLine.className = 'term-line';
-        inputLine.innerHTML = `<span class="term-prompt">atul@portfolio ~ %</span> <span class="hl">${cmd}</span>`;
+        inputLine.className = 't-line';
+        inputLine.innerHTML = `<span class="t-prompt">atul@system ~ %</span> <span class="t-hl">${cmd}</span>`;
         termBody.appendChild(inputLine);
 
-        const response = commandDict[clean] ? commandDict[clean]() : `Command not found: "${clean}". Type "help" for supported commands.`;
-        
+        const response = commandDict[clean] ? commandDict[clean]() : `Command not recognized: "${clean}". Type "help" for valid commands.`;
+
         const outputLine = document.createElement('div');
-        outputLine.className = 'term-line';
+        outputLine.className = 't-line';
         outputLine.style.whiteSpace = 'pre-wrap';
-        outputLine.style.color = '#94a3b8';
+        outputLine.style.color = 'var(--text-secondary)';
         outputLine.textContent = response;
         termBody.appendChild(outputLine);
 
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (termInput) {
         termInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                executeTermCmd(termInput.value);
+                executeCmd(termInput.value);
                 termInput.value = '';
             }
         });
@@ -301,11 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
     termBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const cmd = btn.getAttribute('data-cmd');
-            if (cmd) executeTermCmd(cmd);
+            if (cmd) executeCmd(cmd);
         });
     });
 
-    // --- 9. Copy Email Helper ---
+    // --- 8. Copy Email Helper ---
     const copyEmailBtn = document.getElementById('copy-email-btn');
     if (copyEmailBtn) {
         copyEmailBtn.addEventListener('click', () => {
@@ -322,10 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 10. Mobile Navigation Toggle ---
-    const navToggle = document.getElementById('os-mobile-toggle');
-    const navMenu = document.getElementById('os-nav');
-    const navLinks = document.querySelectorAll('.os-link');
+    // --- 9. Mobile Menu Navigation Toggle ---
+    const navToggle = document.getElementById('fde-mobile-toggle');
+    const navMenu = document.getElementById('fde-nav');
+    const navLinks = document.querySelectorAll('.fde-link');
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {

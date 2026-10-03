@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATUL.OS — Shopify Engineering Workspace</title>
+    <title>Atul Mundakkal — Shopify Full-Stack Developer (FDE)</title>
     
     <!-- SEO & Technical Metadata -->
-    <meta name="description" content="ATUL.OS — Engineering workspace of Atul Mundakkal, Shopify Developer & Full-Stack Engineer. Specializing in custom storefronts, variant systems, Liquid architecture, and developer tools.">
-    <meta name="keywords" content="ATUL.OS, Shopify Engineer, Liquid Developer, Shopify Theme Architecture, Metafields, Metaobjects, Storefront API, Full Stack Developer, Atul Mundakkal">
+    <meta name="description" content="Personal engineering workspace of Atul Mundakkal, Shopify Full-Stack Developer (FDE). I solve commerce problems by understanding existing systems, reducing friction, and building the simplest useful solution.">
+    <meta name="keywords" content="Shopify Full-Stack Developer, Shopify FDE, Liquid Engineer, Shopify Theme Architecture, Metafields, Storefront API, Limit_Tracker, figclaw, Atul Mundakkal">
     <meta name="author" content="Atul Mundakkal">
     <link rel="canonical" href="https://atul-ai.pages.dev">
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://atul-ai.pages.dev">
-    <meta property="og:title" content="ATUL.OS — Shopify Engineering Workspace">
-    <meta property="og:description" content="I build the parts of Shopify that don't come out of the box. Explore work, lab debug mode, and developer tools.">
+    <meta property="og:title" content="Atul Mundakkal — Shopify Full-Stack Developer (FDE)">
+    <meta property="og:description" content="I solve problems by understanding existing systems, reducing friction, and building the simplest useful solution.">
     <meta property="og:image" content="assets/images/og-preview.png">
 
     <!-- Twitter Metadata -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ATUL.OS — Shopify Engineer Workspace">
-    <meta name="twitter:description" content="I build the parts of Shopify that don't come out of the box. Explore work, lab debug mode, and developer tools.">
+    <meta name="twitter:title" content="Atul Mundakkal — Shopify Full-Stack Developer">
+    <meta name="twitter:description" content="I solve problems by understanding existing systems, reducing friction, and building the simplest useful solution.">
     <meta name="twitter:image" content="assets/images/og-preview.png">
 
     <!-- Google Fonts: Geist & JetBrains Mono -->
@@ -34,487 +34,538 @@
 <body>
 
     <!-- Precision Contextual Cursor -->
-    <div class="os-cursor" id="os-cursor" aria-hidden="true">
+    <div class="fde-cursor" id="fde-cursor" aria-hidden="true">
         <div class="cursor-pointer"></div>
-        <div class="cursor-tag" id="cursor-tag">OPEN</div>
+        <div class="cursor-tag" id="cursor-tag">INSPECT</div>
     </div>
 
     <!-- Operating System Header / Navigation -->
-    <header class="os-header" id="os-header">
-        <div class="os-nav-container">
-            <a href="#home" class="os-brand" data-cursor="ATUL.OS">
-                <span class="brand-symbol">◈</span> ATUL.OS
+    <header class="fde-header" id="fde-header">
+        <div class="fde-nav-container">
+            <a href="#home" class="fde-brand" data-cursor="ATUL">
+                <span class="brand-symbol">◈</span> ATUL MUNDAKKAL <span class="brand-role">[FDE]</span>
             </a>
 
-            <div class="os-system-status">
+            <div class="fde-status-indicator">
                 <span class="sys-pulse"></span>
-                <span class="sys-label">ONLINE / SHOPIFY ENGINEER</span>
+                <span class="sys-label">SHOPIFY FULL-STACK DEVELOPER</span>
             </div>
 
-            <nav class="os-nav" id="os-nav">
-                <ul class="os-menu">
-                    <li><a href="#work" class="os-link" data-cursor="WORK">WORK</a></li>
-                    <li><a href="#lab" class="os-link" data-cursor="LAB">LAB</a></li>
-                    <li><a href="#system" class="os-link" data-cursor="SYSTEM">SYSTEM</a></li>
-                    <li><a href="#tools" class="os-link" data-cursor="TOOLS">TOOLS</a></li>
-                    <li><a href="#contact" class="os-link" data-cursor="CONTACT">CONTACT</a></li>
+            <nav class="fde-nav" id="fde-nav">
+                <ul class="fde-menu">
+                    <li><a href="#philosophy" class="fde-link" data-cursor="PHILOSOPHY">PHILOSOPHY</a></li>
+                    <li><a href="#work" class="fde-link" data-cursor="WORK">WORK &amp; SYSTEMS</a></li>
+                    <li><a href="#playground" class="fde-link" data-cursor="LAB">PLAYGROUND</a></li>
+                    <li><a href="#capabilities" class="fde-link" data-cursor="CAPABILITIES">CAPABILITIES</a></li>
+                    <li><a href="#contact" class="fde-link" data-cursor="CONTACT">CONTACT</a></li>
                 </ul>
             </nav>
 
-            <button class="os-mobile-toggle" id="os-mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span>
-            </button>
+            <div class="fde-controls">
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme" data-cursor="THEME">
+                    <span class="theme-icon" id="theme-icon">🌙</span> <span class="theme-text" id="theme-text">DARK</span>
+                </button>
+                <button class="fde-mobile-toggle" id="fde-mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="os-viewport">
+    <main class="fde-viewport">
 
-        <!-- SECTION 1: HOME / WORKSPACE LANDING -->
-        <section class="os-section hero-workspace" id="home">
+        <!-- SECTION 1: OPENING & PHILOSOPHY -->
+        <section class="fde-section hero-opening" id="home">
             <div class="container hero-layout">
                 <div class="hero-left">
-                    <div class="meta-tag">
-                        <span class="sys-code">[ENV: PRODUCTION]</span> WORKSPACE_INIT
+                    <div class="meta-badge">
+                        <span class="sys-code">[PERSPECTIVE Engine]</span> SYSTEM_FIRST_APPROACH
                     </div>
 
                     <h1 class="hero-headline">
-                        I BUILD THE PARTS OF SHOPIFY THAT DON'T COME OUT OF THE BOX.
+                        YOU SHOULD TALK TO ATUL BECAUSE YOU ARE LOOKING FOR A BETTER PERSPECTIVE ON A SOLUTION YOU HAVE BEEN TRYING TO FIGURE OUT.
                     </h1>
 
-                    <p class="hero-subtext">
-                        Liquid · Variants · Metafields · APIs · Performance · Developer Tools
-                    </p>
+                    <div class="hero-philosophy-card">
+                        <div class="phil-title">ENGINEERING PHILOSOPHY</div>
+                        <p class="phil-body">
+                            Don't rebuild everything just because you can. Understand the existing system first. Keep what works. Extend what can be improved. Build around platform limitations when appropriate. Replace what is fundamentally broken. Remove unnecessary friction. Build the simplest useful solution.
+                        </p>
+                    </div>
 
                     <div class="hero-actions">
-                        <a href="#work" class="btn btn-os-primary" data-cursor="EXPLORE">
-                            <span>[ EXPLORE WORK ]</span>
+                        <a href="#work" class="btn btn-fde-primary" data-cursor="SYSTEMS">
+                            <span>[ EXPLORE WORK &amp; SYSTEMS ]</span>
                         </a>
-                        <button class="btn btn-os-terminal" id="open-terminal-btn" data-cursor="TERMINAL">
-                            <span>[ OPEN TERMINAL ]</span>
+                        <button class="btn btn-fde-terminal" id="open-terminal-btn" data-cursor="TERMINAL">
+                            <span>[ OPEN ATUL SHELL ]</span>
                         </button>
                     </div>
-
-                    <!-- System Real-time Status Panel -->
-                    <div class="status-panel">
-                        <div class="status-panel-title">SYSTEM STATUS</div>
-                        <div class="status-grid">
-                            <div class="status-row">
-                                <span class="s-key">SHOPIFY</span>
-                                <span class="s-val active">● ACTIVE</span>
-                            </div>
-                            <div class="status-row">
-                                <span class="s-key">DEVELOPER TOOLS</span>
-                                <span class="s-val building">● BUILDING</span>
-                            </div>
-                            <div class="status-row">
-                                <span class="s-key">EXPERIMENTS</span>
-                                <span class="s-val active">● ACTIVE</span>
-                            </div>
-                            <div class="status-row">
-                                <span class="s-key">AVAILABILITY</span>
-                                <span class="s-val open">● OPEN</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Central Interactive Technical Node Visualizer -->
+                <!-- Interactive Decision Engine Visualizer -->
                 <div class="hero-right">
-                    <div class="node-system-container" id="node-system">
-                        <div class="node-center" data-node="CORE">
-                            <span class="center-title">ATUL CORE</span>
-                            <span class="center-code">SHOPIFY.ENGINE</span>
+                    <div class="decision-engine-box" id="decision-engine">
+                        <div class="d-engine-header">
+                            <span class="d-e-title">SYSTEM DECISION ENGINE</span>
+                            <span class="d-e-sub">Select a decision node to inspect strategy</span>
                         </div>
 
-                        <!-- Satellite Interactive Nodes -->
-                        <div class="node-item n-liquid" data-node="LIQUID" data-title="LIQUID" data-desc="Theme architecture, Custom Sections, Snippet Includes, Global Liquid Objects">
-                            <span class="n-tag">LIQUID</span>
-                        </div>
-                        <div class="node-item n-metafields" data-node="METAFIELDS" data-title="METAFIELDS" data-desc="Structured Commerce Data, Metaobjects Schemas, Dynamic Storefront Rendering">
-                            <span class="n-tag">METAFIELDS</span>
-                        </div>
-                        <div class="node-item n-variants" data-node="VARIANTS" data-title="VARIANTS" data-desc="Complex Product Logic, Swatch State Handling, Real-time Inventory &amp; Pricing">
-                            <span class="n-tag">VARIANTS</span>
-                        </div>
-                        <div class="node-item n-cart" data-node="CART" data-title="CART" data-desc="Asynchronous AJAX Cart State, Drawer Upsells, Free Shipping Thresholds">
-                            <span class="n-tag">CART</span>
-                        </div>
-                        <div class="node-item n-storefront" data-node="STOREFRONT" data-title="STOREFRONT" data-desc="Pixel-Perfect Mobile UX, Zero Framework Over-Engineering, Performance Targeting">
-                            <span class="n-tag">STOREFRONT</span>
-                        </div>
-                        <div class="node-item n-api" data-node="API" data-title="API" data-desc="Storefront GraphQL API, Admin REST API, Custom App Proxy Integration">
-                            <span class="n-tag">API</span>
+                        <!-- Interactive System Diagram -->
+                        <div class="diagram-flow">
+                            <div class="flow-row">
+                                <div class="node-box base">EXISTING SYSTEM</div>
+                                <div class="node-arrow">&darr;</div>
+                                <div class="node-box base">UNDERSTAND CONSTRAINTS</div>
+                                <div class="node-arrow">&darr;</div>
+                                <div class="node-box base">FIND FRICTION</div>
+                            </div>
+
+                            <div class="decision-branch-row">
+                                <button class="branch-btn active" data-branch="keep">[ KEEP ]</button>
+                                <button class="branch-btn" data-branch="extend">[ EXTEND ]</button>
+                                <button class="branch-btn" data-branch="replace">[ REPLACE ]</button>
+                            </div>
+
+                            <div class="flow-row">
+                                <div class="node-arrow">&darr;</div>
+                                <div class="node-box base">SIMPLIFY WORKFLOW</div>
+                                <div class="node-arrow">&darr;</div>
+                                <div class="node-box highlight" id="diagram-output-node">USEFUL SOLUTION</div>
+                            </div>
                         </div>
 
-                        <!-- SVG Dynamic Lines -->
-                        <svg class="node-lines-svg" viewBox="0 0 400 400" aria-hidden="true">
-                            <line x1="200" y1="200" x2="200" y2="60" class="n-line" id="line-LIQUID" />
-                            <line x1="200" y1="200" x2="330" y2="130" class="n-line" id="line-METAFIELDS" />
-                            <line x1="200" y1="200" x2="330" y2="270" class="n-line" id="line-VARIANTS" />
-                            <line x1="200" y1="200" x2="200" y2="340" class="n-line" id="line-CART" />
-                            <line x1="200" y1="200" x2="70" y2="270" class="n-line" id="line-STOREFRONT" />
-                            <line x1="200" y1="200" x2="70" y2="130" class="n-line" id="line-API" />
-                        </svg>
-
-                        <!-- Dynamic Inspector Tooltip -->
-                        <div class="node-inspector-box" id="node-inspector">
-                            <div class="insp-header" id="insp-header">HOVER NODES TO INSPECT ENGINE</div>
-                            <div class="insp-desc" id="insp-desc">Click or hover any node to inspect engineering details.</div>
+                        <!-- Decision Explanation Panel -->
+                        <div class="branch-explanation" id="branch-explanation">
+                            <div class="b-badge" id="b-badge">DECISION STRATEGY: KEEP</div>
+                            <h3 id="b-title">Preserve Working Platform Fundamentals</h3>
+                            <p id="b-desc">When existing native features (like Shopify Customer Metafields or native sections) already handle 80% of the problem, do not introduce extra databases or paid apps. Preserve native capabilities to minimize ongoing maintenance cost.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: WORK (PROJECT INDEX & EXPANDABLE WORKSPACE) -->
-        <section class="os-section" id="work">
+        <!-- SECTION 2: "HOW I THINK" PHILOSOPHY BREAKDOWN -->
+        <section class="fde-section section-bg-alt" id="philosophy">
             <div class="container">
-                <div class="section-header-block">
-                    <h2 class="section-title">WORK</h2>
-                    <p class="section-subtitle">Things I've built, broken, debugged and shipped.</p>
+                <div class="section-header">
+                    <span class="section-tag">01 // APPROACH</span>
+                    <h2 class="section-title">HOW I THINK ABOUT SYSTEMS</h2>
+                    <p class="section-subtitle">Understanding platform constraints before writing code.</p>
                 </div>
 
-                <div class="work-index-list">
-                    <!-- Project 01 -->
-                    <div class="work-row" data-project="01">
-                        <div class="work-row-summary">
-                            <span class="work-num">01</span>
-                            <span class="work-title">SHOPIFY WISHLIST ENGINE</span>
-                            <span class="work-tags">Shopify / Liquid / JavaScript / Metafields</span>
-                            <span class="work-toggle">+</span>
-                        </div>
-                        <div class="work-row-content">
-                            <div class="work-content-grid">
-                                <div class="work-col">
-                                    <div class="w-label">WHAT WAS WRONG?</div>
-                                    <p>Third-party wishlist apps bloated themes with heavy external scripts, introduced layout shifts, and charged expensive monthly subscriptions.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">WHAT I BUILT</div>
-                                    <p>A client-side localStorage state manager syncing guest selections with Shopify Customer Metafields via lightweight App Proxy.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">DECISIONS &amp; TRADE-OFFS</div>
-                                    <p>Zero external JS libraries used. Trade-off: required custom Liquid snippet installation, yielding 100% theme control and zero subscription cost.</p>
-                                </div>
-                            </div>
-                            <div class="work-links">
-                                <a href="#contact" class="btn-link" data-cursor="INQUIRE">[ INQUIRE ARCHITECTURE ] &rarr;</a>
-                                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn-link sec" data-cursor="SOURCE">[ GITHUB ]</a>
-                            </div>
-                        </div>
+                <div class="philosophy-steps-grid">
+                    <div class="p-step-card">
+                        <span class="step-num">01</span>
+                        <h3>Understand Existing System</h3>
+                        <p>Analyze how data currently flows through Liquid templates, Shopify APIs, and existing merchant configurations before making structural assumptions.</p>
                     </div>
 
-                    <!-- Project 02 -->
-                    <div class="work-row" data-project="02">
-                        <div class="work-row-summary">
-                            <span class="work-num">02</span>
-                            <span class="work-title">SHOPIFY DEVELOPER TOOLS</span>
-                            <span class="work-tags">VS Code / Snippets / Extension / APIs</span>
-                            <span class="work-toggle">+</span>
-                        </div>
-                        <div class="work-row-content">
-                            <div class="work-content-grid">
-                                <div class="work-col">
-                                    <div class="w-label">WHAT WAS WRONG?</div>
-                                    <p>Writing Liquid code and Metafield lookups required repetitive manual typing and context switching to look up schema syntax.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">WHAT I BUILT</div>
-                                    <p>VS Code extension helpers offering instant Liquid auto-completion, section schema block generation, and Metafield tag suggestions.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">DECISIONS &amp; TRADE-OFFS</div>
-                                    <p>Built directly against VS Code API for zero latency completion. Accelerates theme engineering speed significantly.</p>
-                                </div>
-                            </div>
-                            <div class="work-links">
-                                <a href="https://github.com/Atul8007/atul-ai" target="_blank" rel="noopener" class="btn-link" data-cursor="SOURCE">[ SOURCE REPOSITORY ] &rarr;</a>
-                                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn-link sec" data-cursor="PROFILE">[ PROFILE ]</a>
-                            </div>
-                        </div>
+                    <div class="p-step-card">
+                        <span class="step-num">02</span>
+                        <h3>Identify Actual Constraints</h3>
+                        <p>Differentiate between platform limits (e.g. rate limits, API schemas) and artificial friction introduced by unoptimized code.</p>
                     </div>
 
-                    <!-- Project 03 -->
-                    <div class="work-row" data-project="03">
-                        <div class="work-row-summary">
-                            <span class="work-num">03</span>
-                            <span class="work-title">INTERACTIVE TERMINAL SHELL</span>
-                            <span class="work-tags">HTML5 Canvas / Custom Parser / State</span>
-                            <span class="work-toggle">+</span>
-                        </div>
-                        <div class="work-row-content">
-                            <div class="work-content-grid">
-                                <div class="work-col">
-                                    <div class="w-label">WHAT WAS WRONG?</div>
-                                    <p>Standard developer portfolio templates present static resume lists that fail to demonstrate interactive DOM manipulation.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">WHAT I BUILT</div>
-                                    <p>An interactive shell interface with custom command parsing, typewriter sequences, and canvas mini-game embedded directly in the page.</p>
-                                </div>
-                                <div class="work-col">
-                                    <div class="w-label">DECISIONS &amp; TRADE-OFFS</div>
-                                    <p>Built completely in Vanilla JS to prove DOM control without relying on heavy terminal emulation libraries.</p>
-                                </div>
-                            </div>
-                            <div class="work-links">
-                                <a href="htmlviewer.html" target="_blank" rel="noopener" class="btn-link" data-cursor="DEMO">[ OPEN SHELL DEMO ] &rarr;</a>
-                                <a href="https://github.com/Atul8007/atul-ai" target="_blank" rel="noopener" class="btn-link sec" data-cursor="SOURCE">[ SOURCE ]</a>
-                            </div>
-                        </div>
+                    <div class="p-step-card">
+                        <span class="step-num">03</span>
+                        <h3>Keep, Extend or Replace</h3>
+                        <p>Keep native working elements, extend APIs with lightweight client state, and replace only what creates fundamental technical debt.</p>
+                    </div>
+
+                    <div class="p-step-card">
+                        <span class="step-num">04</span>
+                        <h3>Build the Simplest Solution</h3>
+                        <p>Remove unnecessary third-party dependencies, extra backend services, and unneeded complexity to deliver cost-effective, maintainable solutions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: LAB (DEBUG MODE & CODE <-> STOREFRONT INTERACTION) -->
-        <section class="os-section section-bg-dark" id="lab">
+        <!-- SECTION 3: WORK & SYSTEMS (VERIFIED PROJECTS & CASE STUDIES) -->
+        <section class="fde-section" id="work">
             <div class="container">
-                <div class="section-header-block">
-                    <h2 class="section-title">LAB</h2>
-                    <p class="section-subtitle">Experiments, prototypes and technical problem-solving.</p>
+                <div class="section-header">
+                    <span class="section-tag">02 // EVIDENCE &amp; WORK</span>
+                    <h2 class="section-title">WORK &amp; SYSTEMS</h2>
+                    <p class="section-subtitle">Technical case studies strictly grounded in verified facts &amp; documented project details.</p>
                 </div>
 
-                <!-- DEBUG MODE -->
-                <div class="debug-mode-wrapper">
-                    <div class="debug-header">
-                        <span class="d-title">DEBUG MODE</span>
-                        <span class="d-sub">Select a problem scenario to trace the engineering flow</span>
-                    </div>
+                <div class="projects-case-list">
+                    
+                    <!-- Verified Project 1: figclaw -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">01</span>
+                            <span class="c-status verified">● VERIFIED FACT</span>
+                            <span class="c-type">PUBLIC REPOSITORY / AI INTEGRATION</span>
+                        </div>
+                        <h3 class="case-title">figclaw</h3>
+                        <p class="case-summary">Connecting Claude to Figma directly, built prior to Figma's official MCP release.</p>
 
-                    <div class="debug-selector-buttons" id="debug-buttons">
-                        <button class="d-btn active" data-debug="variants">[ COMPLEX VARIANT ]</button>
-                        <button class="d-btn" data-debug="cart">[ CART STATE ]</button>
-                        <button class="d-btn" data-debug="speed">[ SLOW STOREFRONT ]</button>
-                        <button class="d-btn" data-debug="metafields">[ METAFIELD ARCHITECTURE ]</button>
-                    </div>
-
-                    <!-- Flow Output Screen -->
-                    <div class="debug-screen" id="debug-screen">
-                        <div class="d-pipeline-box">
-                            <div class="d-box-title">FAILURE PIPELINE</div>
-                            <div class="d-steps" id="d-failure-steps">
-                                <span>USER ACTION</span> &rarr; <span>STATE CHANGE</span> &rarr; <span>ASYNC REQUEST</span> &rarr; <span class="err">STALE RESPONSE</span> &rarr; <span class="err">WRONG VARIANT</span>
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM</div>
+                                <p>Figma lacked a direct bridge to pass design context to Claude AI for automated developer workflow execution.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>REPLACE MANUAL FRICTION:</strong> Built a direct API connection bridge between Claude and Figma before official MCP support existed.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript, Figma API, Claude Integration.<br><span class="c-fact-tag">Public Repository Evidence</span></p>
                             </div>
                         </div>
 
-                        <div class="d-pipeline-box fix">
-                            <div class="d-box-title fix-title">ENGINEERING RESOLUTION</div>
-                            <div class="d-fix-content" id="d-fix-content">
-                                Request identity tracking + State validation + UI synchronization
+                        <div class="case-actions">
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-sm btn-fde-primary" data-cursor="GITHUB">[ GITHUB / Atul8007 ] &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 2: Limit_Tracker -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">02</span>
+                            <span class="c-status verified">● VERIFIED FACT</span>
+                            <span class="c-type">PUBLIC CHROME EXTENSION</span>
+                        </div>
+                        <h3 class="case-title">Limit_Tracker</h3>
+                        <p class="case-summary">Public JavaScript Chrome extension for monitoring API usage limits across AI services.</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM &amp; CONSTRAINT</div>
+                                <p>Developers using multiple AI platforms faced sudden rate limits without a unified usage tracker across services.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>EXTEND BROWSER WORKFLOW:</strong> Built a lightweight Chrome extension monitoring limits across Perplexity, Grok, Claude, Gemini, and DeepSeek.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript, Chrome Extension API.<br><span class="c-fact-tag">Public Extension Evidence</span></p>
+                            </div>
+                        </div>
+
+                        <div class="case-actions">
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-sm btn-fde-primary" data-cursor="GITHUB">[ GITHUB / Atul8007 ] &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 3: Shopify-Profile-Switcher -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">03</span>
+                            <span class="c-status verified">● VERIFIED FACT</span>
+                            <span class="c-type">PRIVATE DEVELOPER UTILITY</span>
+                        </div>
+                        <h3 class="case-title">Shopify-Profile-Switcher</h3>
+                        <p class="case-summary">Private JavaScript Shopify Admin profile-switching utility for developer environment management.</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM &amp; CONSTRAINT</div>
+                                <p>Managing multiple Shopify development environments in Admin required constant manual logout/login cycles.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>EXTEND ADMIN WORKFLOW:</strong> Built a specialized admin profile switcher to toggle environments seamlessly without leaving the workspace.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript, Shopify Admin Environment Utility.<br><span class="c-fact-tag">User-Provided Developer Utility</span></p>
+                            </div>
+                        </div>
+
+                        <div class="case-actions">
+                            <span class="c-fact-tag private">Private Repository Project</span>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 4: ShopifyThemeCheck -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">04</span>
+                            <span class="c-status verified">● VERIFIED FACT</span>
+                            <span class="c-type">SHOPIFY THEME &amp; APP INSPECTOR TOOL</span>
+                        </div>
+                        <h3 class="case-title">ShopifyThemeCheck</h3>
+                        <p class="case-summary">Shopify tool for checking themes, installed apps, fonts, social media integrations, and extracting JSON product data.</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM &amp; CONSTRAINT</div>
+                                <p>Analyzing theme architecture and app dependencies on live stores required manual DevTools inspection and script tracing.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>SIMPLIFY INSPECTION:</strong> Engineered an easy theme search utility that parses storefront assets, installed app scripts, font files, and product JSON schemas.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript, JSON Extractor, Storefront Parsing.<br><span class="c-fact-tag">Documented Tool Evidence</span></p>
+                            </div>
+                        </div>
+
+                        <div class="case-actions">
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-sm btn-fde-primary" data-cursor="GITHUB">[ GITHUB / Atul8007 ] &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 5: wacspace -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">05</span>
+                            <span class="c-status verified">● VERIFIED FACT</span>
+                            <span class="c-type">SHOPIFY + AI BRIDGE</span>
+                        </div>
+                        <h3 class="case-title">wacspace</h3>
+                        <p class="case-summary">Direct connection between Shopify and Claude Code without using Model Context Protocol (MCP).</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM &amp; CONSTRAINT</div>
+                                <p>Bypassing MCP overhead for direct AI execution against Shopify theme directories and environment files.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>SIMPLIFY INTEGRATION:</strong> Engineered a direct workspace bridge connecting Shopify environment commands to Claude Code.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript, Shopify CLI, AI Execution Bridge.<br><span class="c-fact-tag">Documented Project Fact</span></p>
+                            </div>
+                        </div>
+
+                        <div class="case-actions">
+                            <span class="c-fact-tag">AI Commerce Bridge</span>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 6: wishify -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">06</span>
+                            <span class="c-status documented">● DOCUMENTED DETAIL</span>
+                            <span class="c-type">PRIVATE SHOPIFY WISHLIST LOGIC</span>
+                        </div>
+                        <h3 class="case-title">wishify</h3>
+                        <p class="case-summary">Private TypeScript wishlist/e-commerce application logic built for Shopify storefronts.</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">PROBLEM &amp; CONSTRAINT</div>
+                                <p>Third-party wishlist plugins slowdown page performance and lock merchant data behind external SaaS databases.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>KEEP NATIVE &amp; EXTEND:</strong> Utilized client-side state handling synced with Shopify Customer Metafield data structures.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>TypeScript, Shopify Customer Metafields, Storefront API.<br><span class="c-fact-tag private">Private Project Detail</span></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Verified Project 7: wimb -->
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="c-num">07</span>
+                            <span class="c-status documented">● DOCUMENTED DETAIL</span>
+                            <span class="c-type">EXPERIMENTAL METRIC ENGINE</span>
+                        </div>
+                        <h3 class="case-title">wimb</h3>
+                        <p class="case-summary">Private JavaScript experimental project for solving distance metrics ("certainty under uncertainty").</p>
+
+                        <div class="case-breakdown-grid">
+                            <div class="c-box">
+                                <div class="c-label">EXPERIMENT CONCEPT</div>
+                                <p>Testing algorithmic evaluation for certainty metrics under uncertain data conditions.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">DECISION &amp; APPROACH</div>
+                                <p><strong>EXPERIMENTAL ALGORITHM:</strong> Prototyping mathematical distance models for state evaluation.</p>
+                            </div>
+                            <div class="c-box">
+                                <div class="c-label">TECH &amp; EVIDENCE</div>
+                                <p>JavaScript Algorithm Experiment.<br><span class="c-fact-tag private">Private Research Experiment</span></p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PLAYGROUND & TECHNICAL LAB -->
+        <section class="fde-section section-bg-alt" id="playground">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">03 // EXPERIMENTAL PLAYGROUND</span>
+                    <h2 class="section-title">TECHNICAL PLAYGROUND</h2>
+                    <p class="section-subtitle">Interactive simulations demonstrating tool utilities and code-to-UX state mutation.</p>
+                </div>
+
+                <div class="playground-grid">
+                    <!-- Simulator 1: Limit_Tracker Simulator -->
+                    <div class="play-card">
+                        <div class="play-header">
+                            <span class="play-title">API LIMIT TRACKER SIMULATOR</span>
+                            <span class="play-tag">[Limit_Tracker Concept]</span>
+                        </div>
+                        <p class="play-desc">Simulated monitor tracking API rate limit utilization across AI providers.</p>
+
+                        <div class="limit-monitor-box">
+                            <div class="limit-row">
+                                <span class="l-name">Perplexity API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 45%;"></div></div>
+                                <span class="l-val">45%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Claude 3.7 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 78%;"></div></div>
+                                <span class="l-val warning">78%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">Gemini 2.5 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 25%;"></div></div>
+                                <span class="l-val">25%</span>
+                            </div>
+                            <div class="limit-row">
+                                <span class="l-name">DeepSeek R1 API</span>
+                                <div class="l-bar"><div class="l-fill" style="width: 90%;"></div></div>
+                                <span class="l-val alert">90%</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- SIGNATURE CODE <-> STOREFRONT INTERACTION DEMO -->
-                <div class="signature-demo-box">
-                    <div class="sig-header">
-                        <span class="sig-title">SIGNATURE INTERACTION: CODE &lt;─&gt; COMMERCE UX</span>
-                        <span class="sig-hint">Click swatches on the Storefront preview to see real-time state object mutation</span>
-                    </div>
+                    <!-- Simulator 2: Code <-> Storefront State Synchronizer -->
+                    <div class="play-card">
+                        <div class="play-header">
+                            <span class="play-title">CODE &lt;─&gt; STOREFRONT STATE DEMO</span>
+                            <span class="play-tag">[Variant Logic]</span>
+                        </div>
+                        <p class="play-desc">Click swatches to see real-time state mutation of `product.selected_variant`.</p>
 
-                    <div class="sig-grid">
-                        <!-- Code Panel -->
-                        <div class="sig-code-panel">
-                            <div class="panel-bar">product.selected_variant (State Object)</div>
-                            <pre><code id="sig-state-code">{
+                        <div class="state-sync-grid">
+                            <div class="sync-code">
+                                <pre><code id="sync-json">{
   "id": 4829104,
   "title": "Black / Medium",
-  "option1": "Black",
-  "option2": "Medium",
-  "price": 4900,
+  "price": "$49.00",
   "available": true,
   "sku": "ATUL-BLK-M"
 }</code></pre>
-                        </div>
+                            </div>
+                            <div class="sync-ui">
+                                <div class="ui-product">Custom Product Core</div>
+                                <div class="ui-price" id="ui-price">$49.00</div>
 
-                        <!-- Storefront Panel -->
-                        <div class="sig-storefront-panel">
-                            <div class="panel-bar">STOREFRONT PREVIEW</div>
-                            <div class="sf-content">
-                                <div class="sf-product-name">Custom Product Core</div>
-                                <div class="sf-price" id="sf-price">$49.00</div>
-
-                                <div class="sf-option-group">
-                                    <label>COLOR:</label>
-                                    <div class="sf-swatches" id="sf-color-swatches">
-                                        <button class="swatch active" data-color="Black" style="background:#1e293b;"></button>
-                                        <button class="swatch" data-color="Olive" style="background:#95bf47;"></button>
-                                        <button class="swatch" data-color="Cyan" style="background:#38bdf8;"></button>
+                                <div class="ui-group">
+                                    <span class="u-lbl">COLOR:</span>
+                                    <div class="u-swatches" id="u-colors">
+                                        <button class="u-swatch active" data-color="Black" style="background:#1e293b;"></button>
+                                        <button class="u-swatch" data-color="Olive" style="background:#95bf47;"></button>
+                                        <button class="u-swatch" data-color="Cyan" style="background:#38bdf8;"></button>
                                     </div>
                                 </div>
 
-                                <div class="sf-option-group">
-                                    <label>SIZE:</label>
-                                    <div class="sf-sizes" id="sf-size-buttons">
-                                        <button class="size-btn" data-size="S">S</button>
-                                        <button class="size-btn active" data-size="M">M</button>
-                                        <button class="size-btn" data-size="L">L</button>
+                                <div class="ui-group">
+                                    <span class="u-lbl">SIZE:</span>
+                                    <div class="u-sizes" id="u-sizes">
+                                        <button class="u-size-btn" data-size="S">S</button>
+                                        <button class="u-size-btn active" data-size="M">M</button>
+                                        <button class="u-size-btn" data-size="L">L</button>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-os-primary sf-cart-btn" id="sf-add-btn">
-                                    [ ADD TO CART — $49.00 ]
-                                </button>
+                                <button class="btn btn-fde-primary u-btn" id="u-add-btn">[ ADD TO CART — $49.00 ]</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 4: SYSTEM (STACK / ABOUT / EXPERIENCE) -->
-        <section class="os-section" id="system">
+        <!-- SECTION 5: CAPABILITIES & SYSTEMS -->
+        <section class="fde-section" id="capabilities">
             <div class="container">
-                <div class="section-header-block">
-                    <h2 class="section-title">SYSTEM</h2>
-                    <p class="section-subtitle">Technical stack, engineering profile and log timeline.</p>
+                <div class="section-header">
+                    <span class="section-tag">04 // CAPABILITY GROUPS</span>
+                    <h2 class="section-title">CAPABILITIES &amp; SYSTEMS</h2>
+                    <p class="section-subtitle">Demonstrated skills grounded in engineering practice.</p>
                 </div>
 
-                <div class="system-tabs-row" id="system-tabs">
-                    <button class="sys-tab active" data-sys="stack">[ STACK MAP ]</button>
-                    <button class="sys-tab" data-sys="about">[ SYSTEM / ATUL ]</button>
-                    <button class="sys-tab" data-sys="experience">[ LOG / TIMELINE ]</button>
-                </div>
-
-                <div class="system-view-container" id="system-view-container">
-                    <!-- VIEW 1: STACK MAP -->
-                    <div class="sys-view active" id="view-stack">
-                        <div class="stack-tree-container">
-                            <div class="tree-root">SHOPIFY ARCHITECTURE</div>
-                            <div class="tree-branches">
-                                <div class="branch">├── LIQUID (Engine &amp; Templates)</div>
-                                <div class="branch">├── THEMES (Dawn Customization &amp; Architecture)</div>
-                                <div class="branch">├── VARIANTS (State &amp; Swatch Logic)</div>
-                                <div class="branch">├── METAFIELDS (Structured Custom Schemas)</div>
-                                <div class="branch">├── METAOBJECTS (Dynamic Product Schemas)</div>
-                                <div class="branch">├── STOREFRONT API (GraphQL Queries)</div>
-                                <div class="branch">└── ADMIN API (REST &amp; Webhooks)</div>
-                            </div>
-                            <div class="tree-root sub">SUPPORTING STACK</div>
-                            <div class="tree-tags">
-                                <span>JavaScript (ES6+)</span>
-                                <span>TypeScript</span>
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>GraphQL</span>
-                                <span>Cloudflare Pages</span>
-                                <span>Git &amp; GitHub</span>
-                            </div>
-                        </div>
+                <div class="cap-matrix">
+                    <div class="cap-group">
+                        <h3>Shopify Ecosystem</h3>
+                        <ul>
+                            <li>▹ Custom Theme Architecture (Liquid, Dawn Base)</li>
+                            <li>▹ Multi-Dimensional Variant Logic &amp; Swatches</li>
+                            <li>▹ Customer &amp; Product Metafields / Metaobjects</li>
+                            <li>▹ Storefront GraphQL &amp; Admin REST APIs</li>
+                            <li>▹ AJAX Drawer Cart &amp; Section Rendering API</li>
+                        </ul>
                     </div>
 
-                    <!-- VIEW 2: SYSTEM / ATUL -->
-                    <div class="sys-view" id="view-about">
-                        <div class="sys-about-grid">
-                            <div class="sys-specs-box">
-                                <div class="spec-row"><span class="k">ROLE</span><span class="v">Shopify Developer / Full-Stack Engineer</span></div>
-                                <div class="spec-row"><span class="k">FOCUS</span><span class="v">Complex Storefront Engineering</span></div>
-                                <div class="spec-row"><span class="k">SPECIALIZATION</span><span class="v">Liquid, Variants, Metafields, APIs, Performance</span></div>
-                                <div class="spec-row"><span class="k">BUILDING</span><span class="v">Shopify Systems, Developer Tools, Experiments</span></div>
-                                <div class="spec-row"><span class="k">BASED</span><span class="v">Kochi, Kerala, India / Remote</span></div>
-                            </div>
-
-                            <div class="sys-human-box">
-                                <h3>THINGS I LIKE BUILDING</h3>
-                                <ul class="like-list">
-                                    <li>&rarr; Weird, non-standard Shopify commerce problems</li>
-                                    <li>&rarr; Developer tools that eliminate repetitive manual coding</li>
-                                    <li>&rarr; Small utilities that solve annoying workflow bugs</li>
-                                    <li>&rarr; Systems that remove unnecessary third-party app dependencies</li>
-                                    <li>&rarr; Finding edge-case bugs that shouldn't exist</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="cap-group">
+                        <h3>Full-Stack Systems</h3>
+                        <ul>
+                            <li>▹ Frontend Engineering (JavaScript ES6+, TypeScript, React)</li>
+                            <li>▹ Node.js &amp; API Integration</li>
+                            <li>▹ Cloudflare Workers &amp; Pages Hosting</li>
+                            <li>▹ Chrome Extension Architecture</li>
+                            <li>▹ Git &amp; Automated CI/CD Workflows</li>
+                        </ul>
                     </div>
 
-                    <!-- VIEW 3: EXPERIENCE / TIMELINE LOG -->
-                    <div class="sys-view" id="view-experience">
-                        <div class="sys-timeline">
-                            <div class="log-entry">
-                                <div class="log-year">2026 — PRESENT</div>
-                                <div class="log-detail">
-                                    <h4>SOFTWARE DEVELOPER @ WEBANDCRAFTS</h4>
-                                    <p>Engineering custom, high-converting Shopify theme components using Liquid. Resolving complex variant logic and building reusable section schemas for high-SKU product catalogs.</p>
-                                </div>
-                            </div>
-                            <div class="log-entry">
-                                <div class="log-year">2024 (MAY – OCT)</div>
-                                <div class="log-detail">
-                                    <h4>SHOPIFY DEVELOPER @ RDP WORKSTATION</h4>
-                                    <p>Converted Figma designs into responsive Shopify Dawn themes. Optimized site performance, Liquid render loops, and configured Metafield settings for content management.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: DEVELOPER TOOLS -->
-        <section class="os-section section-bg-dark" id="tools">
-            <div class="container">
-                <div class="section-header-block">
-                    <h2 class="section-title">TOOLS I'VE BUILT</h2>
-                    <p class="section-subtitle">Developer extensions and utilities engineered for Shopify workflows.</p>
-                </div>
-
-                <div class="tools-product-box">
-                    <div class="tool-preview-window">
-                        <div class="p-titlebar">
-                            <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
-                            <span class="p-file">vscode-shopify-snippets / extension.js</span>
-                        </div>
-                        <pre><code>// VS Code Extension: Shopify Liquid Snippets Helper
-const vscode = require('vscode');
-
-function activate(context) {
-  const provider = vscode.languages.registerCompletionItemProvider('liquid', {
-    provideCompletionItems() {
-      return ['metafields.custom', 'metaobjects', 'section.settings'];
-    }
-  });
-  context.subscriptions.push(provider);
-}
-exports.activate = activate;</code></pre>
+                    <div class="cap-group">
+                        <h3>Systems Thinking</h3>
+                        <ul>
+                            <li>▹ Platform Constraint Analysis &amp; Friction Reduction</li>
+                            <li>▹ Decision Architecture (Keep / Extend / Replace)</li>
+                            <li>▹ Cost-Effective Platform Workarounds</li>
+                            <li>▹ Code-to-UX Interaction Mapping</li>
+                            <li>▹ Zero Framework Over-Engineering</li>
+                        </ul>
                     </div>
 
-                    <div class="tool-info-card">
-                        <div class="t-badge">VS CODE EXTENSION</div>
-                        <h3>Shopify Liquid Snippets Helper</h3>
-                        <p>Switch Shopify environments and write Liquid tags without leaving VS Code. Auto-completes section schema blocks and custom Metafields.</p>
-                        <div class="t-actions">
-                            <a href="https://github.com/Atul8007/atul-ai" target="_blank" rel="noopener" class="btn btn-os-primary" data-cursor="SOURCE">
-                                <span>[ SOURCE CODE ]</span>
-                            </a>
-                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="btn btn-os-terminal" data-cursor="PROFILE">
-                                <span>[ DEVELOPER PROFILE ]</span>
-                            </a>
-                        </div>
+                    <div class="cap-group">
+                        <h3>Developer Tooling</h3>
+                        <ul>
+                            <li>▹ VS Code Extensions (Liquid Snippet Helpers)</li>
+                            <li>▹ AI-to-Platform Direct Bridges (figclaw, wacspace)</li>
+                            <li>▹ API Limit Trackers (Limit_Tracker)</li>
+                            <li>▹ Shopify Theme &amp; Asset Extractor Tools</li>
+                            <li>▹ Developer Workflow Automation</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 6: CONTACT -->
-        <section class="os-section" id="contact">
+        <section class="fde-section section-bg-alt" id="contact">
             <div class="container">
-                <div class="contact-os-box">
-                    <div class="c-subtitle">SHOPIFY ENGINEERING CONSULTATION</div>
-                    <h2 class="c-title">GOT A SHOPIFY PROBLEM?<br><span class="text-gradient">LET'S SOLVE IT.</span></h2>
+                <div class="contact-cta-card">
+                    <span class="c-tag">SHOPIFY &amp; SYSTEM CONSULTATION</span>
+                    <h2 class="c-title">GOT A SHOPIFY OR SYSTEM PROBLEM?<br><span class="c-gradient">LET'S SOLVE IT.</span></h2>
+                    <p class="c-desc">Looking for a better perspective on a solution you've been trying to figure out? Reach out directly.</p>
 
-                    <div class="c-btn-grid">
-                        <a href="mailto:atulmundakkal@outlook.com" class="btn btn-os-primary btn-lg" data-cursor="EMAIL">
-                            <span>[ EMAIL ME ]</span> &rarr;
+                    <div class="c-actions">
+                        <a href="mailto:atulmundakkal@outlook.com" class="btn btn-fde-primary btn-lg" data-cursor="EMAIL">
+                            <span>[ EMAIL ATUL ]</span> &rarr;
                         </a>
-                        <button class="btn btn-os-terminal btn-lg" id="copy-email-btn" data-email="atulmundakkal@outlook.com" data-cursor="COPY">
+                        <button class="btn btn-fde-terminal btn-lg" id="copy-email-btn" data-email="atulmundakkal@outlook.com" data-cursor="COPY">
                             <span>[ COPY EMAIL ADDRESS ]</span>
                         </button>
                     </div>
 
-                    <div class="c-links-row">
+                    <div class="c-social-links">
                         <a href="https://github.com/Atul8007" target="_blank" rel="noopener" data-cursor="GITHUB">[ GITHUB / Atul8007 ]</a>
                         <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" data-cursor="LINKEDIN">[ LINKEDIN ]</a>
                         <a href="mailto:atulmundakkal@outlook.com" data-cursor="DIRECT">[ DIRECT EMAIL ]</a>
@@ -525,49 +576,48 @@ exports.activate = activate;</code></pre>
 
     </main>
 
-    <!-- Hidden Interactive Terminal Modal -->
-    <div class="os-terminal-modal" id="terminal-modal" aria-hidden="true" role="dialog" aria-label="ATUL.OS Shell">
+    <!-- Interactive Terminal Shell Modal -->
+    <div class="fde-terminal-modal" id="terminal-modal" aria-hidden="true" role="dialog" aria-label="ATUL Shell">
         <div class="term-window">
-            <div class="term-titlebar">
-                <span class="term-close" id="close-terminal-btn">✕</span>
-                <span class="term-title">atul@portfolio:~ (ATUL.OS Shell)</span>
+            <div class="term-header">
+                <span class="t-close" id="close-terminal-btn">✕</span>
+                <span class="t-title">atul@system:~ (ATUL Shell v4.0)</span>
             </div>
 
             <div class="term-body" id="term-body">
-                <div class="term-line">ATUL.OS Interactive Shell v3.0.0</div>
-                <div class="term-line">Type <span class="hl">help</span> for commands, or click shortcuts below:</div>
-                <div class="term-tags">
-                    <button class="t-btn" data-cmd="whoami">whoami</button>
-                    <button class="t-btn" data-cmd="shopify">shopify</button>
-                    <button class="t-btn" data-cmd="skills">skills</button>
-                    <button class="t-btn" data-cmd="projects">projects</button>
+                <div class="t-line">ATUL.OS System Shell — Type <span class="t-hl">help</span> for commands or click shortcuts below:</div>
+                <div class="t-shortcuts">
+                    <button class="t-btn" data-cmd="help">help</button>
+                    <button class="t-btn" data-cmd="philosophy">philosophy</button>
+                    <button class="t-btn" data-cmd="work">work</button>
                     <button class="t-btn" data-cmd="tools">tools</button>
-                    <button class="t-btn" data-cmd="experience">experience</button>
+                    <button class="t-btn" data-cmd="experiments">experiments</button>
+                    <button class="t-btn" data-cmd="shopify">shopify</button>
                     <button class="t-btn" data-cmd="contact">contact</button>
                     <button class="t-btn" data-cmd="sudo hire atul">sudo hire atul</button>
                     <button class="t-btn" data-cmd="clear">clear</button>
                 </div>
             </div>
 
-            <div class="term-input-row">
-                <span class="term-prompt">atul@portfolio ~ %</span>
-                <input type="text" class="term-input" id="term-input" placeholder="Type command here..." autofocus autocomplete="off" spellcheck="false">
+            <div class="term-input-line">
+                <span class="t-prompt">atul@system ~ %</span>
+                <input type="text" class="t-input" id="term-input" placeholder="Type command..." autofocus autocomplete="off" spellcheck="false">
             </div>
         </div>
     </div>
 
     <!-- Minimal Operating System Footer -->
-    <footer class="os-footer">
+    <footer class="fde-footer">
         <div class="container footer-layout">
             <div class="f-left">
-                <span class="f-brand">ATUL.OS</span>
-                <span class="f-sub">SHOPIFY ENGINEER / FULL-STACK DEVELOPER</span>
+                <span class="f-brand">ATUL MUNDAKKAL</span>
+                <span class="f-sub">SHOPIFY FULL-STACK DEVELOPER (FDE)</span>
             </div>
             <div class="f-mid">
-                Liquid · Shopify · APIs · Developer Tools
+                Liquid · Shopify · APIs · Developer Tools · ₹0/mo Infrastructure
             </div>
             <div class="f-right">
-                &copy; <span id="f-year">2026</span> Atul Mundakkal. Hosted on Cloudflare Pages.
+                &copy; <span id="f-year">2026</span> Atul Mundakkal. Hosted on Cloudflare Workers/Pages.
             </div>
         </div>
     </footer>
