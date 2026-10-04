@@ -1248,3 +1248,473 @@ pre, code { font-family: var(--font-mono); }
         padding: 24px 20px 40px 20px;
     }
 }
+
+/* ==========================================================================
+   SUPERSET SHOWCASE SECTION & INTERACTIVE IDE WINDOW
+   Exact Visual Replica of Superset.sh Feature Section
+   ========================================================================== */
+
+.superset-showcase-section {
+    padding: 40px 0 60px 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.superset-showcase-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Left Vertical Navigation List */
+.superset-left-nav {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 60px;
+    flex-shrink: 0;
+}
+
+.superset-nav-item {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-left: 2px solid transparent;
+    padding: 6px 0 6px 16px;
+    font-size: 1.05rem;
+    font-family: var(--font-sans);
+    color: #8b949e;
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.superset-nav-item:hover {
+    color: #c9d1d9;
+}
+
+.superset-nav-item.active {
+    color: #ffffff;
+    font-weight: 600;
+    border-left: 2px solid #f97316;
+}
+
+/* Right MacOS IDE Window Frame */
+.superset-ide-window {
+    flex: 1;
+    background: #090d16;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+/* IDE Top Bar */
+.superset-ide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0d1322;
+    border-bottom: 1px solid #1f2937;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+}
+
+.superset-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.superset-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.superset-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.superset-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+.superset-tab.active {
+    background: #161e2e;
+    color: #ffffff;
+}
+
+.tab-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.tab-dot.dot-orange { background: #f97316; }
+
+.superset-tab-add {
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0 6px;
+}
+
+/* IDE Header Right Actions */
+.superset-ide-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #9ca3af;
+}
+
+.action-btn {
+    cursor: pointer;
+    font-weight: 500;
+}
+.action-btn.pr-btn {
+    color: #818cf8;
+}
+
+.action-tabs {
+    display: flex;
+    gap: 8px;
+    border-left: 1px solid #1f2937;
+    border-right: 1px solid #1f2937;
+    padding: 0 10px;
+}
+.action-tabs .tab-link {
+    cursor: pointer;
+    color: #6b7280;
+}
+.action-tabs .tab-link.active {
+    color: #ffffff;
+}
+
+.diff-summary {
+    display: flex;
+    gap: 6px;
+    font-size: 0.72rem;
+}
+.diff-add { color: #34d399; }
+.diff-del { color: #f87171; }
+.diff-files { color: #9ca3af; }
+.diff-branch { color: #6b7280; }
+
+/* IDE Body (3 Columns Split) */
+.superset-ide-body {
+    display: grid;
+    grid-template-columns: 200px 1fr 220px;
+    min-height: 480px;
+    background: #070a11;
+    font-family: var(--font-mono);
+}
+
+/* Left Tree Pane */
+.ide-pane-left {
+    background: #0b0f19;
+    border-right: 1px solid #1f2937;
+    padding: 12px;
+    font-size: 0.72rem;
+}
+
+.tree-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #161e2e;
+    margin-bottom: 12px;
+}
+
+.tree-header-item {
+    color: #9ca3af;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.tree-header-item.add-btn {
+    color: #6b7280;
+}
+
+.tree-section {
+    margin-bottom: 14px;
+}
+.tree-section-title {
+    color: #6b7280;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+.tree-count {
+    opacity: 0.6;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: #9ca3af;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+.tree-item:hover {
+    background: #111827;
+    color: #e5e7eb;
+}
+.tree-item.active-project-tree {
+    background: #161e2e;
+    color: #ffffff;
+}
+
+.tree-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+    display: inline-block;
+}
+.tree-dot.dot-orange { background: #f97316; }
+.tree-dot.dot-green { background: #10b981; }
+.tree-dot.dot-yellow { background: #f59e0b; }
+.tree-dot.dot-pink { background: #ec4899; }
+
+.tree-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.tree-badge.badge-creating {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 0.62rem;
+}
+
+.tree-diff { font-size: 0.65rem; opacity: 0.8; }
+.diff-green { color: #34d399; }
+.diff-multi { color: #9ca3af; }
+.diff-multi-highlight { color: #34d399; font-weight: 600; }
+
+/* Center Main Active Content Pane */
+.ide-pane-center {
+    position: relative;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #070a11;
+}
+
+.ide-tab-content {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+.ide-tab-content.active {
+    display: flex;
+}
+
+.claude-header {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.claude-avatar {
+    margin-top: 2px;
+}
+.claude-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+.claude-title .version {
+    font-size: 0.72rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+.claude-subtitle {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+.claude-path {
+    font-size: 0.7rem;
+    color: #4b5563;
+    margin-top: 4px;
+}
+
+.claude-terminal-body {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #d1d5db;
+}
+.cmd-line { margin-bottom: 12px; }
+.prompt { color: #6b7280; margin-right: 6px; }
+.mcp-title { color: #6b7280; font-size: 0.7rem; font-weight: 700; margin-top: 10px; }
+.mcp-status { color: #9ca3af; margin: 4px 0; }
+.mcp-num { color: #34d399; font-weight: 700; }
+.mcp-server-item { margin: 6px 0; }
+.status-badge { color: #34d399; font-weight: 500; }
+.mcp-config { color: #6b7280; font-size: 0.72rem; margin-top: 8px; }
+.file-hl { color: #9ca3af; }
+
+.text-orange { color: #f97316; }
+.text-cyan { color: #38bdf8; }
+.text-yellow { color: #f59e0b; }
+.text-green { color: #34d399; }
+
+/* Floating Claude Toast Popup */
+.claude-toast-card {
+    align-self: flex-end;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 10px 14px;
+    width: 260px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    margin-bottom: 16px;
+}
+.toast-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    margin-bottom: 6px;
+}
+.toast-avatar { color: #f97316; font-weight: 600; }
+.toast-time { color: #64748b; }
+.toast-msg { color: #e2e8f0; font-size: 0.75rem; margin-bottom: 8px; }
+.toast-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.68rem;
+}
+.toast-diff .add { color: #34d399; }
+.toast-diff .del { color: #f87171; }
+.toast-btn {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.65rem;
+}
+
+.claude-prompt-line {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #161e2e;
+    padding-top: 12px;
+    color: #6b7280;
+    font-size: 0.8rem;
+}
+.claude-prompt-line .placeholder {
+    color: #4b5563;
+    margin-left: 6px;
+}
+
+/* Automations Table inside Center Pane */
+.automations-table {
+    margin-top: 16px;
+    font-size: 0.75rem;
+}
+.table-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #4b5563;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #161e2e;
+}
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 8px 0;
+    color: #9ca3af;
+    border-bottom: 1px solid #0f172a;
+}
+.table-row.active-row {
+    color: #f8fafc;
+}
+
+/* Right Files Spec Pane */
+.ide-pane-right {
+    background: #0b0f19;
+    border-left: 1px solid #1f2937;
+    padding: 12px;
+    font-size: 0.7rem;
+}
+.spec-group {
+    margin-bottom: 16px;
+}
+.spec-group-title {
+    color: #4b5563;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+.spec-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 0;
+    color: #9ca3af;
+}
+.spec-file .file-name {
+    flex: 1;
+    margin-left: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments for Superset showcase section */
+@media (max-width: 1024px) {
+    .superset-showcase-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .superset-left-nav {
+        width: 100%;
+        flex-direction: row;
+        padding-top: 0;
+        gap: 12px;
+        overflow-x: auto;
+    }
+    .superset-nav-item {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 6px 12px;
+    }
+    .superset-nav-item.active {
+        border-left: none;
+        border-bottom: 2px solid #f97316;
+    }
+    .superset-ide-body {
+        grid-template-columns: 1fr;
+    }
+    .ide-pane-left, .ide-pane-right {
+        display: none;
+    }
+}

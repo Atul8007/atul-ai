@@ -311,4 +311,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 8. Superset Showcase Interactive Navigation ---
+    const supersetNavItems = document.querySelectorAll('.superset-nav-item');
+    const ideTabContents = document.querySelectorAll('.ide-tab-content');
+    const treeItems = document.querySelectorAll('.ide-pane-left .tree-item');
+
+    supersetNavItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetTab = item.getAttribute('data-tab');
+            
+            // Update left nav active state
+            supersetNavItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+
+            // Update center main pane active state
+            ideTabContents.forEach(content => {
+                if (content.id === `content-${targetTab}`) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+
+            // Highlight corresponding item in left internal tree
+            treeItems.forEach(tree => {
+                if (tree.id === `tree-${targetTab}`) {
+                    tree.classList.add('active-project-tree');
+                } else {
+                    tree.classList.remove('active-project-tree');
+                }
+            });
+        });
+    });
+
 });
