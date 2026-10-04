@@ -398,7 +398,9 @@ pre, code { font-family: var(--font-mono); }
     color: var(--text-primary);
     margin-bottom: 16px;
     line-height: 1.2;
-    display: inline-block;
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
     text-shadow: 0 0 20px rgba(149, 191, 71, 0.15);
 }
 
@@ -2154,7 +2156,7 @@ pre, code { font-family: var(--font-mono); }
 
 @media (max-width: 768px) {
     .doc-header-container {
-        padding: 0 12px;
+        padding: 0 10px;
         gap: 6px;
     }
 
@@ -2167,8 +2169,8 @@ pre, code { font-family: var(--font-mono); }
     }
 
     .ask-assistant-btn {
-        padding: 4px 10px;
-        font-size: 0.78rem;
+        padding: 4px 8px;
+        font-size: 0.76rem;
     }
 
     .ask-assistant-btn kbd {
@@ -2179,21 +2181,45 @@ pre, code { font-family: var(--font-mono); }
         display: none;
     }
 
+    .doc-layout, .doc-layout.full-width, .doc-layout.no-toc {
+        padding: calc(var(--header-height) + 16px) 12px 40px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .doc-main {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
     .shopify-hero-banner {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 24px 16px;
+        padding: 18px 14px;
         margin-bottom: 24px;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .hero-left {
+        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
 
     .hero-left h1, .hero-left h1.hero-typewriter-title {
-        font-size: 1.45rem;
-        line-height: 1.28;
+        font-size: 1.25rem;
+        line-height: 1.32;
         letter-spacing: -0.01em;
         word-break: break-word;
         overflow-wrap: break-word;
+        white-space: normal;
+        display: block;
+        width: 100%;
         max-width: 100%;
     }
 
@@ -2201,6 +2227,8 @@ pre, code { font-family: var(--font-mono); }
         font-size: 0.88rem;
         line-height: 1.5;
         max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-actions {
@@ -2267,13 +2295,22 @@ pre, code { font-family: var(--font-mono); }
 }
 
 @media (max-width: 480px) {
+    .doc-header-container {
+        padding: 0 8px;
+    }
+
+    .brand-text {
+        font-size: 0.84rem;
+    }
+
     .shopify-hero-banner {
-        padding: 20px 14px;
+        padding: 16px 12px;
         border-radius: var(--radius-md);
     }
 
     .hero-left h1, .hero-left h1.hero-typewriter-title {
-        font-size: 1.35rem;
+        font-size: 1.1rem;
+        line-height: 1.35;
     }
 
     .assistant-drawer {
@@ -2282,6 +2319,6 @@ pre, code { font-family: var(--font-mono); }
     }
 
     .assistant-body {
-        padding: 16px 14px;
+        padding: 14px 10px;
     }
 }
