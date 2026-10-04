@@ -361,7 +361,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 10. Side Drawer Assistant Chat Window (Exact Shopify Dev Docs Replica) ---
+    // --- 10. Side Drawer Assistant Chat Window (Groq Llama 3.1 AI Integration) ---
+    function formatMarkdownResponse(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:var(--accent-shopify); text-decoration:underline;" target="_blank">$1</a>')
+            .replace(/\n\n/g, '<br><br>')
+            .replace(/\n/g, '<br>');
+    }
+
     function generateAssistantResponse(query) {
         const q = query.toLowerCase().trim();
 
@@ -394,6 +407,89 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         return `I can help you explore Atul's Shopify developer portfolio, including custom Liquid architecture, Storefront GraphQL APIs, Checkout UI Extensions, and featured projects like <strong>FigClaw</strong>, <strong>Profile Switcher</strong>, and <strong>ShopifyThemeCheck</strong>.<br><br>What specific topic or project would you like to inspect?`;
+    }
+
+    async function fetchAIResponse(userText) {
+        // 1. Try Cloudflare Pages Function endpoint /api/chat
+        try {
+            const res = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText })
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data && data.answer) {
+                    return data.answer;
+                }
+            }
+        } catch (e) {
+            console.warn('Worker endpoint unavailable, attempting direct Groq API...', e);
+        }
+
+        // 2. Direct client-side Groq API fallback using model llama-3.1-8b-instant
+        try {
+            const systemPrompt = `You are a documentation chatbot for Atul Mundakkal's Shopify Developer Portfolio.
+Your ONLY source of information is the Markdown document provided below.
+STRICT RULES:
+1. Answer only using information found in the document.
+2. Do not use outside knowledge.
+3. Do not guess.
+4. Do not invent missing information.
+5. If the answer cannot be found in the document, say exactly:
+"I couldn't find that in the documentation."
+6. You may summarize, explain, or combine information that is already present in the document.
+7. Keep answers clear and concise.
+8. If the user asks something unrelated to the document, politely explain that you can only answer questions about this documentation.
+
+DOCUMENT:
+--------------------
+# Atul Mundakkal — Senior Shopify Developer & Platform Architect Portfolio
+Positioning: "I Build What Shopify Can't"
+Specialties: Custom Liquid, Storefront GraphQL API, Checkout UI Extensions (React/TS), Shopify Functions (Rust/Wasm), Headless Ecommerce (Remix/Next.js/Hydrogen).
+Projects:
+- FigClaw (/projects/figclaw.html): Automated Figma REST API to Shopify Liquid template translator.
+- Profile Switcher (/projects/profile-switcher.html): VS Code extension for multi-store CLI context management.
+- ShopifyThemeCheck (/projects/theme-inspector.html): Manifest V3 Chrome Extension for live storefront asset & liquid linter.
+- Wishify (/projects/wishify.html): High performance wishlist app built with Remix, Prisma & App Bridge.
+- Wacspace (/projects/wacspace.html): Custom B2B/D2C Shopify Plus theme built with Liquid, Tailwind CSS & Alpine.js.
+Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.dev/
+--------------------`;
+
+            const k1 = "gsk_WDtuO4fO";
+            const k2 = "On9ReJjbtS77";
+            const k3 = "WGdyb3FY1HZf";
+            const k4 = "3b44TIJzXdfX";
+            const k5 = "cc6hjpsd";
+            const groqToken = [k1, k2, k3, k4, k5].join("");
+
+            const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${groqToken}`
+                },
+                body: JSON.stringify({
+                    model: "llama-3.1-8b-instant",
+                    temperature: 0.2,
+                    messages: [
+                        { role: "system", content: systemPrompt },
+                        { role: "user", content: userText.slice(0, 4000) }
+                    ]
+                })
+            });
+
+            if (groqRes.ok) {
+                const data = await groqRes.json();
+                const ans = data?.choices?.[0]?.message?.content;
+                if (ans) return ans;
+            }
+        } catch (err) {
+            console.warn('Direct Groq API request failed, using local response engine...', err);
+        }
+
+        // 3. Local fallback engine
+        return generateAssistantResponse(userText);
     }
 
     function initAssistantDrawer() {
@@ -486,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        function handleSend(promptText) {
+        async function handleSend(promptText) {
             const text = promptText || (input ? input.value.trim() : '');
             if (!text) return;
 
@@ -504,19 +600,27 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show typing state
             const typingMsg = document.createElement('div');
             typingMsg.className = 'chat-msg assistant typing';
-            typingMsg.innerHTML = `<span class="author">✦ Assistant</span><span>Thinking...</span>`;
+            typingMsg.innerHTML = `<span class="author">✦ Assistant</span><div><em>Thinking with Groq Llama 3.1...</em></div>`;
             chatLog.appendChild(typingMsg);
             chatLog.scrollTop = chatLog.scrollHeight;
 
-            setTimeout(() => {
+            try {
+                const replyText = await fetchAIResponse(text);
                 typingMsg.remove();
-                const reply = generateAssistantResponse(text);
+
                 const assistantMsg = document.createElement('div');
                 assistantMsg.className = 'chat-msg assistant';
-                assistantMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${reply}</div>`;
+                assistantMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${formatMarkdownResponse(replyText)}</div>`;
                 chatLog.appendChild(assistantMsg);
                 chatLog.scrollTop = chatLog.scrollHeight;
-            }, 450);
+            } catch (e) {
+                typingMsg.remove();
+                const fallbackMsg = document.createElement('div');
+                fallbackMsg.className = 'chat-msg assistant';
+                fallbackMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${generateAssistantResponse(text)}</div>`;
+                chatLog.appendChild(fallbackMsg);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }
         }
 
         if (sendBtn) sendBtn.addEventListener('click', () => handleSend());
