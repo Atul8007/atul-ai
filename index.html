@@ -268,47 +268,56 @@
                             <!-- Center Main Dynamic Content Pane -->
                             <div class="ide-pane-center" id="ide-pane-center">
                                 
-                                <!-- DYNAMIC TAB 1: Projects (Default Active State) -->
+                                <!-- DYNAMIC TAB 1: Projects (Default Active State: Shopify App & Extension Developer) -->
                                 <div class="ide-tab-content active" id="content-projects">
                                     <div class="claude-header">
                                         <div class="claude-avatar">
                                             <svg viewBox="0 0 16 16" width="28" height="28" shape-rendering="crispEdges">
-                                                <rect width="16" height="16" fill="#f97316"/>
-                                                <rect x="4" y="4" width="8" height="8" fill="#0b0f19"/>
-                                                <rect x="6" y="6" width="4" height="4" fill="#f97316"/>
+                                                <rect width="16" height="16" fill="#95bf47"/>
+                                                <path fill="#0b0f19" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
                                             </svg>
                                         </div>
                                         <div class="claude-title-info">
-                                            <div class="claude-title">Claude Code <span class="version">v2.1.278</span></div>
-                                            <div class="claude-subtitle">Fable 5.1 with high effort • Claude Max</div>
-                                            <div class="claude-path">~/.superset/worktrees/superset/cloud-ws</div>
+                                            <div class="claude-title">Shopify CLI <span class="version">v3.68.0</span></div>
+                                            <div class="claude-subtitle">App &amp; Extension Developer Environment • atul-store.myshopify.com</div>
+                                            <div class="claude-path">~/atul-portfolio/extensions/checkout-ui</div>
                                         </div>
                                     </div>
 
                                     <div class="claude-terminal-body">
-                                        <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-orange">/mcp</span></div>
-                                        <div class="mcp-title">MCP SERVERS</div>
-                                        <div class="mcp-status"><span class="mcp-num">1</span> connected</div>
-                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>1. meemi-mcp</strong> <span class="status-badge">/ connected</span></div>
-                                        <div class="mcp-config">config: <span class="file-hl">.mcp.json</span></div>
+                                        <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-green">shopify app dev</span></div>
+                                        <div class="cli-box" style="font-family:var(--font-mono); font-size:0.75rem; color:#9ca3af; margin: 8px 0;">
+                                            <div>╭─ Running prerequisites ──────────────────────────────────────────╮</div>
+                                            <div>│                                                                  │</div>
+                                            <div>│ <span class="text-green">✔</span> Pushing schema to store...                                     │</div>
+                                            <div>│ <span class="text-green">✔</span> Building app dependencies...                                   │</div>
+                                            <div>│ <span class="text-green">✔</span> Checkout UI Extension built successfully.                      │</div>
+                                            <div>│                                                                  │</div>
+                                            <div>╰──────────────────────────────────────────────────────────────────╯</div>
+                                        </div>
+                                        <div class="mcp-config" style="margin-top:10px;">
+                                            Starting dev server...<br>
+                                            App URL:   <span class="file-hl">https://atul-app-tunnel.trycloudflare.com</span><br>
+                                            GraphiQL:  <span class="file-hl">https://atul-app-tunnel.trycloudflare.com/graphiql</span>
+                                        </div>
                                     </div>
 
                                     <!-- Toast Popup Card at Bottom Right -->
                                     <div class="claude-toast-card">
                                         <div class="toast-top">
-                                            <span class="toast-avatar">✦ claude</span>
-                                            <span class="toast-time">finished • worked for 7s</span>
+                                            <span class="toast-avatar" style="color:#95bf47;">✦ shopify cli</span>
+                                            <span class="toast-time">synced • watching</span>
                                         </div>
-                                        <div class="toast-msg">Pushed and opened a draft PR.</div>
+                                        <div class="toast-msg">Checkout UI Extension target ready.</div>
                                         <div class="toast-footer">
-                                            <span class="toast-diff">2 files <span class="add">+46</span> <span class="del">-1</span></span>
-                                            <button class="toast-btn">Preview</button>
+                                            <span class="toast-diff">2 extensions <span class="add">+46</span> <span class="del">-1</span></span>
+                                            <button class="toast-btn">GraphiQL</button>
                                         </div>
                                     </div>
 
                                     <div class="claude-prompt-line">
                                         <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type a task for Claude...</span>
+                                        <span class="placeholder">Waiting for file changes in /extensions...</span>
                                     </div>
                                 </div>
 
@@ -316,36 +325,36 @@
                                 <div class="ide-tab-content" id="content-figclaw">
                                     <div class="claude-header">
                                         <div class="claude-title-info">
-                                            <div class="claude-title"><span class="prompt">&gt;</span> superset automations <span class="text-orange">figclaw</span></div>
-                                            <div class="claude-path">Figma REST API → Structured JSON AI Bridge</div>
+                                            <div class="claude-title"><span class="prompt">&gt;</span> figclaw <span class="text-orange">figma-to-liquid</span></div>
+                                            <div class="claude-path">Figma REST API → Dawn Liquid Section Generator</div>
                                         </div>
                                     </div>
 
                                     <div class="automations-table">
                                         <div class="table-head">
-                                            <span>NAME</span>
-                                            <span>SCHEDULE</span>
-                                            <span>LAST RUN</span>
+                                            <span>COMPONENT</span>
+                                            <span>PIPELINE</span>
+                                            <span>STATUS</span>
                                         </div>
                                         <div class="table-row active-row">
-                                            <span class="name"><span class="icon">⚡</span> daily-triage</span>
-                                            <span class="sched">daily 9:00</span>
-                                            <span class="status text-orange">running</span>
+                                            <span class="name"><span class="icon">⚡</span> custom-hero-banner</span>
+                                            <span class="sched">Figma API v1</span>
+                                            <span class="status text-orange">compiling Liquid</span>
                                         </div>
                                         <div class="table-row">
-                                            <span class="name">changelog-draft</span>
-                                            <span class="sched">sun 11:00</span>
-                                            <span class="status">2h ago</span>
+                                            <span class="name">variant-selector.liquid</span>
+                                            <span class="sched">JSON Schema</span>
+                                            <span class="status text-green">ready</span>
                                         </div>
                                         <div class="table-row">
-                                            <span class="name">dep-upgrades</span>
-                                            <span class="sched">weekly</span>
-                                            <span class="status">1d ago</span>
+                                            <span class="name">cart-drawer-upsell</span>
+                                            <span class="sched">Storefront API</span>
+                                            <span class="status text-green">synced</span>
                                         </div>
                                         <div class="table-row">
-                                            <span class="name">roadmap-sync</span>
-                                            <span class="sched">monthly</span>
-                                            <span class="status">3d ago</span>
+                                            <span class="name">product-metafield-grid</span>
+                                            <span class="sched">Dawn 13.0</span>
+                                            <span class="status">cached</span>
                                         </div>
                                     </div>
 
@@ -354,16 +363,16 @@
                                             <span class="toast-avatar">✦ figclaw</span>
                                             <span class="toast-time">finished • worked for 3s</span>
                                         </div>
-                                        <div class="toast-msg">Generated Figma design specs for UI components.</div>
+                                        <div class="toast-msg">Generated Liquid section from Figma frame.</div>
                                         <div class="toast-footer">
-                                            <span class="toast-diff">3 files <span class="add">+120</span> <span class="del">-4</span></span>
-                                            <button class="toast-btn">Inspect</button>
+                                            <span class="toast-diff">3 snippets <span class="add">+120</span> <span class="del">-4</span></span>
+                                            <button class="toast-btn">Preview</button>
                                         </div>
                                     </div>
 
                                     <div class="claude-prompt-line">
                                         <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type a task for FigClaw...</span>
+                                        <span class="placeholder">Type a Figma frame URL or command...</span>
                                     </div>
                                 </div>
 
@@ -371,34 +380,35 @@
                                 <div class="ide-tab-content" id="content-profileswitcher">
                                     <div class="claude-header">
                                         <div class="claude-title-info">
-                                            <div class="claude-title"><span class="prompt">&gt;</span> superset connect <span class="text-cyan">profile-switcher</span></div>
-                                            <div class="claude-path">VS Code Extension API • Shopify CLI Account Manager</div>
+                                            <div class="claude-title"><span class="prompt">&gt;</span> profile-switcher <span class="text-cyan">shopify-auth</span></div>
+                                            <div class="claude-path">VS Code Extension API • Multi-Store CLI Profile Switcher</div>
                                         </div>
                                     </div>
 
                                     <div class="claude-terminal-body">
                                         <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-cyan">shopify auth list</span></div>
-                                        <div class="mcp-title">ACTIVE CLI PROFILES</div>
-                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>1. store-dev-main</strong> <span class="status-badge text-cyan">/ active</span></div>
-                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>2. client-staging-store</strong> <span class="status-badge">/ standby</span></div>
-                                        <div class="mcp-config">config: <span class="file-hl">.shopify/config.json</span></div>
+                                        <div class="mcp-title">STORE CLI ENVIRONMENTS</div>
+                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>1. atul-store.myshopify.com</strong> <span class="status-badge text-cyan">/ active (Dev Partner)</span></div>
+                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>2. client-staging-store.myshopify.com</strong> <span class="status-badge">/ standby</span></div>
+                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>3. production-brand.myshopify.com</strong> <span class="status-badge">/ connected</span></div>
+                                        <div class="mcp-config">active config: <span class="file-hl">~/.config/shopify/config.json</span></div>
                                     </div>
 
                                     <div class="claude-toast-card">
                                         <div class="toast-top">
-                                            <span class="toast-avatar">✦ switcher</span>
+                                            <span class="toast-avatar" style="color:#38bdf8;">✦ switcher</span>
                                             <span class="toast-time">active • context synced</span>
                                         </div>
-                                        <div class="toast-msg">Switched target CLI environment instantly.</div>
+                                        <div class="toast-msg">Switched target CLI store environment.</div>
                                         <div class="toast-footer">
-                                            <span class="toast-diff">1 config <span class="add">+1</span></span>
+                                            <span class="toast-diff">1 store <span class="add">switched</span></span>
                                             <button class="toast-btn">Switch</button>
                                         </div>
                                     </div>
 
                                     <div class="claude-prompt-line">
                                         <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type CLI context command...</span>
+                                        <span class="placeholder">Type 'shopify switch' or select store...</span>
                                     </div>
                                 </div>
 
@@ -406,34 +416,38 @@
                                 <div class="ide-tab-content" id="content-themeinspector">
                                     <div class="claude-header">
                                         <div class="claude-title-info">
-                                            <div class="claude-title"><span class="prompt">&gt;</span> superset status <span class="text-yellow">shopify-theme-check</span></div>
-                                            <div class="claude-path">Manifest V3 Chrome Extension • Storefront Inspector</div>
+                                            <div class="claude-title"><span class="prompt">&gt;</span> shopify <span class="text-yellow">theme dev</span></div>
+                                            <div class="claude-path">Dawn 13.0 Theme Architecture • Manifest V3 Theme Inspector</div>
                                         </div>
                                     </div>
 
                                     <div class="claude-terminal-body">
-                                        <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-yellow">theme-check --audit</span></div>
-                                        <div class="mcp-title">AUDIT RESULTS</div>
-                                        <div class="mcp-status"><span class="mcp-num">0</span> server dependencies</div>
-                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>Liquid Syntax Validation</strong> <span class="status-badge text-green">/ passed</span></div>
-                                        <div class="mcp-server-item"><span class="prompt">&gt;</span> <strong>Asset Weight &amp; Script Tags</strong> <span class="status-badge text-green">/ optimized</span></div>
+                                        <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-yellow">shopify theme dev</span></div>
+                                        <div class="mcp-title">RUNNING THEME CHECK...</div>
+                                        <div class="mcp-status"><span class="mcp-num text-green">✔ 0 errors, 0 warnings</span></div>
+                                        <div class="mcp-server-item" style="margin-top:8px;">Syncing theme #987654321 to <span class="text-yellow">atul-store.myshopify.com</span></div>
+                                        <div class="mcp-server-item" style="color:#34d399;">100% [========================================] Uploaded 393 files</div>
+                                        <div class="mcp-config" style="margin-top:10px;">
+                                            Local: <span class="file-hl">http://127.0.0.1:9292</span><br>
+                                            Share: <span class="file-hl">https://preview-tunnel.trycloudflare.com</span>
+                                        </div>
                                     </div>
 
                                     <div class="claude-toast-card">
                                         <div class="toast-top">
-                                            <span class="toast-avatar">✦ inspector</span>
-                                            <span class="toast-time">audited • 0 errors</span>
+                                            <span class="toast-avatar" style="color:#f59e0b;">✦ theme check</span>
+                                            <span class="toast-time">serving • port 9292</span>
                                         </div>
-                                        <div class="toast-msg">Storefront theme audit complete.</div>
+                                        <div class="toast-msg">Theme preview server running cleanly.</div>
                                         <div class="toast-footer">
-                                            <span class="toast-diff">12 files <span class="add">clean</span></span>
-                                            <button class="toast-btn">View Report</button>
+                                            <span class="toast-diff">393 files <span class="add">synced</span></span>
+                                            <button class="toast-btn">Open Local</button>
                                         </div>
                                     </div>
 
                                     <div class="claude-prompt-line">
                                         <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type inspection command...</span>
+                                        <span class="placeholder">Type 'o' to open in browser, 'q' to quit</span>
                                     </div>
                                 </div>
 
@@ -442,34 +456,34 @@
                             <!-- Right Internal Files Spec Pane -->
                             <div class="ide-pane-right">
                                 <div class="spec-group">
-                                    <div class="spec-group-title">PACKAGES/BG/SEC/SCHEMA</div>
+                                    <div class="spec-group-title">PACKAGES/SHOPIFY/EXTENSIONS</div>
                                     <div class="spec-file">
                                         <span class="file-icon">📄</span>
-                                        <span class="file-name">cloud-workspace.ts</span>
+                                        <span class="file-name">checkout-ui-ext.tsx</span>
                                         <span class="diff-green">+119</span>
                                     </div>
                                     <div class="spec-file">
                                         <span class="file-icon">📄</span>
-                                        <span class="file-name">enums.ts</span>
+                                        <span class="file-name">metafields.json</span>
                                         <span class="diff-green">+21</span>
                                     </div>
                                 </div>
 
                                 <div class="spec-group">
-                                    <div class="spec-group-title">APPS/DESKTOP/SRC/RENDERER</div>
+                                    <div class="spec-group-title">THEMES/DAWN/SECTIONS</div>
                                     <div class="spec-file">
                                         <span class="file-icon">⚛</span>
-                                        <span class="file-name">CloudTerminal.tsx</span>
+                                        <span class="file-name">cart-drawer.liquid</span>
                                         <span class="diff-green">+169</span>
                                     </div>
                                     <div class="spec-file">
                                         <span class="file-icon">⚛</span>
-                                        <span class="file-name">useCloudWorkspaces.ts</span>
+                                        <span class="file-name">variant-swatch.js</span>
                                         <span class="diff-green">+84</span>
                                     </div>
                                     <div class="spec-file">
                                         <span class="file-icon">⚛</span>
-                                        <span class="file-name">LegacyTerminalPane.tsx</span>
+                                        <span class="file-name">legacy-theme.liquid</span>
                                         <span class="diff-multi">-42</span>
                                     </div>
                                 </div>
