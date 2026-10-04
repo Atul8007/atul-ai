@@ -307,36 +307,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 8. Superset Showcase Interactive Navigation ---
+    // --- 8. Superset Showcase Interactive Navigation (Hover & Click with Smooth Animation) ---
     const supersetNavItems = document.querySelectorAll('.superset-nav-item');
     const ideTabContents = document.querySelectorAll('.ide-tab-content');
     const treeItems = document.querySelectorAll('.ide-pane-left .tree-item');
 
+    let currentActiveTab = 'figclaw';
+
+    function switchSupersetTab(targetTab) {
+        if (!targetTab || targetTab === currentActiveTab) return;
+        currentActiveTab = targetTab;
+
+        // Update left nav active state
+        supersetNavItems.forEach(nav => {
+            if (nav.getAttribute('data-tab') === targetTab) {
+                nav.classList.add('active');
+            } else {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Update center main pane active state with smooth animation re-triggering
+        ideTabContents.forEach(content => {
+            if (content.id === `content-${targetTab}`) {
+                content.classList.remove('active');
+                // Force layout reflow to restart CSS keyframe animation smoothly
+                void content.offsetWidth;
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+
+        // Highlight corresponding item in left internal tree
+        treeItems.forEach(tree => {
+            const treeTabId = tree.id ? tree.id.replace('tree-', '') : tree.getAttribute('data-tab');
+            if (treeTabId === targetTab) {
+                tree.classList.add('active-project-tree');
+            } else {
+                tree.classList.remove('active-project-tree');
+            }
+        });
+    }
+
     supersetNavItems.forEach(item => {
+        // Switch section on mouse hover
+        item.addEventListener('mouseenter', () => {
+            const targetTab = item.getAttribute('data-tab');
+            switchSupersetTab(targetTab);
+        });
+
+        // Switch section on click
         item.addEventListener('click', () => {
             const targetTab = item.getAttribute('data-tab');
-            
-            // Update left nav active state
-            supersetNavItems.forEach(nav => nav.classList.remove('active'));
-            item.classList.add('active');
+            switchSupersetTab(targetTab);
+        });
+    });
 
-            // Update center main pane active state
-            ideTabContents.forEach(content => {
-                if (content.id === `content-${targetTab}`) {
-                    content.classList.add('active');
-                } else {
-                    content.classList.remove('active');
-                }
-            });
+    treeItems.forEach(tree => {
+        tree.addEventListener('mouseenter', () => {
+            const targetTab = tree.id ? tree.id.replace('tree-', '') : tree.getAttribute('data-tab');
+            if (targetTab) switchSupersetTab(targetTab);
+        });
 
-            // Highlight corresponding item in left internal tree
-            treeItems.forEach(tree => {
-                if (tree.id === `tree-${targetTab}`) {
-                    tree.classList.add('active-project-tree');
-                } else {
-                    tree.classList.remove('active-project-tree');
-                }
-            });
+        tree.addEventListener('click', () => {
+            const targetTab = tree.id ? tree.id.replace('tree-', '') : tree.getAttribute('data-tab');
+            if (targetTab) switchSupersetTab(targetTab);
         });
     });
 

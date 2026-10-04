@@ -1637,19 +1637,21 @@ pre, code { font-family: var(--font-mono); }
     background: transparent;
     border: none;
     border-left: 3px solid transparent;
-    padding: 8px 0 8px 16px;
+    padding: 10px 0 10px 16px;
     font-size: 1rem;
     font-family: var(--font-sans);
     color: var(--text-secondary);
     cursor: pointer;
     text-align: left;
-    transition: var(--transition);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    position: relative;
 }
 
 .superset-nav-item:hover {
     color: var(--text-primary);
     background: var(--bg-surface-hover);
+    transform: translateX(4px);
 }
 
 .superset-nav-item.active {
@@ -1657,6 +1659,8 @@ pre, code { font-family: var(--font-mono); }
     font-weight: 600;
     border-left: 3px solid var(--accent-shopify);
     background: var(--accent-shopify-bg);
+    transform: translateX(6px);
+    box-shadow: inset 4px 0 14px rgba(149, 191, 71, 0.15);
 }
 
 /* Right MacOS IDE Window Frame (Foreground Layer) */
@@ -1883,19 +1887,30 @@ pre, code { font-family: var(--font-mono); }
     background: var(--bg-main);
 }
 
+@keyframes tabSlideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.995);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
 .ide-tab-content {
     display: none;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
     opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .ide-tab-content.active {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
+    animation: tabSlideFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .claude-header {
