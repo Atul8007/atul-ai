@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atul Mundakkal — Shopify Portfolio</title>
+    <title>Atul Mundakkal — Shopify Full-Stack Developer</title>
     
-    <meta name="description" content="Atul Mundakkal — Shopify Full-Stack Developer. Technical documentation for FigClaw, Profile Switcher, and ShopifyThemeCheck.">
+    <meta name="description" content="Atul Mundakkal — Shopify Full-Stack Developer Portfolio. Custom Liquid, Storefront GraphQL, Checkout UI Extensions, FigClaw, Profile Switcher & ShopifyThemeCheck.">
     <meta name="author" content="Atul Mundakkal">
     <link rel="canonical" href="https://atul-ai.pages.dev">
 
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <!-- COMPACT DEVELOPER HEADER (Exact Shopify.dev Style with #95bf47 Color Codes) -->
+    <!-- COMPACT DEVELOPER HEADER (Shopify.dev Style) -->
     <header class="doc-header" id="doc-header">
         <div class="doc-header-container">
             
@@ -34,7 +34,7 @@
                     <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
                 </button>
 
-                <a href="/index.html" class="doc-brand">
+                <a href="#overview" class="doc-brand">
                     <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
                         <path fill="#95bf47" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
                     </svg>
@@ -43,13 +43,13 @@
                 </a>
             </div>
 
-            <!-- Top Header Navigation -->
+            <!-- Single Page Smooth Anchor Navigation -->
             <nav class="doc-top-nav">
-                <a href="/index.html" class="top-nav-link active">Overview</a>
-                <a href="/projects.html" class="top-nav-link">Projects</a>
-                <a href="/about.html" class="top-nav-link">About</a>
-                <a href="/experience.html" class="top-nav-link">Experience</a>
-                <a href="/contact.html" class="top-nav-link">Contact</a>
+                <a href="#overview" class="top-nav-link active">Overview</a>
+                <a href="#projects" class="top-nav-link">Projects</a>
+                <a href="#about" class="top-nav-link">About</a>
+                <a href="#experience" class="top-nav-link">Experience</a>
+                <a href="#contact" class="top-nav-link">Contact</a>
             </nav>
 
             <!-- Header Right Controls -->
@@ -78,20 +78,20 @@
         </div>
     </header>
 
-    <!-- MAIN PAGE CONTAINER -->
+    <!-- MAIN SINGLE PAGE DASHBOARD CONTAINER -->
     <div class="doc-layout full-width">
         <main class="doc-main" style="max-width: 1280px; margin: 0 auto;">
             
-            <!-- TOP HERO BANNER WITH INTERACTIVE MINI TERMINAL -->
-            <section class="shopify-hero-banner">
+            <!-- SECTION 1: OVERVIEW & HERO BANNER -->
+            <section class="shopify-hero-banner" id="overview">
                 <div class="hero-left">
                     <h1 class="hero-typewriter-title" id="typewriter-heading" data-text="I Build What Shopify Can't"><span class="typewriter-text">I Build What Shopify Can't</span><span class="typewriter-cursor"></span></h1>
                     <p>
                         Pushing past Shopify's documented limits with code that solves problems the platform says aren't solvable. Custom Liquid, Storefront GraphQL, and Checkout UI Extensions—built for merchants who refuse to compromise.
                     </p>
                     <div class="hero-actions">
-                        <a href="/projects.html" class="hero-btn-primary">Explore Projects →</a>
-                        <a href="/contact.html" class="hero-btn-secondary">Get in Touch</a>
+                        <a href="#projects" class="hero-btn-primary">Explore Projects →</a>
+                        <a href="#contact" class="hero-btn-secondary">Get in Touch</a>
                     </div>
                 </div>
 
@@ -131,8 +131,15 @@
                 </div>
             </section>
 
-            <!-- SUPERSET STYLE INTERACTIVE WORKSPACE SHOWCASE SECTION -->
-            <section class="superset-showcase-section" id="superset-showcase">
+            <!-- SECTION 2: PROJECTS & INTERACTIVE IDE SHOWCASE -->
+            <section class="superset-showcase-section" id="projects">
+                
+                <div class="doc-page-header" style="margin-bottom: 24px;">
+                    <div class="doc-tag">SELECTED WORK &amp; DEVELOPER TOOLING</div>
+                    <h2 class="doc-title" style="font-size: 2rem;">Projects</h2>
+                    <p class="doc-lead">Interactive build environments for custom Shopify tools, CLI extensions, and storefront utilities.</p>
+                </div>
+
                 <div class="superset-showcase-container">
                     
                     <!-- Left Navigation Menu -->
@@ -257,18 +264,12 @@
                                         <span class="tree-diff diff-green">+58</span>
                                     </div>
                                 </div>
-
-                                <div class="tree-section">
-                                    <div class="tree-section-title">APPS <span class="tree-count">14</span></div>
-                                    <div class="tree-section-title">TOOLS <span class="tree-count">1</span></div>
-                                    <div class="tree-section-title">CLI <span class="tree-count">4</span></div>
-                                </div>
                             </div>
 
                             <!-- Center Main Dynamic Content Pane -->
                             <div class="ide-pane-center" id="ide-pane-center">
                                 
-                                <!-- DYNAMIC TAB 1: Projects (Default Active State: Shopify App & Extension Developer) -->
+                                <!-- DYNAMIC TAB 1: Projects (Shopify App & Extension Developer) -->
                                 <div class="ide-tab-content active" id="content-projects">
                                     <div class="claude-header">
                                         <div class="claude-avatar">
@@ -302,7 +303,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Toast Popup Card at Bottom Right -->
                                     <div class="claude-toast-card">
                                         <div class="toast-top">
                                             <span class="toast-avatar" style="color:#95bf47;">✦ shopify cli</span>
@@ -351,11 +351,6 @@
                                             <span class="sched">Storefront API</span>
                                             <span class="status text-green">synced</span>
                                         </div>
-                                        <div class="table-row">
-                                            <span class="name">product-metafield-grid</span>
-                                            <span class="sched">Dawn 13.0</span>
-                                            <span class="status">cached</span>
-                                        </div>
                                     </div>
 
                                     <div class="claude-toast-card">
@@ -368,11 +363,6 @@
                                             <span class="toast-diff">3 snippets <span class="add">+120</span> <span class="del">-4</span></span>
                                             <button class="toast-btn">Preview</button>
                                         </div>
-                                    </div>
-
-                                    <div class="claude-prompt-line">
-                                        <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type a Figma frame URL or command...</span>
                                     </div>
                                 </div>
 
@@ -400,15 +390,6 @@
                                             <span class="toast-time">active • context synced</span>
                                         </div>
                                         <div class="toast-msg">Switched target CLI store environment.</div>
-                                        <div class="toast-footer">
-                                            <span class="toast-diff">1 store <span class="add">switched</span></span>
-                                            <button class="toast-btn">Switch</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="claude-prompt-line">
-                                        <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type 'shopify switch' or select store...</span>
                                     </div>
                                 </div>
 
@@ -425,29 +406,10 @@
                                         <div class="cmd-line"><span class="prompt">&gt;</span> <span class="cmd-text text-yellow">shopify theme dev</span></div>
                                         <div class="mcp-title">RUNNING THEME CHECK...</div>
                                         <div class="mcp-status"><span class="mcp-num text-green">✔ 0 errors, 0 warnings</span></div>
-                                        <div class="mcp-server-item" style="margin-top:8px;">Syncing theme #987654321 to <span class="text-yellow">atul-store.myshopify.com</span></div>
-                                        <div class="mcp-server-item" style="color:#34d399;">100% [========================================] Uploaded 393 files</div>
                                         <div class="mcp-config" style="margin-top:10px;">
                                             Local: <span class="file-hl">http://127.0.0.1:9292</span><br>
                                             Share: <span class="file-hl">https://preview-tunnel.trycloudflare.com</span>
                                         </div>
-                                    </div>
-
-                                    <div class="claude-toast-card">
-                                        <div class="toast-top">
-                                            <span class="toast-avatar" style="color:#f59e0b;">✦ theme check</span>
-                                            <span class="toast-time">serving • port 9292</span>
-                                        </div>
-                                        <div class="toast-msg">Theme preview server running cleanly.</div>
-                                        <div class="toast-footer">
-                                            <span class="toast-diff">393 files <span class="add">synced</span></span>
-                                            <button class="toast-btn">Open Local</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="claude-prompt-line">
-                                        <span class="prompt">&gt;</span>
-                                        <span class="placeholder">Type 'o' to open in browser, 'q' to quit</span>
                                     </div>
                                 </div>
 
@@ -481,11 +443,6 @@
                                         <span class="file-name">variant-swatch.js</span>
                                         <span class="diff-green">+84</span>
                                     </div>
-                                    <div class="spec-file">
-                                        <span class="file-icon">⚛</span>
-                                        <span class="file-name">legacy-theme.liquid</span>
-                                        <span class="diff-multi">-42</span>
-                                    </div>
                                 </div>
                             </div>
 
@@ -494,94 +451,211 @@
                     </div>
 
                 </div>
+
+                <!-- 3-COLUMN CARD GRID -->
+                <div class="shopify-cards-grid" style="margin-top: 36px;">
+                    
+                    <!-- CARD 1: FigClaw -->
+                    <div class="shopify-card card-apps">
+                        <div class="card-content">
+                            <h2>FigClaw</h2>
+                            <p>
+                                Design-to-code workflow for turning structured design instructions into usable interfaces via Figma REST API.
+                            </p>
+                            <a href="#projects" class="card-pill-btn">View project details →</a>
+                        </div>
+
+                        <div class="card-bottom-illustration">
+                            <div class="pixel-card-mockup">
+                                <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
+                                    <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
+                                    <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
+                                    <rect x="10" y="7" width="6" height="6" fill="#95bf47" />
+                                    <rect x="22" y="7" width="6" height="6" fill="#38bdf8" />
+                                    <rect x="34" y="7" width="6" height="6" fill="#f59e0b" />
+                                    
+                                    <rect x="16" y="32" width="70" height="70" fill="#111827" stroke="#95bf47" stroke-width="1.5" />
+                                    <rect x="24" y="40" width="54" height="12" fill="#95bf47" opacity="0.9" />
+                                    <rect x="24" y="58" width="54" height="8" fill="#1f2937" />
+
+                                    <rect x="96" y="32" width="168" height="70" fill="#111827" stroke="#1f2937" stroke-width="1" />
+                                    <rect x="106" y="42" width="120" height="6" fill="#38bdf8" />
+                                    <rect x="106" y="54" width="148" height="4" fill="#1f2937" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: Profile Switcher -->
+                    <div class="shopify-card card-storefronts">
+                        <div class="card-content">
+                            <h2>Profile Switcher</h2>
+                            <p>
+                                Shopify developer tooling for managing and switching CLI development contexts inside VS Code.
+                            </p>
+                            <a href="#projects" class="card-pill-btn">View project details →</a>
+                        </div>
+
+                        <div class="card-bottom-illustration">
+                            <div class="pixel-card-mockup">
+                                <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
+                                    <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
+                                    <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
+                                    <rect x="10" y="7" width="6" height="6" fill="#38bdf8" />
+
+                                    <rect x="16" y="32" width="248" height="72" fill="#111827" stroke="#38bdf8" stroke-width="1.5" />
+                                    <rect x="26" y="42" width="120" height="8" fill="#38bdf8" opacity="0.9" />
+                                    <rect x="26" y="56" width="208" height="6" fill="#1f2937" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: ShopifyThemeCheck -->
+                    <div class="shopify-card card-agents">
+                        <div class="card-content">
+                            <h2>ShopifyThemeCheck</h2>
+                            <p>
+                                Shopify theme analysis / storefront asset and app script inspection Chrome extension.
+                            </p>
+                            <a href="#projects" class="card-pill-btn">View project details →</a>
+                        </div>
+
+                        <div class="card-bottom-illustration">
+                            <div class="pixel-card-mockup">
+                                <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
+                                    <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
+                                    <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
+                                    <rect x="10" y="7" width="6" height="6" fill="#f59e0b" />
+
+                                    <rect x="16" y="32" width="248" height="72" fill="#111827" stroke="#f59e0b" stroke-width="1.5" />
+                                    <rect x="26" y="42" width="100" height="8" fill="#f59e0b" />
+                                    <rect x="26" y="56" width="220" height="6" fill="#1f2937" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </section>
 
-            <!-- SHOPIFY DEV DOCS 3-COLUMN CARD GRID -->
-            <section class="shopify-cards-grid">
+            <hr class="doc-divider" style="margin: 48px 0;">
+
+            <!-- SECTION 3: ABOUT & ENGINEERING PHILOSOPHY -->
+            <section class="doc-section" id="about">
+                <div class="doc-page-header">
+                    <div class="doc-tag">DEVELOPER APPROACH &amp; PHILOSOPHY</div>
+                    <h2 class="doc-title" style="font-size: 2rem;">About</h2>
+                    <p class="doc-lead">I build the parts of Shopify that don't come out of the box.</p>
+                </div>
+
+                <div class="doc-callout">
+                    <div class="callout-title">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M6 1h4v2H6V1zM4 3h2v2H4V3zm6 0h2v2h-2V3zM3 5h2v6H3V5zm8 0h2v6h-2V5zM4 11h2v2H4v-2zm6 0h2v2h-2v-2zM6 13h4v2H6v-2z"/></svg>
+                        SHORT, HUMAN EXPLANATION
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: var(--text-primary);">
+                        I don't pitch expensive apps or rebuild stores from scratch. I read the Liquid code, inspect the theme data flow, and test the storefront state. I figure out what's working, fix what's causing friction, and build custom code only where Shopify's native options run out.
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 28px; margin-bottom: 16px; font-size: 1.25rem;">Engineering Principles</h3>
                 
-                <!-- CARD 1: Apps / FigClaw -->
-                <a href="/projects/figclaw.html" class="shopify-card card-apps">
-                    <div class="card-content">
-                        <h2>FigClaw</h2>
-                        <p>
-                            Design-to-code workflow for turning structured design instructions into usable interfaces via Figma REST API.
+                <div class="doc-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                    <div class="doc-callout" style="border-left-color: var(--accent-cyan); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-cyan);">01 — Understand Natively First</div>
+                        <p>Study existing theme architectures, Shopify platform APIs, and store data flows before writing new code.</p>
+                    </div>
+
+                    <div class="doc-callout" style="border-left-color: var(--accent-shopify); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-shopify);">02 — Preserve What Works</div>
+                        <p>Keep native Liquid functionality intact to minimize merchant maintenance overhead and preserve store compatibility.</p>
+                    </div>
+
+                    <div class="doc-callout" style="border-left-color: var(--accent-purple); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-purple);">03 — Extend &amp; Simplify</div>
+                        <p>Build focused developer tooling, custom extensions, and clean Liquid modules without adding bloat.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="doc-divider" style="margin: 48px 0;">
+
+            <!-- SECTION 4: EXPERIENCE & ENGINEERING TIMELINE -->
+            <section class="doc-section" id="experience">
+                <div class="doc-page-header">
+                    <div class="doc-tag">WORK HISTORY &amp; TIMELINE</div>
+                    <h2 class="doc-title" style="font-size: 2rem;">Experience</h2>
+                    <p class="doc-lead">Ecosystem engineering, timeline, and platform proficiencies.</p>
+                </div>
+
+                <div class="doc-callout" style="border-left-color: var(--accent-shopify);">
+                    <div class="callout-title" style="color: var(--accent-shopify);">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M6 1h4v2H6V1zm-2 2h8v2H4V3zm-1 2h10v8H3V5zm2 2v4h6V7H5z"/></svg>
+                        FULL-STACK SHOPIFY SPECIALIZATION
+                    </div>
+                    <p>
+                        Focused on Liquid architecture, storefront performance, developer tools, custom app proxies, and Checkout UI Extensions.
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 28px; margin-bottom: 16px; font-size: 1.25rem;">Engineering Timeline</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <div class="doc-callout" style="border-left-color: var(--accent-cyan); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-cyan);">PRESENT — Shopify Full-Stack Developer</div>
+                        <p>Building high-performance Shopify themes, custom CLI workflow extensions, and Storefront API integrations.</p>
+                    </div>
+
+                    <div class="doc-callout" style="border-left-color: var(--accent-purple); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-purple);">EXPERIENCE — Webandcrafts (WAC)</div>
+                        <p>Storefront engineering for high-volume merchants, complex variant logic, custom cart drawers, and liquid optimization.</p>
+                    </div>
+
+                    <div class="doc-callout" style="border-left-color: var(--text-muted); margin: 0;">
+                        <div class="callout-title" style="color: var(--text-secondary);">EXPERIENCE — RDP Workstations &amp; Ekatra Infotech</div>
+                        <p>Full-stack web application development, REST API design, and internal developer workflow tools.</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="doc-divider" style="margin: 48px 0;">
+
+            <!-- SECTION 5: CONTACT & HIRE COLLABORATION PANEL -->
+            <section class="doc-section" id="contact" style="margin-bottom: 48px;">
+                <div class="contact-card" style="padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+                    <div>
+                        <h2 style="font-size: 1.65rem; margin-bottom: 8px;">Have a platform limit to break?</h2>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Let's turn a complicated commerce problem into a reliable build.</p>
+                    </div>
+                    <div>
+                        <a href="mailto:atulmundakkal@outlook.com" class="hero-btn-primary">Start a conversation →</a>
+                    </div>
+                </div>
+
+                <div class="doc-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px;">
+                    <div class="doc-callout" style="border-left-color: var(--accent-shopify); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-shopify);">EMAIL DIRECT</div>
+                        <p style="font-size: 0.95rem; font-family: var(--font-mono); margin-top: 6px;">
+                            <a href="mailto:atulmundakkal@outlook.com" style="color: var(--accent-shopify); text-decoration: underline;">atulmundakkal@outlook.com ↗</a>
                         </p>
-                        <span class="card-pill-btn">View project →</span>
                     </div>
 
-                    <div class="card-bottom-illustration">
-                        <div class="pixel-card-mockup">
-                            <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
-                                <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
-                                <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
-                                <rect x="10" y="7" width="6" height="6" fill="#95bf47" />
-                                <rect x="22" y="7" width="6" height="6" fill="#38bdf8" />
-                                <rect x="34" y="7" width="6" height="6" fill="#f59e0b" />
-                                
-                                <rect x="16" y="32" width="70" height="70" fill="#111827" stroke="#95bf47" stroke-width="1.5" />
-                                <rect x="24" y="40" width="54" height="12" fill="#95bf47" opacity="0.9" />
-                                <rect x="24" y="58" width="54" height="8" fill="#1f2937" />
-
-                                <rect x="96" y="32" width="168" height="70" fill="#111827" stroke="#1f2937" stroke-width="1" />
-                                <rect x="106" y="42" width="120" height="6" fill="#38bdf8" />
-                                <rect x="106" y="54" width="148" height="4" fill="#1f2937" />
-                                <rect x="106" y="64" width="130" height="4" fill="#1f2937" />
-                            </svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- CARD 2: Storefronts / Profile Switcher -->
-                <a href="/projects/profile-switcher.html" class="shopify-card card-storefronts">
-                    <div class="card-content">
-                        <h2>Profile Switcher</h2>
-                        <p>
-                            Shopify developer tooling for managing and switching CLI development contexts inside VS Code.
+                    <div class="doc-callout" style="border-left-color: var(--accent-cyan); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-cyan);">GITHUB PROFILE</div>
+                        <p style="font-size: 0.95rem; font-family: var(--font-mono); margin-top: 6px;">
+                            <a href="https://github.com/Atul8007" target="_blank" rel="noopener" style="color: var(--accent-cyan); text-decoration: underline;">github.com/Atul8007 ↗</a>
                         </p>
-                        <span class="card-pill-btn">View project →</span>
                     </div>
 
-                    <div class="card-bottom-illustration">
-                        <div class="pixel-card-mockup">
-                            <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
-                                <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
-                                <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
-                                <rect x="10" y="7" width="6" height="6" fill="#38bdf8" />
-
-                                <rect x="16" y="32" width="248" height="72" fill="#111827" stroke="#38bdf8" stroke-width="1.5" />
-                                <rect x="26" y="42" width="120" height="8" fill="#38bdf8" opacity="0.9" />
-                                <rect x="26" y="56" width="208" height="6" fill="#1f2937" />
-                                <rect x="26" y="68" width="180" height="6" fill="#1f2937" />
-                            </svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- CARD 3: Agents / ShopifyThemeCheck -->
-                <a href="/projects/theme-inspector.html" class="shopify-card card-agents">
-                    <div class="card-content">
-                        <h2>ShopifyThemeCheck</h2>
-                        <p>
-                            Shopify theme analysis / storefront asset and app script inspection Chrome extension.
+                    <div class="doc-callout" style="border-left-color: var(--accent-purple); margin: 0;">
+                        <div class="callout-title" style="color: var(--accent-purple);">LINKEDIN PROFILE</div>
+                        <p style="font-size: 0.95rem; font-family: var(--font-mono); margin-top: 6px;">
+                            <a href="https://linkedin.com/in/atul-mundakkal" target="_blank" rel="noopener" style="color: var(--accent-purple); text-decoration: underline;">linkedin.com/in/atul-mundakkal ↗</a>
                         </p>
-                        <span class="card-pill-btn">View project →</span>
                     </div>
-
-                    <div class="card-bottom-illustration">
-                        <div class="pixel-card-mockup">
-                            <svg viewBox="0 0 280 120" width="100%" height="100%" shape-rendering="crispEdges">
-                                <rect x="0" y="0" width="280" height="120" fill="#0b0f19" />
-                                <rect x="0" y="0" width="280" height="20" fill="#161e2e" />
-                                <rect x="10" y="7" width="6" height="6" fill="#f59e0b" />
-
-                                <rect x="16" y="32" width="248" height="72" fill="#111827" stroke="#f59e0b" stroke-width="1.5" />
-                                <rect x="26" y="42" width="100" height="8" fill="#f59e0b" />
-                                <rect x="26" y="56" width="220" height="6" fill="#1f2937" />
-                            </svg>
-                        </div>
-                    </div>
-                </a>
-
+                </div>
             </section>
 
         </main>
@@ -609,9 +683,11 @@
                 <span>ATUL MUNDAKKAL / portfolio</span>
             </div>
             <div class="footer-links">
-                <a href="/projects.html">Projects</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
+                <a href="#overview">Overview</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
                 <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
             </div>
         </div>

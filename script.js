@@ -68,25 +68,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 4. Right-Side TOC ScrollSpy Tracking ---
-    const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = Array.from(tocLinks).map(link => {
-        const id = link.getAttribute('href').substring(1);
-        return document.getElementById(id);
-    }).filter(Boolean);
+    // --- 4. Single Page ScrollSpy & Anchor Smooth Scroll ---
+    const topNavLinks = document.querySelectorAll('.top-nav-link');
+    const singlePageSections = ['overview', 'projects', 'about', 'experience', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
 
-    if (tocLinks.length > 0 && sections.length > 0) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '-80px 0px -60% 0px',
-            threshold: 0
-        };
+    topNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetEl = document.querySelector(href);
+                if (targetEl) {
+                    const headerHeight = document.getElementById('doc-header')?.offsetHeight || 64;
+                    const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight - 16;
 
-        const observer = new IntersectionObserver((entries) => {
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    topNavLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            }
+        });
+    });
+
+    if (singlePageSections.length > 0) {
+        const topNavObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const activeId = entry.target.id;
-                    tocLinks.forEach(link => {
+                    topNavLinks.forEach(link => {
                         if (link.getAttribute('href') === `#${activeId}`) {
                             link.classList.add('active');
                         } else {
@@ -95,10 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
-        }, observerOptions);
+        }, {
+            root: null,
+            rootMargin: '-20% 0px -55% 0px',
+            threshold: 0
+        });
 
-        sections.forEach(sec => observer.observe(sec));
+        singlePageSections.forEach(sec => topNavObserver.observe(sec));
     }
+
 
     // --- 5. Command Palette Search & Assistant Engine (⌘K or /) ---
     const searchModal = document.getElementById('search-modal');
