@@ -2321,22 +2321,90 @@ pre, code { font-family: var(--font-mono); }
 }
 
 @media (max-width: 480px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     .doc-header-container {
         padding: 0 8px;
+        gap: 6px;
     }
 
     .brand-text {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
+        letter-spacing: -0.01em;
+    }
+
+    .ask-assistant-btn {
+        padding: 4px 6px;
+        font-size: 0.72rem;
     }
 
     .shopify-hero-banner {
         padding: 16px 12px;
         border-radius: var(--radius-md);
+        margin-bottom: 20px;
     }
 
     .hero-left h1, .hero-left h1.hero-typewriter-title {
         font-size: 1.1rem;
         line-height: 1.35;
+    }
+
+    .hero-left p {
+        font-size: 0.84rem;
+        line-height: 1.45;
+    }
+
+    .superset-left-nav {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        padding-bottom: 4px;
+        width: 100%;
+    }
+
+    .superset-left-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .superset-nav-item {
+        flex-shrink: 0;
+        font-size: 0.82rem;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    .ide-tabs-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .ide-tabs-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cli-box, pre code, .ide-code-scroll {
+        font-size: 0.72rem !important;
+        overflow-x: auto;
+        max-width: 100%;
+        word-break: break-all;
+    }
+
+    .search-modal {
+        padding-top: 36px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .search-palette {
+        width: 100%;
+        max-width: 100%;
     }
 
     .assistant-drawer {
@@ -2348,3 +2416,48 @@ pre, code { font-family: var(--font-mono); }
         padding: 14px 10px;
     }
 }
+
+/* Specific optimization for 360px viewport devices (e.g. Realme 7 / GT, compact smartphones) */
+@media (max-width: 380px) {
+    .doc-header-container {
+        padding: 0 6px;
+        gap: 4px;
+    }
+
+    .brand-text {
+        font-size: 0.78rem;
+    }
+
+    .ask-assistant-btn span {
+        display: none;
+    }
+
+    .ask-assistant-btn::after {
+        content: '✦ Ask';
+        font-size: 0.70rem;
+    }
+
+    .shopify-hero-banner {
+        padding: 14px 10px;
+    }
+
+    .hero-left h1, .hero-left h1.hero-typewriter-title {
+        font-size: 1.02rem;
+        line-height: 1.32;
+    }
+
+    .t-btn {
+        font-size: 0.62rem;
+        padding: 2px 4px;
+    }
+
+    .doc-card, .project-card {
+        padding: 14px 10px;
+    }
+
+    .doc-card h2, .project-card h2, .doc-card h3, .project-card h3 {
+        font-size: 1.05rem;
+        word-break: break-word;
+    }
+}
+
