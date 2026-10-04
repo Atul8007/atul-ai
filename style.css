@@ -366,15 +366,15 @@ pre, code { font-family: var(--font-mono); }
     overflow: hidden;
 }
 
-/* Isolated Interactive Runtime Canvas Layer (Mounted Behind Hero Content) */
-.hero-runtime-canvas {
-    position: absolute;
+/* Global Interactive Developer Runtime Background Layer (Full Website Viewport) */
+.global-runtime-canvas {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
 
 /* Ambient Radial Glow Animation behind Hero */

@@ -680,21 +680,20 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
 
     initAssistantDrawer();
 
-    // --- 11. Subtle Interactive Developer Runtime Hero Background ---
-    function initHeroRuntimeBackground() {
-        const heroSection = document.querySelector('.shopify-hero-banner');
-        if (!heroSection) return;
-
-        // Create canvas container isolated strictly behind hero content
-        const canvas = document.createElement('canvas');
-        canvas.className = 'hero-runtime-canvas';
-        canvas.setAttribute('aria-hidden', 'true');
-        heroSection.insertBefore(canvas, heroSection.firstChild);
+    // --- 11. Global Interactive Developer Runtime Background Engine (Full Website) ---
+    function initGlobalRuntimeBackground() {
+        let canvas = document.getElementById('global-runtime-canvas');
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'global-runtime-canvas';
+            canvas.className = 'global-runtime-canvas';
+            canvas.setAttribute('aria-hidden', 'true');
+            document.body.insertBefore(canvas, document.body.firstChild);
+        }
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Motion preference check
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         let width = 0;
@@ -702,9 +701,8 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         let dpr = window.devicePixelRatio || 1;
 
         function resizeCanvas() {
-            const rect = heroSection.getBoundingClientRect();
-            width = rect.width;
-            height = rect.height;
+            width = window.innerWidth;
+            height = window.innerHeight;
             dpr = window.devicePixelRatio || 1;
             canvas.width = Math.floor(width * dpr);
             canvas.height = Math.floor(height * dpr);
@@ -715,8 +713,7 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
 
         resizeCanvas();
 
-        const resizeObserver = new ResizeObserver(() => resizeCanvas());
-        resizeObserver.observe(heroSection);
+        window.addEventListener('resize', resizeCanvas, { passive: true });
 
         // State variables
         let mouseX = -1000;
@@ -724,9 +721,8 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         let isHovered = false;
         let activeActivity = 0; // 0 (dormant) to 1 (active)
         let lastMoveTime = 0;
-        let contextualTarget = 'inspect(hero)';
+        let contextualTarget = 'inspect(runtime_field)';
 
-        // Ephemeral traces & telemetry signals
         const commands = [
             'inspect()', 'resolve()', 'render()', 'optimize()', 
             'state:update', 'event:pointermove', 'runtime.active', 
@@ -735,40 +731,44 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         let activeTraces = [];
         let lastTraceTime = 0;
 
-        // Contextual element target inspector
         function updateContextualTarget(x, y) {
-            const el = document.elementFromPoint(x + heroSection.getBoundingClientRect().left, y + heroSection.getBoundingClientRect().top);
+            const el = document.elementFromPoint(x, y);
             if (!el) {
                 contextualTarget = 'inspect(runtime_field)';
                 return;
             }
-            if (el.closest('h1') || el.closest('#typewriter-heading')) {
+            if (el.closest('.doc-header') || el.closest('.doc-brand')) {
+                contextualTarget = 'inspect(brand_header)';
+            } else if (el.closest('h1') || el.closest('#typewriter-heading')) {
                 contextualTarget = 'inspect(hero.title)';
-            } else if (el.closest('.hero-actions') || el.closest('.hero-btn-primary') || el.closest('.hero-btn-secondary')) {
+            } else if (el.closest('.hero-actions') || el.closest('.hero-btn-primary') || el.closest('.hero-btn-secondary') || el.closest('button') || el.closest('a')) {
                 contextualTarget = 'execute(action)';
+            } else if (el.closest('.superset-showcase-section') || el.closest('.superset-ide-window')) {
+                contextualTarget = 'inspect(ide_showcase)';
+            } else if (el.closest('.project-card') || el.closest('.doc-card')) {
+                contextualTarget = 'inspect(project_card)';
             } else if (el.closest('.mini-terminal-window')) {
                 contextualTarget = 'inspect(atul_os_shell)';
-            } else if (el.closest('p')) {
-                contextualTarget = 'inspect(platform.limits)';
+            } else if (el.closest('form') || el.closest('input') || el.closest('textarea')) {
+                contextualTarget = 'inspect(contact_input)';
+            } else if (el.closest('.doc-footer')) {
+                contextualTarget = 'inspect(footer)';
             } else {
                 contextualTarget = 'inspect(runtime_field)';
             }
         }
 
-        // Mouse Listeners
-        heroSection.addEventListener('mousemove', (e) => {
+        window.addEventListener('mousemove', (e) => {
             if (prefersReducedMotion) return;
-            const rect = heroSection.getBoundingClientRect();
-            mouseX = e.clientX - rect.left;
-            mouseY = e.clientY - rect.top;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
             isHovered = true;
             lastMoveTime = performance.now();
 
             updateContextualTarget(mouseX, mouseY);
 
-            // Spawn localized telemetry command trace periodically
             const now = performance.now();
-            if (now - lastTraceTime > 280 && activeTraces.length < 3) {
+            if (now - lastTraceTime > 260 && activeTraces.length < 3) {
                 lastTraceTime = now;
                 const cmdText = commands[Math.floor(Math.random() * commands.length)];
                 activeTraces.push({
@@ -777,39 +777,37 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                     y: mouseY + (Math.random() * 20 - 25),
                     opacity: 0.8,
                     life: 1.0,
-                    vy: -0.4
+                    vy: -0.45
                 });
             }
-        });
+        }, { passive: true });
 
-        heroSection.addEventListener('mouseenter', () => {
+        window.addEventListener('mouseenter', () => {
             isHovered = true;
             lastMoveTime = performance.now();
         });
 
-        heroSection.addEventListener('mouseleave', () => {
+        window.addEventListener('mouseleave', () => {
             isHovered = false;
             mouseX = -1000;
             mouseY = -1000;
         });
 
-        // Animation Loop
         function render() {
             ctx.clearRect(0, 0, width, height);
 
             const now = performance.now();
             const timeSinceMove = now - lastMoveTime;
 
-            // Inactivity decay: return to dormant after 1.5s of no movement or mouseleave
             let targetActivity = (isHovered && timeSinceMove < 1600 && !prefersReducedMotion) ? 1 : 0;
             activeActivity += (targetActivity - activeActivity) * 0.08;
 
-            const gridStep = 36;
-            const interactionRadius = 130;
+            const gridStep = 40;
+            const interactionRadius = 140;
 
-            // 1. Technical Grid Substructure & Local Deformation
             ctx.lineWidth = 1;
 
+            // 1. Grid Substructure
             for (let x = 0; x < width; x += gridStep) {
                 for (let y = 0; y < height; y += gridStep) {
                     let gx = x;
@@ -819,13 +817,13 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                     const dy = mouseY - y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    let alpha = 0.04; // Dormant grid opacity
+                    let alpha = 0.035;
                     let displaceX = 0;
                     let displaceY = 0;
 
                     if (dist < interactionRadius && activeActivity > 0.01) {
                         const factor = (1 - dist / interactionRadius) * activeActivity;
-                        alpha += factor * 0.18; // Glow grid lines nearby
+                        alpha += factor * 0.16;
                         displaceX = (dx / dist) * factor * -3;
                         displaceY = (dy / dist) * factor * -3;
                     }
@@ -833,9 +831,8 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                     gx += displaceX;
                     gy += displaceY;
 
-                    // Draw sparse intersection micro-crosses (+)
-                    if ((x / gridStep + y / gridStep) % 2 === 0) {
-                        ctx.strokeStyle = `rgba(149, 191, 71, ${alpha * 1.5})`;
+                    if ((Math.floor(x / gridStep) + Math.floor(y / gridStep)) % 2 === 0) {
+                        ctx.strokeStyle = `rgba(149, 191, 71, ${alpha * 1.4})`;
                         ctx.beginPath();
                         ctx.moveTo(gx - 2, gy);
                         ctx.lineTo(gx + 2, gy);
@@ -846,8 +843,7 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                 }
             }
 
-            // Draw subtle background grid lines
-            ctx.strokeStyle = `rgba(31, 41, 55, ${0.35 + activeActivity * 0.25})`;
+            ctx.strokeStyle = `rgba(31, 41, 55, ${0.3 + activeActivity * 0.25})`;
             ctx.beginPath();
             for (let x = 0; x < width; x += gridStep) {
                 ctx.moveTo(x, 0);
@@ -859,11 +855,11 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
             }
             ctx.stroke();
 
-            // 2. Local Pointer Field Glow
+            // 2. Pointer Radial Field Glow
             if (activeActivity > 0.02 && mouseX >= 0 && mouseY >= 0) {
                 const grad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, interactionRadius);
-                grad.addColorStop(0, `rgba(149, 191, 71, ${0.09 * activeActivity})`);
-                grad.addColorStop(0.5, `rgba(56, 189, 248, ${0.04 * activeActivity})`);
+                grad.addColorStop(0, `rgba(149, 191, 71, ${0.08 * activeActivity})`);
+                grad.addColorStop(0.5, `rgba(56, 189, 248, ${0.035 * activeActivity})`);
                 grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
                 ctx.fillStyle = grad;
@@ -898,9 +894,9 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                 ctx.fillText(coordText, mouseX + 16, mouseY + 18);
             }
 
-            // 5. Dormant Environmental Status Marker (Bottom Left inside Hero)
+            // 5. Environmental Status Marker (Fixed Bottom Left)
             const dormantText = activeActivity > 0.3 ? `> runtime.active [${Math.round(activeActivity * 100)}%]` : (timeSinceMove > 2000 ? `> waiting_for_input` : `> system.ready`);
-            ctx.fillStyle = `rgba(107, 114, 128, ${0.18 + activeActivity * 0.25})`;
+            ctx.fillStyle = `rgba(107, 114, 128, ${0.18 + activeActivity * 0.22})`;
             ctx.fillText(dormantText, 20, height - 16);
 
             requestAnimationFrame(render);
@@ -909,6 +905,6 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         render();
     }
 
-    initHeroRuntimeBackground();
+    initGlobalRuntimeBackground();
 
 });
