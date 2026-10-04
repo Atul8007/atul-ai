@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchDatabase = [
         { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "PORTFOLIO", url: "/index.html" },
         { title: "Unlimited Product Variants on Shopify", sub: "Native metafields. Native metaobjects. No apps.", tag: "CASE STUDY", url: "/case-studies/unlimited-variants.html" },
+        { title: "Multi-Dropdown Search Filtering on Shopify", sub: "Every metafield value. Every dropdown. Searchable. No apps.", tag: "CASE STUDY", url: "/case-studies/multi-dropdown-filtering.html" },
         { title: "Projects Directory", sub: "Featured developer tools: FigClaw, Profile Switcher, ShopifyThemeCheck", tag: "PROJECTS", url: "/projects.html" },
         { title: "FigClaw", sub: "Design-to-code workflow for turning structured design instructions into usable interfaces", tag: "PROJECT", url: "/projects/figclaw.html" },
         { title: "Profile Switcher", sub: "Shopify developer tooling for managing and switching CLI development contexts", tag: "PROJECT", url: "/projects/profile-switcher.html" },

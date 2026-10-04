@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Dropdown Search Filtering on Shopify — Case Study — Atul Mundakkal</title>
+    <meta name="description" content="Case study: Every metafield value. Every dropdown. Searchable. No apps. Native multi-dropdown search filtering for Shopify storefronts.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/case-studies/multi-dropdown-filtering.html">
+
+    <!-- Google Fonts: Geist & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css?v=6.0.0">
+</head>
+<body>
+
+    <!-- COMPACT DEVELOPER HEADER (Shopify Dev Docs Style) -->
+    <header class="doc-header" id="doc-header">
+        <div class="doc-header-container">
+            
+            <div class="header-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
+                <a href="/index.html" class="doc-brand">
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                        <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                    </svg>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">portfolio</span>
+                </a>
+            </div>
+
+            <nav class="doc-top-nav">
+                <a href="/index.html" class="top-nav-link">Overview</a>
+                <a href="/projects.html" class="top-nav-link active">Projects</a>
+                <a href="/about.html" class="top-nav-link">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
+                <a href="/contact.html" class="top-nav-link">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <button class="ask-assistant-btn" id="ask-assistant-btn" aria-label="Ask Assistant">
+                    <span style="font-size:0.9rem;">✦</span>
+                    <span>Ask assistant</span>
+                    <kbd style="font-family:var(--font-mono); font-size:0.68rem; opacity:0.7;">/</kbd>
+                </button>
+
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-icon" id="theme-icon">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>
+                    </span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Profile">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v2H5V1zM3 3h2v2H3V3zm10 0h-2v2h2V3zM2 5h1v5H2V5zm12 0h-1v5h1V5zM3 10h2v2H3v-2zm10 0h-2v2h2v-2zM5 12h2v3H5v-3zm4 0h2v3H9v-3z"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3-COLUMN DOCUMENTATION LAYOUT -->
+    <div class="doc-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="doc-sidebar" id="doc-sidebar">
+            <div class="sidebar-inner">
+                
+                <div class="sidebar-group">
+                    <div class="sidebar-title">CASE STUDY</div>
+                    <ul class="sidebar-links">
+                        <li>
+                            <a href="/index.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3 1h7l4 4v10H3V1zm2 3v1h4V4H5zm0 3v1h6V7H5zm0 3v1h6v-1H5zm0 3v1h4v-1H5z"/></svg>
+                                Overview
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">NAVIGATION</div>
+                    <ul class="sidebar-links">
+                        <li><a href="#the-ceiling" class="sidebar-link indent">1. The ceiling</a></li>
+                        <li><a href="#the-unlock" class="sidebar-link indent">2. The unlock</a></li>
+                        <li><a href="#what-this-unlocks" class="sidebar-link indent">3. What this unlocks</a></li>
+                        <li><a href="#what-it-costs" class="sidebar-link indent">4. What it costs</a></li>
+                        <li><a href="#how-it-fits-together" class="sidebar-link indent">5. How it fits together</a></li>
+                        <li><a href="#filtering" class="sidebar-link indent">6. Filtering</a></li>
+                        <li><a href="#in-practice" class="sidebar-link indent">7. In practice</a></li>
+                        <li><a href="#where-this-fits" class="sidebar-link indent">8. Where this fits</a></li>
+                        <li><a href="#the-bottom-line" class="sidebar-link indent">9. The bottom line</a></li>
+                        <li><a href="#next-steps" class="sidebar-link indent">10. Next steps</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">CASE STUDIES</div>
+                    <ul class="sidebar-links">
+                        <li>
+                            <a href="/case-studies/unlimited-variants.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                                Unlimited Variants
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/case-studies/multi-dropdown-filtering.html" class="sidebar-link active indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M2 3h12v2H2V3zm2 4h8v2H4V7zm2 4h4v2H6v-2z"/></svg>
+                                Multi-Dropdown Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- MAIN DOCUMENTATION CONTENT -->
+        <main class="doc-main">
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li><a href="/projects.html">Case Studies</a></li>
+                    <li aria-current="page">Multi-Dropdown Search Filtering</li>
+                </ol>
+            </nav>
+
+            <header class="doc-page-header">
+                <div class="doc-tag" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3);">SHOPIFY SEARCH ARCHITECTURE CASE STUDY</div>
+                <h1 class="doc-title">Multi-Dropdown Search Filtering on Shopify</h1>
+                <p class="doc-lead" style="font-weight: 600; color: var(--text-primary);">Every metafield value. Every dropdown. Searchable. No apps.</p>
+            </header>
+
+            <div class="project-links-row">
+                <span class="doc-badge-btn" style="background: var(--bg-surface); border-color: var(--accent-cyan); color: var(--accent-cyan);">
+                    ✦ Type-to-Find Searchable Dropdowns
+                </span>
+                <span class="doc-badge-btn" style="background: var(--bg-surface); border-color: var(--accent-shopify); color: var(--accent-shopify);">
+                    ⚡ Pure Theme &amp; Metafield Engine
+                </span>
+            </div>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 1: THE CEILING -->
+            <section id="the-ceiling" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-ceiling">
+                        <span>1. The ceiling</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Shopify's native filters weren't built for real catalogs.</p>
+
+                <ul class="doc-list">
+                    <li>A handful of filters before the bar breaks</li>
+                    <li>No metafield-value filtering</li>
+                    <li>No searchable dropdowns</li>
+                    <li>No multi-dropdown layouts</li>
+                    <li>No personalization collections</li>
+                </ul>
+
+                <p>
+                    Merchants hit the wall. Most install an app. Most pay forever. Most never get what they actually wanted.
+                </p>
+            </section>
+
+            <!-- SECTION 2: THE UNLOCK -->
+            <section id="the-unlock" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-unlock">
+                        <span>2. The unlock</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Multi-dropdown search filtering. Every metafield value. Zero apps.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Metafields carry every filterable value</strong> — Structured product attributes stored natively on Shopify.</li>
+                    <li><strong>Metaobjects define reusable value lists</strong> — Normalized taxonomies across catalog dimensions.</li>
+                    <li><strong>Theme layer renders the multi-dropdown bar</strong> — Each dropdown searchable with live type-ahead inputs.</li>
+                    <li><strong>Query logic composes selections across dropdowns without a reload</strong> — Fast, non-blocking client state filters.</li>
+                </ul>
+
+                <p class="summary-note" style="margin-top: 16px; font-weight: 600; color: var(--accent-cyan);">
+                    The theme owns the filter. The metafields own the data. Apps own nothing.
+                </p>
+
+                <!-- PIXELATED DIAGRAM 1: MULTI-DROPDOWN SEARCH BAR -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);">DIAGRAM 1</span>
+                        <span class="diagram-title">Multi-dropdown search bar with searchable dropdowns expanded</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 240" width="100%" height="auto" shape-rendering="crispEdges">
+                            <!-- Background Grid -->
+                            <pattern id="pixel-grid-unlock" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                            </pattern>
+                            <rect width="680" height="240" fill="#0b0f19"/>
+                            <rect width="680" height="240" fill="url(#pixel-grid-unlock)"/>
+
+                            <!-- Filter Bar Container Header -->
+                            <rect x="20" y="16" width="640" height="48" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            
+                            <!-- Dropdown Pill 1: Ingredient (Active/Expanded) -->
+                            <rect x="32" y="24" width="180" height="32" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+                            <text x="44" y="44" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INGREDIENT: ALL ▼</text>
+
+                            <!-- Dropdown Pill 2: Skin Concern -->
+                            <rect x="224" y="24" width="180" height="32" fill="#111827" stroke="#374151" stroke-width="1"/>
+                            <text x="236" y="44" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="11">SKIN CONCERN ▼</text>
+
+                            <!-- Dropdown Pill 3: Finish Type -->
+                            <rect x="416" y="24" width="140" height="32" fill="#111827" stroke="#374151" stroke-width="1"/>
+                            <text x="428" y="44" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="11">FINISH ▼</text>
+
+                            <!-- Reset Button -->
+                            <rect x="568" y="24" width="80" height="32" fill="#10b981" />
+                            <text x="608" y="44" text-anchor="middle" fill="#000" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">CLEAR (2)</text>
+
+                            <!-- EXPANDED SEARCHABLE DROPDOWN MENU -->
+                            <rect x="32" y="58" width="240" height="160" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                            
+                            <!-- Search Input Box Inside Dropdown -->
+                            <rect x="42" y="68" width="220" height="28" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="52" y="86" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">🔍 Type to filter... (e.g. Niacinamide)</text>
+
+                            <!-- Checkbox Options List -->
+                            <rect x="42" y="104" width="12" height="12" fill="#38bdf8"/>
+                            <text x="62" y="114" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Niacinamide (142)</text>
+
+                            <rect x="42" y="128" width="12" height="12" fill="#38bdf8"/>
+                            <text x="62" y="138" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Hyaluronic Acid (98)</text>
+
+                            <rect x="42" y="152" width="12" height="12" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                            <text x="62" y="162" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Salicylic Acid (64)</text>
+
+                            <rect x="42" y="176" width="12" height="12" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                            <text x="62" y="186" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">Retinol 0.5% (31)</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: WHAT THIS UNLOCKS -->
+            <section id="what-this-unlocks" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#what-this-unlocks">
+                        <span>3. What this unlocks</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Advanced search and filtering architecture without third-party app locks.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Multi-dropdown layout</strong> — No cap, no app limit</li>
+                    <li><strong>Search inside every dropdown</strong> — Type-to-find, instantly</li>
+                    <li><strong>Metafield filtering</strong> — Any structured value, not just tags</li>
+                    <li><strong>Personalization collections</strong> — Filters shaped to the catalog, not the platform</li>
+                    <li><strong>Cross-dropdown logic</strong> — Selections compose cleanly</li>
+                    <li><strong>Zero recurring cost</strong> — No subscription, ever</li>
+                    <li><strong>Full theme control</strong> — Layout, styling, behavior all yours</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 4: WHAT IT COSTS -->
+            <section id="what-it-costs" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#what-it-costs">
+                        <span>4. What it costs</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Nothing is free. Here's the honest bill.</p>
+
+                <ul class="doc-list">
+                    <li>Metafield schema must be planned upfront</li>
+                    <li>One-time theme development</li>
+                    <li>Client-side query logic to maintain</li>
+                    <li>Large catalogs need indexed metafields</li>
+                    <li>Bulk population via Admin API or CSV</li>
+                </ul>
+
+                <p class="summary-note" style="margin-top: 16px; font-weight: 600; color: var(--accent-cyan);">
+                    Past a certain catalog size, this is still cheaper than the app.
+                </p>
+            </section>
+
+            <!-- SECTION 5: HOW IT FITS TOGETHER -->
+            <section id="how-it-fits-together" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#how-it-fits-together">
+                        <span>5. How it fits together</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">A six-stage data and storefront execution pipeline.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Define metafields</strong> — One per filterable dimension</li>
+                    <li><strong>Define metaobjects</strong> — Reusable value lists</li>
+                    <li><strong>Populate products</strong> — Every product carries its values</li>
+                    <li><strong>Render the bar</strong> — Multi-dropdown, each searchable</li>
+                    <li><strong>Compose the query</strong> — Selections filter live</li>
+                    <li><strong>Ship results</strong> — No reload, no app</li>
+                </ul>
+
+                <!-- PIXELATED DIAGRAM 2: FLOW DIAGRAM -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);">DIAGRAM 2</span>
+                        <span class="diagram-title">Flow: Metafields → Metaobjects → Dropdown Bar → Query → Results</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 140" width="100%" height="auto" shape-rendering="crispEdges">
+                            <rect width="680" height="140" fill="#0b0f19"/>
+                            <rect width="680" height="140" fill="url(#pixel-grid-unlock)"/>
+
+                            <!-- Node 1: Metafields -->
+                            <rect x="16" y="48" width="104" height="44" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="68" y="74" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">METAFIELDS</text>
+
+                            <!-- Arrow 1 -->
+                            <path d="M124 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#38bdf8"/>
+
+                            <!-- Node 2: Metaobjects -->
+                            <rect x="152" y="48" width="112" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="208" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">METAOBJECTS</text>
+
+                            <!-- Arrow 2 -->
+                            <path d="M268 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#10b981"/>
+
+                            <!-- Node 3: Dropdown Bar -->
+                            <rect x="296" y="48" width="116" height="44" fill="#161e2e" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="354" y="74" text-anchor="middle" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DROPDOWN BAR</text>
+
+                            <!-- Arrow 3 -->
+                            <path d="M416 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#f59e0b"/>
+
+                            <!-- Node 4: Live Query -->
+                            <rect x="444" y="48" width="96" height="44" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
+                            <text x="492" y="74" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">LIVE QUERY</text>
+
+                            <!-- Arrow 4 -->
+                            <path d="M544 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#a855f7"/>
+
+                            <!-- Node 5: Results -->
+                            <rect x="572" y="48" width="92" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="618" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">RESULTS</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: FILTERING -->
+            <section id="filtering" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#filtering">
+                        <span>6. Filtering</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Every filterable value is a real metafield. The dropdown bar can query anything the catalog defines.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Multi-dropdown layout</strong> — As many dropdowns as the catalog needs</li>
+                    <li><strong>Search inside each dropdown</strong> — Type-ahead, no scrolling</li>
+                    <li><strong>Metafield values</strong> — Structured, not tags</li>
+                    <li><strong>Cross-dropdown logic</strong> — Selections compose</li>
+                    <li><strong>Personalization rules</strong> — Scoped per collection</li>
+                    <li><strong>Live results</strong> — No reload</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 7: IN PRACTICE -->
+            <section id="in-practice" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#in-practice">
+                        <span>7. In practice</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Case study metrics from a specialty retail catalog overhaul.</p>
+
+                <p>
+                    A specialty retailer with a personalization-driven catalog needed deep multi-dimensional search. Native filters covered four dimensions. The catalog required nineteen. They rebuilt their collection search architecture on this native metafield model.
+                </p>
+
+                <div class="doc-callout" style="border-left-color: var(--accent-cyan); margin: 24px 0;">
+                    <div class="callout-title" style="color: var(--accent-cyan);">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 1h4v2H6V1zM4 3h2v2H4V3zm6 0h2v2h-2V3zM3 5h2v6H3V5zm8 0h2v6h-2V5zM4 11h2v2H4v-2zm6 0h2v2h-2v-2zM6 13h4v2H6v-2z"/></svg>
+                        PERFORMANCE &amp; CONVERSION METRICS
+                    </div>
+                    <ul class="doc-list" style="margin-top: 8px;">
+                        <li><strong>Filter dimensions: 4 → 19</strong></li>
+                        <li><strong>Multi-dropdown search bar on every collection page</strong></li>
+                        <li><strong>Search-driven discovery up 41%</strong></li>
+                        <li><strong>$1,788 annual app spend eliminated</strong></li>
+                        <li><strong>Zero filter breakage across two theme updates</strong></li>
+                        <li><strong>Collection pages load under 1s</strong></li>
+                    </ul>
+                </div>
+
+                <!-- PIXELATED DIAGRAM 3: BEFORE / AFTER BAR COMPARISON -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);">DIAGRAM 3</span>
+                        <span class="diagram-title">Before / after: native filter bar vs. multi-dropdown search bar</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 180" width="100%" height="auto" shape-rendering="crispEdges">
+                            <rect width="680" height="180" fill="#0b0f19"/>
+                            <rect width="680" height="180" fill="url(#pixel-grid-unlock)"/>
+
+                            <!-- Before: Native Shopify Filter Bar -->
+                            <text x="30" y="32" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">BEFORE: NATIVE FILTER BAR (4 DIMENSIONS)</text>
+                            <rect x="30" y="44" width="620" height="32" fill="#1e1e2e" stroke="#ef4444" stroke-width="1.5"/>
+                            <rect x="42" y="52" width="110" height="16" fill="#374151"/>
+                            <text x="97" y="64" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">Price ▼</text>
+
+                            <rect x="160" y="52" width="110" height="16" fill="#374151"/>
+                            <text x="215" y="64" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">Availability ▼</text>
+
+                            <rect x="278" y="52" width="110" height="16" fill="#374151"/>
+                            <text x="333" y="64" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">Vendor ▼</text>
+
+                            <text x="410" y="64" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="10">⚠ Limit Reached (No Metafields / No Dropdown Search)</text>
+
+                            <!-- Divider line -->
+                            <line x1="30" y1="94" x2="650" y2="94" stroke="#1f2937" stroke-width="1"/>
+
+                            <!-- After: Multi-Dropdown Search Bar -->
+                            <text x="30" y="118" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AFTER: NATIVE MULTI-DROPDOWN SEARCH ENGINE (19 DIMENSIONS)</text>
+                            <rect x="30" y="130" width="620" height="36" fill="#161e2e" stroke="#10b981" stroke-width="1.5"/>
+                            
+                            <rect x="40" y="136" width="100" height="24" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="90" y="152" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">🔍 Ingredient</text>
+
+                            <rect x="148" y="136" width="100" height="24" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="198" y="152" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">🔍 Skin Type</text>
+
+                            <rect x="256" y="136" width="100" height="24" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="306" y="152" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">🔍 Concern</text>
+
+                            <rect x="364" y="136" width="100" height="24" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="414" y="152" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">🔍 Finish</text>
+
+                            <rect x="472" y="136" width="90" height="24" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+                            <text x="517" y="152" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">🔍 +15 More</text>
+
+                            <rect x="570" y="136" width="70" height="24" fill="#10b981"/>
+                            <text x="605" y="152" text-anchor="middle" fill="#000" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">LIVE ✔</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: WHERE THIS FITS -->
+            <section id="where-this-fits" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#where-this-fits">
+                        <span>8. Where this fits</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Catalog dimensions across retail and wholesale sectors.</p>
+
+                <div class="doc-table-wrapper" style="overflow-x: auto; margin: 20px 0;">
+                    <table class="doc-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--accent-cyan);">Vertical</th>
+                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--text-primary);">Filter dimensions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Apparel</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Fit, fabric, occasion, season, care</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Beauty</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Skin type, concern, ingredient, finish</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Home goods</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Room, style, material, size, color</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Electronics</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Compatibility, spec, brand, use case</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">B2B / wholesale</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Account tier, MOQ, lead time, region</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 9: THE BOTTOM LINE -->
+            <section id="the-bottom-line" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-bottom-line">
+                        <span>9. The bottom line</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-top: 16px;">
+                    Native filters are a starting point, not a ceiling. Treat every filterable value as a first-class metafield, render the bar on the theme layer, and you get multi-dropdown search filtering, searchable values, and personalization collections — no app, no fee, no fighting the platform.
+                </p>
+            </section>
+
+            <!-- SECTION 10: NEXT STEPS -->
+            <section id="next-steps" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#next-steps">
+                        <span>10. Next steps</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Implementation specifications and schema reference guides.</p>
+
+                <div class="gated-links-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 20px;">
+                    
+                    <div class="gated-link-card">
+                        <div class="gated-badge" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.12);">GATED SPEC</div>
+                        <h3 class="gated-title">Prerequisites and metafield schema planning</h3>
+                        <span class="gated-lock-text">Requires data model access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.12);">GATED SPEC</div>
+                        <h3 class="gated-title">Metaobject definitions for reusable value lists</h3>
+                        <span class="gated-lock-text">Requires taxonomy access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.12);">GATED CODE</div>
+                        <h3 class="gated-title">Theme template reference implementation</h3>
+                        <span class="gated-lock-text">Requires repository access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.12);">GATED GUIDE</div>
+                        <h3 class="gated-title">Migration guide from an app-based filter setup</h3>
+                        <span class="gated-lock-text">Requires store audit access ↗</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- LINKS FOOTER -->
+            <section id="links" class="doc-section" style="margin-top: 48px;">
+                <hr class="doc-divider">
+                <div style="display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <a href="/projects.html" style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.9rem;">← Back to Projects</a>
+                    <a href="https://github.com/Atul8007" target="_blank" rel="noopener" style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">GitHub Profile ↗</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- RIGHT TOC "ON THIS PAGE" -->
+        <aside class="doc-toc" id="doc-toc">
+            <div class="toc-inner">
+                <div class="toc-title">ON THIS PAGE</div>
+                <ul class="toc-links">
+                    <li><a href="#the-ceiling" class="toc-link active">1. The ceiling</a></li>
+                    <li><a href="#the-unlock" class="toc-link">2. The unlock</a></li>
+                    <li><a href="#what-this-unlocks" class="toc-link">3. What this unlocks</a></li>
+                    <li><a href="#what-it-costs" class="toc-link">4. What it costs</a></li>
+                    <li><a href="#how-it-fits-together" class="toc-link">5. How it fits together</a></li>
+                    <li><a href="#filtering" class="toc-link">6. Filtering</a></li>
+                    <li><a href="#in-practice" class="toc-link">7. In practice</a></li>
+                    <li><a href="#where-this-fits" class="toc-link">8. Where this fits</a></li>
+                    <li><a href="#the-bottom-line" class="toc-link">9. The bottom line</a></li>
+                    <li><a href="#next-steps" class="toc-link">10. Next steps</a></li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- COMMAND PALETTE SEARCH MODAL -->
+    <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
+        <div class="search-modal-backdrop" id="search-backdrop"></div>
+        <div class="search-palette">
+            <div class="search-input-wrapper">
+                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">
+                <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                    <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                </svg>
+                <span>ATUL MUNDAKKAL / portfolio</span>
+            </div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js?v=6.0.0"></script>
+</body>
+</html>
