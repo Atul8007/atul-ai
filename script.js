@@ -680,4 +680,235 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
 
     initAssistantDrawer();
 
+    // --- 11. Subtle Interactive Developer Runtime Hero Background ---
+    function initHeroRuntimeBackground() {
+        const heroSection = document.querySelector('.shopify-hero-banner');
+        if (!heroSection) return;
+
+        // Create canvas container isolated strictly behind hero content
+        const canvas = document.createElement('canvas');
+        canvas.className = 'hero-runtime-canvas';
+        canvas.setAttribute('aria-hidden', 'true');
+        heroSection.insertBefore(canvas, heroSection.firstChild);
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        // Motion preference check
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let width = 0;
+        let height = 0;
+        let dpr = window.devicePixelRatio || 1;
+
+        function resizeCanvas() {
+            const rect = heroSection.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            dpr = window.devicePixelRatio || 1;
+            canvas.width = Math.floor(width * dpr);
+            canvas.height = Math.floor(height * dpr);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.scale(dpr, dpr);
+        }
+
+        resizeCanvas();
+
+        const resizeObserver = new ResizeObserver(() => resizeCanvas());
+        resizeObserver.observe(heroSection);
+
+        // State variables
+        let mouseX = -1000;
+        let mouseY = -1000;
+        let isHovered = false;
+        let activeActivity = 0; // 0 (dormant) to 1 (active)
+        let lastMoveTime = 0;
+        let contextualTarget = 'inspect(hero)';
+
+        // Ephemeral traces & telemetry signals
+        const commands = [
+            'inspect()', 'resolve()', 'render()', 'optimize()', 
+            'state:update', 'event:pointermove', 'runtime.active', 
+            'liquid.compile()', 'gql.query()'
+        ];
+        let activeTraces = [];
+        let lastTraceTime = 0;
+
+        // Contextual element target inspector
+        function updateContextualTarget(x, y) {
+            const el = document.elementFromPoint(x + heroSection.getBoundingClientRect().left, y + heroSection.getBoundingClientRect().top);
+            if (!el) {
+                contextualTarget = 'inspect(runtime_field)';
+                return;
+            }
+            if (el.closest('h1') || el.closest('#typewriter-heading')) {
+                contextualTarget = 'inspect(hero.title)';
+            } else if (el.closest('.hero-actions') || el.closest('.hero-btn-primary') || el.closest('.hero-btn-secondary')) {
+                contextualTarget = 'execute(action)';
+            } else if (el.closest('.mini-terminal-window')) {
+                contextualTarget = 'inspect(atul_os_shell)';
+            } else if (el.closest('p')) {
+                contextualTarget = 'inspect(platform.limits)';
+            } else {
+                contextualTarget = 'inspect(runtime_field)';
+            }
+        }
+
+        // Mouse Listeners
+        heroSection.addEventListener('mousemove', (e) => {
+            if (prefersReducedMotion) return;
+            const rect = heroSection.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+            isHovered = true;
+            lastMoveTime = performance.now();
+
+            updateContextualTarget(mouseX, mouseY);
+
+            // Spawn localized telemetry command trace periodically
+            const now = performance.now();
+            if (now - lastTraceTime > 280 && activeTraces.length < 3) {
+                lastTraceTime = now;
+                const cmdText = commands[Math.floor(Math.random() * commands.length)];
+                activeTraces.push({
+                    text: cmdText,
+                    x: mouseX + (Math.random() * 24 - 12),
+                    y: mouseY + (Math.random() * 20 - 25),
+                    opacity: 0.8,
+                    life: 1.0,
+                    vy: -0.4
+                });
+            }
+        });
+
+        heroSection.addEventListener('mouseenter', () => {
+            isHovered = true;
+            lastMoveTime = performance.now();
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            isHovered = false;
+            mouseX = -1000;
+            mouseY = -1000;
+        });
+
+        // Animation Loop
+        function render() {
+            ctx.clearRect(0, 0, width, height);
+
+            const now = performance.now();
+            const timeSinceMove = now - lastMoveTime;
+
+            // Inactivity decay: return to dormant after 1.5s of no movement or mouseleave
+            let targetActivity = (isHovered && timeSinceMove < 1600 && !prefersReducedMotion) ? 1 : 0;
+            activeActivity += (targetActivity - activeActivity) * 0.08;
+
+            const gridStep = 36;
+            const interactionRadius = 130;
+
+            // 1. Technical Grid Substructure & Local Deformation
+            ctx.lineWidth = 1;
+
+            for (let x = 0; x < width; x += gridStep) {
+                for (let y = 0; y < height; y += gridStep) {
+                    let gx = x;
+                    let gy = y;
+
+                    const dx = mouseX - x;
+                    const dy = mouseY - y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    let alpha = 0.04; // Dormant grid opacity
+                    let displaceX = 0;
+                    let displaceY = 0;
+
+                    if (dist < interactionRadius && activeActivity > 0.01) {
+                        const factor = (1 - dist / interactionRadius) * activeActivity;
+                        alpha += factor * 0.18; // Glow grid lines nearby
+                        displaceX = (dx / dist) * factor * -3;
+                        displaceY = (dy / dist) * factor * -3;
+                    }
+
+                    gx += displaceX;
+                    gy += displaceY;
+
+                    // Draw sparse intersection micro-crosses (+)
+                    if ((x / gridStep + y / gridStep) % 2 === 0) {
+                        ctx.strokeStyle = `rgba(149, 191, 71, ${alpha * 1.5})`;
+                        ctx.beginPath();
+                        ctx.moveTo(gx - 2, gy);
+                        ctx.lineTo(gx + 2, gy);
+                        ctx.moveTo(gx, gy - 2);
+                        ctx.lineTo(gx, gy + 2);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw subtle background grid lines
+            ctx.strokeStyle = `rgba(31, 41, 55, ${0.35 + activeActivity * 0.25})`;
+            ctx.beginPath();
+            for (let x = 0; x < width; x += gridStep) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+            }
+            for (let y = 0; y < height; y += gridStep) {
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+            }
+            ctx.stroke();
+
+            // 2. Local Pointer Field Glow
+            if (activeActivity > 0.02 && mouseX >= 0 && mouseY >= 0) {
+                const grad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, interactionRadius);
+                grad.addColorStop(0, `rgba(149, 191, 71, ${0.09 * activeActivity})`);
+                grad.addColorStop(0.5, `rgba(56, 189, 248, ${0.04 * activeActivity})`);
+                grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(mouseX, mouseY, interactionRadius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // 3. Ephemeral Telemetry Command Traces
+            ctx.font = '10px "JetBrains Mono", "Space Mono", monospace';
+            for (let i = activeTraces.length - 1; i >= 0; i--) {
+                const t = activeTraces[i];
+                t.y += t.vy;
+                t.life -= 0.02;
+                t.opacity = t.life * activeActivity;
+
+                if (t.life <= 0 || t.opacity <= 0.01) {
+                    activeTraces.splice(i, 1);
+                    continue;
+                }
+
+                ctx.fillStyle = `rgba(149, 191, 71, ${t.opacity * 0.85})`;
+                ctx.fillText(t.text, t.x, t.y);
+            }
+
+            // 4. Debug Telemetry Signals & Contextual Status
+            ctx.font = '9px "JetBrains Mono", "Space Mono", monospace';
+
+            if (activeActivity > 0.1 && mouseX >= 0 && mouseY >= 0) {
+                const coordText = `x: ${Math.round(mouseX)} y: ${Math.round(mouseY)} | ${contextualTarget}`;
+                ctx.fillStyle = `rgba(156, 163, 175, ${activeActivity * 0.45})`;
+                ctx.fillText(coordText, mouseX + 16, mouseY + 18);
+            }
+
+            // 5. Dormant Environmental Status Marker (Bottom Left inside Hero)
+            const dormantText = activeActivity > 0.3 ? `> runtime.active [${Math.round(activeActivity * 100)}%]` : (timeSinceMove > 2000 ? `> waiting_for_input` : `> system.ready`);
+            ctx.fillStyle = `rgba(107, 114, 128, ${0.18 + activeActivity * 0.25})`;
+            ctx.fillText(dormantText, 20, height - 16);
+
+            requestAnimationFrame(render);
+        }
+
+        render();
+    }
+
+    initHeroRuntimeBackground();
+
 });
