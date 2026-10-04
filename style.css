@@ -345,17 +345,21 @@ pre, code { font-family: var(--font-mono); }
    SHOPIFY DEV DOCS HERO BANNER & INTERACTIVE MINI TERMINAL
    ========================================================================== */
 .shopify-hero-banner {
+    position: sticky;
+    top: 72px;
+    z-index: 1;
     background-color: var(--hero-bg);
     border: 1px solid var(--hero-border);
     border-radius: var(--radius-lg);
     padding: 44px 48px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 32px;
     align-items: center;
-    position: relative;
     overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 /* Ambient Radial Glow Animation behind Hero */
@@ -1301,9 +1305,13 @@ pre, code { font-family: var(--font-mono); }
    ========================================================================== */
 
 .superset-showcase-section {
-    padding: 40px 0 60px 0;
+    position: relative;
+    z-index: 10;
+    padding: 60px 0 60px 0;
     width: 100%;
     margin-bottom: 20px;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .superset-showcase-container {
@@ -1352,26 +1360,44 @@ pre, code { font-family: var(--font-mono); }
     background: var(--accent-shopify-bg);
 }
 
-/* Right MacOS IDE Window Frame */
+/* Right MacOS IDE Window Frame (Foreground Layer) */
 .superset-ide-window {
     flex: 1;
-    background: var(--bg-surface);
+    background: transparent;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 10;
 }
 
-/* IDE Top Bar */
+/* IDE Top Bar — "The Frosted Glass Swallow" Top Edge */
 .superset-ide-header {
+    position: sticky;
+    top: var(--header-height, 56px);
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg-surface-alt);
+    background: rgba(17, 24, 39, 0.55);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid var(--border-color);
-    padding: 8px 14px;
+    padding: 10px 14px;
     font-size: 0.75rem;
     font-family: var(--font-mono);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    will-change: backdrop-filter, transform;
+    transform: translateZ(0);
+}
+
+/* Fallback for browsers lacking backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .superset-ide-header {
+        background: var(--bg-surface-alt);
+    }
 }
 
 .superset-header-left {
