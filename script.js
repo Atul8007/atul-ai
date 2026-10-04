@@ -905,6 +905,60 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         render();
     }
 
+    // --- 9. Premium Motion Layer (3D Tilt Perspective, Cursor Spotlight & Magnetic Micro-Interactions) ---
+    function initPremiumMotionLayer() {
+        const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // A. Card Cursor Spotlight & 3D Tilt Perspective
+        const tiltPanels = document.querySelectorAll('.shopify-hero-banner, .superset-ide-window, .doc-card, .project-card, .mini-terminal-window, .claude-toast-card, .contact-card, .workspace');
+        
+        tiltPanels.forEach(panel => {
+            panel.classList.add('booting');
+
+            panel.addEventListener('pointermove', (e) => {
+                if (motionReduced) return;
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                panel.style.setProperty('--pointer-x', `${(x / rect.width) * 100}%`);
+                panel.style.setProperty('--pointer-y', `${(y / rect.height) * 100}%`);
+
+                // Subtle 3D Perspective Tilt calculation
+                const rotateX = -((y / rect.height) * 1.2 - 0.6);
+                const rotateY = (x / rect.width) * 1.2 - 0.6;
+
+                panel.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-3px)`;
+            });
+
+            panel.addEventListener('pointerleave', () => {
+                if (motionReduced) return;
+                panel.style.transform = '';
+            });
+        });
+
+        // B. Magnetic Hover Pull on Interactive Controls
+        const magneticControls = document.querySelectorAll('.hero-btn-primary, .hero-btn-secondary, .ask-assistant-btn, .t-btn, .superset-nav-item, .editor-tab');
+        
+        magneticControls.forEach(ctrl => {
+            if (motionReduced) return;
+
+            ctrl.addEventListener('pointermove', (e) => {
+                const rect = ctrl.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                ctrl.style.transform = `translate(${x * 3}px, ${y * 3}px) translateY(-2px) scale(1.015)`;
+            });
+
+            ctrl.addEventListener('pointerleave', () => {
+                ctrl.style.transform = '';
+            });
+        });
+    }
+
+    initPremiumMotionLayer();
     initGlobalRuntimeBackground();
 
 });
+
