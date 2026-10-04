@@ -344,4 +344,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 9. Dynamic Typewriter Heading Animation ---
+    const typewriterHeading = document.getElementById('typewriter-heading');
+    if (typewriterHeading) {
+        const targetSpan = typewriterHeading.querySelector('.typewriter-text');
+        const fullText = typewriterHeading.getAttribute('data-text') || "I Build What Shopify Can't";
+        if (targetSpan) {
+            targetSpan.textContent = '';
+            let charIdx = 0;
+
+            function typeNextChar() {
+                if (charIdx < fullText.length) {
+                    targetSpan.textContent += fullText.charAt(charIdx);
+                    charIdx++;
+                    const delay = Math.floor(Math.random() * 25) + 40; // 40-65ms natural typing variance
+                    setTimeout(typeNextChar, delay);
+                }
+            }
+            setTimeout(typeNextChar, 300);
+        }
+    }
+
 });
