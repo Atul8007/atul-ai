@@ -554,11 +554,16 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                 <div class="assistant-drawer" id="assistant-drawer" aria-hidden="true">
                     <div class="assistant-header">
                         <div class="assistant-title">
-                            <span class="sparkle-icon">✦</span>
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="none"><path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#38bdf8"/></svg>
                             <span>Assistant</span>
                         </div>
                         <div class="assistant-actions">
-                            <button class="assistant-icon-btn" id="assistant-clear-btn" title="New Chat">⟳</button>
+                            <button class="assistant-icon-btn" id="assistant-clear-btn" title="New Chat">
+                                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M12.5 3.5L10 1H3v14h10V3.5zM11 13H5V3h4v2h2v8z"/></svg>
+                            </button>
+                            <button class="assistant-icon-btn" id="assistant-history-btn" title="History">
+                                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zm0 10a4 4 0 110-8 4 4 0 010 8zm.5-6.5h-1v3.5l3 1.8.5-.8-2.5-1.5V5.5z"/></svg>
+                            </button>
                             <button class="assistant-icon-btn" id="assistant-close-btn" title="Close Assistant">✕</button>
                         </div>
                     </div>
@@ -568,13 +573,6 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                             <div class="assistant-big-sparkle">✦</div>
                             <div style="font-weight:700; font-size:1.1rem; color:var(--text-primary); margin-bottom:4px;">How can I help you today?</div>
                             <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:16px;">Ask anything about Atul's Shopify development experience, tools, or Liquid &amp; API architecture.</div>
-                        </div>
-
-                        <div class="assistant-input-box">
-                            <textarea class="assistant-textarea" id="assistant-input" placeholder="What would you like to know?" rows="2"></textarea>
-                            <div class="assistant-input-footer">
-                                <button class="assistant-send-btn" id="assistant-send-btn">Send ➤</button>
-                            </div>
                         </div>
 
                         <div class="assistant-chat-log" id="assistant-chat-log"></div>
@@ -596,6 +594,15 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
                                 <div class="assistant-example-item" data-prompt="How can I get in touch with Atul for Shopify projects?">How can I get in touch with Atul for Shopify projects?</div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Floating Pill Input Bar at Bottom -->
+                    <div class="assistant-bottom-pill-bar">
+                        <svg class="search-sparkle-icon" viewBox="0 0 16 16" width="16" height="16" fill="none"><path d="M7 2a5 5 0 100 10A5 5 0 007 2zM1 7a6 6 0 1110.3 4.2l3.4 3.4-1.4 1.4-3.4-3.4A6 6 0 011 7z" fill="#38bdf8"/></svg>
+                        <input type="text" class="assistant-pill-input" id="assistant-input" placeholder="Ask follow up" autocomplete="off" spellcheck="false">
+                        <button class="assistant-pill-send" id="assistant-send-btn" title="Send Message">
+                            <svg viewBox="0 0 16 16" width="16" height="16" fill="#38bdf8"><path d="M1.5 1.5L15 8L1.5 14.5V9.5L10 8L1.5 6.5V1.5Z"/></svg>
+                        </button>
                     </div>
                 </div>
             `;
@@ -634,6 +641,7 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         if (clearBtn) {
             clearBtn.addEventListener('click', () => {
                 if (chatLog) chatLog.innerHTML = '';
+                if (drawer) drawer.classList.remove('has-started');
             });
         }
 
@@ -643,7 +651,9 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
 
             if (input) input.value = '';
 
-            // Render user message
+            if (drawer) drawer.classList.add('has-started');
+
+            // Render user message bubble (aligned left, cyan bubble)
             const userMsg = document.createElement('div');
             userMsg.className = 'chat-msg user';
             userMsg.textContent = text;
@@ -652,10 +662,10 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
             // Scroll log
             chatLog.scrollTop = chatLog.scrollHeight;
 
-            // Show typing state
+            // Show 4-dot cyan glowing grid loading indicator
             const typingMsg = document.createElement('div');
-            typingMsg.className = 'chat-msg assistant typing';
-            typingMsg.innerHTML = `<span class="author">✦ Assistant</span><div><em>Thinking with Groq Llama 3.1...</em></div>`;
+            typingMsg.className = 'chat-msg typing';
+            typingMsg.innerHTML = `<div class="dots-grid"><span></span><span></span><span></span><span></span></div>`;
             chatLog.appendChild(typingMsg);
             chatLog.scrollTop = chatLog.scrollHeight;
 
@@ -665,18 +675,19 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
 
                 const assistantMsg = document.createElement('div');
                 assistantMsg.className = 'chat-msg assistant';
-                assistantMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${formatMarkdownResponse(replyText)}</div>`;
+                assistantMsg.innerHTML = `<div>${formatMarkdownResponse(replyText)}</div>`;
                 chatLog.appendChild(assistantMsg);
                 chatLog.scrollTop = chatLog.scrollHeight;
             } catch (e) {
                 typingMsg.remove();
                 const fallbackMsg = document.createElement('div');
                 fallbackMsg.className = 'chat-msg assistant';
-                fallbackMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${generateAssistantResponse(text)}</div>`;
+                fallbackMsg.innerHTML = `<div>${generateAssistantResponse(text)}</div>`;
                 chatLog.appendChild(fallbackMsg);
                 chatLog.scrollTop = chatLog.scrollHeight;
             }
         }
+
 
         if (sendBtn) sendBtn.addEventListener('click', () => handleSend());
 
