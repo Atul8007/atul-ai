@@ -177,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (searchTriggerBtn) searchTriggerBtn.addEventListener('click', openSearch);
-    if (askAssistantBtn) askAssistantBtn.addEventListener('click', openSearch);
     if (searchBackdrop) searchBackdrop.addEventListener('click', closeSearch);
 
     document.addEventListener('keydown', (e) => {
@@ -186,9 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
             searchModal && searchModal.classList.contains('active') ? closeSearch() : openSearch();
-        } else if (e.key === '/' && !isInput) {
-            e.preventDefault();
-            openSearch();
         } else if (e.key === 'Escape') {
             closeSearch();
         }
@@ -364,5 +360,184 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(typeNextChar, 300);
         }
     }
+
+    // --- 10. Side Drawer Assistant Chat Window (Exact Shopify Dev Docs Replica) ---
+    function generateAssistantResponse(query) {
+        const q = query.toLowerCase().trim();
+
+        if (q.includes('figclaw') || q.includes('figma')) {
+            return `<strong>FigClaw</strong> is a design-to-code workflow tool built by Atul. It converts Figma REST API design specs directly into structured Shopify Liquid templates and theme extensions.<br><br>📍 Learn more: <a href="/projects/figclaw.html" style="color:var(--accent-shopify); text-decoration:underline;">FigClaw Documentation &amp; Case Study →</a>`;
+        }
+
+        if (q.includes('profile') || q.includes('switcher') || q.includes('cli') || q.includes('auth')) {
+            return `<strong>Profile Switcher</strong> is a VS Code Extension created by Atul for managing and instantly toggling active CLI development store contexts across multiple partner &amp; staging environments.<br><br>📍 Learn more: <a href="/projects/profile-switcher.html" style="color:var(--accent-shopify); text-decoration:underline;">Profile Switcher Documentation →</a>`;
+        }
+
+        if (q.includes('theme') || q.includes('inspector') || q.includes('check')) {
+            return `<strong>ShopifyThemeCheck</strong> is a Manifest V3 Chrome Extension and developer inspection utility for analyzing live Shopify storefront assets, Liquid schemas, and app scripts in real-time.<br><br>📍 Learn more: <a href="/projects/theme-inspector.html" style="color:var(--accent-shopify); text-decoration:underline;">ShopifyThemeCheck Case Study →</a>`;
+        }
+
+        if (q.includes('gql') || q.includes('graphql') || q.includes('admin') || q.includes('storefront')) {
+            return `Atul specializes in both <strong>Admin GraphQL API</strong> and <strong>Storefront GraphQL API</strong> integrations, including custom product metafield schemas, cart mutation pipelines, and high-volume storefront data fetching.`;
+        }
+
+        if (q.includes('liquid') || q.includes('variant') || q.includes('cart') || q.includes('dawn')) {
+            return `Atul builds high-performance custom Liquid themes, dynamic multi-option variant selectors, and slide-out cart drawers with line-item upsell extensions tailored for Dawn and custom theme architectures.`;
+        }
+
+        if (q.includes('checkout') || q.includes('extension')) {
+            return `Atul builds <strong>Checkout UI Extensions</strong> using React &amp; TypeScript for Shopify Plus merchants, including custom order bumps, address validation extensions, and custom metafield rendering on checkout.`;
+        }
+
+        if (q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('project')) {
+            return `Atul is available for full-stack Shopify projects, CLI tooling, and custom extension engineering!<br><br>📧 <strong>Email</strong>: <a href="mailto:atulmundakkal@outlook.com" style="color:var(--accent-shopify);">atulmundakkal@outlook.com</a><br>🐙 <strong>GitHub</strong>: <a href="https://github.com/Atul8007" target="_blank" style="color:var(--accent-cyan);">github.com/Atul8007</a>`;
+        }
+
+        return `I can help you explore Atul's Shopify developer portfolio, including custom Liquid architecture, Storefront GraphQL APIs, Checkout UI Extensions, and featured projects like <strong>FigClaw</strong>, <strong>Profile Switcher</strong>, and <strong>ShopifyThemeCheck</strong>.<br><br>What specific topic or project would you like to inspect?`;
+    }
+
+    function initAssistantDrawer() {
+        if (!document.getElementById('assistant-drawer')) {
+            const drawerMarkup = `
+                <div class="assistant-drawer-backdrop" id="assistant-backdrop"></div>
+                <div class="assistant-drawer" id="assistant-drawer" aria-hidden="true">
+                    <div class="assistant-header">
+                        <div class="assistant-title">
+                            <span class="sparkle-icon">✦</span>
+                            <span>Assistant</span>
+                        </div>
+                        <div class="assistant-actions">
+                            <button class="assistant-icon-btn" id="assistant-clear-btn" title="New Chat">⟳</button>
+                            <button class="assistant-icon-btn" id="assistant-close-btn" title="Close Assistant">✕</button>
+                        </div>
+                    </div>
+
+                    <div class="assistant-body" id="assistant-body">
+                        <div class="assistant-welcome" id="assistant-welcome">
+                            <div class="assistant-big-sparkle">✦</div>
+                            <div style="font-weight:700; font-size:1.1rem; color:var(--text-primary); margin-bottom:4px;">How can I help you today?</div>
+                            <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:16px;">Ask anything about Atul's Shopify development experience, tools, or Liquid &amp; API architecture.</div>
+                        </div>
+
+                        <div class="assistant-input-box">
+                            <textarea class="assistant-textarea" id="assistant-input" placeholder="What would you like to know?" rows="2"></textarea>
+                            <div class="assistant-input-footer">
+                                <button class="assistant-send-btn" id="assistant-send-btn">Send ➤</button>
+                            </div>
+                        </div>
+
+                        <div class="assistant-chat-log" id="assistant-chat-log"></div>
+
+                        <div class="assistant-suggestions" id="assistant-suggestions">
+                            <div class="assistant-section-label">TOPICS</div>
+                            <div class="assistant-pills-row">
+                                <button class="assistant-pill" data-prompt="Tell me about Atul's GraphQL Admin & Storefront API expertise">⚙ GQL Admin</button>
+                                <button class="assistant-pill" data-prompt="What Liquid theme architecture does Atul specialize in?">💧 Liquid</button>
+                                <button class="assistant-pill" data-prompt="What is FigClaw and how does it convert Figma REST API to Liquid?">⚡ FigClaw</button>
+                                <button class="assistant-pill" data-prompt="How does Profile Switcher manage multi-store CLI environments?">🔄 ProfileSwitcher</button>
+                                <button class="assistant-pill" data-prompt="What does ShopifyThemeCheck do for theme inspection?">🔍 ShopifyThemeCheck</button>
+                            </div>
+
+                            <div class="assistant-section-label" style="margin-top:16px;">EXAMPLES</div>
+                            <div class="assistant-examples-list">
+                                <div class="assistant-example-item" data-prompt="What is Atul's experience with Checkout UI Extensions?">What is Atul's experience with Checkout UI Extensions?</div>
+                                <div class="assistant-example-item" data-prompt="How does FigClaw create Liquid section code from Figma frames?">How does FigClaw create Liquid section code from Figma frames?</div>
+                                <div class="assistant-example-item" data-prompt="How can I get in touch with Atul for Shopify projects?">How can I get in touch with Atul for Shopify projects?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', drawerMarkup);
+        }
+
+        const backdrop = document.getElementById('assistant-backdrop');
+        const drawer = document.getElementById('assistant-drawer');
+        const askBtn = document.getElementById('ask-assistant-btn');
+        const closeBtn = document.getElementById('assistant-close-btn');
+        const clearBtn = document.getElementById('assistant-clear-btn');
+        const sendBtn = document.getElementById('assistant-send-btn');
+        const input = document.getElementById('assistant-input');
+        const chatLog = document.getElementById('assistant-chat-log');
+
+        function openDrawer() {
+            if (drawer && backdrop) {
+                drawer.classList.add('active');
+                backdrop.classList.add('active');
+                drawer.setAttribute('aria-hidden', 'false');
+                if (input) setTimeout(() => input.focus(), 150);
+            }
+        }
+
+        function closeDrawer() {
+            if (drawer && backdrop) {
+                drawer.classList.remove('active');
+                backdrop.classList.remove('active');
+                drawer.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        if (askBtn) askBtn.addEventListener('click', openDrawer);
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        if (backdrop) backdrop.addEventListener('click', closeDrawer);
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                if (chatLog) chatLog.innerHTML = '';
+            });
+        }
+
+        function handleSend(promptText) {
+            const text = promptText || (input ? input.value.trim() : '');
+            if (!text) return;
+
+            if (input) input.value = '';
+
+            // Render user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.textContent = text;
+            chatLog.appendChild(userMsg);
+
+            // Scroll log
+            chatLog.scrollTop = chatLog.scrollHeight;
+
+            // Show typing state
+            const typingMsg = document.createElement('div');
+            typingMsg.className = 'chat-msg assistant typing';
+            typingMsg.innerHTML = `<span class="author">✦ Assistant</span><span>Thinking...</span>`;
+            chatLog.appendChild(typingMsg);
+            chatLog.scrollTop = chatLog.scrollHeight;
+
+            setTimeout(() => {
+                typingMsg.remove();
+                const reply = generateAssistantResponse(text);
+                const assistantMsg = document.createElement('div');
+                assistantMsg.className = 'chat-msg assistant';
+                assistantMsg.innerHTML = `<span class="author">✦ Assistant</span><div>${reply}</div>`;
+                chatLog.appendChild(assistantMsg);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 450);
+        }
+
+        if (sendBtn) sendBtn.addEventListener('click', () => handleSend());
+
+        if (input) {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                }
+            });
+        }
+
+        document.querySelectorAll('.assistant-pill, .assistant-example-item').forEach(el => {
+            el.addEventListener('click', () => {
+                const prompt = el.getAttribute('data-prompt');
+                if (prompt) handleSend(prompt);
+            });
+        });
+    }
+
+    initAssistantDrawer();
 
 });

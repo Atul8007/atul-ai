@@ -1202,6 +1202,301 @@ pre, code { font-family: var(--font-mono); }
 }
 
 /* ==========================================================================
+   SIDE DRAWER ASSISTANT CHAT WINDOW (Exact Shopify.dev Assistant Replica)
+   ========================================================================== */
+.assistant-drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(11, 15, 25, 0.65);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.assistant-drawer-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.assistant-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 440px;
+    max-width: 92vw;
+    height: 100vh;
+    background: var(--bg-surface);
+    border-left: 1px solid var(--border-color);
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: var(--font-sans);
+}
+
+.assistant-drawer.active {
+    transform: translateX(0);
+}
+
+/* Assistant Header */
+.assistant-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: var(--bg-surface-alt);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.assistant-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.assistant-title .sparkle-icon {
+    color: var(--accent-shopify);
+    font-size: 1.1rem;
+    animation: pulseSparkle 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseSparkle {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px var(--accent-shopify)); }
+    50% { transform: scale(1.25); filter: drop-shadow(0 0 10px var(--accent-shopify)); }
+}
+
+.assistant-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.assistant-icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.assistant-icon-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-surface-hover);
+}
+
+/* Assistant Body */
+.assistant-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.assistant-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.assistant-big-sparkle {
+    width: 56px;
+    height: 56px;
+    background: rgba(149, 191, 71, 0.1);
+    border: 1px solid var(--accent-shopify-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent-shopify);
+    margin-bottom: 16px;
+    box-shadow: 0 0 25px rgba(149, 191, 71, 0.2);
+    animation: pulseSparkle 3s infinite ease-in-out;
+}
+
+/* Input Area Container */
+.assistant-input-box {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.assistant-input-box:focus-within {
+    border-color: var(--accent-shopify-border);
+    box-shadow: 0 0 15px rgba(149, 191, 71, 0.15);
+}
+
+.assistant-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    resize: none;
+    min-height: 54px;
+}
+
+.assistant-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.assistant-input-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.assistant-send-btn {
+    background: var(--accent-shopify);
+    color: #0b0f19;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: var(--transition);
+}
+
+.assistant-send-btn:hover {
+    background-color: #a8d653;
+    transform: translateY(-1px);
+}
+
+/* Topic Shortcut Pills */
+.assistant-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+}
+
+.assistant-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.assistant-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.assistant-pill:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-shopify-border);
+    background: var(--bg-surface-hover);
+}
+
+/* Example Prompts List */
+.assistant-examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.assistant-example-item {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-alt);
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.assistant-example-item:hover {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    background: var(--bg-surface-hover);
+}
+
+/* Chat Messages Log */
+.assistant-chat-log {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.chat-msg {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.chat-msg.user {
+    align-self: flex-end;
+    background: var(--accent-shopify-bg);
+    border: 1px solid var(--accent-shopify-border);
+    color: var(--text-primary);
+    padding: 10px 14px;
+    border-radius: var(--radius-md) var(--radius-md) 0 var(--radius-md);
+    max-width: 85%;
+}
+
+.chat-msg.assistant {
+    align-self: flex-start;
+    background: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: var(--radius-md) var(--radius-md) var(--radius-md) 0;
+    max-width: 95%;
+}
+
+.chat-msg.assistant .author {
+    color: var(--accent-shopify);
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ==========================================================================
    FOOTER (Exact Shopify Dev Docs Style)
    ========================================================================== */
 .doc-footer {
