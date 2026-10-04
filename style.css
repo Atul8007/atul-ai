@@ -137,6 +137,13 @@ h1, h2, h3, h4, h5, h6 {
 
 a { color: inherit; text-decoration: none; transition: var(--transition); }
 ul, ol { list-style: none; }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 pre, code { font-family: var(--font-mono); }
 
 /* ==========================================================================
@@ -2145,24 +2152,128 @@ pre, code { font-family: var(--font-mono); }
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .doc-header-container {
+        padding: 0 12px;
+        gap: 6px;
+    }
+
+    .brand-badge {
+        display: none;
+    }
+
+    .header-right {
+        gap: 6px;
+    }
+
+    .ask-assistant-btn {
+        padding: 4px 10px;
+        font-size: 0.78rem;
+    }
+
+    .ask-assistant-btn kbd {
+        display: none;
+    }
+
+    .icon-link {
+        display: none;
+    }
+
     .shopify-hero-banner {
+        grid-template-columns: 1fr;
+        gap: 20px;
         padding: 24px 16px;
-        border-radius: var(--radius-md);
+        margin-bottom: 24px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-left h1, .hero-left h1.hero-typewriter-title {
-        font-size: 1.55rem;
+        font-size: 1.45rem;
+        line-height: 1.28;
+        letter-spacing: -0.01em;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .hero-left p {
+        font-size: 0.88rem;
+        line-height: 1.5;
+        max-width: 100%;
     }
 
     .hero-actions {
         flex-direction: column;
-        align-items: stretch;
+        gap: 10px;
+        width: 100%;
     }
 
     .hero-btn-primary, .hero-btn-secondary {
-        justify-content: center;
         width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+        box-sizing: border-box;
+    }
+
+    .t-shortcuts-row {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .t-btn {
+        font-size: 0.68rem;
+        padding: 3px 6px;
+    }
+
+    .superset-showcase-section {
+        padding: 10px 0 40px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .superset-ide-window {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .claude-toast-card {
+        width: 100%;
+        box-sizing: border-box;
+        align-self: stretch;
+        margin-top: 14px;
+        margin-bottom: 0;
+    }
+
+    .cli-box {
+        overflow-x: auto;
+        font-size: 0.68rem !important;
+    }
+
+    .automations-table {
+        overflow-x: auto;
+    }
+
+    .projects-grid, .doc-cards-grid, .card-grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .doc-card, .project-card {
+        padding: 20px 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .shopify-hero-banner {
+        padding: 20px 14px;
+        border-radius: var(--radius-md);
+    }
+
+    .hero-left h1, .hero-left h1.hero-typewriter-title {
+        font-size: 1.35rem;
     }
 
     .assistant-drawer {
