@@ -364,10 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 10. Side Drawer Assistant Chat Window (Groq Llama 3.1 AI Integration) ---
     function formatMarkdownResponse(text) {
         if (!text) return '';
+        if (/<[a-z][\s\S]*>/i.test(text)) {
+            return text;
+        }
         return text
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:var(--accent-shopify); text-decoration:underline;" target="_blank">$1</a>')
