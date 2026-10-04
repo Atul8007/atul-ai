@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Product Variants on Shopify — Case Study — Atul Mundakkal</title>
+    <meta name="description" content="Case study: Native metafields, native metaobjects, no apps. Scaling Shopify stores past the 100-variant ceiling.">
+    <link rel="canonical" href="https://atul-ai.pages.dev/case-studies/unlimited-variants.html">
+
+    <!-- Google Fonts: Geist & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css?v=6.0.0">
+</head>
+<body>
+
+    <!-- COMPACT DEVELOPER HEADER (Shopify Dev Docs Style) -->
+    <header class="doc-header" id="doc-header">
+        <div class="doc-header-container">
+            
+            <div class="header-left">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Navigation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2 2h12v12H2V2zm2 2v8h3V4H4zm4 0v8h4V4H8z"/></svg>
+                </button>
+
+                <a href="/index.html" class="doc-brand">
+                    <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                        <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                    </svg>
+                    <span class="brand-text">ATUL MUNDAKKAL</span>
+                    <span class="brand-badge">portfolio</span>
+                </a>
+            </div>
+
+            <nav class="doc-top-nav">
+                <a href="/index.html" class="top-nav-link">Overview</a>
+                <a href="/projects.html" class="top-nav-link active">Projects</a>
+                <a href="/about.html" class="top-nav-link">About</a>
+                <a href="/experience.html" class="top-nav-link">Experience</a>
+                <a href="/contact.html" class="top-nav-link">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <button class="ask-assistant-btn" id="ask-assistant-btn" aria-label="Ask Assistant">
+                    <span style="font-size:0.9rem;">✦</span>
+                    <span>Ask assistant</span>
+                    <kbd style="font-family:var(--font-mono); font-size:0.68rem; opacity:0.7;">/</kbd>
+                </button>
+
+                <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Documentation">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                </button>
+
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span class="theme-icon" id="theme-icon">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M6 2h4v1H6V2zM4 4h2v1H4V4zm8 0h-2v1h2V4zM3 6h1v4H3V6zm10 0h-1v4h1V6zM4 10h2v1H4v-1zm8 0h-2v1h2v-1zM6 12h4v1H6v-1z"/></svg>
+                    </span>
+                </button>
+
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Profile">
+                    <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v2H5V1zM3 3h2v2H3V3zm10 0h-2v2h2V3zM2 5h1v5H2V5zm12 0h-1v5h1V5zM3 10h2v2H3v-2zm10 0h-2v2h2v-2zM5 12h2v3H5v-3zm4 0h2v3H9v-3z"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3-COLUMN DOCUMENTATION LAYOUT -->
+    <div class="doc-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="doc-sidebar" id="doc-sidebar">
+            <div class="sidebar-inner">
+                
+                <div class="sidebar-group">
+                    <div class="sidebar-title">CASE STUDY</div>
+                    <ul class="sidebar-links">
+                        <li>
+                            <a href="/index.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3 1h7l4 4v10H3V1zm2 3v1h4V4H5zm0 3v1h6V7H5zm0 3v1h6v-1H5zm0 3v1h4v-1H5z"/></svg>
+                                Overview
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">NAVIGATION</div>
+                    <ul class="sidebar-links">
+                        <li><a href="#the-ceiling" class="sidebar-link indent">1. The ceiling</a></li>
+                        <li><a href="#the-pattern" class="sidebar-link indent">2. The pattern</a></li>
+                        <li><a href="#what-this-unlocks" class="sidebar-link indent">3. What this unlocks</a></li>
+                        <li><a href="#what-it-costs" class="sidebar-link indent">4. What it costs</a></li>
+                        <li><a href="#how-it-fits-together" class="sidebar-link indent">5. How it fits together</a></li>
+                        <li><a href="#filtering" class="sidebar-link indent">6. Filtering</a></li>
+                        <li><a href="#in-practice" class="sidebar-link indent">7. In practice</a></li>
+                        <li><a href="#where-this-fits" class="sidebar-link indent">8. Where this fits</a></li>
+                        <li><a href="#the-bottom-line" class="sidebar-link indent">9. The bottom line</a></li>
+                        <li><a href="#next-steps" class="sidebar-link indent">10. Next steps</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-title">PROJECTS</div>
+                    <ul class="sidebar-links">
+                        <li>
+                            <a href="/projects.html" class="sidebar-link">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M2 2h12v12H2V2zm2 2v8h8V4H4z"/></svg>
+                                All Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/figclaw.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M3 2h4v4H3V2zm6 0h4v4H9V2zM3 6h4v4H3V6zm6 0h4v4H9V6zm-3 4h4v4H6v-4z"/></svg>
+                                FigClaw
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/profile-switcher.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#38bdf8" d="M6 2h4v2H6V2zM4 4h2v4H4V4zm6 0h2v4h-2V4zM2 8h12v2H2V8zm2 2h2v4H4v-4zm6 0h2v4h-2v-4z"/></svg>
+                                Profile Switcher
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects/theme-inspector.html" class="sidebar-link indent">
+                                <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#f59e0b" d="M4 2h8v2H4V2zM2 4h2v8H2V4zm10 0h2v8h-2V4zM4 12h8v2H4v-2zm2-5h4v2H6V7z"/></svg>
+                                ShopifyThemeCheck
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- MAIN DOCUMENTATION CONTENT -->
+        <main class="doc-main">
+            
+            <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/index.html">Docs</a></li>
+                    <li><a href="/projects.html">Case Studies</a></li>
+                    <li aria-current="page">Unlimited Product Variants</li>
+                </ol>
+            </nav>
+
+            <header class="doc-page-header">
+                <div class="doc-tag" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-shopify); border-color: rgba(16, 185, 129, 0.3);">SHOPIFY ARCHITECTURE CASE STUDY</div>
+                <h1 class="doc-title">Unlimited Product Variants on Shopify</h1>
+                <p class="doc-lead" style="font-weight: 600; color: var(--text-primary);">Native metafields. Native metaobjects. No apps.</p>
+            </header>
+
+            <div class="project-links-row">
+                <span class="doc-badge-btn" style="background: var(--bg-surface); border-color: var(--accent-shopify); color: var(--accent-shopify);">
+                    ✦ Zero App Overhead
+                </span>
+                <span class="doc-badge-btn" style="background: var(--bg-surface); border-color: var(--accent-cyan); color: var(--accent-cyan);">
+                    ⚡ Native Search &amp; Discovery
+                </span>
+            </div>
+
+            <hr class="doc-divider">
+
+            <!-- SECTION 1: THE CEILING -->
+            <section id="the-ceiling" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-ceiling">
+                        <span>1. The ceiling</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Shopify's native architecture caps variant counts at 100 per product handle.</p>
+
+                <p>
+                    Complex commerce catalog structures break against this limitation. Four primary catalog types encounter this wall immediately:
+                </p>
+
+                <ul class="doc-list">
+                    <li><strong>Apparel matrices</strong> — Size × Color × Fit × Length (300+ SKUs per style).</li>
+                    <li><strong>Furniture configurators</strong> — Fabric × Finish × Cushion × Leg Style (500+ SKUs per model).</li>
+                    <li><strong>Auto parts</strong> — Year × Make × Model × Engine Spec (1,000+ SKUs per component).</li>
+                    <li><strong>Industrial specs</strong> — Voltage × Mount × PSI × Thread Size (2,000+ SKUs per line).</li>
+                </ul>
+
+                <p>
+                    Merchants face a binary dilemma: install third-party options apps that charge recurring fees and inject DOM-blocking script tags, or split products into disconnected handles that ruin inventory tracking and collection filtering.
+                </p>
+            </section>
+
+            <!-- SECTION 2: THE PATTERN -->
+            <section id="the-pattern" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-pattern">
+                        <span>2. The pattern</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Decouple storefront display logic from transactional cart line items using native platform primitives.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Parent product</strong> — Storefront face, not purchasable directly.</li>
+                    <li><strong>Metaobject</strong> — Grouping layer defining option schemas and child references.</li>
+                    <li><strong>Child products</strong> — One real Shopify product per variant combination with independent inventory and pricing.</li>
+                </ul>
+
+                <!-- PIXELATED DIAGRAM 1: THREE-TIER STACK -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag">DIAGRAM 1</span>
+                        <span class="diagram-title">Three-tier stack architecture (Parent → Metaobject → Child grid)</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 230" width="100%" height="auto" shape-rendering="crispEdges">
+                            <!-- Background Grid lines -->
+                            <pattern id="pixel-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                            </pattern>
+                            <rect width="680" height="230" fill="#0b0f19"/>
+                            <rect width="680" height="230" fill="url(#pixel-grid)"/>
+
+                            <!-- Parent Product -->
+                            <rect x="230" y="16" width="220" height="42" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="340" y="42" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">PARENT PRODUCT (STOREFRONT FACE)</text>
+
+                            <!-- Flow Arrow Down 1 -->
+                            <path d="M336 58 h8 v16 h8 l-12 12 l-12 -12 h8 z" fill="#10b981"/>
+
+                            <!-- Metaobject Grouping -->
+                            <rect x="180" y="88" width="320" height="42" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="340" y="114" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">METAOBJECT (OPTION MATRIX &amp; CHILDREN)</text>
+
+                            <!-- Flow Line Branches -->
+                            <path d="M336 130 h8 v14 h-200 v12 h-8 v-12 h200 z" fill="#38bdf8"/>
+                            <path d="M336 130 h8 v26 h-8 z" fill="#38bdf8"/>
+                            <path d="M336 130 h8 v14 h200 v12 h8 v-12 h-200 z" fill="#38bdf8"/>
+
+                            <!-- Child Products Grid -->
+                            <rect x="40" y="160" width="180" height="44" fill="#111827" stroke="#374151" stroke-width="2"/>
+                            <text x="130" y="186" text-anchor="middle" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="11">CHILD 001 (S / RED)</text>
+
+                            <rect x="250" y="160" width="180" height="44" fill="#111827" stroke="#374151" stroke-width="2"/>
+                            <text x="340" y="186" text-anchor="middle" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="11">CHILD 002 (M / RED)</text>
+
+                            <rect x="460" y="160" width="180" height="44" fill="#111827" stroke="#374151" stroke-width="2"/>
+                            <text x="550" y="186" text-anchor="middle" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="11">CHILD 320 (XL / BLACK)</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: WHAT THIS UNLOCKS -->
+            <section id="what-this-unlocks" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#what-this-unlocks">
+                        <span>3. What this unlocks</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Full merchant capabilities without third-party runtime dependencies.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Unlimited variants</strong> — Scale past 100 variants without hitting hard API limits or payload thresholds.</li>
+                    <li><strong>Native filtering</strong> — Search &amp; Discovery filters operate out of the box with zero custom indexers.</li>
+                    <li><strong>Per-variant SEO</strong> — Every option combination receives a unique canonical URL, meta title, and schema markup.</li>
+                    <li><strong>Full inventory control</strong> — Multi-location stock allocation and fulfillment rules remain native per SKU.</li>
+                    <li><strong>Zero recurring cost</strong> — Permanently eliminates monthly option app subscriptions.</li>
+                    <li><strong>No theme conflicts</strong> — Pure Liquid and Metaobject structure prevents script-injection bugs.</li>
+                    <li><strong>Markets/POS/B2B ready</strong> — Native compatibility with Shopify Markets currencies, POS barcode scanners, and B2B catalogs.</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 4: WHAT IT COSTS -->
+            <section id="what-it-costs" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#what-it-costs">
+                        <span>4. What it costs</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Architectural constraints and operational trade-offs to evaluate before migrating.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Product count scales 1:1</strong> — Admin product count increases proportionally with variant SKUs.</li>
+                    <li><strong>Cart logic targets child IDs</strong> — Form actions and cart drawer requests must send child variant product IDs.</li>
+                    <li><strong>One-time theme work</strong> — Requires custom Liquid swatch logic and metaobject rendering templates.</li>
+                    <li><strong>Collection hygiene</strong> — Parent products require tag filtering to exclude raw child SKUs from default collection grids.</li>
+                    <li><strong>Bulk creation via API or CSV</strong> — Catalog management relies on automated CSV imports or Admin API scripts.</li>
+                </ul>
+
+                <p class="summary-note" style="margin-top: 16px; font-weight: 600; color: var(--accent-shopify);">
+                    These costs are lower than the alternatives past the 100-variant line.
+                </p>
+            </section>
+
+            <!-- SECTION 5: HOW IT FITS TOGETHER -->
+            <section id="how-it-fits-together" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#how-it-fits-together">
+                        <span>5. How it fits together</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">A five-stage architecture connecting admin data models to storefront Liquid rendering.</p>
+
+                <ul class="doc-list">
+                    <li>Create children</li>
+                    <li>Define the metaobject</li>
+                    <li>Attach the metafield</li>
+                    <li>Render the template</li>
+                    <li>Filter natively</li>
+                </ul>
+
+                <!-- PIXELATED DIAGRAM 2: FLOW CHART -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag">DIAGRAM 2</span>
+                        <span class="diagram-title">Flow chart (Children → Metaobject → Metafield → Template → Filters)</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 140" width="100%" height="auto" shape-rendering="crispEdges">
+                            <rect width="680" height="140" fill="#0b0f19"/>
+                            <rect width="680" height="140" fill="url(#pixel-grid)"/>
+
+                            <!-- Node 1: Children -->
+                            <rect x="20" y="48" width="100" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="70" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">1. CHILDREN</text>
+
+                            <!-- Arrow 1 -->
+                            <path d="M124 66 h16 v-6 l10 10 l-10 10 v-6 h-16 z" fill="#10b981"/>
+
+                            <!-- Node 2: Metaobject -->
+                            <rect x="154" y="48" width="110" height="44" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="209" y="74" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">2. METAOBJECT</text>
+
+                            <!-- Arrow 2 -->
+                            <path d="M268 66 h16 v-6 l10 10 l-10 10 v-6 h-16 z" fill="#38bdf8"/>
+
+                            <!-- Node 3: Metafield -->
+                            <rect x="298" y="48" width="106" height="44" fill="#161e2e" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="351" y="74" text-anchor="middle" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">3. METAFIELD</text>
+
+                            <!-- Arrow 3 -->
+                            <path d="M408 66 h16 v-6 l10 10 l-10 10 v-6 h-16 z" fill="#f59e0b"/>
+
+                            <!-- Node 4: Template -->
+                            <rect x="438" y="48" width="104" height="44" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
+                            <text x="490" y="74" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">4. TEMPLATE</text>
+
+                            <!-- Arrow 4 -->
+                            <path d="M546 66 h16 v-6 l10 10 l-10 10 v-6 h-16 z" fill="#a855f7"/>
+
+                            <!-- Node 5: Filters -->
+                            <rect x="576" y="48" width="84" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="618" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">5. FILTERS</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: FILTERING -->
+            <section id="filtering" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#filtering">
+                        <span>6. Filtering</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Since each variant is a real product, native filters work untouched.</p>
+
+                <ul class="doc-list">
+                    <li><strong>Price</strong> — Min/max price sliders query child product prices directly.</li>
+                    <li><strong>Availability</strong> — In-stock toggles evaluate real-time child inventory levels.</li>
+                    <li><strong>Product options</strong> — Size, color, and fit facets map directly to native catalog options.</li>
+                    <li><strong>Vendor/type</strong> — Brand and category facets query all variant products natively.</li>
+                    <li><strong>Metafields</strong> — Custom attributes filter out of the box via Search &amp; Discovery.</li>
+                    <li><strong>Custom option values</strong> — Complex multi-dimensional options require zero search index customization.</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 7: IN PRACTICE -->
+            <section id="in-practice" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#in-practice">
+                        <span>7. In practice</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Real-world performance metrics from a mid-market merchant deployment.</p>
+
+                <p>
+                    A mid-market apparel brand carrying 320 size, color, length, and fit combinations per style suffered slow page loads and cart drop-offs with third-party option apps. By implementing the native parent-child metaobject model, they replaced app-injected DOM scripts with native Liquid swatch rendering and unified inventory tracking.
+                </p>
+
+                <div class="doc-callout" style="border-left-color: var(--accent-shopify); margin: 24px 0;">
+                    <div class="callout-title" style="color: var(--accent-shopify);">
+                        <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#10b981" d="M6 1h4v2H6V1zM4 3h2v2H4V3zm6 0h2v2h-2V3zM3 5h2v6H3V5zm8 0h2v6h-2V5zM4 11h2v2H4v-2zm6 0h2v2h-2v-2zM6 13h4v2H6v-2z"/></svg>
+                        DEPLOYMENT RESULTS
+                    </div>
+                    <ul class="doc-list" style="margin-top: 8px;">
+                        <li><strong>Catalog 1,200 → 4,200 SKUs</strong></li>
+                        <li><strong>Filter-driven conversion +34%</strong></li>
+                        <li><strong>$3,588 annual app spend eliminated</strong></li>
+                        <li><strong>Zero theme conflicts across two theme updates</strong></li>
+                        <li><strong>PDP load 4s → under 1s</strong></li>
+                    </ul>
+                </div>
+
+                <!-- PIXELATED DIAGRAM 3: BEFORE / AFTER BAR CHART -->
+                <div class="pixel-diagram-card">
+                    <div class="pixel-diagram-header">
+                        <span class="diagram-tag">DIAGRAM 3</span>
+                        <span class="diagram-title">Before / after performance metrics</span>
+                    </div>
+                    <div class="pixel-diagram-body">
+                        <svg viewBox="0 0 680 200" width="100%" height="auto" shape-rendering="crispEdges">
+                            <rect width="680" height="200" fill="#0b0f19"/>
+                            <rect width="680" height="200" fill="url(#pixel-grid)"/>
+
+                            <!-- Metric 1: PDP Load Time (Lower is better) -->
+                            <text x="30" y="36" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="11">PDP LOAD TIME (SEC)</text>
+                            <rect x="200" y="24" width="240" height="16" fill="#ef4444"/>
+                            <text x="450" y="36" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11">4.0s (App-Based)</text>
+
+                            <rect x="200" y="44" width="60" height="16" fill="#10b981"/>
+                            <text x="270" y="56" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">0.8s (Native Metaobjects)</text>
+
+                            <!-- Divider line -->
+                            <line x1="30" y1="78" x2="650" y2="78" stroke="#1f2937" stroke-width="1"/>
+
+                            <!-- Metric 2: Annual App Cost (Lower is better) -->
+                            <text x="30" y="108" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="11">ANNUAL APP SPEND ($)</text>
+                            <rect x="200" y="96" width="320" height="16" fill="#ef4444"/>
+                            <text x="530" y="108" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11">$3,588 / yr</text>
+
+                            <rect x="200" y="116" width="4" height="16" fill="#10b981"/>
+                            <text x="214" y="128" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">$0 / yr (Native Platform)</text>
+
+                            <!-- Divider line -->
+                            <line x1="30" y1="148" x2="650" y2="148" stroke="#1f2937" stroke-width="1"/>
+
+                            <!-- Metric 3: Conversion Rate Growth -->
+                            <text x="30" y="178" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="11">FILTER CONVERSION</text>
+                            <rect x="200" y="166" width="180" height="16" fill="#10b981"/>
+                            <text x="390" y="178" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">+34% Filter-driven sales</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: WHERE THIS FITS -->
+            <section id="where-this-fits" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#where-this-fits">
+                        <span>8. Where this fits</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Evaluating catalog suitability across common commerce verticals.</p>
+
+                <div class="doc-table-wrapper" style="overflow-x: auto; margin: 20px 0;">
+                    <table class="doc-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--accent-shopify);">Vertical</th>
+                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--text-primary);">Option matrix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Apparel</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Size × Color × Fit × Length</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Furniture</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Fabric × Finish × Cushion × Leg Style</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Auto parts</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Year × Make × Model × Engine Spec</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Industrial</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Voltage × Mount × PSI × Thread Size</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Custom goods</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Material × Monogram × Hardware × Finish</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 9: THE BOTTOM LINE -->
+            <section id="the-bottom-line" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#the-bottom-line">
+                        <span>9. The bottom line</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-top: 16px;">
+                    Shopify's variant limit is a product-model constraint, not a hard ceiling. First-class products + metafields + metaobjects remove it without apps or fees. This architecture keeps storefronts fast, preserves core platform compatibility, and eliminates third-party dependency risks as merchant catalogs expand.
+                </p>
+            </section>
+
+            <!-- SECTION 10: NEXT STEPS -->
+            <section id="next-steps" class="doc-section">
+                <h2 class="heading-anchor-group">
+                    <a href="#next-steps">
+                        <span>10. Next steps</span>
+                        <span class="anchor-icon">#</span>
+                    </a>
+                </h2>
+                <p class="section-lead-desc">Technical execution specifications and platform implementation guides.</p>
+
+                <div class="gated-links-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 20px;">
+                    
+                    <div class="gated-link-card">
+                        <div class="gated-badge">GATED SPEC</div>
+                        <h3 class="gated-title">Prerequisites and platform requirements</h3>
+                        <span class="gated-lock-text">Requires implementation scope access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge">GATED PAYLOAD</div>
+                        <h3 class="gated-title">Admin API payloads for bulk child creation</h3>
+                        <span class="gated-lock-text">Requires GraphQL Admin API scope access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge">GATED GUIDE</div>
+                        <h3 class="gated-title">Migration guide from an app-based setup</h3>
+                        <span class="gated-lock-text">Requires store audit access ↗</span>
+                    </div>
+
+                    <div class="gated-link-card">
+                        <div class="gated-badge">GATED CODE</div>
+                        <h3 class="gated-title">Theme template reference implementation</h3>
+                        <span class="gated-lock-text">Requires repository access ↗</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- LINKS FOOTER -->
+            <section id="links" class="doc-section" style="margin-top: 48px;">
+                <hr class="doc-divider">
+                <div style="display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <a href="/projects.html" style="color: var(--accent-shopify); font-family: var(--font-mono); font-size: 0.9rem;">← Back to Projects</a>
+                    <a href="https://github.com/Atul8007" target="_blank" rel="noopener" style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.85rem;">GitHub Profile ↗</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- RIGHT TOC "ON THIS PAGE" -->
+        <aside class="doc-toc" id="doc-toc">
+            <div class="toc-inner">
+                <div class="toc-title">ON THIS PAGE</div>
+                <ul class="toc-links">
+                    <li><a href="#the-ceiling" class="toc-link active">1. The ceiling</a></li>
+                    <li><a href="#the-pattern" class="toc-link">2. The pattern</a></li>
+                    <li><a href="#what-this-unlocks" class="toc-link">3. What this unlocks</a></li>
+                    <li><a href="#what-it-costs" class="toc-link">4. What it costs</a></li>
+                    <li><a href="#how-it-fits-together" class="toc-link">5. How it fits together</a></li>
+                    <li><a href="#filtering" class="toc-link">6. Filtering</a></li>
+                    <li><a href="#in-practice" class="toc-link">7. In practice</a></li>
+                    <li><a href="#where-this-fits" class="toc-link">8. Where this fits</a></li>
+                    <li><a href="#the-bottom-line" class="toc-link">9. The bottom line</a></li>
+                    <li><a href="#next-steps" class="toc-link">10. Next steps</a></li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- COMMAND PALETTE SEARCH MODAL -->
+    <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog">
+        <div class="search-modal-backdrop" id="search-backdrop"></div>
+        <div class="search-palette">
+            <div class="search-input-wrapper">
+                <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5 2h5v1H5V2zM3 4h2v1H3V4zM2 6h1v5H2V6zm1 5h2v1H3v-1zm2 1h5v1H5v-1zm5-1h2v1h-2v-1zm1-5h1v5h-1V6zm-1-2h1v1h-1V4zM10 10l5 5h-1l-5-5h1zm2 3l3 3h-1l-3-3h1z"/></svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search docs..." autocomplete="off">
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="doc-footer">
+        <div class="doc-footer-container">
+            <div class="footer-brand">
+                <svg class="px-icon brand-pixel-logo" viewBox="0 0 16 16" shape-rendering="crispEdges">
+                    <path fill="#10b981" d="M7 1h2v2H7V1zm-2 2h2v2H5V3zm6 0h-2v2h2V3zm-8 2h2v2H3V5zm10 0h-2v2h2V5zm-10 2h2v2H3V7zm10 0h-2v2h2V7zm-8 2h2v2H5V9zm6 0h-2v2h2V9zm-4 2h2v2H7v-2z"/>
+                </svg>
+                <span>ATUL MUNDAKKAL / portfolio</span>
+            </div>
+            <div class="footer-links">
+                <a href="/index.html">Overview</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/contact.html">Contact</a>
+                <a href="https://github.com/Atul8007" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js?v=6.0.0"></script>
+</body>
+</html>

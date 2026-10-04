@@ -129,10 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const searchDatabase = [
         { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "PORTFOLIO", url: "/index.html" },
+        { title: "Unlimited Product Variants on Shopify", sub: "Native metafields. Native metaobjects. No apps.", tag: "CASE STUDY", url: "/case-studies/unlimited-variants.html" },
         { title: "Projects Directory", sub: "Featured developer tools: FigClaw, Profile Switcher, ShopifyThemeCheck", tag: "PROJECTS", url: "/projects.html" },
-        { title: "FigClaw", sub: "Design-to-code workflow for turning structured design instructions into usable interfaces", tag: "CASE STUDY", url: "/projects/figclaw.html" },
-        { title: "Profile Switcher", sub: "Shopify developer tooling for managing and switching CLI development contexts", tag: "CASE STUDY", url: "/projects/profile-switcher.html" },
-        { title: "ShopifyThemeCheck", sub: "Shopify theme analysis and storefront asset inspection tool", tag: "CASE STUDY", url: "/projects/theme-inspector.html" },
+        { title: "FigClaw", sub: "Design-to-code workflow for turning structured design instructions into usable interfaces", tag: "PROJECT", url: "/projects/figclaw.html" },
+        { title: "Profile Switcher", sub: "Shopify developer tooling for managing and switching CLI development contexts", tag: "PROJECT", url: "/projects/profile-switcher.html" },
+        { title: "ShopifyThemeCheck", sub: "Shopify theme analysis and storefront asset inspection tool", tag: "PROJECT", url: "/projects/theme-inspector.html" },
         { title: "About", sub: "Platform philosophy and engineering approach", tag: "ABOUT", url: "/about.html" },
         { title: "Experience & Capabilities", sub: "Work history, Liquid architecture, Storefront API timeline", tag: "EXPERIENCE", url: "/experience.html" },
         { title: "Contact", sub: "Direct email and developer channels", tag: "CONTACT", url: "/contact.html" }
@@ -987,6 +988,50 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         });
     }
 
+    // C. ScrollSpy Observer for Documentation & Case Studies TOC
+    function initScrollSpy() {
+        const sections = document.querySelectorAll('main.doc-main section[id]');
+        const tocLinks = document.querySelectorAll('.doc-toc .toc-link');
+        const sidebarLinks = document.querySelectorAll('.doc-sidebar .sidebar-link');
+
+        if (!sections.length || (!tocLinks.length && !sidebarLinks.length)) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    tocLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === `#${id}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+
+                    sidebarLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === `#${id}`) {
+                            link.classList.add('active');
+                        } else if (href && href.startsWith('#')) {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(sec => observer.observe(sec));
+    }
+
+    initScrollSpy();
     initPremiumMotionLayer();
     initGlobalRuntimeBackground();
 

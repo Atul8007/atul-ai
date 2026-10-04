@@ -2846,4 +2846,185 @@ pre, code { font-family: var(--font-mono); }
     }
 }
 
+/* ==========================================
+   CASE STUDY & SHOPIFY DEV DOCS STYLES
+   ========================================== */
+
+/* Heading Anchor Groups */
+.heading-anchor-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 40px !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.heading-anchor-group a {
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s ease;
+}
+
+.heading-anchor-group a:hover {
+    color: var(--accent-shopify);
+}
+
+.heading-anchor-group .anchor-icon {
+    opacity: 0;
+    color: var(--accent-shopify);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    transform: translateX(-4px);
+}
+
+.heading-anchor-group:hover .anchor-icon,
+.heading-anchor-group a:focus .anchor-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* One-line lead description under headings */
+.section-lead-desc {
+    font-size: 0.98rem !important;
+    font-weight: 500;
+    color: var(--text-primary) !important;
+    margin-bottom: 16px !important;
+    line-height: 1.5;
+}
+
+/* Bulleted Capability & Spec Lists */
+.doc-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px 0;
+}
+
+.doc-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 0.94rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.doc-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-shopify);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Pixelated SVG Diagram Breaks */
+.pixel-diagram-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin: 28px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pixel-diagram-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: rgba(22, 30, 46, 0.8);
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+.diagram-tag {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-shopify);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.diagram-title {
+    color: var(--text-secondary);
+}
+
+.pixel-diagram-body {
+    padding: 16px;
+    background: #0b0f19;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel-diagram-body svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Gated Link Cards for Next Steps */
+.gated-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.gated-link-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.gated-link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-shopify);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+}
+
+.gated-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--accent-shopify);
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+}
+
+.gated-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.gated-lock-text {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
 
