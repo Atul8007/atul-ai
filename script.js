@@ -943,7 +943,7 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         // A. Card Cursor Spotlight & 3D Tilt Perspective
-        const tiltPanels = document.querySelectorAll('.shopify-hero-banner, .superset-ide-window, .doc-card, .project-card, .mini-terminal-window, .claude-toast-card, .contact-card, .workspace, .shopify-card');
+        const tiltPanels = document.querySelectorAll('.shopify-hero-banner, .superset-ide-window, .doc-card, .project-card, .mini-terminal-window, .claude-toast-card, .contact-card, .workspace');
         
         tiltPanels.forEach(panel => {
             panel.classList.add('booting');
