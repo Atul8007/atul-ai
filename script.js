@@ -1033,9 +1033,245 @@ Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.d
         sections.forEach(sec => observer.observe(sec));
     }
 
+    // --- 10. Cinematic Northern Lights (Aurora Borealis) Desktop Hero Background ---
+    function initHeroAuroraCanvas() {
+        const canvas = document.getElementById('hero-aurora-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let width = 0;
+        let height = 0;
+        let animationFrameId = null;
+
+        // Realistic Starfield Layer
+        const stars = [];
+        const numStars = 95;
+
+        function initStars() {
+            stars.length = 0;
+            for (let i = 0; i < numStars; i++) {
+                stars.push({
+                    x: Math.random(),
+                    y: Math.random() * 0.72, // Upper 72% sky
+                    size: Math.random() * 1.3 + 0.6,
+                    baseAlpha: Math.random() * 0.55 + 0.3,
+                    pulseSpeed: Math.random() * 0.002 + 0.001,
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+
+        function resize() {
+            const parent = canvas.parentElement;
+            if (!parent) return;
+            const rect = parent.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            
+            width = rect.width;
+            height = rect.height;
+
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+
+            if (stars.length === 0) {
+                initStars();
+            }
+        }
+
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        // Seamless 10-second loop (10,000ms)
+        const loopDuration = 10000;
+
+        function draw(timestamp) {
+            if (!width || !height) {
+                animationFrameId = requestAnimationFrame(draw);
+                return;
+            }
+
+            const time = (timestamp % loopDuration) / loopDuration; // 0.0 -> 1.0
+            const phase = time * Math.PI * 2; // 0 -> 2*PI
+
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Deep Midnight Sky Base
+            const skyGrad = ctx.createLinearGradient(0, 0, 0, height);
+            skyGrad.addColorStop(0, '#02040a');
+            skyGrad.addColorStop(0.45, '#050a16');
+            skyGrad.addColorStop(0.80, '#081022');
+            skyGrad.addColorStop(1, '#030712');
+            ctx.fillStyle = skyGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // 2. Realistic Twinkling Starfield
+            ctx.fillStyle = '#ffffff';
+            stars.forEach(star => {
+                const alpha = star.baseAlpha + Math.sin(phase * 4 + star.phase) * 0.22;
+                ctx.globalAlpha = Math.max(0.1, Math.min(1, alpha));
+                ctx.beginPath();
+                ctx.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1.0;
+
+            // 3. Cinematic Flowing Aurora Curtains (Layered Vertical Light Rays)
+            ctx.save();
+            ctx.globalCompositeOperation = 'screen';
+
+            const auroraBands = [
+                // Band 1: Emerald & Teal Primary Wave Curtain
+                {
+                    baseY: height * 0.16,
+                    rayHeight: height * 0.54,
+                    step: 8,
+                    waveFreq: 0.004,
+                    waveAmp: 38,
+                    colorStops: [
+                        { pos: 0, color: 'rgba(16, 185, 129, 0)' },
+                        { pos: 0.22, color: 'rgba(16, 185, 129, 0.48)' },
+                        { pos: 0.52, color: 'rgba(45, 212, 191, 0.38)' },
+                        { pos: 0.82, color: 'rgba(6, 182, 212, 0.20)' },
+                        { pos: 1, color: 'rgba(6, 182, 212, 0)' }
+                    ],
+                    speedOffset: 0
+                },
+                // Band 2: Electric Cyan & Turquoise Secondary Wave Curtain
+                {
+                    baseY: height * 0.12,
+                    rayHeight: height * 0.60,
+                    step: 10,
+                    waveFreq: 0.003,
+                    waveAmp: 48,
+                    colorStops: [
+                        { pos: 0, color: 'rgba(6, 182, 212, 0)' },
+                        { pos: 0.28, color: 'rgba(56, 189, 248, 0.42)' },
+                        { pos: 0.62, color: 'rgba(45, 212, 191, 0.32)' },
+                        { pos: 0.88, color: 'rgba(139, 92, 246, 0.18)' },
+                        { pos: 1, color: 'rgba(139, 92, 246, 0)' }
+                    ],
+                    speedOffset: Math.PI * 0.66
+                },
+                // Band 3: Violet & Purple Crown Layer
+                {
+                    baseY: height * 0.08,
+                    rayHeight: height * 0.48,
+                    step: 12,
+                    waveFreq: 0.005,
+                    waveAmp: 32,
+                    colorStops: [
+                        { pos: 0, color: 'rgba(139, 92, 246, 0)' },
+                        { pos: 0.32, color: 'rgba(168, 85, 247, 0.38)' },
+                        { pos: 0.68, color: 'rgba(16, 185, 129, 0.22)' },
+                        { pos: 1, color: 'rgba(16, 185, 129, 0)' }
+                    ],
+                    speedOffset: Math.PI * 1.33
+                }
+            ];
+
+            auroraBands.forEach(band => {
+                for (let x = -20; x <= width + 20; x += band.step) {
+                    const offsetPhase = phase + band.speedOffset;
+                    // Horizontal wave flow from left to right
+                    const flowX = x - (phase / (Math.PI * 2)) * 120;
+                    const wave1 = Math.sin(flowX * band.waveFreq + offsetPhase) * band.waveAmp;
+                    const wave2 = Math.cos(flowX * band.waveFreq * 1.7 - offsetPhase * 0.9) * (band.waveAmp * 0.5);
+                    const rayOffset = wave1 + wave2;
+
+                    // Vertical swaying light curtain tops and bottoms
+                    const topY = band.baseY + rayOffset;
+                    const bottomY = topY + band.rayHeight + Math.sin(x * 0.008 + offsetPhase) * 22;
+
+                    // Light ray brightening and fading
+                    const rayAlpha = 0.68 + Math.sin(x * 0.007 + offsetPhase * 1.4) * 0.32;
+
+                    const rayGrad = ctx.createLinearGradient(x, topY, x, bottomY);
+                    band.colorStops.forEach(stop => {
+                        rayGrad.addColorStop(stop.pos, stop.color);
+                    });
+
+                    ctx.fillStyle = rayGrad;
+                    ctx.globalAlpha = rayAlpha;
+                    ctx.fillRect(x, topY, band.step + 1, Math.max(10, bottomY - topY));
+                }
+            });
+
+            ctx.restore();
+
+            // 4. Dark Mountain Silhouette (Lower 18-20% of banner)
+            const mtnBaseY = height * 0.82;
+
+            // Secondary Distant Range
+            ctx.fillStyle = '#060a16';
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            ctx.lineTo(0, mtnBaseY - 18);
+            ctx.lineTo(width * 0.14, mtnBaseY - 38);
+            ctx.lineTo(width * 0.28, mtnBaseY - 12);
+            ctx.lineTo(width * 0.44, mtnBaseY - 48);
+            ctx.lineTo(width * 0.62, mtnBaseY - 22);
+            ctx.lineTo(width * 0.80, mtnBaseY - 44);
+            ctx.lineTo(width, mtnBaseY - 18);
+            ctx.lineTo(width, height);
+            ctx.closePath();
+            ctx.fill();
+
+            // Primary Foreground Mountain Range
+            ctx.fillStyle = '#030712';
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            ctx.lineTo(0, mtnBaseY + 4);
+            ctx.lineTo(width * 0.11, mtnBaseY - 26);
+            ctx.lineTo(width * 0.22, mtnBaseY + 8);
+            ctx.lineTo(width * 0.38, mtnBaseY - 34);
+            ctx.lineTo(width * 0.54, mtnBaseY + 2);
+            ctx.lineTo(width * 0.70, mtnBaseY - 30);
+            ctx.lineTo(width * 0.86, mtnBaseY - 8);
+            ctx.lineTo(width, mtnBaseY + 6);
+            ctx.lineTo(width, height);
+            ctx.closePath();
+            ctx.fill();
+
+            // Subtle Snow Peak Highlights
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(width * 0.11, mtnBaseY - 26);
+            ctx.lineTo(width * 0.15, mtnBaseY - 10);
+            ctx.moveTo(width * 0.38, mtnBaseY - 34);
+            ctx.lineTo(width * 0.42, mtnBaseY - 14);
+            ctx.moveTo(width * 0.70, mtnBaseY - 30);
+            ctx.lineTo(width * 0.74, mtnBaseY - 12);
+            ctx.stroke();
+
+            // 5. Soft Radial Vignette Framing for High Typography Contrast
+            const vignetteGrad = ctx.createRadialGradient(
+                width * 0.5, height * 0.5, width * 0.22,
+                width * 0.5, height * 0.5, width * 0.78
+            );
+            vignetteGrad.addColorStop(0, 'rgba(3, 7, 18, 0)');
+            vignetteGrad.addColorStop(0.6, 'rgba(3, 7, 18, 0.40)');
+            vignetteGrad.addColorStop(1, 'rgba(3, 7, 18, 0.82)');
+            ctx.fillStyle = vignetteGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            if (!motionReduced) {
+                animationFrameId = requestAnimationFrame(draw);
+            }
+        }
+
+        animationFrameId = requestAnimationFrame(draw);
+    }
+
     initScrollSpy();
     initPremiumMotionLayer();
     initGlobalRuntimeBackground();
+    initHeroAuroraCanvas();
 
 });
 
