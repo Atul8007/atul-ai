@@ -2618,7 +2618,7 @@ pre, code { font-family: var(--font-mono); }
    Inspired by Developer Portfolio Engine & Glassmorphic Motion Controls
    ========================================================================== */
 
-/* 1. Dynamic Cursor Radial Spotlight Overlay & 3D Lighting */
+/* 1. Dynamic Cursor Radial Spotlight Overlay & 3D Tilt Perspective */
 .shopify-hero-banner,
 .superset-ide-window,
 .doc-card,
@@ -2627,6 +2627,7 @@ pre, code { font-family: var(--font-mono); }
 .claude-toast-card,
 .contact-card,
 .workspace,
+.shopify-card,
 .search-palette {
     --pointer-x: 50%;
     --pointer-y: 50%;
@@ -2636,7 +2637,7 @@ pre, code { font-family: var(--font-mono); }
     position: relative;
 }
 
-/* Spotlight overlay following pointer */
+/* Spotlight overlay dynamically following cursor pointer */
 .shopify-hero-banner::after,
 .superset-ide-window::after,
 .doc-card::after,
@@ -2644,15 +2645,21 @@ pre, code { font-family: var(--font-mono); }
 .mini-terminal-window::after,
 .claude-toast-card::after,
 .contact-card::after,
-.workspace::after {
+.workspace::after,
+.shopify-card::after {
     content: "";
     position: absolute;
-    inset: -20%;
-    z-index: 0;
+    inset: -30%;
+    z-index: 1;
     pointer-events: none;
-    background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(149, 191, 71, 0.13), transparent 30%);
-    opacity: 0.15;
-    transition: opacity 0.45s ease;
+    background: radial-gradient(
+        500px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+        rgba(16, 185, 129, 0.18),
+        rgba(56, 189, 248, 0.08) 45%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .shopify-hero-banner:hover::after,
@@ -2662,35 +2669,9 @@ pre, code { font-family: var(--font-mono); }
 .mini-terminal-window:hover::after,
 .claude-toast-card:hover::after,
 .contact-card:hover::after,
-.workspace:hover::after {
-    opacity: 0.55;
-}
-
-/* Glass reflection sheen sweep on card hover */
-.shopify-hero-banner::before,
-.superset-ide-window::before,
-.doc-card::before,
-.project-card::before,
-.contact-card::before,
-.workspace::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    background: linear-gradient(110deg, transparent 34%, rgba(149, 191, 71, 0.12) 48%, transparent 60%);
-    transform: translateX(-110%);
-    z-index: 1;
-}
-
-.shopify-hero-banner:hover::before,
-.superset-ide-window:hover::before,
-.doc-card:hover::before,
-.project-card:hover::before,
-.contact-card:hover::before,
-.workspace:hover::before {
+.workspace:hover::after,
+.shopify-card:hover::after {
     opacity: 1;
-    animation: sheenPass 1.1s ease both;
 }
 
 /* Elevate internal content above overlay pseudo-elements */
