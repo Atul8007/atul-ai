@@ -840,15 +840,16 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
 
             // Theme-aware colors
             const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-            const gridCrossColor = isLight ? '61, 107, 10' : '149, 191, 71';
-            const gridLineColor = isLight ? '148, 163, 184' : '31, 41, 55';
-            const gridLineBaseAlpha = isLight ? 0.12 : 0.3;
-            const gridCrossBaseAlpha = isLight ? 0.02 : 0.035;
-            const glowPrimaryColor = isLight ? '61, 107, 10' : '149, 191, 71';
-            const glowSecondaryColor = isLight ? '3, 105, 161' : '56, 189, 248';
-            const traceColor = isLight ? '61, 107, 10' : '149, 191, 71';
-            const telemetryColor = isLight ? '51, 65, 85' : '156, 163, 175';
-            const statusColor = isLight ? '100, 116, 139' : '107, 114, 128';
+            const gridCrossColor = isLight ? '149, 191, 71' : '149, 191, 71';
+            const gridLineColor = isLight ? '203, 213, 225' : '31, 41, 55';
+            const gridLineBaseAlpha = isLight ? 0.08 : 0.3;
+            const gridLineActiveAlpha = isLight ? 0.06 : 0.25;
+            const gridCrossBaseAlpha = isLight ? 0.015 : 0.035;
+            const glowPrimaryColor = isLight ? '149, 191, 71' : '149, 191, 71';
+            const glowSecondaryColor = isLight ? '14, 165, 233' : '56, 189, 248';
+            const traceColor = isLight ? '77, 124, 15' : '149, 191, 71';
+            const telemetryColor = isLight ? '148, 163, 184' : '156, 163, 175';
+            const statusColor = isLight ? '148, 163, 184' : '107, 114, 128';
 
             ctx.lineWidth = 1;
 
@@ -888,7 +889,7 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
                 }
             }
 
-            ctx.strokeStyle = `rgba(${gridLineColor}, ${gridLineBaseAlpha + activeActivity * 0.25})`;
+            ctx.strokeStyle = `rgba(${gridLineColor}, ${gridLineBaseAlpha + activeActivity * gridLineActiveAlpha})`;
             ctx.beginPath();
             for (let x = 0; x < width; x += gridStep) {
                 ctx.moveTo(x, 0);
