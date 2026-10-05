@@ -26,7 +26,7 @@ Atul Mundakkal is a Senior Shopify Developer and Ecommerce Platform Architect sp
 
 ### 4. Custom App Development & Headless Ecommerce
 - Headless Shopify builds using Remix, Next.js, Hydrogen, Oxygen, and Storefront API.
-- Full-stack Shopify App development using Node.js, Express, React, App Bridge, Prisma, and PostgreSQL.
+- Forward Deployed Shopify App development using Node.js, Express, React, App Bridge, Prisma, and PostgreSQL.
 - Embedded admin extensions and custom webhook processing servers.
 
 ## Featured Developer Projects
@@ -58,7 +58,7 @@ Atul Mundakkal is a Senior Shopify Developer and Ecommerce Platform Architect sp
 
 ## Contact & Hire Information
 - **Role**: Open for Senior Shopify Developer, Shopify Plus Architect, and Custom Extension Engineering roles.
-- **Email**: atulmundakkal@outlook.com
+- **Email**: atulmundakkal@icloud.com
 - **GitHub**: https://github.com/Atul8007
 - **Portfolio Website**: https://atul-ai.pages.dev/
 `;

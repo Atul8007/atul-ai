@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResults = document.getElementById('search-results');
 
     const searchDatabase = [
-        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Full-Stack Developer", tag: "PORTFOLIO", url: "/index.html" },
+        { title: "Overview & Introduction", sub: "Atul Mundakkal — Shopify Forward Deployed Engineer", tag: "PORTFOLIO", url: "/index.html" },
         { title: "Unlimited Product Variants on Shopify", sub: "Native metafields. Native metaobjects. No apps.", tag: "CASE STUDY", url: "/case-studies/unlimited-variants.html" },
         { title: "Multi-Dropdown Search Filtering on Shopify", sub: "Every metafield value. Every dropdown. Searchable. No apps.", tag: "CASE STUDY", url: "/case-studies/multi-dropdown-filtering.html" },
         { title: "Custom Product Option Values on Shopify", sub: "Metafield-driven swatches. Metaobject entries. No variant limits.", tag: "CASE STUDY", url: "/case-studies/option-values.html" },
@@ -278,11 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'shopify': () => 'WHAT I WORK ON:\n- Themes & Liquid Architecture\n- Multi-Option Variant Systems\n- Cart Drawers & Checkout UI Extensions\n- Storefront GraphQL & Admin REST APIs\n- Developer Tools & Inspection Utilities',
         'tools': () => 'DEVELOPER TOOLS:\n- FigClaw (Figma REST API → Structured AI Context)\n- Profile Switcher (VS Code Extension API)\n- ShopifyThemeCheck (Manifest V3 Chrome Extension)',
         'skills': () => 'TECHNICAL SKILLS:\n- Themes & Liquid Architecture\n- Storefront GraphQL & Admin APIs\n- VS Code Extension API & Node.js\n- Manifest V3 Chrome Extension API\n- Checkout UI Extensions & Metafields',
-        'about': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
-        'bio': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
-        'whoami': () => 'Atul Mundakkal — Shopify Full-Stack Developer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
-        'contact': () => 'Email: atulmundakkal@outlook.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
-        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\nEdge & Cloud Architecture .. ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FULL-STACK PROJECTS.\nEmail: atulmundakkal@outlook.com`,
+        'about': () => 'Atul Mundakkal — Shopify Forward Deployed Engineer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
+        'bio': () => 'Atul Mundakkal — Shopify Forward Deployed Engineer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
+        'whoami': () => 'Atul Mundakkal — Shopify Forward Deployed Engineer.\nI build the parts of Shopify that don\'t come out of the box (Liquid, Variants, Metafields, APIs, Performance).',
+        'contact': () => 'Email: atulmundakkal@icloud.com\nGitHub: https://github.com/Atul8007\nLinkedIn: https://linkedin.com/in/atul-mundakkal',
+        'sudo hire atul': () => `Checking system compatibility...\nShopify Engineering ....... ✓\nLiquid Architecture ....... ✓\nCLI & Extension Tools ..... ✓\nEdge & Cloud Architecture .. ✓\n\nSTATUS: AVAILABLE FOR SHOPIFY FORWARD DEPLOYED PROJECTS.\nEmail: atulmundakkal@icloud.com`,
         'clear': () => 'CLEAR'
     };
 
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (q.includes('hire') || q.includes('contact') || q.includes('email') || q.includes('project')) {
-            return `Atul is available for full-stack Shopify projects, CLI tooling, and custom extension engineering!<br><br>📧 <strong>Email</strong>: <a href="mailto:atulmundakkal@outlook.com" style="color:var(--accent-shopify);">atulmundakkal@outlook.com</a><br>🐙 <strong>GitHub</strong>: <a href="https://github.com/Atul8007" target="_blank" style="color:var(--accent-cyan);">github.com/Atul8007</a>`;
+            return `Atul is available for Shopify Forward Deployed engineering projects, CLI tooling, and custom extension engineering!<br><br>📧 <strong>Email</strong>: <a href="mailto:atulmundakkal@icloud.com" style="color:var(--accent-shopify);">atulmundakkal@icloud.com</a><br>🐙 <strong>GitHub</strong>: <a href="https://github.com/Atul8007" target="_blank" style="color:var(--accent-cyan);">github.com/Atul8007</a>`;
         }
 
         return `I can help you explore Atul's Shopify developer portfolio, including custom Liquid architecture, Storefront GraphQL APIs, Checkout UI Extensions, and featured projects like <strong>FigClaw</strong>, <strong>Profile Switcher</strong>, and <strong>ShopifyThemeCheck</strong>.<br><br>What specific topic or project would you like to inspect?`;
@@ -511,7 +511,7 @@ Projects:
 - ShopifyThemeCheck (/projects/theme-inspector.html): Manifest V3 Chrome Extension for live storefront asset & liquid linter.
 - Wishify (/projects/wishify.html): High performance wishlist app built with Remix, Prisma & App Bridge.
 - Wacspace (/projects/wacspace.html): Custom B2B/D2C Shopify Plus theme built with Liquid, Tailwind CSS & Alpine.js.
-Contact: atulmundakkal@outlook.com, github.com/Atul8007, https://atul-ai.pages.dev/
+Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.dev/
 --------------------`;
 
             const k1 = "gsk_WDtuO4fO";

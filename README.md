@@ -1,6 +1,6 @@
 # Atul Mundakkal — Developer Portfolio
 
-Personal developer portfolio for **Atul Mundakkal** (Shopify Developer & Full-Stack Engineer), designed for static hosting on **Cloudflare Pages**.
+Personal developer portfolio for **Atul Mundakkal** (Shopify Forward Deployed Engineer), designed for static hosting on **Cloudflare Pages**.
 
 ## Project Structure
 
