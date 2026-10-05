@@ -66,32 +66,35 @@
 [data-theme="light"] {
     --bg-main: #ffffff;
     --bg-header: #ffffff;
-    --bg-surface: #f8fafc;
-    --bg-surface-alt: #f1f5f9;
-    --bg-surface-hover: #e2e8f0;
-    --bg-sidebar: #ffffff;
-    --border-color: #e2e8f0;
-    --border-subtle: #f1f5f9;
+    --bg-surface: #f1f5f9;
+    --bg-surface-alt: #e8edf3;
+    --bg-surface-hover: #dde3eb;
+    --bg-sidebar: #f8fafc;
+    --border-color: #cbd5e1;
+    --border-subtle: #e2e8f0;
 
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
 
-    --accent-shopify: #4d7c0f;
-    --accent-cyan: #0284c7;
-    --accent-purple: #9333ea;
-    --accent-indigo: #4f46e5;
-    --accent-warning: #d97706;
+    --accent-shopify: #3d6b0a;
+    --accent-shopify-bg: rgba(61, 107, 10, 0.1);
+    --accent-shopify-border: rgba(61, 107, 10, 0.3);
+    --accent-cyan: #0369a1;
+    --accent-purple: #7e22ce;
+    --accent-indigo: #4338ca;
+    --accent-warning: #b45309;
+    --accent-alert: #dc2626;
 
-    --hero-bg: #f8fafc;
-    --hero-border: #e2e8f0;
+    --hero-bg: #f1f5f9;
+    --hero-border: #cbd5e1;
 
-    --card-apps-bg: #f8fafc;
-    --card-apps-border: #e2e8f0;
-    --card-storefronts-bg: #f8fafc;
-    --card-storefronts-border: #e2e8f0;
-    --card-agents-bg: #f8fafc;
-    --card-agents-border: #e2e8f0;
+    --card-apps-bg: #f1f5f9;
+    --card-apps-border: #cbd5e1;
+    --card-storefronts-bg: #eef2f7;
+    --card-storefronts-border: #cbd5e1;
+    --card-agents-bg: #f1f5f9;
+    --card-agents-border: #cbd5e1;
 
     --code-bg: #0f172a;
     --code-header-bg: #1e293b;
@@ -1547,6 +1550,8 @@ pre, code { font-family: var(--font-mono); }
     justify-content: space-between;
     font-size: 0.85rem;
     color: var(--text-secondary);
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .footer-brand {
@@ -1560,6 +1565,7 @@ pre, code { font-family: var(--font-mono); }
 .footer-links {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .footer-links a:hover {
@@ -2238,15 +2244,15 @@ pre, code { font-family: var(--font-mono); }
     .search-trigger-btn, .theme-toggle-btn {
         display: grid;
         place-items: center;
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
         background: #0d1725;
         border: 1px solid #1d3046;
         border-radius: 6px;
     }
 
     .header-right {
-        gap: 6px;
+        gap: 4px;
         align-items: center;
     }
 
@@ -2458,6 +2464,25 @@ pre, code { font-family: var(--font-mono); }
         width: 100%;
         box-sizing: border-box;
     }
+
+    .contact-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left;
+        gap: 16px !important;
+    }
+
+    .contact-card .hero-btn-primary {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .doc-footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2533,6 +2558,8 @@ pre, code { font-family: var(--font-mono); }
         font-size: 0.72rem !important;
         overflow-x: auto;
         max-width: 100%;
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
         word-break: break-all;
     }
 

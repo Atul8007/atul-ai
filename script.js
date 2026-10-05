@@ -838,6 +838,18 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
             const gridStep = 40;
             const interactionRadius = 140;
 
+            // Theme-aware colors
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            const gridCrossColor = isLight ? '61, 107, 10' : '149, 191, 71';
+            const gridLineColor = isLight ? '148, 163, 184' : '31, 41, 55';
+            const gridLineBaseAlpha = isLight ? 0.12 : 0.3;
+            const gridCrossBaseAlpha = isLight ? 0.02 : 0.035;
+            const glowPrimaryColor = isLight ? '61, 107, 10' : '149, 191, 71';
+            const glowSecondaryColor = isLight ? '3, 105, 161' : '56, 189, 248';
+            const traceColor = isLight ? '61, 107, 10' : '149, 191, 71';
+            const telemetryColor = isLight ? '51, 65, 85' : '156, 163, 175';
+            const statusColor = isLight ? '100, 116, 139' : '107, 114, 128';
+
             ctx.lineWidth = 1;
 
             // 1. Grid Substructure
@@ -850,7 +862,7 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
                     const dy = mouseY - y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    let alpha = 0.035;
+                    let alpha = gridCrossBaseAlpha;
                     let displaceX = 0;
                     let displaceY = 0;
 
@@ -865,7 +877,7 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
                     gy += displaceY;
 
                     if ((Math.floor(x / gridStep) + Math.floor(y / gridStep)) % 2 === 0) {
-                        ctx.strokeStyle = `rgba(149, 191, 71, ${alpha * 1.4})`;
+                        ctx.strokeStyle = `rgba(${gridCrossColor}, ${alpha * 1.4})`;
                         ctx.beginPath();
                         ctx.moveTo(gx - 2, gy);
                         ctx.lineTo(gx + 2, gy);
@@ -876,7 +888,7 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
                 }
             }
 
-            ctx.strokeStyle = `rgba(31, 41, 55, ${0.3 + activeActivity * 0.25})`;
+            ctx.strokeStyle = `rgba(${gridLineColor}, ${gridLineBaseAlpha + activeActivity * 0.25})`;
             ctx.beginPath();
             for (let x = 0; x < width; x += gridStep) {
                 ctx.moveTo(x, 0);
@@ -891,8 +903,8 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
             // 2. Pointer Radial Field Glow
             if (activeActivity > 0.02 && mouseX >= 0 && mouseY >= 0) {
                 const grad = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, interactionRadius);
-                grad.addColorStop(0, `rgba(149, 191, 71, ${0.08 * activeActivity})`);
-                grad.addColorStop(0.5, `rgba(56, 189, 248, ${0.035 * activeActivity})`);
+                grad.addColorStop(0, `rgba(${glowPrimaryColor}, ${0.08 * activeActivity})`);
+                grad.addColorStop(0.5, `rgba(${glowSecondaryColor}, ${0.035 * activeActivity})`);
                 grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
                 ctx.fillStyle = grad;
@@ -914,7 +926,7 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
                     continue;
                 }
 
-                ctx.fillStyle = `rgba(149, 191, 71, ${t.opacity * 0.85})`;
+                ctx.fillStyle = `rgba(${traceColor}, ${t.opacity * 0.85})`;
                 ctx.fillText(t.text, t.x, t.y);
             }
 
@@ -923,13 +935,13 @@ Contact: atulmundakkal@icloud.com, github.com/Atul8007, https://atul-ai.pages.de
 
             if (activeActivity > 0.1 && mouseX >= 0 && mouseY >= 0) {
                 const coordText = `x: ${Math.round(mouseX)} y: ${Math.round(mouseY)} | ${contextualTarget}`;
-                ctx.fillStyle = `rgba(156, 163, 175, ${activeActivity * 0.45})`;
+                ctx.fillStyle = `rgba(${telemetryColor}, ${activeActivity * 0.45})`;
                 ctx.fillText(coordText, mouseX + 16, mouseY + 18);
             }
 
             // 5. Environmental Status Marker (Fixed Bottom Left)
             const dormantText = activeActivity > 0.3 ? `> runtime.active [${Math.round(activeActivity * 100)}%]` : (timeSinceMove > 2000 ? `> waiting_for_input` : `> system.ready`);
-            ctx.fillStyle = `rgba(107, 114, 128, ${0.18 + activeActivity * 0.22})`;
+            ctx.fillStyle = `rgba(${statusColor}, ${0.18 + activeActivity * 0.22})`;
             ctx.fillText(dormantText, 20, height - 16);
 
             requestAnimationFrame(render);
