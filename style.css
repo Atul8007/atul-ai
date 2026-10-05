@@ -2672,15 +2672,23 @@ pre, code { font-family: var(--font-mono); }
 .doc-card::before,
 .project-card::before,
 .contact-card::before,
-.workspace::before {
+.workspace::before,
+.shopify-card::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
     opacity: 0;
-    background: linear-gradient(110deg, transparent 34%, rgba(149, 191, 71, 0.12) 48%, transparent 60%);
-    transform: translateX(-110%);
-    z-index: 1;
+    background: linear-gradient(
+        110deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.08) 42%,
+        rgba(255, 255, 255, 0.28) 50%,
+        rgba(16, 185, 129, 0.22) 56%,
+        transparent 75%
+    );
+    transform: translateX(-130%);
+    z-index: 10;
 }
 
 .shopify-hero-banner:hover::before,
@@ -2688,9 +2696,10 @@ pre, code { font-family: var(--font-mono); }
 .doc-card:hover::before,
 .project-card:hover::before,
 .contact-card:hover::before,
-.workspace:hover::before {
+.workspace:hover::before,
+.shopify-card:hover::before {
     opacity: 1;
-    animation: sheenPass 1.1s ease both;
+    animation: sheenPass 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Elevate internal content above overlay pseudo-elements */
@@ -2814,11 +2823,11 @@ pre, code { font-family: var(--font-mono); }
 }
 
 @keyframes sheenPass {
-    from {
-        transform: translateX(-110%);
+    0% {
+        transform: translateX(-130%);
     }
-    to {
-        transform: translateX(110%);
+    100% {
+        transform: translateX(130%);
     }
 }
 
