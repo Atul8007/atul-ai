@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Product Option Values on Shopify — Case Study — Atul Mundakkal</title>
-    <meta name="description" content="Case study: Metafield-driven swatches. Metaobject entries. No variant limits. Product option values rendered via custom product templates on Shopify.">
+    <meta name="description" content="Case study: Four or more option names. Unlimited values. Native metafields. Native metaobjects. No apps. Custom product option architecture on Shopify.">
     <link rel="canonical" href="https://atul-ai.pages.dev/case-studies/option-values.html">
 
     <!-- Google Fonts: Geist & JetBrains Mono -->
@@ -94,7 +94,7 @@
                         <li><a href="#what-this-unlocks" class="sidebar-link indent">3. What this unlocks</a></li>
                         <li><a href="#what-it-costs" class="sidebar-link indent">4. What it costs</a></li>
                         <li><a href="#how-it-fits-together" class="sidebar-link indent">5. How it fits together</a></li>
-                        <li><a href="#option-values" class="sidebar-link indent">6. Option values</a></li>
+                        <li><a href="#option-names-and-values" class="sidebar-link indent">6. Option names and values</a></li>
                         <li><a href="#in-practice" class="sidebar-link indent">7. In practice</a></li>
                         <li><a href="#where-this-fits" class="sidebar-link indent">8. Where this fits</a></li>
                         <li><a href="#the-bottom-line" class="sidebar-link indent">9. The bottom line</a></li>
@@ -120,7 +120,7 @@
                         <li>
                             <a href="/case-studies/option-values.html" class="sidebar-link active indent">
                                 <svg class="px-icon s-px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#a855f7" d="M2 2h5v5H2V2zm7 0h5v5H9V2zM2 9h5v5H2V9zm7 0h5v5H9V9z"/></svg>
-                                Option Values via Metaobjects
+                                Custom Option Values
                             </a>
                         </li>
                     </ul>
@@ -136,14 +136,14 @@
                 <ol>
                     <li><a href="/index.html">Docs</a></li>
                     <li><a href="/projects.html">Case Studies</a></li>
-                    <li aria-current="page">Option Values via Metaobjects</li>
+                    <li aria-current="page">Custom Product Option Values on Shopify</li>
                 </ol>
             </nav>
 
             <header class="doc-page-header">
                 <div class="doc-tag" style="background: rgba(168, 85, 247, 0.12); color: #a855f7; border-color: rgba(168, 85, 247, 0.3);">SHOPIFY OPTION ARCHITECTURE CASE STUDY</div>
                 <h1 class="doc-title">Custom Product Option Values on Shopify</h1>
-                <p class="doc-lead" style="font-weight: 600; color: var(--text-primary);">Metafield-driven swatches. Metaobject entries. No variant limits.</p>
+                <p class="doc-lead" style="font-weight: 600; color: var(--text-primary);">Four or more option names. Unlimited values. Native metafields. Native metaobjects. No apps.</p>
             </header>
 
             <div class="project-links-row">
@@ -165,13 +165,16 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Shopify's variant limit forces unnecessary SKU creation just to show custom product options.</p>
+                <p class="section-lead-desc">Shopify's native option system wasn't built for real catalogs.</p>
 
                 <ul class="doc-list">
-                    <li>Creating 1,000+ variants solely to display color swatches, finishes, or custom text fields</li>
-                    <li>Third-party swatch apps inject heavy DOM nodes and break native image galleries</li>
-                    <li>Option values locked to flat text strings without rich metadata or hex codes</li>
-                    <li>Admin variant management bogs down under massive option matrices</li>
+                    <li>Three option names, hard cap</li>
+                    <li>Options are tied to variants — no variant, no option</li>
+                    <li>100-variant limit kills anything past a few combinations</li>
+                    <li>Option values can't carry their own data</li>
+                    <li>No metafield-value options</li>
+                    <li>No metaobject-driven option definitions</li>
+                    <li>No template-level control over the option UI</li>
                 </ul>
 
                 <p>
@@ -187,69 +190,97 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Product options stored as metafield values, defined as metaobject entries, and rendered through a custom product template — no variant creation required for each option.</p>
+                <p class="section-lead-desc">Option names and values live in metafields. Definitions live in metaobjects. The product template renders the whole thing. Native Shopify options are bypassed entirely — including the three-option cap.</p>
 
                 <ul class="doc-list">
-                    <li><strong>Metafields carry option assignments</strong> — Connect product records to rich structured option entries.</li>
-                    <li><strong>Metaobjects define swatch taxonomies</strong> — Centralized entries storing hex codes, texture images, and specs.</li>
-                    <li><strong>Custom Liquid product template renders swatches</strong> — Fast native display without injecting third-party app scripts.</li>
-                    <li><strong>Dynamic PDP state updates</strong> — Switches swatch selection and updates media galleries without page reload.</li>
+                    <li>Metafields hold every option name and value on the product</li>
+                    <li>Metaobjects define option groups, value lists, and the data each value carries</li>
+                    <li>Product template renders the full option UI — any number of option names, any number of values</li>
+                    <li>No variants created for options. No 3-option cap. No 100-variant cap. No app.</li>
                 </ul>
 
                 <p class="summary-note" style="margin-top: 16px; font-weight: 600; color: #a855f7;">
-                    The theme owns the option template. The metafields own the data. Apps own nothing.
+                    The theme owns the option UI. The metafields own the values. The metaobjects own the definitions. Apps own nothing.
                 </p>
 
-                <!-- PIXELATED DIAGRAM 1: METAOBJECT SWATCH ENGINE -->
+                <!-- PIXELATED DIAGRAM 1: METAOBJECT OPTION STACK -->
                 <div class="pixel-diagram-card">
                     <div class="pixel-diagram-header">
                         <span class="diagram-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">DIAGRAM 1</span>
-                        <span class="diagram-title">Option values driven by metafields &amp; metaobjects, rendered by theme template</span>
+                        <span class="diagram-title">Metaobject definitions → Metafield values on product → Template-rendered option UI with 4+ option rows</span>
                     </div>
                     <div class="pixel-diagram-body">
-                        <svg viewBox="0 0 680 220" width="100%" height="auto" shape-rendering="crispEdges">
+                        <svg viewBox="0 0 680 230" width="100%" height="auto" shape-rendering="crispEdges">
                             <pattern id="pixel-grid-options" width="16" height="16" patternUnits="userSpaceOnUse">
                                 <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
                             </pattern>
-                            <rect width="680" height="220" fill="#0b0f19"/>
-                            <rect width="680" height="220" fill="url(#pixel-grid-options)"/>
+                            <rect width="680" height="230" fill="#0b0f19"/>
+                            <rect width="680" height="230" fill="url(#pixel-grid-options)"/>
 
-                            <!-- Product Template Box (Left) -->
-                            <rect x="20" y="20" width="300" height="180" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
-                            <text x="36" y="44" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">CUSTOM PRODUCT TEMPLATE</text>
-                            
-                            <!-- Swatch Row 1: Finishes -->
-                            <text x="36" y="72" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="10">FINISH: MATTE BLACK</text>
-                            <rect x="36" y="80" width="24" height="24" fill="#000000" stroke="#a855f7" stroke-width="2"/>
-                            <rect x="68" y="80" width="24" height="24" fill="#c0c0c0" stroke="#374151" stroke-width="1"/>
-                            <rect x="100" y="80" width="24" height="24" fill="#b87333" stroke="#374151" stroke-width="1"/>
-                            <rect x="132" y="80" width="24" height="24" fill="#ffd700" stroke="#374151" stroke-width="1"/>
+                            <!-- Layer 1: Metaobject definitions -->
+                            <rect x="20" y="20" width="190" height="190" fill="#111827" stroke="#10b981" stroke-width="2"/>
+                            <text x="32" y="42" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">METAOBJECT DEFINITIONS</text>
 
-                            <!-- Swatch Row 2: Fabrics -->
-                            <text x="36" y="128" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="10">FABRIC: ITALIAN LEATHER</text>
-                            <rect x="36" y="136" width="50" height="24" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
-                            <text x="61" y="152" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">Leather</text>
-                            <rect x="94" y="136" width="50" height="24" fill="#1e293b" stroke="#374151" stroke-width="1"/>
-                            <text x="119" y="152" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">Velvet</text>
+                            <rect x="32" y="56" width="166" height="22" fill="#1e293b"/>
+                            <text x="40" y="71" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9">Option Group: Finish</text>
 
-                            <!-- Connecting Arrow -->
-                            <path d="M328 110 h34 v-8 l14 14 l-14 14 v-8 h-34 z" fill="#a855f7"/>
+                            <rect x="32" y="86" width="166" height="22" fill="#1e293b"/>
+                            <text x="40" y="101" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9">Option Group: Fabric</text>
 
-                            <!-- Metaobject Data Entry Box (Right) -->
-                            <rect x="384" y="20" width="276" height="180" fill="#111827" stroke="#10b981" stroke-width="2"/>
-                            <text x="400" y="44" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">METAOBJECT: FINISH_ENTRY</text>
+                            <rect x="32" y="116" width="166" height="22" fill="#1e293b"/>
+                            <text x="40" y="131" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9">Option Group: Trim</text>
 
-                            <rect x="400" y="60" width="244" height="24" fill="#1e293b"/>
-                            <text x="410" y="76" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">label: "Matte Black"</text>
+                            <rect x="32" y="146" width="166" height="22" fill="#1e293b"/>
+                            <text x="40" y="161" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9">Option Group: Hardware</text>
 
-                            <rect x="400" y="90" width="244" height="24" fill="#1e293b"/>
-                            <text x="410" y="106" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">hex: "#000000"</text>
+                            <rect x="32" y="176" width="166" height="22" fill="#1e293b"/>
+                            <text x="40" y="191" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9">Value Data: Image, Price</text>
 
-                            <rect x="400" y="120" width="244" height="24" fill="#1e293b"/>
-                            <text x="410" y="136" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">texture: file_reference</text>
+                            <!-- Arrow 1 -->
+                            <path d="M218 115 h20 v-6 l12 12 l-12 12 v-6 h-20 z" fill="#10b981"/>
 
-                            <rect x="400" y="150" width="244" height="24" fill="#1e293b"/>
-                            <text x="410" y="166" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10">variant_id: null (0 SKUs)</text>
+                            <!-- Layer 2: Metafield Values -->
+                            <rect x="256" y="20" width="180" height="190" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="268" y="42" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PRODUCT METAFIELDS</text>
+
+                            <rect x="268" y="56" width="156" height="22" fill="#0f172a"/>
+                            <text x="276" y="71" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">custom.finish_list</text>
+
+                            <rect x="268" y="86" width="156" height="22" fill="#0f172a"/>
+                            <text x="276" y="101" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">custom.fabric_list</text>
+
+                            <rect x="268" y="116" width="156" height="22" fill="#0f172a"/>
+                            <text x="276" y="131" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">custom.trim_list</text>
+
+                            <rect x="268" y="146" width="156" height="22" fill="#0f172a"/>
+                            <text x="276" y="161" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="9">custom.hardware_list</text>
+
+                            <rect x="268" y="176" width="156" height="22" fill="#0f172a"/>
+                            <text x="276" y="191" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9">custom.monogram_text</text>
+
+                            <!-- Arrow 2 -->
+                            <path d="M444 115 h20 v-6 l12 12 l-12 12 v-6 h-20 z" fill="#38bdf8"/>
+
+                            <!-- Layer 3: Rendered Option UI (4+ rows) -->
+                            <rect x="482" y="20" width="178" height="190" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
+                            <text x="492" y="42" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PRODUCT TEMPLATE UI</text>
+
+                            <text x="492" y="64" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="8">1. FINISH: MATTE BLACK</text>
+                            <rect x="492" y="70" width="16" height="14" fill="#000" stroke="#a855f7" stroke-width="1"/>
+                            <rect x="512" y="70" width="16" height="14" fill="#c0c0c0" stroke="#4b5563" stroke-width="1"/>
+                            <rect x="532" y="70" width="16" height="14" fill="#b87333" stroke="#4b5563" stroke-width="1"/>
+
+                            <text x="492" y="98" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="8">2. FABRIC: LEATHER</text>
+                            <rect x="492" y="104" width="34" height="14" fill="#1e293b" stroke="#a855f7" stroke-width="1"/>
+                            <text x="509" y="114" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="7">Leather</text>
+
+                            <text x="492" y="132" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="8">3. TRIM: BRASS (+ $15)</text>
+                            <rect x="492" y="138" width="34" height="14" fill="#1e293b" stroke="#4b5563" stroke-width="1"/>
+                            <text x="509" y="148" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="7">Brass</text>
+
+                            <text x="492" y="166" fill="#e5e7eb" font-family="'JetBrains Mono', monospace" font-size="8">4. HARDWARE: GOLD</text>
+                            <rect x="492" y="172" width="34" height="14" fill="#1e293b" stroke="#4b5563" stroke-width="1"/>
+                            <text x="509" y="182" text-anchor="middle" fill="#9ca3af" font-family="'JetBrains Mono', monospace" font-size="7">Gold</text>
                         </svg>
                     </div>
                 </div>
@@ -263,16 +294,16 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Option values driven by metafields and metaobjects, rendered by the theme template instead of the native variant system.</p>
+                <p class="section-lead-desc">Four or more option names — no 3-option cap.</p>
 
                 <ul class="doc-list">
-                    <li><strong>Unlimited option values</strong> — Display dozens of colors and materials without hitting variant limits</li>
-                    <li><strong>Metaobject visual swatches</strong> — Hex codes, texture swatches, and rich tooltips stored natively</li>
-                    <li><strong>Zero variant overhead</strong> — Eliminates creation of thousands of redundant admin SKUs</li>
-                    <li><strong>Fast Liquid rendering</strong> — Swatches render server-side in Liquid without app scripts</li>
-                    <li><strong>Dynamic media gallery mapping</strong> — Swatch selection switches gallery images seamlessly</li>
-                    <li><strong>Zero recurring cost</strong> — No swatch app subscriptions, ever</li>
-                    <li><strong>Full theme control</strong> — Layout, swatch styles, and selector behavior owned by theme</li>
+                    <li>Four or more option names — no 3-option cap</li>
+                    <li>Unlimited option values — per option name, no variant cap</li>
+                    <li>Options without variants — metafield values, not variant records</li>
+                    <li>Metaobject-driven definitions — option groups defined once, reused everywhere</li>
+                    <li>Value-level data — each option value carries its own image, price delta, availability</li>
+                    <li>Template-level control — layout, styling, behavior all yours</li>
+                    <li>Zero recurring cost — no subscription, ever</li>
                 </ul>
             </section>
 
@@ -287,10 +318,11 @@
                 <p class="section-lead-desc">Nothing is free. Here's the honest bill.</p>
 
                 <ul class="doc-list">
-                    <li>Metaobject definitions for option values must be structured upfront</li>
-                    <li>One-time Liquid product template development for swatch rendering</li>
-                    <li>Client-side JavaScript needed for dynamic media gallery switching</li>
-                    <li>Option values managed via CSV or GraphQL Admin API for large catalogs</li>
+                    <li>Metafield and metaobject schema must be planned upfront</li>
+                    <li>One-time product template development</li>
+                    <li>Selection logic must resolve to a purchasable line item</li>
+                    <li>Large catalogs need indexed metafields</li>
+                    <li>Bulk population via Admin API or CSV</li>
                 </ul>
 
                 <p class="summary-note" style="margin-top: 16px; font-weight: 600; color: #a855f7;">
@@ -306,22 +338,22 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">A six-stage data and storefront execution pipeline.</p>
+                <p class="section-lead-desc">Define metaobjects, define metafields, populate products, render template, resolve selections, ship to cart.</p>
 
                 <ul class="doc-list">
-                    <li>Create metaobjects — define option entry taxonomies</li>
-                    <li>Assign metafields — attach metaobject list references to products</li>
-                    <li>Build template — code custom Liquid swatch section</li>
-                    <li>Query options — fetch metaobject properties in Liquid</li>
-                    <li>Render swatches — output native HTML/CSS color and image swatches</li>
-                    <li>Switch state — update media gallery on selection change</li>
+                    <li>Define metaobjects — option groups, value lists, value-level data</li>
+                    <li>Define metafields — one per option name, four or more</li>
+                    <li>Populate products — every product carries its option names and values</li>
+                    <li>Render the template — the theme draws every option row</li>
+                    <li>Resolve selections — chosen values map to a purchasable outcome</li>
+                    <li>Ship to cart — no variants required, no app in the path</li>
                 </ul>
 
                 <!-- PIXELATED DIAGRAM 2: FLOW CHART -->
                 <div class="pixel-diagram-card">
                     <div class="pixel-diagram-header">
                         <span class="diagram-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">DIAGRAM 2</span>
-                        <span class="diagram-title">Flow: Metaobjects → Metafields → Custom Template → Query → Swatches → State Switch</span>
+                        <span class="diagram-title">Flow: Metaobjects → Metafields → Product Template → Selection → Cart</span>
                     </div>
                     <div class="pixel-diagram-body">
                         <svg viewBox="0 0 680 140" width="100%" height="auto" shape-rendering="crispEdges">
@@ -329,58 +361,59 @@
                             <rect width="680" height="140" fill="url(#pixel-grid-options)"/>
 
                             <!-- Node 1: Metaobjects -->
-                            <rect x="16" y="48" width="104" height="44" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
-                            <text x="68" y="74" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">METAOBJECTS</text>
+                            <rect x="12" y="48" width="108" height="44" fill="#161e2e" stroke="#a855f7" stroke-width="2"/>
+                            <text x="66" y="74" text-anchor="middle" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">METAOBJECTS</text>
 
                             <!-- Arrow 1 -->
-                            <path d="M124 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#a855f7"/>
+                            <path d="M124 66 h12 v-6 l8 8 l-8 8 v-6 h-12 z" fill="#a855f7"/>
 
                             <!-- Node 2: Metafields -->
-                            <rect x="152" y="48" width="104" height="44" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
-                            <text x="204" y="74" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">METAFIELDS</text>
+                            <rect x="148" y="48" width="108" height="44" fill="#161e2e" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="202" y="74" text-anchor="middle" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">METAFIELDS</text>
 
                             <!-- Arrow 2 -->
-                            <path d="M260 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#38bdf8"/>
+                            <path d="M260 66 h12 v-6 l8 8 l-8 8 v-6 h-12 z" fill="#38bdf8"/>
 
-                            <!-- Node 3: Template -->
-                            <rect x="288" y="48" width="104" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
-                            <text x="340" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TEMPLATE</text>
+                            <!-- Node 3: Product Template -->
+                            <rect x="284" y="48" width="118" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="343" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">PRODUCT TEMPLATE</text>
 
                             <!-- Arrow 3 -->
-                            <path d="M396 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#10b981"/>
+                            <path d="M406 66 h12 v-6 l8 8 l-8 8 v-6 h-12 z" fill="#10b981"/>
 
-                            <!-- Node 4: Swatches -->
-                            <rect x="424" y="48" width="104" height="44" fill="#161e2e" stroke="#f59e0b" stroke-width="2"/>
-                            <text x="476" y="74" text-anchor="middle" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">SWATCHES</text>
+                            <!-- Node 4: Selection -->
+                            <rect x="430" y="48" width="104" height="44" fill="#161e2e" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="482" y="74" text-anchor="middle" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">SELECTION</text>
 
                             <!-- Arrow 4 -->
-                            <path d="M532 66 h14 v-6 l10 10 l-10 10 v-6 h-14 z" fill="#f59e0b"/>
+                            <path d="M538 66 h12 v-6 l8 8 l-8 8 v-6 h-12 z" fill="#f59e0b"/>
 
-                            <!-- Node 5: Switch State -->
-                            <rect x="560" y="48" width="104" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
-                            <text x="612" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">SWITCH STATE</text>
+                            <!-- Node 5: Cart -->
+                            <rect x="562" y="48" width="104" height="44" fill="#161e2e" stroke="#10b981" stroke-width="2"/>
+                            <text x="614" y="74" text-anchor="middle" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">CART</text>
                         </svg>
                     </div>
                 </div>
             </section>
 
-            <!-- SECTION 6: OPTION VALUES -->
-            <section id="option-values" class="doc-section">
+            <!-- SECTION 6: OPTION NAMES AND VALUES -->
+            <section id="option-names-and-values" class="doc-section">
                 <h2 class="heading-anchor-group">
-                    <a href="#option-values">
-                        <span>6. Option values</span>
+                    <a href="#option-names-and-values">
+                        <span>6. Option names and values</span>
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Option values driven by metafields and metaobjects, rendered by the theme template instead of the native variant system.</p>
+                <p class="section-lead-desc">Every option name is a metafield. Every option value is a metafield value, defined by a metaobject. The template renders them all — four rows, five rows, as many as the catalog needs.</p>
 
                 <ul class="doc-list">
-                    <li><strong>Visual image &amp; color swatches</strong> — Render hex codes and texture swatches natively</li>
-                    <li><strong>Rich attribute specifications</strong> — Store care instructions and material origin per metaobject option</li>
-                    <li><strong>Dynamic option dependencies</strong> — Show or hide child options based on selected parent metaobject</li>
-                    <li><strong>Per-option media mapping</strong> — Associate specific product gallery images with metaobject swatches</li>
-                    <li><strong>Liquid-native rendering</strong> — Zero external script execution on page load</li>
-                    <li><strong>No variant cap restrictions</strong> — Support 100+ option choices per product without creating admin variants</li>
+                    <li>Option names — defined in metaobjects, four or more per product</li>
+                    <li>Option values — stored as metafields on the product</li>
+                    <li>Value-level data — image, price delta, availability per value</li>
+                    <li>Grouping — metaobjects link values to their option name</li>
+                    <li>Rendering — product template draws every option row</li>
+                    <li>Selection logic — resolves to a purchasable outcome</li>
+                    <li>No native options — no 3-option cap, no 100-variant cap</li>
                 </ul>
             </section>
 
@@ -392,23 +425,29 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Case study metrics from replacing third-party swatch apps.</p>
+                <p class="section-lead-desc">A specialty retailer with a configurator-style catalog.</p>
 
                 <p>
-                    A luxury home decor brand carried dining tables with 80+ fabric, wood finish, and leg style options per product. Native variants hit the 100-limit, forcing them to use a third-party swatch app that injected heavy DOM nodes and slowed PDP page loads. Rebuilding on this metaobject option template architecture eliminated app scripts and reduced admin variant overhead.
+                    Native options capped at three. The catalog needed six option names, some with thirty-plus values. Value-level data — images, price deltas, per-value availability — wasn't possible at all.
+                </p>
+
+                <p style="margin-top: 12px; font-weight: 600; color: var(--text-primary);">
+                    They rebuilt on this model.
                 </p>
 
                 <div class="doc-callout" style="border-left-color: #a855f7; margin: 24px 0;">
                     <div class="callout-title" style="color: #a855f7;">
                         <svg class="px-icon" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="#a855f7" d="M6 1h4v2H6V1zM4 3h2v2H4V3zm6 0h2v2h-2V3zM3 5h2v6H3V5zm8 0h2v2h-2v-2zM6 13h4v2H6v-2z"/></svg>
-                        PERFORMANCE &amp; REDUCTION METRICS
+                        REBUILD RESULTS &amp; METRICS
                     </div>
                     <ul class="doc-list" style="margin-top: 8px;">
-                        <li><strong>Admin variant count: 8,000 → 400 products</strong></li>
-                        <li><strong>PDP render speed +65% faster</strong></li>
-                        <li><strong>$2,160 annual app spend eliminated</strong></li>
-                        <li><strong>Zero theme update conflicts across two major releases</strong></li>
-                        <li><strong>PDP page load under 0.8s</strong></li>
+                        <li><strong>Option names: 3 → unlimited</strong></li>
+                        <li><strong>Option values: capped → unlimited</strong></li>
+                        <li><strong>Value-level data: not possible → native</strong></li>
+                        <li><strong>Variants created for options: thousands → zero</strong></li>
+                        <li><strong>$2,388 annual app spend eliminated</strong></li>
+                        <li><strong>Zero option breakage across two theme updates</strong></li>
+                        <li><strong>Product pages load under 1s</strong></li>
                     </ul>
                 </div>
 
@@ -416,25 +455,25 @@
                 <div class="pixel-diagram-card">
                     <div class="pixel-diagram-header">
                         <span class="diagram-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">DIAGRAM 3</span>
-                        <span class="diagram-title">Before / after: app-injected DOM swatches vs. native metaobject product template</span>
+                        <span class="diagram-title">Before / after: native 3-option UI vs. template-rendered metafield option UI with 4+ rows</span>
                     </div>
                     <div class="pixel-diagram-body">
                         <svg viewBox="0 0 680 180" width="100%" height="auto" shape-rendering="crispEdges">
                             <rect width="680" height="180" fill="#0b0f19"/>
                             <rect width="680" height="180" fill="url(#pixel-grid-options)"/>
 
-                            <!-- Before: App Swatch -->
-                            <text x="30" y="32" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">BEFORE: APP-INJECTED SWATCHES (8,000 VARIANTS &amp; DOM SCRIPT BLOAT)</text>
+                            <!-- Before: Native 3-Option UI -->
+                            <text x="30" y="32" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">BEFORE: NATIVE 3-OPTION CAP (HARD 100-VARIANT LIMIT &amp; APP BLOAT)</text>
                             <rect x="30" y="44" width="620" height="32" fill="#1e1e2e" stroke="#ef4444" stroke-width="1.5"/>
-                            <text x="44" y="64" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="10">⚠ 3.5s PDP load • Broken image gallery • $180/mo app fee • Admin variant lag</text>
+                            <text x="44" y="64" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="10">⚠ Max 3 option names • No value data • $199/mo app fee • Capped option matrices</text>
 
                             <!-- Divider line -->
                             <line x1="30" y1="94" x2="650" y2="94" stroke="#1f2937" stroke-width="1"/>
 
-                            <!-- After: Native Metaobject Template -->
-                            <text x="30" y="118" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AFTER: NATIVE METAOBJECT TEMPLATE (0 EXTRA VARIANTS &amp; PURE LIQUID)</text>
+                            <!-- After: Metafield Option UI -->
+                            <text x="30" y="118" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AFTER: METAFIELD OPTION UI (4+ OPTION ROWS &amp; UNLIMITED VALUES)</text>
                             <rect x="30" y="130" width="620" height="36" fill="#161e2e" stroke="#10b981" stroke-width="1.5"/>
-                            <text x="44" y="152" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10">✔ 0.8s PDP load • Instant gallery switch • $0/mo app fee • Unlimited option choices</text>
+                            <text x="44" y="152" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10">✔ 4+ option names • Unlimited values &amp; images • $0/mo app fee • 0 extra variants</text>
                         </svg>
                     </div>
                 </div>
@@ -448,36 +487,36 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Option value matrix across common commerce verticals.</p>
+                <p class="section-lead-desc">Verticals and option name requirements.</p>
 
                 <div class="doc-table-wrapper" style="overflow-x: auto; margin: 20px 0;">
                     <table class="doc-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
                         <thead>
                             <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
                                 <th style="padding: 10px 14px; font-family: var(--font-mono); color: #a855f7;">Vertical</th>
-                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--text-primary);">Option specification matrix</th>
+                                <th style="padding: 10px 14px; font-family: var(--font-mono); color: var(--text-primary);">Option names</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Home &amp; Furniture</td>
-                                <td style="padding: 12px 14px; color: var(--text-secondary);">Wood finish, fabric texture, leg style, cushion density</td>
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Apparel</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Fit, fabric, length, monogram, lining, trim</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Eyewear &amp; Fashion</td>
-                                <td style="padding: 12px 14px; color: var(--text-secondary);">Frame color, lens tint, prescription type, bridge size</td>
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Furniture</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Material, finish, dimensions, hardware, cushion, leg style</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Jewelry &amp; Watches</td>
-                                <td style="padding: 12px 14px; color: var(--text-secondary);">Metal karat, stone cut, band material, engraving font</td>
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Auto parts</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Year, make, model, trim, engine, drivetrain</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Custom Print / Gifts</td>
-                                <td style="padding: 12px 14px; color: var(--text-secondary);">Paper stock, frame style, matte color, layout orientation</td>
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Industrial</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Voltage, wattage, connector, length, mount, coating</td>
                             </tr>
                             <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Industrial Components</td>
-                                <td style="padding: 12px 14px; color: var(--text-secondary);">Thread pitch, coating material, tolerance grade, head type</td>
+                                <td style="padding: 12px 14px; font-weight: 600; color: var(--text-primary);">Custom goods</td>
+                                <td style="padding: 12px 14px; color: var(--text-secondary);">Any configurator with 4+ option names</td>
                             </tr>
                         </tbody>
                     </table>
@@ -494,7 +533,7 @@
                 </h2>
                 
                 <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin-top: 16px;">
-                    Native product options are a starting point, not a limit. Store option values as metafields, define entries via metaobjects, and render them through custom product templates — no app, no fee, no fighting the platform.
+                    Native options are a starting point, not a limit. Treat every option name and value as a first-class metafield, define the structure in metaobjects, and render the UI through the product template — and you get four or more option names, unlimited values, value-level data, and zero variants, with no app and no fee.
                 </p>
             </section>
 
@@ -506,32 +545,32 @@
                         <span class="anchor-icon">#</span>
                     </a>
                 </h2>
-                <p class="section-lead-desc">Implementation specifications and reference guides.</p>
+                <p class="section-lead-desc">Prerequisites and metafield/metaobject schema planning</p>
 
                 <div class="gated-links-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 20px;">
                     
                     <div class="gated-link-card">
                         <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED SPEC</div>
-                        <h3 class="gated-title">Prerequisites and metafield schema planning</h3>
+                        <h3 class="gated-title">Prerequisites and metafield/metaobject schema planning</h3>
                         <span class="gated-lock-text">Requires option model access ↗</span>
                     </div>
 
                     <div class="gated-link-card">
                         <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED SPEC</div>
-                        <h3 class="gated-title">Implementation reference for custom option values</h3>
+                        <h3 class="gated-title">Metaobject definitions for option groups and value lists</h3>
                         <span class="gated-lock-text">Requires taxonomy access ↗</span>
                     </div>
 
                     <div class="gated-link-card">
-                        <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED GUIDE</div>
-                        <h3 class="gated-title">Migration guide from an app-based setup</h3>
-                        <span class="gated-lock-text">Requires store audit access ↗</span>
+                        <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED CODE</div>
+                        <h3 class="gated-title">Product template reference implementation</h3>
+                        <span class="gated-lock-text">Requires repository access ↗</span>
                     </div>
 
                     <div class="gated-link-card">
-                        <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED CODE</div>
-                        <h3 class="gated-title">Theme template reference implementation</h3>
-                        <span class="gated-lock-text">Requires repository access ↗</span>
+                        <div class="gated-badge" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.12);">GATED GUIDE</div>
+                        <h3 class="gated-title">Migration guide from an app-based option setup</h3>
+                        <span class="gated-lock-text">Requires store audit access ↗</span>
                     </div>
 
                 </div>
@@ -558,7 +597,7 @@
                     <li><a href="#what-this-unlocks" class="toc-link">3. What this unlocks</a></li>
                     <li><a href="#what-it-costs" class="toc-link">4. What it costs</a></li>
                     <li><a href="#how-it-fits-together" class="toc-link">5. How it fits together</a></li>
-                    <li><a href="#option-values" class="toc-link">6. Option values</a></li>
+                    <li><a href="#option-names-and-values" class="toc-link">6. Option names and values</a></li>
                     <li><a href="#in-practice" class="toc-link">7. In practice</a></li>
                     <li><a href="#where-this-fits" class="toc-link">8. Where this fits</a></li>
                     <li><a href="#the-bottom-line" class="toc-link">9. The bottom line</a></li>
